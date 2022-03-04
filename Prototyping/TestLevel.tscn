@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://our_environment.tres" type="Environment" id=1]
 [ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/concrete.png" type="Texture" id=3]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Actors/Wagon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prototyping/TestLevel.gd" type="Script" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -17,6 +19,7 @@ uv1_triplanar = true
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [node name="TestLevel" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="Ground" type="MeshInstance" parent="."]
 transform = Transform( 171.823, 0, 0, 0, 0.218084, 0, 0, 0, 171.823, 0, 0, 0 )
@@ -46,4 +49,17 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0
 [node name="Camera" type="Camera" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
+[node name="UI" parent="." instance=ExtResource( 4 )]
+
+[node name="WagonPath" type="Path" parent="."]
+transform = Transform( -0.715741, 0, 0.698365, 0, 1, 0, -0.698365, 0, -0.715741, 0, 0, 0 )
+
+[node name="PathFollow" type="PathFollow" parent="WagonPath"]
+transform = Transform( -0.955227, 0, 0.295876, 0, 1, 0, -0.295876, 0, -0.955227, -0.0647101, 0.196216, 1.59162 )
+rotation_mode = 1
+cubic_interp = false
+
+[node name="Wagon" parent="WagonPath/PathFollow" instance=ExtResource( 5 )]
+transform = Transform( 1, -5.82077e-11, 0, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="Tween" type="Tween" parent="."]

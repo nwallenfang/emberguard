@@ -81,15 +81,22 @@ func loose_item():
 
 const LOG = preload("res://Objects/Items/Log.tscn")
 const PLANT = preload("res://Objects/Items/Plant.tscn")
-func make_item(item_name):
+func make_item(custom_item = "") -> Spatial:
+	var item_name = item_holded
+	if custom_item != "":
+		item_name = custom_item
+	var inst = null
 	match item_name:
 		"log":
-			return LOG.instance()
+			inst = LOG.instance()
 		"plant":
-			return PLANT.instance()
+			inst = PLANT.instance()
+	if inst != null:
+		get_tree().current_scene.add_child(inst)
+	return inst
 
 func drop_item():
-	var dropped_item = make_item(item_holded)
-	get_tree().current_scene.add_child(dropped_item)
-	dropped_item.translation = translation
+	var dropped_item = make_item()
+	dropped_item.translation = translation + Vector3(0, .1, 0)
+	loose_item()
 

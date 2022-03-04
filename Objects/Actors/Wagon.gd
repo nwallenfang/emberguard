@@ -1,7 +1,7 @@
 extends Spatial
 class_name Wagon
 
-export var velocity = 5
+export var velocity = 3
 export(NodePath) var wagon_path
 export var target_reach_distance := 1.0
 var points: PoolVector3Array

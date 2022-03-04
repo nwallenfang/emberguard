@@ -42,7 +42,7 @@ script = ExtResource( 2 )
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Interaction"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00108764, 0.794732, 1.40432 )
 depth = 1.699
-polygon = PoolVector2Array( -2.56509, 3.05402, 2.79465, 3.05402, 0.635657, -1.41587, -0.592542, -1.38517 )
+polygon = PoolVector2Array( -3.77491, 2.95994, 3.66579, 2.89634, 1.12196, -1.88924, -1.11979, -1.92104 )
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

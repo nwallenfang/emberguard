@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
+[ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -32,3 +33,16 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.550458, 0, 0, 0, -2.93484e-08, -0.671412, 0, 0.550458, -2.40613e-08, 0, 0.871204, 0 )
 shape = SubResource( 4 )
+
+[node name="Interaction" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Interaction"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00108764, 0.794732, 1.40432 )
+depth = 1.699
+polygon = PoolVector2Array( -2.56509, 3.05402, 2.79465, 3.05402, 0.635657, -1.41587, -0.592542, -1.38517 )
+
+[connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
+[connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

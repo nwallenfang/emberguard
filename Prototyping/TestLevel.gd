@@ -9,12 +9,4 @@ func start_wagon_path():
 
 
 func _ready() -> void:
-	# prepare path_follow to always be on the ground plane
-	# so change the y coordinate of each point
-	# TODO
-	pass
-#	var duration = $WagonPath.curve.get_baked_length() / wagon_speed
-#	print("dur", duration)
-#	$Tween.interpolate_property(path_follow, "offset", 0.0, $WagonPath.curve.get_baked_length(), duration)
-#	$Tween.start()
-#	$WagonPath/PathFollow.
+	Game.player = $Player

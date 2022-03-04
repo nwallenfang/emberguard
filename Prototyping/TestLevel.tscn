@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://our_environment.tres" type="Environment" id=1]
 [ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,12 @@ uv1_triplanar = true
 
 [sub_resource type="ConcavePolygonShape" id=3]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array(  ),
+"tilts": PoolRealArray(  )
+}
 
 [node name="TestLevel" type="Spatial"]
 script = ExtResource( 6 )
@@ -53,6 +59,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
 [node name="WagonPath" type="Path" parent="."]
 transform = Transform( -0.715741, 0, 0.698365, 0, 1, 0, -0.698365, 0, -0.715741, 0, 0, 0 )
+curve = SubResource( 4 )
 
 [node name="PathFollow" type="PathFollow" parent="WagonPath"]
 transform = Transform( -0.955227, 0, 0.295876, 0, 1, 0, -0.295876, 0, -0.955227, -0.0647101, 0.196216, 1.59162 )

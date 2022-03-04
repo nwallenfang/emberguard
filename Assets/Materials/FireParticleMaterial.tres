@@ -1,0 +1,60 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/fire_mask.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/fire_noise_test2.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+render_mode blend_mix;
+
+uniform sampler2D mask_tex;
+uniform sampler2D noise;
+uniform float time_scale = 1.0;
+uniform float noise_scale = 1.0;
+
+varying float normal_x;
+varying vec3 world;
+
+void vertex() {
+	mat4 mat_world = mat4(
+		normalize(CAMERA_MATRIX[0]) * length(WORLD_MATRIX[0]),
+		normalize(CAMERA_MATRIX[1]) * length(WORLD_MATRIX[0]),
+		normalize(CAMERA_MATRIX[2]) * length(WORLD_MATRIX[2]),
+		WORLD_MATRIX[3]);
+	
+	mat_world *= mat4(
+			vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), 
+			vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0),
+			vec4(0.0, 0.0, 1.0, 0.0),
+			vec4(0.0, 0.0, 0.0, 1.0));
+	
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat_world;
+	world = (mat_world * vec4(VERTEX, 1.0)).rgb;
+	vec4 world_normal = (mat_world * vec4(NORMAL, 0.0));
+	normal_x =  abs(dot(normalize(world_normal.rgb), vec3(1.0, 0.0, 0.0)));
+}
+
+void fragment() {
+	float mask = texture(mask_tex, UV).r;
+	vec2 random_offset;
+	float time_movement = time_scale * TIME;
+	float noise_zy = texture(noise, noise_scale * world.zy + vec2(0.0, -1.0) * time_movement + vec2(0.7, 0.3)).r;
+	float noise_xy = texture(noise, noise_scale * world.xy + vec2(0.0, -1.0) * time_movement).r;
+	float noise_mixed = mix(noise_zy, noise_xy, clamp(1.0 - normal_x, 0.0, 1.0));
+	float erosion = 1.0 - COLOR.a;
+	float alpha = clamp((mask * noise_mixed) - erosion, 0.0, 1.0);
+	
+
+	
+	// make ends of alpha smoother
+	ALPHA = smoothstep(0.0, 0.2, alpha);
+	ALBEDO = COLOR.rgb;
+	EMISSION = ALBEDO * 2.0; // TODO
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/time_scale = 0.8
+shader_param/noise_scale = 1.0
+shader_param/mask_tex = ExtResource( 1 )
+shader_param/noise = ExtResource( 2 )

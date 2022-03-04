@@ -30,6 +30,10 @@ config/name="Emberguard"
 run/main_scene="res://Prototyping/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+UI="*res://UI/UI.tscn"
+
 [input]
 
 move_right={

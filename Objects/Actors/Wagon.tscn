@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
 [ext_resource path="res://Assets/Materials/PlaceHolderBrown.tres" type="Material" id=3]
 [ext_resource path="res://Objects/Actors/Fire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Actors/Wagon.gd" type="Script" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -15,6 +16,7 @@
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
 
 [node name="Wagon" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="Placeholder" type="Spatial" parent="."]
 

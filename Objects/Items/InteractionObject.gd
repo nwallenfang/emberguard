@@ -1,8 +1,8 @@
 extends Area
 class_name InteractionObject
 
-export var outline_color := Color.red
-export var outline_size := 0.05
+export var outline_color := Color.whitesmoke
+export var outline_size := 0.2
 export var interaction_text := "interact"
 
 var selected := false setget set_selected

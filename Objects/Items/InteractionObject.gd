@@ -39,10 +39,9 @@ func set_selected(value):
 	selected = value
 	if selected:
 		set_own_and_children_materials_to_outline(parent)
-		# PLACEHOLDER UI.settext(interaction_text)
+		UI.set_interact_text(interaction_text)
 	else:
 		reset_own_and_children_materials(parent)
-		# PLACEHOLDER UI.settext("")
 
 func interact():
 	parent.interact()

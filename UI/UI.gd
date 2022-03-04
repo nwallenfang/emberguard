@@ -16,3 +16,8 @@ func _process(delta: float) -> void:
 
 func game_over():
 	$GameOverLabel.visible = true
+
+
+func set_interact_text(text:String):
+	$InteractLabel.visible = text != ""
+	$InteractLabel.text = "Press E to " + text

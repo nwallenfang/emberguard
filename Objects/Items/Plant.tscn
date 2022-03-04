@@ -34,6 +34,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
 
 [node name="InteractionObject" parent="." instance=ExtResource( 3 )]
+interaction_text = "pick up"
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionObject"]
 transform = Transform( 2.129, 0, 0, 0, 2.129, 0, 0, 0, 2.129, 0, 0.398194, 0 )

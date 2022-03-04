@@ -21,6 +21,7 @@ func _physics_process(delta):
 			interact()
 	else:
 		selected_area = null
+		UI.set_interact_text("")
 
 func selection_object_sorter(a, b):
 	return player.translation.distance_to(a.get_pos()) < player.translation.distance_to(b.get_pos())

@@ -10,7 +10,7 @@ var state = State.DEFAULT
 
 # movement parameters
 export var CONTROLS_ENABLED := true
-export var move_acceleration = 200.0
+export var move_acceleration = 100.0
 export var dash_acceleration = 3000.0
 export var air_acceleration = 120.0
 export var jump_total_acceleration = 7200.0
@@ -30,7 +30,8 @@ func handle_input(delta):
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	move_direction.z = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
-
+	
+	move_direction = move_direction.normalized()
 
 	add_acceleration(move_acceleration * move_direction)
 

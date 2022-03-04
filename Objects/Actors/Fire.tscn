@@ -13,6 +13,7 @@ height = 0.8
 script = ExtResource( 2 )
 
 [node name="Placeholder" type="Spatial" parent="."]
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="Placeholder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399654, 0 )

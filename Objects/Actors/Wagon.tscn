@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
 [ext_resource path="res://Assets/Materials/PlaceHolderBrown.tres" type="Material" id=3]
 [ext_resource path="res://Objects/Actors/Fire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Actors/Wagon.gd" type="Script" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -15,36 +16,37 @@
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
 
 [node name="Wagon" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="Placeholder" type="Spatial" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="Placeholder"]
-transform = Transform( 0.750414, 0, 0, 0, 0.246243, 0, 0, 0, 1.2064, 0, 0.457754, 0 )
+transform = Transform( 1.07309, 0, 0, 0, 0.352127, 0, 0, 0, 1.72515, 0.00792061, 0.439703, -0.00172387 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Placeholder"]
-transform = Transform( -4.32531e-09, -0.0989516, 0, 0.276664, -1.20934e-08, 0, 0, 0, 0.276664, 0.737687, 0.278179, 0.823331 )
+transform = Transform( -6.18519e-09, -0.141501, 0, 0.395629, -1.72936e-08, 0, 0, 0, 0.395629, 1.06281, 0.18291, 1.17564 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="Placeholder"]
-transform = Transform( -4.32531e-09, -0.0989516, 0, 0.276664, -1.20934e-08, 0, 0, 0, 0.276664, 0.737687, 0.278179, -0.815313 )
+transform = Transform( -6.18519e-09, -0.141501, 0, 0.395629, -1.72936e-08, 0, 0, 0, 0.395629, 1.06281, 0.18291, -1.16762 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="Placeholder"]
-transform = Transform( -4.32531e-09, -0.0989516, 0, 0.276664, -1.20934e-08, 0, 0, 0, 0.276664, -0.774527, 0.278179, 0.823331 )
+transform = Transform( -6.18519e-09, -0.141501, 0, 0.395629, -1.72936e-08, 0, 0, 0, 0.395629, -1.09965, 0.18291, 1.17564 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="MeshInstance5" type="MeshInstance" parent="Placeholder"]
-transform = Transform( -4.32531e-09, -0.0989516, 0, 0.276664, -1.20934e-08, 0, 0, 0, 0.276664, -0.774527, 0.278179, -0.815313 )
+transform = Transform( -6.18519e-09, -0.141501, 0, 0.395629, -1.72936e-08, 0, 0, 0, 0.395629, -1.09965, 0.18291, -1.16762 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="MeshInstance6" type="MeshInstance" parent="Placeholder"]
-transform = Transform( 0.462047, 0, 0, 0, -2.01967e-08, -0.0374626, 0, 0.462047, -1.63754e-09, 0, 0.721289, 0.546046 )
+transform = Transform( 0.660727, 0, 0, 0, -2.88813e-08, -0.0535715, 0, 0.660727, -2.34168e-09, 0.00792061, 0.816558, 0.779122 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 1 )
 
@@ -55,4 +57,4 @@ transform = Transform( 0.750414, 0, 0, 0, 0.246243, 0, 0, 0, 1.2064, 0, 0.457754
 shape = SubResource( 4 )
 
 [node name="Fire" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.699569, -0.721426 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794336, -0.989878 )

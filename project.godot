@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Logic/Player.gd"
+}, {
+"base": "Spatial",
+"class": "Wagon",
+"language": "GDScript",
+"path": "res://Objects/Actors/Wagon.gd"
 } ]
 _global_script_class_icons={
 "InteractionObject": "",
 "PhysicsMover3D": "",
-"Player": ""
+"Player": "",
+"Wagon": ""
 }
 
 [application]

@@ -17,6 +17,8 @@ func _physics_process(delta):
 	if all_areas.size() > 0:
 		update_selection()
 		selected_area = all_areas[0]
+		if Input.is_action_just_pressed("interact"):
+			interact()
 	else:
 		selected_area = null
 
@@ -29,3 +31,6 @@ func _on_Interaction_area_entered(area):
 func _on_Interaction_area_exited(area):
 	all_areas.erase(area)
 	area.selected = false
+
+func interact():
+	selected_area.interact()

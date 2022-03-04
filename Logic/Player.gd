@@ -58,3 +58,16 @@ func match_state(delta):
 
 func _physics_process(delta: float) -> void:
 	match_state(delta)
+
+var item_holded := ""
+var item_holded_count := 0
+
+func hold_item(item_name:String):
+	pass
+
+func loose_item():
+	pass
+
+func drop_item():
+	pass
+

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Materials/PlaceHolderGreen.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Materials/PlaceHolderBrown.tres" type="Material" id=2]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 3.0
+
+[sub_resource type="SphereMesh" id=2]
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 0.0579316, -1.38721, -0.191442, 0.0267391, 1.38541, 0.19797, 0.130473, -1.50847, 0.181326, -0.191511, -1.50847, 0.113553, -0.141381, 1.35664, -0.141418, 0.182159, 1.38365, -0.0820966, -0.191511, 1.50847, 0.113553, -0.174653, -1.378, -0.0972065, 0.113509, 1.50847, -0.191469, 0.182174, -1.38376, -0.0820656, 0.181323, 1.50847, 0.130475, -0.0352588, -1.37665, 0.19674, -0.065752, -1.36736, -0.188655, 0.113509, -1.50847, -0.191469, 0.197975, -1.38547, 0.0267038, -0.18868, 1.36753, -0.0656844, -0.065752, 1.36736, -0.188655, -0.0820962, 1.38362, 0.182159, 0.181323, -1.50847, 0.130475, 0.130473, 1.50847, 0.181326, 0.19674, 1.37668, -0.0352581, -0.18868, -1.36753, -0.0656844, -0.0972515, -1.37808, -0.174626, -0.112319, -1.37343, 0.165397, 0.197975, 1.38547, 0.0267038, 0.0267391, -1.38541, 0.19797, -0.0352588, 1.37665, 0.19674, 0.19674, -1.37668, -0.0352581, -0.141381, -1.35664, -0.141418, -0.0972515, 1.37808, -0.174626, -0.174653, 1.378, -0.0972065, 0.165415, -1.37361, -0.112296, -0.0820962, -1.38362, 0.182159, -0.191442, 1.3872, 0.0579335, 0.165415, 1.37361, -0.112296, -0.112319, 1.37343, 0.165397, 0.0579316, 1.38721, -0.191442, -0.191442, -1.3872, 0.0579335 )
+
+[node name="Tree" type="Spatial"]
+
+[node name="Placeholder" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Placeholder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45444, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Placeholder"]
+transform = Transform( 1.55263, 0, 0, 0, 0.981745, 0, 0, 0, 1.55263, 0, 3.20502, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45444, 0 )
+shape = SubResource( 3 )

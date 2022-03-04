@@ -63,11 +63,40 @@ var item_holded := ""
 var item_holded_count := 0
 
 func hold_item(item_name:String):
-	pass
+	if item_holded_count == 0:
+		item_holded = item_name
+		item_holded_count = 1
+	else:
+		if item_holded == item_name:
+			item_holded_count += 1
+		else:
+			drop_item()
+			item_holded = item_name
+			item_holded_count = 1
 
 func loose_item():
-	pass
+	item_holded = ""
+	item_holded_count = 0
+
+
+const LOG = preload("res://Objects/Items/Log.tscn")
+const PLANT = preload("res://Objects/Items/Plant.tscn")
+func make_item(custom_item = "") -> Spatial:
+	var item_name = item_holded
+	if custom_item != "":
+		item_name = custom_item
+	var inst = null
+	match item_name:
+		"log":
+			inst = LOG.instance()
+		"plant":
+			inst = PLANT.instance()
+	if inst != null:
+		get_tree().current_scene.add_child(inst)
+	return inst
 
 func drop_item():
-	pass
+	var dropped_item = make_item()
+	dropped_item.translation = translation + Vector3(0, .1, 0)
+	loose_item()
 

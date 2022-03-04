@@ -1,7 +1,7 @@
 extends Spatial
 class_name Wagon
 
-export var velocity = 3
+export var velocity = 2.5
 export(NodePath) var wagon_path
 export var target_reach_distance := 1.0
 var points: PoolVector3Array
@@ -31,3 +31,4 @@ func _physics_process(delta):
 	rotation_degrees.y = rad2deg(dir2D.angle())
 	if flat_distance_to(next_target) < target_reach_distance:
 		set_target_index(target_index + 1)
+

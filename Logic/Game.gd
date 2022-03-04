@@ -15,7 +15,7 @@ func game_over():
 	
 
 func set_fire_health(new_health: float):
-	fire_health = new_health
+	fire_health = clamp(new_health, 0.0, 1.0)
 	
 	
 	if fire_health <= 0.0:
@@ -30,3 +30,4 @@ func set_fire_health(new_health: float):
 	
 func _process(delta: float) -> void:
 	self.fire_health -= delta * 0.01
+

@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody",
+"class": "PhysicsMover3D",
+"language": "GDScript",
+"path": "res://Logic/PhysicsMover3D.gd"
+}, {
+"base": "PhysicsMover3D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Logic/PlayerSeti.gd"
+} ]
+_global_script_class_icons={
+"PhysicsMover3D": "",
+"Player": ""
+}
+
 [application]
 
 config/name="Emberguard"

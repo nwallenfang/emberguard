@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Sprites/fire_noise_test.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/fire_mask.png" type="Texture" id=2]
 [ext_resource path="res://Effects/FireParticles.tres" type="Material" id=3]
+[ext_resource path="res://Effects/FireParticles.gd" type="Script" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
@@ -64,6 +65,7 @@ shader_param/noise = ExtResource( 1 )
 size = Vector2( 0.4, 0.4 )
 
 [node name="FireParticles" type="Spatial"]
+script = ExtResource( 4 )
 
 [node name="FireParticles" type="Particles" parent="."]
 transform = Transform( 2.56554, 0, 0, 0, 2.56554, 0, 0, 0, 2.56554, 0, 0, 0 )

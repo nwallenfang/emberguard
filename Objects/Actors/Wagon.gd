@@ -11,7 +11,6 @@ var target_index: int setget set_target_index
 func set_target_index(value):
 	target_index = value
 	next_target = points[target_index]
-	print(value)
 
 func _ready():
 	wagon_path = get_node(wagon_path) as Path

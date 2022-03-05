@@ -3,6 +3,7 @@ extends RayCast
 var scent_emitter: ScentEmitter
 
 func _ready():
+	yield(get_tree().create_timer(.1), "timeout")
 	scent_emitter = Game.player.scent_emitter
 
 func get_target_position() -> Vector3:

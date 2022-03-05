@@ -1,6 +1,6 @@
 extends AbstractState
 
-export var stop_distance: float = 3.0
+export var stop_distance: float = 0
 export var spotted_acc := 80.0
 
 var target_position_xz:  Vector2

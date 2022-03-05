@@ -11,7 +11,9 @@ func process(_delta: float, first_time_entering: bool):
 		$SpottedPlayerParticles.emitting = true
 		parent.get_node("Hitbox").set_deferred("monitorable", true)
 		
-	var player_pos: Vector2 = Vector2(Game.player.global_transform.origin.x, Game.player.global_transform.origin.z)
+	#var player_pos: Vector2 = Vector2(Game.player.global_transform.origin.x, Game.player.global_transform.origin.z)
+	var player_pos = parent.get_node("ScentSearcher").get_target_position()
+	player_pos = Vector2(player_pos.x, player_pos.z)
 	var done_moving: bool = state_machine.move_towards(player_pos, stop_distance, spotted_acc)
 	
 	

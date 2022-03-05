@@ -23,6 +23,8 @@ export var knockback_acc := 1600.0
 export var stun_time = 1.0
 export var invinc_time = 1.8
 
+onready var scent_emitter := $ScentEmitter
+
 func _ready() -> void:
 #	$DustTrack.set_as_toplevel(true)
 	pass

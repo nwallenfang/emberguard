@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://Logic/Player.gd"
 }, {
 "base": "Spatial",
+"class": "ScentEmitter",
+"language": "GDScript",
+"path": "res://Logic/ScentEmitter.gd"
+}, {
+"base": "Spatial",
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://Logic/Enemy/StateMachine.gd"
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "InteractionObject": "",
 "PhysicsMover3D": "",
 "Player": "",
+"ScentEmitter": "",
 "StateMachine": "",
 "Wagon": "",
 "WaterEnemy": ""

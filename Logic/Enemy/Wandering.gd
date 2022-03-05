@@ -1,7 +1,7 @@
 extends AbstractState
 
 export var target_distance: float = 5.0
-export var stop_distance: float = 0.1
+export var stop_distance: float = 0.2
 export var wandering_acceleration := 50.0
 
 var target_position_xz:  Vector2
@@ -23,6 +23,7 @@ func process(_delta: float, first_time_entering: bool):
 	if first_time_entering:
 		var xz_location = Vector2(parent.global_transform.origin.x, parent.global_transform.origin.z)
 		target_position_xz = xz_location + get_new_target(target_distance)
+		parent.get_node("Hitbox").set_deferred("monitorable", false)
 		
 	var done_moving: bool = state_machine.move_towards(target_position_xz, stop_distance, wandering_acceleration)
 	

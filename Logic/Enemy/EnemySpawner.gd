@@ -43,7 +43,7 @@ func get_random_point_around_player() -> Vector3:
 	return Vector3(rand_distance, 0, 0).rotated(Vector3.UP, rand_radians)
 
 func get_suitable_point():
-	for i in range(40):
+	for _i in range(40):
 		var p = get_random_point_around_player()
 		if is_point_suitable(p):
 			return p
@@ -79,4 +79,4 @@ func _on_Timer_timeout():
 		
 		if all_enemies[enemy_type].size() < enemy_target_count[enemy_type]:
 			#print("try spawning enemy")
-			try_spawn_one(enemy_type)
+			var _err = try_spawn_one(enemy_type)

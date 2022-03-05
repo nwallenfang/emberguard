@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		execute_movement(delta)
 
 
-func _on_DetectionArea_area_entered(area: Area) -> void:
+func _on_DetectionArea_area_entered(_area: Area) -> void:
 	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory
 		emit_signal("player_detected")
 		$EnemyStateMachine.transition_deferred("PlayerSpotted")

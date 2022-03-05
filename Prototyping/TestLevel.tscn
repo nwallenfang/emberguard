@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://our_environment.tres" type="Environment" id=1]
 [ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Sprites/map_path_mask.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_albedo.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_normal.png" type="Texture" id=13]
+[ext_resource path="res://Logic/EnemySpawner.tscn" type="PackedScene" id=14]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -156,3 +157,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218701, 0.0977136, -11.806 )
 
 [node name="Plant" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83848, -0.29398, -8.22569 )
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 14 )]

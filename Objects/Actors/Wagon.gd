@@ -22,6 +22,8 @@ func flat_direction_to(point: Vector3) -> Vector3:
 func flat_distance_to(point: Vector3) -> float:
 	return Vector2(translation.x, translation.z).distance_to(Vector2(point.x, point.z))
 
+signal ending_reached
+
 func _physics_process(delta):
 	var dir = flat_direction_to(next_target)
 	var old = translation
@@ -29,7 +31,10 @@ func _physics_process(delta):
 	var dir2D = Vector2(dir.z, dir.x)
 	rotation_degrees.y = rad2deg(dir2D.angle())
 	if flat_distance_to(next_target) < target_reach_distance:
-		set_target_index(target_index + 1)
+		if target_index + 1 == points.size():
+			emit_signal("ending_reached")
+		else:
+			set_target_index(target_index + 1)
 
 export(Curve) var speed_fire_curve: Curve
 export var base_velocity = 2.4

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Infestation.ogg-d2ee74d68c7b3d8d8fc5be29ce2752fb.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Infestation.ogg"
+dest_files=[ "res://.import/Infestation.ogg-d2ee74d68c7b3d8d8fc5be29ce2752fb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

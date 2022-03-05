@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderRed.tres" type="Material" id=1]
 [ext_resource path="res://Objects/Actors/Fire.gd" type="Script" id=2]
 [ext_resource path="res://Effects/FireParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Items/InteractionObject.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sound/fire_cackle.mp3" type="AudioStream" id=5]
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0 ), 0.0, 3.83333, 0, 0, Vector2( 0.495652, 0.990909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.26704, 0.0, 0, 0 ]
@@ -45,8 +46,18 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08888, 0 )
 light_color = Color( 1, 0.811765, 0.454902, 1 )
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 20.0
 omni_attenuation = 3.73213
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.753619, 0 )
+stream = ExtResource( 5 )
+attenuation_model = 3
+unit_db = 3.0
+unit_size = 3.5
+max_db = 4.194
+autoplay = true
+max_distance = 30.0
+out_of_range_mode = 1
+attenuation_filter_db = -22.0

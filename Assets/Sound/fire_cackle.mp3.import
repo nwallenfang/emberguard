@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fire_cackle.mp3-33b54e32844684fb962c359ed8c16afe.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/fire_cackle.mp3"
+dest_files=[ "res://.import/fire_cackle.mp3-33b54e32844684fb962c359ed8c16afe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

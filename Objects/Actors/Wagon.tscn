@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/Actors/Fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Actors/Wagon.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Meshes/WagonModel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Effects/DustTrack.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.61299, 1.61299, 0, 0, Vector2( 1, 1 ), 0.116162, 0.0, 0, 0 ]
@@ -71,3 +72,11 @@ shape = SubResource( 4 )
 
 [node name="Fire" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00933, -0.994982 )
+
+[node name="DustTrack" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -9.68575e-08, 0, 1, 0, 9.68575e-08, 0, -1, 1.45971, 0.1403, -2.04156 )
+visibility_aabb = AABB( -6.10603, -5.75914, -5.36293, 11.3772, 12.4911, 11.1892 )
+
+[node name="DustTrack2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -9.68575e-08, 0, 1, 0, 9.68575e-08, 0, -1, -1.48744, 0.1403, -2.04156 )
+visibility_aabb = AABB( -6.10603, -5.75914, -5.36293, 11.3772, 12.4911, 11.1892 )

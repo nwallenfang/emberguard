@@ -21,7 +21,7 @@ export var ground_dampening = 0.7
 export var knockback_acc := 1600.0
 
 export var stun_time = 1.0
-export var invinc_time = 1.8
+export var invinc_time = 2.0
 
 onready var scent_emitter := $ScentEmitter
 
@@ -119,7 +119,7 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 	var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
 	add_acceleration(knockback_acc * knockback_direction)
 	state = State.STUNNED	
-	$InvincibilityTimer.start()
+	$InvincibilityTimer.start(invinc_time)
 	$Hurtbox.set_deferred("monitoring", false)
 	$Hurtbox.set_deferred("monitorable", false)
 	$StunnedTimer.start(stun_time)  # when this timeouts you are not stunned anymore

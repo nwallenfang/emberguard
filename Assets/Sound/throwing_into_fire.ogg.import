@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/throwing_into_fire.ogg-ece5707df7adaffb506cc2c5f2249705.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/throwing_into_fire.ogg"
+dest_files=[ "res://.import/throwing_into_fire.ogg-ece5707df7adaffb506cc2c5f2249705.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

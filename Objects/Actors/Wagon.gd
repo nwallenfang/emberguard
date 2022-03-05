@@ -24,7 +24,7 @@ func flat_distance_to(point: Vector3) -> float:
 
 func _physics_process(delta):
 	var dir = flat_direction_to(next_target)
-	var old = translation
+#	var old = translation
 	translation += dir * velocity * delta
 	var dir2D = Vector2(dir.z, dir.x)
 	rotation_degrees.y = rad2deg(dir2D.angle())

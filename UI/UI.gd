@@ -29,7 +29,7 @@ func _on_RestartButton_pressed() -> void:
 	get_tree().paused = false
 	Game.reset()
 	$CenterContainer/GameOverBox.visible = false
-	get_tree().reload_current_scene()
+	var _err = get_tree().reload_current_scene()
 	
 
 

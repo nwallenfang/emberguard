@@ -13,7 +13,7 @@ func update_selection():
 		var area = all_areas[i] as InteractionObject
 		area.selected = i == 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if all_areas.size() > 0:
 		update_selection()
 		selected_area = all_areas[0]

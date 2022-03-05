@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/UI.gd" type="Script" id=1]
+[ext_resource path="res://our_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Sprites/Averia-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Materials/FireHealthbar.tres" type="Material" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+extra_spacing_bottom = 9
+font_data = ExtResource( 3 )
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -17,14 +24,45 @@ anchor_bottom = 0.07
 margin_right = 40.0
 margin_bottom = 14.0
 
-[node name="GameOverLabel" type="Label" parent="."]
-visible = false
+[node name="Label" type="Label" parent="."]
+margin_top = 47.0
+margin_right = 119.0
+margin_bottom = 78.0
+text = "PAUSED
+[ESC] to unpause"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = -94.5
+margin_top = -42.0
+margin_right = 94.5
+margin_bottom = 42.0
+
+[node name="GameOverBox" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+margin_left = 8.0
+margin_top = -2.0
+margin_right = 180.0
+margin_bottom = 85.0
+
+[node name="GameOverLabel" type="Label" parent="CenterContainer/GameOverBox"]
+margin_right = 172.0
+margin_bottom = 43.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "GAME OVER"
 align = 1
 valign = 1
+
+[node name="RestartButton" type="Button" parent="CenterContainer/GameOverBox"]
+margin_top = 47.0
+margin_right = 172.0
+margin_bottom = 87.0
+theme = ExtResource( 2 )
+disabled = true
+text = "Restart"
+
+[connection signal="pressed" from="CenterContainer/GameOverBox/RestartButton" to="." method="_on_RestartButton_pressed"]

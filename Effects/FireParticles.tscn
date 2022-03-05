@@ -51,7 +51,7 @@ void fragment() {
 	// make ends of alpha smoother
 	ALPHA = smoothstep(0.0, 0.2, alpha);
 	ALBEDO = COLOR.rgb;
-	EMISSION = ALBEDO * 2.0; // TODO
+	EMISSION = ALBEDO * 3.0; // TODO
 }"
 
 [sub_resource type="ShaderMaterial" id=5]

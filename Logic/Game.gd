@@ -29,5 +29,5 @@ func set_fire_health(new_health: float):
 	
 	
 func _process(delta: float) -> void:
-	self.fire_health -= delta * 0.01
+	self.fire_health -= delta * 0.21
 

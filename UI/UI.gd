@@ -15,4 +15,10 @@ func _process(delta: float) -> void:
 
 
 func game_over():
-	$GameOverLabel.visible = true
+	$CenterContainer/GameOverBox.visible = true
+	$CenterContainer/GameOverBox/RestartButton.disabled = false
+
+
+
+func _on_RestartButton_pressed() -> void:
+	get_tree().reload_current_scene()

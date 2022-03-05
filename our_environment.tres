@@ -2,9 +2,14 @@
 
 [sub_resource type="ProceduralSky" id=3]
 sky_top_color = Color( 0.0588235, 0.294118, 0.427451, 1 )
-sky_energy = 0.2
+sky_horizon_color = Color( 0, 0, 0, 1 )
+sky_energy = 0.8
+ground_energy = 0.0
 sun_energy = 0.0
 
 [resource]
 background_mode = 2
 background_sky = SubResource( 3 )
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.1

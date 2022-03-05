@@ -3,7 +3,8 @@ extends PhysicsMover3D
 class_name Player
 
 enum State {
-	DEFAULT
+	DEFAULT,
+	STUNNED
 }
 
 var state = State.DEFAULT
@@ -17,6 +18,10 @@ export var jump_total_acceleration = 7200.0
 export var jump_total_number_of_frames = 6
 export var ground_dampening = 0.7
 
+export var knockback_acc := 1600.0
+
+export var stun_time = 1.0
+export var invinc_time = 1.8
 
 func _ready() -> void:
 #	$DustTrack.set_as_toplevel(true)
@@ -49,14 +54,18 @@ func state_default(delta):
 	handle_input(delta)
 	execute_movement(delta)
 	
+func state_stunned(delta):
+	execute_movement(delta)
 
 func match_state(delta):
 	match state:
 		State.DEFAULT:
 			state_default(delta)
-	
+		State.STUNNED:
+			state_stunned(delta)
 
 func _physics_process(delta: float) -> void:
+#	print("hurtbox active: ")
 	match_state(delta)
 
 var item_holded := ""
@@ -77,7 +86,6 @@ func hold_item(item_name:String):
 func loose_item():
 	item_holded = ""
 	item_holded_count = 0
-
 
 const LOG = preload("res://Objects/Items/Log.tscn")
 const PLANT = preload("res://Objects/Items/Plant.tscn")
@@ -100,3 +108,32 @@ func drop_item():
 	dropped_item.translation = translation + Vector3(0, .1, 0)
 	loose_item()
 
+
+
+func _on_Hurtbox_area_entered(area: Area) -> void:
+	if not area.name == "Hitbox":
+		return # dirty but ok for now
+	$HurtParticles.emitting = true	
+	var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
+	add_acceleration(knockback_acc * knockback_direction)
+	state = State.STUNNED	
+	$InvincibilityTimer.start()
+	$Hurtbox.set_deferred("monitoring", false)
+	$Hurtbox.set_deferred("monitorable", false)
+	$StunnedTimer.start(stun_time)  # when this timeouts you are not stunned anymore
+	# player is immediately stunned but wait a little for the stunnedparticles to show
+	yield(get_tree().create_timer(0.2), "timeout")
+	$StunnedParticles.emitting = true
+
+
+	
+
+
+func _on_StunnedTimer_timeout() -> void:
+	state = State.DEFAULT
+	$StunnedParticles.emitting = false
+
+
+func _on_InvincibilityTimer_timeout() -> void:
+	$Hurtbox.set_deferred("monitoring", true)
+	$Hurtbox.set_deferred("monitorable", true)

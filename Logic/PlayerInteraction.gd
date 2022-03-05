@@ -11,7 +11,8 @@ func update_selection():
 	all_areas.sort_custom(self, "selection_object_sorter")
 	for i in range(all_areas.size()):
 		var area = all_areas[i] as InteractionObject
-		area.selected = i == 0
+		if area != null:
+			area.selected = (i == 0)
 
 func _physics_process(_delta):
 	if all_areas.size() > 0:

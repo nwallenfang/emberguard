@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderBlue.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderRed.tres" type="Material" id=2]
@@ -39,12 +39,15 @@ direction = Vector3( 0, 1, 0 )
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 0.6
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=11]
 flags_unshaded = true
 
 [sub_resource type="CubeMesh" id=5]
-material = SubResource( 9 )
+material = SubResource( 11 )
 size = Vector3( 0.02, 0.3, 0.02 )
+
+[sub_resource type="CapsuleShape" id=10]
+height = 1.74535
 
 [node name="WaterEnemy" type="KinematicBody"]
 script = ExtResource( 3 )
@@ -87,7 +90,7 @@ RELATIVE_TRANSITION_CHANCE = 0.0
 script = ExtResource( 8 )
 RELATIVE_TRANSITION_CHANCE = 0.0
 
-[node name="SpottedPlayerParticles" type="Particles" parent="EnemyStateMachine/Attacking"]
+[node name="PrepareAttack" type="Particles" parent="EnemyStateMachine/Attacking"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.715428, 0 )
 emitting = false
 amount = 5
@@ -112,10 +115,21 @@ process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
 
 [node name="DetectionArea" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="DetectionArea"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00108764, 0.794732, 1.40432 )
 depth = 1.699
-polygon = PoolVector2Array( -1.49489, 1.5986, 1.77942, 1.54479, 1.80789, 1.53012, 0.172403, -1.57403, -0.261767, -1.58261 )
+polygon = PoolVector2Array( -3.1255, 3.73569, 3.28854, 3.73569, 0.172403, -1.57403, -0.261767, -1.58261 )
 
+[node name="Hitbox" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Hitbox"]
+transform = Transform( 0.342165, 0, 0, 0, -1.4214e-08, -0.295457, 0, 0.325179, -1.29148e-08, 0, 0.38419, 1.67935e-08 )
+shape = SubResource( 10 )
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
@@ -16,6 +16,49 @@ height = 1.5
 albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="CapsuleShape" id=4]
+
+[sub_resource type="CapsuleShape" id=6]
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.576087, 0.739773 ), -1.45559, -1.45559, 0, 0, Vector2( 1, 0.0579545 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.6
+scale_curve = SubResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_unshaded = true
+albedo_color = Color( 0.980392, 0.117647, 0.117647, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 10 )
+size = Vector3( 0.02, 0.3, 0.02 )
+
+[sub_resource type="Curve" id=14]
+max_value = 5.0
+_data = [ Vector2( 0.0217391, 0.698864 ), 0.0, 0.0, 0, 0, Vector2( 0.451087, 0.289773 ), 0.0, 0.0, 0, 0, Vector2( 0.690217, 0.102273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.7
+angular_velocity = 240.0
+tangential_accel = 3.0
+tangential_accel_curve = SubResource( 15 )
+
+[sub_resource type="SphereMesh" id=13]
+radius = 0.05
+height = 0.1
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -46,5 +89,38 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0010
 depth = 1.699
 polygon = PoolVector2Array( -3.77491, 2.95994, 3.66579, 2.89634, 1.12196, -1.88924, -1.11979, -1.92104 )
 
+[node name="Hurtbox" type="Area" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Hurtbox"]
+transform = Transform( 0.519846, 0, 0, 0, -2.08463e-08, -0.476908, 0, 0.519846, -2.27232e-08, 0, 0.763707, 0 )
+shape = SubResource( 6 )
+
+[node name="HurtParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10856, 0 )
+emitting = false
+amount = 12
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 11 )
+
+[node name="StunnedParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93864, 0 )
+emitting = false
+amount = 50
+lifetime = 0.8
+process_material = SubResource( 12 )
+draw_pass_1 = SubResource( 13 )
+
+[node name="StunnedTimer" type="Timer" parent="."]
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="StunnedTimer" to="." method="_on_StunnedTimer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

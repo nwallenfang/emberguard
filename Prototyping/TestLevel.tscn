@@ -101,10 +101,10 @@ environment = ExtResource( 1 )
 
 [node name="Moon" type="DirectionalLight" parent="."]
 transform = Transform( -0.866046, -0.209412, 0.453994, 0.00646802, 0.903285, 0.428993, -0.499922, 0.374464, -0.780932, 0, 6.51142, 2.99369 )
-light_color = Color( 0.490196, 0.666667, 1, 1 )
-light_energy = 0.105
+light_color = Color( 0.14902, 0.443137, 1, 1 )
+light_energy = 0.6
 shadow_enabled = true
-shadow_color = Color( 0.384314, 0.384314, 0.384314, 1 )
+shadow_color = Color( 0.788235, 0.788235, 0.788235, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4105, 0.353998, -0.788541 )

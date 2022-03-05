@@ -10,6 +10,9 @@ func set_fire_percent(value):
 	fire_percent = value
 	$Placeholder.scale.y = value
 	$Placeholder.translation.y = .4 * value
+	$FireParticles.set_fire_percent(value)
+	$OmniLight.light_energy = value * 10
+	$OmniLight.omni_range = value * 16 + 6
 
 func interact():
 	if Game.player.item_holded_count > 0:

@@ -23,11 +23,11 @@ func set_fire_health(new_health: float):
 		game_over()
 	
 	UI.set_fire_health(fire_health)
-	get_tree().current_scene.get_node("Wagon/Fire").set_fire_percent(fire_health)
+	get_tree().current_scene.get_node("Wagon").set_fire_percent(fire_health)
 	
 	
 	
-	
+var fire_burn_speed := 0.03
 func _process(delta: float) -> void:
-	self.fire_health -= delta * 0.01
+	self.fire_health -= delta * fire_burn_speed
 

@@ -6,5 +6,8 @@ sky_energy = 0.2
 sun_energy = 0.0
 
 [resource]
-background_mode = 2
+background_mode = 1
 background_sky = SubResource( 3 )
+background_energy = 0.0
+ambient_light_energy = 0.0
+ambient_light_sky_contribution = 0.0

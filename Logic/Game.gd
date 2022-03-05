@@ -4,6 +4,8 @@ var player: Player
 var wagon: Wagon
 var ground_aabb: AABB
 
+var player_distance_to_wagon := 0.0
+
 var fire_health := 1.0 setget set_fire_health
 
 signal game_over
@@ -36,4 +38,5 @@ func set_fire_health(new_health: float):
 var fire_burn_speed := 0.03
 func _process(delta: float) -> void:
 	self.fire_health -= delta * fire_burn_speed
+	player_distance_to_wagon = player.translation.distance_to(wagon.translation)
 

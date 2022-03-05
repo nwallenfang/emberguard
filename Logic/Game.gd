@@ -7,6 +7,10 @@ var fire_health := 1.0 setget set_fire_health
 signal game_over
 
 
+func reset():
+	fire_health = 1.0
+
+
 func game_over():
 	get_tree().paused = true
 	# TODO

@@ -10,12 +10,28 @@ func set_fire_health(fire_health: float):
 	$FireHealthbar.material.set_shader_param("value", fire_health)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
+	
+	if Input.is_action_just_pressed("pause"):
+		# dont pause if it's game over
+		if not $CenterContainer/GameOverBox.visible:
+			get_tree().paused = not get_tree().paused
+			$CenterContainer/PausedLabel.visible = get_tree().paused
 
 
 func game_over():
-	$GameOverLabel.visible = true
+	$CenterContainer/GameOverBox.visible = true
+	$CenterContainer/GameOverBox/RestartButton.disabled = false
+
+
+func _on_RestartButton_pressed() -> void:
+	get_tree().paused = false
+	Game.reset()
+	$CenterContainer/GameOverBox.visible = false
+	get_tree().reload_current_scene()
+	
+
 
 
 func set_interact_text(text:String):

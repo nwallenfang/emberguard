@@ -22,6 +22,25 @@ func flat_direction_to(point: Vector3) -> Vector3:
 func flat_distance_to(point: Vector3) -> float:
 	return Vector2(translation.x, translation.z).distance_to(Vector2(point.x, point.z))
 
+
+func get_future_angle(future):
+	var future_index = min(target_index + future, points.size() - 1)
+	var dir = flat_direction_to(points[future_index])
+	var dir2D = Vector2(dir.z, dir.x)
+	return dir2D.angle()
+
+func get_radian_direction_and_distance(from, to):
+	var direction = 1
+	var distance = 2*PI
+	for _to in [to - 2*PI, to, to + 2*PI]:
+		if abs(_to - from) < distance:
+			distance = abs(_to - from)
+			direction = sign(_to - from)
+	return [direction, distance]
+
+export var turn_speed := PI / 2
+export var turn_future_offset := 10
+
 signal ending_reached
 
 func _physics_process(delta):
@@ -29,7 +48,14 @@ func _physics_process(delta):
 #	var old = translation
 	translation += dir * velocity * delta
 	var dir2D = Vector2(dir.z, dir.x)
-	rotation_degrees.y = rad2deg(dir2D.angle())
+	
+	
+	#rotation_degrees.y = rad2deg(dir2D.angle())
+	var dir_and_dist = get_radian_direction_and_distance(deg2rad(rotation_degrees.y), get_future_angle(turn_future_offset))
+	var rotation_offset = dir_and_dist[0] * max(delta * turn_speed, dir_and_dist[1])
+	#if dir_and_dist[1] < 
+	rotation_degrees.y +=  rotation_offset
+	
 	if flat_distance_to(next_target) < target_reach_distance:
 		if target_index + 1 == points.size():
 			emit_signal("ending_reached")

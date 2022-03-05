@@ -2,7 +2,7 @@ extends AbstractState
 
 export var target_distance: float = 5.0
 export var stop_distance: float = 0.1
-export var wandering_acceleration := 100.0
+export var wandering_acceleration := 50.0
 
 var target_position_xz:  Vector2
 
@@ -14,10 +14,10 @@ func get_new_target(distance: float) -> Vector2:
 	var random_angle = rand_range(0.0, 2*PI)
 	return distance * Vector2.UP.rotated(random_angle)
 	
+#func player_detected():
+#	pass
 
 func process(_delta: float, first_time_entering: bool):
-	print("wandering")
-
 	# for now stay wandering until you spot the player	
 	# also check distance to player here and there and maybe deactivate yourself
 	if first_time_entering:

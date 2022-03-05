@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://our_environment.tres" type="Environment" id=1]
 [ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
@@ -13,8 +13,8 @@
 [ext_resource path="res://Assets/Sprites/map_path_mask.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_albedo.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_normal.png" type="Texture" id=13]
-[ext_resource path="res://Objects/Actors/WaterEnemy.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Logic/EnemySpawner.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Logic/Enemy/EnemySpawner.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Actors/WaterEnemy.tscn" type="PackedScene" id=15]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -130,33 +130,36 @@ wagon_path = NodePath("../WagonPath")
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
 curve = ExtResource( 4 )
 
-[node name="Tween" type="Tween" parent="."]
+[node name="EnemySpawner" parent="." instance=ExtResource( 14 )]
 
-[node name="Tree2" parent="." instance=ExtResource( 7 )]
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="Tree2" parent="Environment" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68382, 0.0540286, -24.5684 )
 
-[node name="Tree" parent="." instance=ExtResource( 7 )]
+[node name="Tree" parent="Environment" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74471, 0.0540291, -12.6243 )
 
-[node name="Log" parent="." instance=ExtResource( 8 )]
+[node name="Log" parent="Environment" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.913687, 0.0977135, -13.0104 )
 
-[node name="Log2" parent="." instance=ExtResource( 8 )]
+[node name="Log2" parent="Environment" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02963, 0.0977135, -12.6322 )
 
-[node name="Log3" parent="." instance=ExtResource( 8 )]
+[node name="Log3" parent="Environment" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82041, 0.0977136, -11.9905 )
 
-[node name="Log4" parent="." instance=ExtResource( 8 )]
+[node name="Log4" parent="Environment" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9676, 0.0977132, -19.0448 )
 
-[node name="Log5" parent="." instance=ExtResource( 8 )]
+[node name="Log5" parent="Environment" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37874, 0.0977135, -13.9333 )
 
-[node name="Log6" parent="." instance=ExtResource( 8 )]
+[node name="Log6" parent="Environment" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218701, 0.0977136, -11.806 )
 
-[node name="Plant" parent="." instance=ExtResource( 9 )]
+[node name="Plant" parent="Environment" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83848, -0.29398, -8.22569 )
 
-[node name="EnemySpawner" parent="." instance=ExtResource( 14 )]
+[node name="WaterEnemy" parent="." instance=ExtResource( 15 )]
+transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -10.6627, 0, 1.2056 )

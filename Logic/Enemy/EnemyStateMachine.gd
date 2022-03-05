@@ -19,7 +19,7 @@ func process(delta: float) -> void:
 func set_enabled(senabled: bool):
 	enabled = senabled
 	
-	
+
 func move_towards(target: Vector2, stop_distance: float, acc: float) -> bool:
 	# returns whether the movement is completed as a boolean
 	var distance: float = Vector2(global_transform.origin.x, global_transform.origin.z).distance_to(target)

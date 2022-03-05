@@ -2,4 +2,4 @@ extends AbstractState
 
 func process(_delta: float, _first_time_entering: bool):
 	# TODO 
-	pass
+	print("attacking, nice")

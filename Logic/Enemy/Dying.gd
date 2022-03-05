@@ -1,4 +1,5 @@
 extends AbstractState
 
 func process(_delta: float, _first_time_entering: bool):
-	print("idle")
+	# TODO
+	pass

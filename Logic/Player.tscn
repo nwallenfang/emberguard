@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
+[ext_resource path="res://Logic/ScentEmitter.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -118,6 +119,8 @@ draw_pass_1 = SubResource( 13 )
 [node name="StunnedTimer" type="Timer" parent="."]
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="ScentEmitter" parent="." instance=ExtResource( 3 )]
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

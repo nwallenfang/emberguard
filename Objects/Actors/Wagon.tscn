@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
 [ext_resource path="res://Assets/Materials/PlaceHolderBrown.tres" type="Material" id=3]
 [ext_resource path="res://Objects/Actors/Fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Actors/Wagon.gd" type="Script" id=5]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.61299, 1.61299, 0, 0, Vector2( 1, 1 ), 0.116162, 0.0, 0, 0 ]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -17,6 +20,7 @@ points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1,
 
 [node name="Wagon" type="Spatial"]
 script = ExtResource( 5 )
+speed_fire_curve = SubResource( 5 )
 
 [node name="Placeholder" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214933, 0 )

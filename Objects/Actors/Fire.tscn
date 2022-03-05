@@ -33,12 +33,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0525677, 0 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="InteractionObject" parent="." instance=ExtResource( 4 )]
+outline_color = Color( 0.890196, 1, 0.368627, 1 )
+outline_size = 0.15
+interaction_text = "add fuel"
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionObject"]
 transform = Transform( 5.39202, 0, 0, 0, 5.39202, 0, 0, 0, 5.39202, 0, 1.37976, 0 )
 shape = SubResource( 3 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942347, 0 )
-light_color = Color( 1, 0.658824, 0.00784314, 1 )
-omni_range = 10.306
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08888, 0 )
+light_color = Color( 1, 0.811765, 0.454902, 1 )
+light_energy = 10.0
+omni_range = 20.0
+omni_attenuation = 3.73213

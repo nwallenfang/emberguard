@@ -1,7 +1,6 @@
 extends Spatial
 class_name Wagon
 
-export var velocity = 2.5
 export(NodePath) var wagon_path
 export var target_reach_distance := 1.0
 var points: PoolVector3Array
@@ -32,3 +31,10 @@ func _physics_process(delta):
 	if flat_distance_to(next_target) < target_reach_distance:
 		set_target_index(target_index + 1)
 
+export(Curve) var speed_fire_curve: Curve
+export var base_velocity = 2.4
+var velocity = base_velocity
+func set_fire_percent(value):
+	$Fire.set_fire_percent(value)
+	velocity = base_velocity * speed_fire_curve.interpolate(value)
+	

@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Wagon",
 "language": "GDScript",
 "path": "res://Objects/Actors/Wagon.gd"
+}, {
+"base": "PhysicsMover3D",
+"class": "WaterEnemy",
+"language": "GDScript",
+"path": "res://Objects/Actors/WaterEnemy.gd"
 } ]
 _global_script_class_icons={
 "InteractionObject": "",
 "PhysicsMover3D": "",
 "Player": "",
-"Wagon": ""
+"Wagon": "",
+"WaterEnemy": ""
 }
 
 [application]

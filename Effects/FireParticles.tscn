@@ -70,7 +70,7 @@ script = ExtResource( 4 )
 [node name="FireParticles" type="Particles" parent="."]
 transform = Transform( 2.56554, 0, 0, 0, 2.56554, 0, 0, 0, 2.56554, 0, 0, 0 )
 material_override = SubResource( 5 )
-amount = 32
+amount = 30
 speed_scale = 0.8
 randomness = 0.6
 process_material = ExtResource( 3 )

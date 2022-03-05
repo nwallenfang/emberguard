@@ -1,6 +1,8 @@
 extends Spatial
 
 var player: Player
+var wagon: Wagon
+var ground_aabb: AABB
 
 var fire_health := 1.0 setget set_fire_health
 

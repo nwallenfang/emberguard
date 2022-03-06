@@ -87,6 +87,7 @@ material/0 = null
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.538065, -0.358824, 0.762713, 0, 0.904864, 0.4257, -0.842904, -0.229054, 0.486875, 8.09737, 6.98968, 5.15984 )
+far = 300.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/camera = SubResource( 3 )

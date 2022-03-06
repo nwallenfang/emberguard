@@ -172,6 +172,7 @@ transform = Transform( 3.80224, 0, 0, 0, 3.80224, 0, 0, 0, 3.80224, -123.029, -2
 [node name="IntroCamera" type="Camera" parent="."]
 transform = Transform( 0.956435, 0.0186565, -0.291349, 0.0122907, 0.994498, 0.104031, 0.291686, -0.103079, 0.950944, -145.42, 2.59327, 157.027 )
 current = true
+far = 200.0
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="IntroCamera"]

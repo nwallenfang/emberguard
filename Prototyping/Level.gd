@@ -5,6 +5,7 @@ signal intro_button_pressed
 func _ready() -> void:
 
 	Game.player = $Player
+	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
 	Game.wagon = $Wagon
 	Game.ground_aabb = $Ground.get_transformed_aabb()
 	Game.ending = $Ending

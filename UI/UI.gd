@@ -10,6 +10,10 @@ func set_fire_health(fire_health: float):
 	# TODO maybe have the fire icon blink or smth
 	$FireHealthbar.material.set_shader_param("value", fire_health)
 
+export var too_much_to_carry_length := 2.0
+var too_much_to_carry_time_left = 0.0
+func trigger_too_much_to_carry():
+	too_much_to_carry_time_left = too_much_to_carry_length
 
 func _process(_delta: float) -> void:
 	$FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
@@ -21,7 +25,13 @@ func _process(_delta: float) -> void:
 			$CenterContainer/PausedLabel.visible = get_tree().paused
 	
 	update_wagon_marker()
-
+	
+	if too_much_to_carry_time_left > .1:
+		$TooMuchToCarry.visible = true
+		too_much_to_carry_time_left -= _delta
+		$TooMuchToCarry.modulate.a = too_much_to_carry_time_left / too_much_to_carry_length
+	else:
+		$TooMuchToCarry.visible = false
 
 func main_game_started():
 	$IntroPressAnyKey.visible = false

@@ -19,8 +19,6 @@ signal main_game_started
 func reset():
 	fire_health = 1.0
 
-
-
 func game_over():
 	get_tree().paused = true
 	# TODO

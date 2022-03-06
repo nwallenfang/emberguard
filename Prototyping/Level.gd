@@ -41,6 +41,8 @@ func _ready() -> void:
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 
 func ending_cutscene():
+	# increase camera viewdistance 
+	$Pivot/Camera.far = 300
 	$Player/RemoteTransform.update_position = false
 	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform, 1.5)
 	yield($Pivot/Camera/Tween, "tween_all_completed")

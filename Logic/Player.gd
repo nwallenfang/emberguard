@@ -74,6 +74,20 @@ func _physics_process(delta: float) -> void:
 var item_holded := ""
 var item_holded_count := 0
 
+var item_visible := ""
+var item_visible_count := 0
+func update_holding_hand():
+	if item_holded_count != item_visible_count or item_holded != item_visible:
+		for c in $ItemHand.get_children():
+			c.queue_free()
+		if item_holded_count != 0:
+			var item = make_item(item_holded, false)
+			item.make_flying()
+			$ItemHand.add_child(item)
+	
+	item_visible = item_holded
+	item_visible_count = item_holded_count
+
 func hold_item(item_name:String):
 	if item_holded_count == 0:
 		item_holded = item_name
@@ -85,14 +99,16 @@ func hold_item(item_name:String):
 			drop_item()
 			item_holded = item_name
 			item_holded_count = 1
+	update_holding_hand()
 
 func loose_item():
 	item_holded = ""
 	item_holded_count = 0
+	update_holding_hand()
 
 const LOG = preload("res://Objects/Items/Log.tscn")
 const PLANT = preload("res://Objects/Items/Plant.tscn")
-func make_item(custom_item = "") -> Spatial:
+func make_item(custom_item = "", add_to_tree_scene = true) -> Spatial:
 	var item_name = item_holded
 	if custom_item != "":
 		item_name = custom_item
@@ -102,7 +118,7 @@ func make_item(custom_item = "") -> Spatial:
 			inst = LOG.instance()
 		"plant":
 			inst = PLANT.instance()
-	if inst != null:
+	if inst != null and add_to_tree_scene:
 		get_tree().current_scene.add_child(inst)
 	return inst
 

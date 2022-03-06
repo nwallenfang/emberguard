@@ -273,11 +273,13 @@ transform = Transform( 1.73617, -0.092407, 0.525433, 0.134, 1.80702, -0.124972, 
 transform = Transform( 3.80224, 0, 0, 0, 3.80224, 0, 0, 0, 3.80224, 11.9042, -2.05766, 3.69784 )
 
 [node name="IntroCamera" type="Camera" parent="."]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.22, 1.90008, 0.523099 )
+transform = Transform( 0.451438, -0.0853064, 0.888215, 0, 0.99542, 0.0956025, -0.892302, -0.0431587, 0.449371, 5.1036, 2.99927, 2.8976 )
 current = true
 script = ExtResource( 22 )
 
 [node name="Tween" type="Tween" parent="IntroCamera"]
+
+[node name="Tween" type="Tween" parent="."]
 
 [editable path="Wagon"]
 [editable path="Wagon/Fire"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
@@ -20,6 +20,26 @@ _data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.
 
 [sub_resource type="ConvexPolygonShape" id=4]
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.6
+color = Color( 0.768627, 0.772549, 0.00784314, 1 )
+hue_variation = 0.14
+hue_variation_random = 0.38
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
+size = Vector2( 0.1, 0.1 )
 
 [node name="Wagon" type="Spatial"]
 script = ExtResource( 5 )
@@ -84,4 +104,9 @@ visibility_aabb = AABB( -6.10603, -5.75914, -5.36293, 11.3772, 12.4911, 11.1892 
 
 [node name="Chest" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.873483, 0, -0.902845, 0, 1.25623, 0, 0.902845, 0, 0.873483, 0, 0.992832, 1.67513 )
-open_percent = 0.01
+open_percent = 0.8
+
+[node name="TreasureSimulation" type="Particles" parent="Chest"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.244935, 0 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )

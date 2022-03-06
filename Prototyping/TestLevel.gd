@@ -21,7 +21,15 @@ func _ready() -> void:
 	Game.wagon.get_node("Fire/RefuelSound").play()
 	Game.wagon.get_node("Fire").set_fire_percent(1.0)
 	
-	yield(get_tree().create_timer(2.5), "timeout")
+	# have treasure slowly close and stop treasure particles
+	$Tween.interpolate_property(Game.wagon.get_node("Chest"), "open_percent", 0.8, 0.0, 2.0)
+	$Tween.start()
+	
+	yield($Tween, "tween_all_completed")
+	
+	Game.wagon.get_node("Chest/TreasureSimulation").emitting = false
+	
+	yield(get_tree().create_timer(0.5), "timeout")
 	
 	$IntroCamera.move_to_transform($Pivot/Camera.global_transform)
 	yield($IntroCamera/Tween, "tween_all_completed")

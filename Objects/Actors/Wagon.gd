@@ -68,6 +68,10 @@ var velocity = base_velocity
 func set_fire_percent(value):
 	$Fire.set_fire_percent(value)
 	velocity = base_velocity * speed_fire_curve.interpolate(value)
-	if velocity > 0.0 and $DustTrack.emitting == false:
+	if velocity > 0.01 and $DustTrack.emitting == false:
 		$DustTrack.emitting = true
+		$DustTrack2.emitting = true
+	if velocity <= 0.01:
+		$DustTrack.emitting = false
+		$DustTrack2.emitting = false
 	

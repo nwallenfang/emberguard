@@ -11,8 +11,9 @@ var state = State.DEFAULT
 
 # movement parameters
 export var CONTROLS_ENABLED := true
-export var move_acceleration = 100.0
-export var dash_acceleration = 3000.0
+export var base_move_acceleration := 100.0
+var move_acceleration = base_move_acceleration
+export var dash_acceleration := 3000.0
 export var air_acceleration = 120.0
 export var jump_total_acceleration = 7200.0
 export var jump_total_number_of_frames = 6
@@ -76,30 +77,40 @@ var item_holded_count := 0
 
 var item_visible := ""
 var item_visible_count := 0
+var stack_offset := .24
+export var item_speed_punishment := 10.0
 func update_holding_hand():
 	if item_holded_count != item_visible_count or item_holded != item_visible:
 		for c in $ItemHand.get_children():
 			c.queue_free()
-		if item_holded_count != 0:
-			var item = make_item(item_holded, false)
+		for i in range(item_holded_count):
+			var item = make_item(item_holded, false, 1)
 			item.make_flying()
 			$ItemHand.add_child(item)
-	
+			item.translation += Vector3(0, stack_offset, 0) * i
+	move_acceleration = base_move_acceleration - item_holded_count * item_speed_punishment
 	item_visible = item_holded
 	item_visible_count = item_holded_count
 
-func hold_item(item_name:String):
+signal too_much_to_carry
+
+func try_hold_item(item_name:String):
 	if item_holded_count == 0:
 		item_holded = item_name
 		item_holded_count = 1
 	else:
 		if item_holded == item_name:
-			item_holded_count += 1
+			if item_name == "log" and item_holded_count <3:
+				item_holded_count += 1
+			else:
+				emit_signal("too_much_to_carry")
+				return false
 		else:
 			drop_item()
 			item_holded = item_name
 			item_holded_count = 1
 	update_holding_hand()
+	return true
 
 func loose_item():
 	item_holded = ""
@@ -107,15 +118,25 @@ func loose_item():
 	update_holding_hand()
 
 const LOG = preload("res://Objects/Items/Log.tscn")
+const LOG2 = preload("res://Objects/Items/LogStack2.tscn")
+const LOG3 = preload("res://Objects/Items/LogStack3.tscn")
 const PLANT = preload("res://Objects/Items/Plant.tscn")
-func make_item(custom_item = "", add_to_tree_scene = true) -> Spatial:
+func make_item(custom_item = "", add_to_tree_scene = true, count = 0) -> Spatial:
+	if count == 0:
+		count = item_holded_count
 	var item_name = item_holded
 	if custom_item != "":
 		item_name = custom_item
 	var inst = null
 	match item_name:
 		"log":
-			inst = LOG.instance()
+			match count:
+				1:
+					inst = LOG.instance()
+				2:
+					inst = LOG2.instance()
+				3:
+					inst = LOG3.instance()
 		"plant":
 			inst = PLANT.instance()
 	if inst != null and add_to_tree_scene:
@@ -134,10 +155,10 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 		return
 	if not area.name == "Hitbox":
 		return # dirty but ok for now
-	$HurtParticles.emitting = true	
+	$HurtParticles.emitting = true
 	var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
 	add_acceleration(knockback_acc * knockback_direction)
-	state = State.STUNNED	
+	state = State.STUNNED
 	$InvincibilityTimer.start(invinc_time)
 	$Hurtbox.set_deferred("monitoring", false)
 	$Hurtbox.set_deferred("monitorable", false)

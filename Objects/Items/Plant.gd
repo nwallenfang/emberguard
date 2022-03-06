@@ -3,8 +3,9 @@ extends Spatial
 export var fire_value = 0.05
 
 func interact():
-	Game.player.hold_item("plant")
-	queue_free()
+	var success = Game.player.try_hold_item("plant")
+	if success:
+		queue_free()
 
 func make_flying():
 	$InteractionObject.set_deferred("monitoring", false)

@@ -22,8 +22,9 @@ func interact():
 		item.global_transform.origin = Game.player.global_transform.origin + Vector3(0,1,0)
 		throw_object = item
 		throw_origin = item.global_transform.origin
+		throw_object.rotation_degrees = Vector3(randf() * 360, randf() * 360, randf() * 360)
 		$Tween.interpolate_method(self, "set_position_throw_object", 0.0, 1.0, 1.3)
-		$Tween.interpolate_property(throw_object, "rotation_degrees:y", 0, 90, 1.3)
+		$Tween.interpolate_property(throw_object, "rotation_degrees:y", throw_object.rotation_degrees.y, throw_object.rotation_degrees.y + 60 + randf() * 30, 1.3)
 		$Tween.start()
 		yield($Tween,"tween_all_completed")
 		$RefuelSound.play()

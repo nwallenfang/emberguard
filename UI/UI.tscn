@@ -86,7 +86,7 @@ valign = 1
 
 [node name="WagonMarker" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 4 )
 
 [node name="IntroPressAnyKey" type="Label" parent="."]

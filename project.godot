@@ -82,6 +82,7 @@ config/icon="res://icon.png"
 
 UI="*res://UI/UI.tscn"
 Game="*res://Logic/Game.tscn"
+CameraManager="*res://Logic/CameraManager.tscn"
 
 [editor_plugins]
 

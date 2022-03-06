@@ -7,6 +7,9 @@ var points: PoolVector3Array
 var next_target: Vector3
 var target_index: int setget set_target_index
 
+# has the speed value for the wheels
+onready var wheels_anim_player: AnimationPlayer = $Wagon/AnimationPlayer
+
 func set_target_index(value):
 	target_index = value
 	next_target = points[target_index]
@@ -47,7 +50,7 @@ func _physics_process(delta):
 	var dir = flat_direction_to(next_target)
 #	var old = translation
 	translation += dir * velocity * delta
-	var dir2D = Vector2(dir.z, dir.x)
+#	var dir2D = Vector2(dir.z, dir.x)
 	
 	
 	#rotation_degrees.y = rad2deg(dir2D.angle())
@@ -64,10 +67,13 @@ func _physics_process(delta):
 
 export(Curve) var speed_fire_curve: Curve
 export var base_velocity = 2.4
+export var wheels_base_speed = 0.4
 var velocity = base_velocity
 func set_fire_percent(value):
 	$Fire.set_fire_percent(value)
 	velocity = base_velocity * speed_fire_curve.interpolate(value)
+	wheels_anim_player.playback_speed = wheels_base_speed * speed_fire_curve.interpolate(value)
+	
 	if velocity > 0.01 and $DustTrack.emitting == false:
 		$DustTrack.emitting = true
 		$DustTrack2.emitting = true

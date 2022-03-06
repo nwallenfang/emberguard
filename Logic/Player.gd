@@ -25,8 +25,9 @@ export var invinc_time = 2.0
 
 onready var scent_emitter := $ScentEmitter
 
-func _ready() -> void:
-#	$DustTrack.set_as_toplevel(true)
+export var god_mode: bool = true
+
+func _ready():
 	pass
 
 var jump_frame_count := -1
@@ -35,8 +36,8 @@ func handle_input(delta):
 		return
 		
 	var move_direction := Vector3.ZERO
-	move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	move_direction.z = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
+	move_direction.x = Input.get_action_strength("move_left") - Input.get_action_strength("move_right")
+	move_direction.z = Input.get_action_strength("move_forward") - Input.get_action_strength("move_back")
 	
 	move_direction = move_direction.normalized()
 
@@ -113,6 +114,8 @@ func drop_item():
 
 
 func _on_Hurtbox_area_entered(area: Area) -> void:
+	if god_mode:
+		return
 	if not area.name == "Hitbox":
 		return # dirty but ok for now
 	$HurtParticles.emitting = true	

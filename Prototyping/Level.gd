@@ -38,7 +38,7 @@ func _ready() -> void:
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
 	
-	$Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
+	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 
 func ending_cutscene():
 	$Player/RemoteTransform.update_position = false

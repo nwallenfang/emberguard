@@ -60,8 +60,10 @@ func _physics_process(delta):
 	rotation_degrees.y +=  rotation_offset
 	
 	if flat_distance_to(next_target) < target_reach_distance:
-		if target_index + 1 == points.size():
+		if target_index + 2 == points.size():
 			emit_signal("ending_reached")
+		if target_index + 1 == points.size():
+			pass
 		else:
 			set_target_index(target_index + 1)
 

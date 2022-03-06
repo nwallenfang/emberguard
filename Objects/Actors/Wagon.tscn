@@ -46,6 +46,7 @@ script = ExtResource( 5 )
 turn_speed = 2.0
 turn_future_offset = 20
 speed_fire_curve = SubResource( 5 )
+base_velocity = 5.4
 
 [node name="WagonModel" parent="." instance=ExtResource( 6 )]
 transform = Transform( -3.20117e-08, 0, 0.732342, 0, 0.732342, 0, -0.732342, 0, -3.20117e-08, 0, 0, 0.560915 )

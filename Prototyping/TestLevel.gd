@@ -42,7 +42,7 @@ func _ready() -> void:
 
 func ending_cutscene():
 	$Player/RemoteTransform.update_position = false
-	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform)
+	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform, 1.5)
 	yield($Pivot/Camera/Tween, "tween_all_completed")
 	print("reached")
 	$Pivot/Camera.current = false

@@ -45,6 +45,7 @@ size = Vector2( 0.1, 0.1 )
 script = ExtResource( 5 )
 turn_speed = 2.0
 turn_future_offset = 20
+ending_distance = 4.0
 speed_fire_curve = SubResource( 5 )
 base_velocity = 3.0
 

@@ -17,11 +17,15 @@ func get_pos():
 func set_own_and_children_materials_to_outline(n: Node):
 	if n is MeshInstance:
 		n = n as MeshInstance
-		var surface_mat = n.get_surface_material(0).duplicate(true)
-		n.material_override = surface_mat
-		n.material_override.next_pass = OUTLINE_MATERIAL
-		n.material_override.next_pass.set_shader_param("outline_width", outline_size)
-		n.material_override.next_pass.set_shader_param("outline_color", outline_color)
+		var mat = n.get_surface_material(0)
+		if mat == null:
+			mat = n.mesh.get("surface_1/material")
+		if mat != null:
+			var surface_mat = mat.duplicate(true)
+			n.material_override = surface_mat
+			n.material_override.next_pass = OUTLINE_MATERIAL
+			n.material_override.next_pass.set_shader_param("outline_width", outline_size)
+			n.material_override.next_pass.set_shader_param("outline_color", outline_color)
 	for c in n.get_children():
 		set_own_and_children_materials_to_outline(c)
 

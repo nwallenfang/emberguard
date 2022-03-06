@@ -94,7 +94,7 @@ transform = Transform( 0.750414, 0, 0, 0, 0.246243, 0, 0, 0, 1.2064, 0, 0.457754
 shape = SubResource( 4 )
 
 [node name="Fire" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00933, -0.994982 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15775, -0.994982 )
 
 [node name="DustTrack" parent="." instance=ExtResource( 7 )]
 transform = Transform( -1, 0, -9.68575e-08, 0, 1, 0, 9.68575e-08, 0, -1, 1.45971, 0.1403, -2.04156 )

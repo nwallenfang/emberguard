@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://Assets/Meshes/LogModel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Actors/Fire.gd" type="Script" id=2]
 [ext_resource path="res://Effects/FireParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Items/InteractionObject.tscn" type="PackedScene" id=4]
@@ -67,5 +68,28 @@ collision_mask = 8
 [node name="CollisionShape" type="CollisionShape" parent="ScareEnemyArea"]
 transform = Transform( 7.48181, 0, 0, 0, 0.788278, 0, 0, 0, 7.48181, 0, 0, 0 )
 shape = SubResource( 4 )
+
+[node name="Version1" type="Spatial" parent="."]
+visible = false
+
+[node name="LogModel3" parent="Version1" instance=ExtResource( 1 )]
+transform = Transform( 0.707039, -0.0249836, 0.165731, 0.149855, -0.227555, -0.673615, 0.0750615, 0.68963, -0.216267, -0.0504109, 0.105616, 0.0606769 )
+
+[node name="LogModel2" parent="Version1" instance=ExtResource( 1 )]
+transform = Transform( 0.431633, 0.0683099, 0.580536, -0.113583, 0.717701, -1.86246e-08, -0.5734, -0.0907458, 0.437005, 0.000824653, 0.109019, -0.0158445 )
+
+[node name="LogModel" parent="Version1" instance=ExtResource( 1 )]
+transform = Transform( -0.129462, -0.477124, 0.532529, -0.0202012, 0.543413, 0.481964, -0.714722, 0.0710652, -0.110083, -0.0468439, -0.019309, 0.0361805 )
+
+[node name="Version2" type="Spatial" parent="."]
+
+[node name="LogModel3" parent="Version2" instance=ExtResource( 1 )]
+transform = Transform( 0.726633, 0, 0, 0, 0.726633, 0, 0, 0, 0.726633, -0.0504109, -0.0319636, 0.0606769 )
+
+[node name="LogModel2" parent="Version2" instance=ExtResource( 1 )]
+transform = Transform( 0.437005, -0.02184, -0.580125, -6.34793e-08, -0.726118, 0.0273362, -0.580536, -0.0164402, -0.436695, -0.0217106, -0.0202814, 0.0413287 )
+
+[node name="LogModel" parent="Version2" instance=ExtResource( 1 )]
+transform = Transform( -0.357761, 0.631584, -0.0332226, -0.0202012, -0.0495615, -0.724659, -0.632135, -0.355866, 0.0419606, -0.0468439, -0.019309, 0.0361805 )
 
 [connection signal="area_entered" from="ScareEnemyArea" to="." method="_on_ScareEnemyArea_area_entered"]

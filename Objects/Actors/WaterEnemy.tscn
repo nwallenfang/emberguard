@@ -142,6 +142,14 @@ shape = SubResource( 10 )
 [node name="ScentSearcher" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535079, 0 )
 
+[node name="Hurtbox" type="Area" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Hurtbox"]
+transform = Transform( 0.342165, 0, 0, 0, -1.4214e-08, -0.295457, 0, 0.325179, -1.29148e-08, 0, 0.38419, 1.67935e-08 )
+shape = SubResource( 10 )
+
 [connection signal="timeout" from="EnemyStateMachine/RunAway/RunTimer" to="EnemyStateMachine/RunAway" method="_on_RunTimer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]

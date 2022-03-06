@@ -65,7 +65,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape" type="CollisionShape" parent="ScareEnemyArea"]
-transform = Transform( 9.49133, 0, 0, 0, 1, 0, 0, 0, 9.49133, 0, 0, 0 )
+transform = Transform( 7.48181, 0, 0, 0, 0.788278, 0, 0, 0, 7.48181, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [connection signal="area_entered" from="ScareEnemyArea" to="." method="_on_ScareEnemyArea_area_entered"]

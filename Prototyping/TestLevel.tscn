@@ -1,0 +1,298 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://our_environment.tres" type="Environment" id=1]
+[ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/Textures/GrassMatMaker_albedo.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Environment/Ending.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Actors/Wagon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prototyping/TestLevel.gd" type="Script" id=6]
+[ext_resource path="res://Objects/Environment/Tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Items/Log.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Items/Plant.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Sprites/Textures/GrassMatMaker_normal.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/map_path_mask_test.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_albedo.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_normal.png" type="Texture" id=13]
+[ext_resource path="res://Logic/Enemy/EnemySpawner.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Actors/WaterEnemy.tscn" type="PackedScene" id=15]
+[ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=16]
+[ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=17]
+[ext_resource path="res://Objects/Environment/BigRock.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Assets/Materials/TreeBark.tres" type="Material" id=19]
+[ext_resource path="res://Assets/Materials/TreeLeaves.tres" type="Material" id=20]
+[ext_resource path="res://Assets/Shader/Ground.gdshader" type="Shader" id=21]
+[ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=22]
+
+[sub_resource type="QuadMesh" id=7]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 21 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.0
+shader_param/metallic = 0.0
+shader_param/roughness = 0.0
+shader_param/point_size = 1.0
+shader_param/normal_scale = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/tex_scale = Vector2( 20, 20 )
+shader_param/border_size = 0.026
+shader_param/border_smooth_size = 0.052
+shader_param/grass_texture_albedo = ExtResource( 3 )
+shader_param/grass_texture_normal = ExtResource( 10 )
+shader_param/dirt_texture_albedo = ExtResource( 12 )
+shader_param/dirt_texture_normal = ExtResource( 13 )
+shader_param/ground_mask = ExtResource( 11 )
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0 )
+
+[sub_resource type="Curve3D" id=11]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -138.706, 0.000549316, 151.1, 0, 0, 0, 0, 0, 0, -132.147, 0.000518799, 141.831, 0, 0, 0, 0, 0, 0, -124.54, 0.00050354, 139.382, 0, 0, 0, 0, 0, 0, -118.856, 0.000518799, 144.367, 0, 0, 0, 0, 0, 0, -101.455, 0.000488281, 135.535, 0, 0, 0, 0, 0, 0, -80.1666, 0.000427246, 118.735 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=10]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 10.832, 0, 21.4823, 0, 0, 0, 0, 0, 0, 8.64198, 0, 14.1593, 0, 0, 0, 0, 0, 0, -2.37673, 0, 17.239, 0, 0, 0, 0, 0, 0, -15.5855, 0, 16.0756, 0, 0, 0, 0, 0, 0, -17.1596, 0, 6.97316, 0, 0, 0, 0, 0, 0, -19.1443, 0, -1.30798, 0, 0, 0, 0, 0, 0, -23.7297, 0, -7.8097, 0, 0, 0, 0, 0, 0, -23.0454, 0, -14.7221, 0, 0, 0, 0, 0, 0, -31.0527, 0, -15.2011, 0, 0, 0, 0, 0, 0, -32.0109, 0, 36.1283, 0, 0, 0, 0, 0, 0, -25.4407, 0, 36.7442, 0, 0, 0, 0, 0, 0, -12.711, 0, 30.3109, 0, 0, 0, 0, 0, 0, 1.18211, 0, 33.4591, 0, 0, 0, 0, 0, 0, 8.43666, 0, 26.6836, 0, 0, 0, 0, 0, 0, 10.832, 0, 21.4823 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="TestLevel" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="Ground" type="MeshInstance" parent="."]
+transform = Transform( 350, 0.0471657, 1.76715e-10, 0, -1.5299e-05, 30, 0.0471657, -350, -1.31134e-06, 0, 0, 7.37393 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="Ground"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="Moon" type="DirectionalLight" parent="."]
+transform = Transform( 0.885929, 0.0061565, -0.463779, 0.167971, 0.927781, 0.33318, 0.432337, -0.373075, 0.820914, 0, 6.51142, 2.99369 )
+light_color = Color( 0.14902, 0.443137, 1, 1 )
+light_energy = 0.6
+shadow_enabled = true
+shadow_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -152.812, 0.354006, 156.295 )
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.10269, 0 )
+remote_path = NodePath("../../Pivot")
+update_rotation = false
+update_scale = false
+
+[node name="Pivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, -152.812, 1.4567, 156.295 )
+
+[node name="Camera" type="Camera" parent="Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Pivot/Camera"]
+
+[node name="Listener" type="Listener" parent="Pivot"]
+
+[node name="Wagon" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.0301024, 0, -0.999547, 0, 1, 0, 0.999547, 0, -0.0301024, -142.482, -0.00917762, 151.239 )
+wagon_path = NodePath("../WagonPath")
+
+[node name="Placeholder" parent="Wagon/Fire" index="0"]
+visible = false
+
+[node name="OmniLight" parent="Wagon/Fire" index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46427, 0.00786126 )
+shadow_bias = 0.24
+
+[node name="WagonPath" type="Path" parent="."]
+curve = SubResource( 11 )
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.975, 7.62939e-06, 145.483 )
+
+[node name="Environment" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.975, 7.62939e-06, 145.483 )
+
+[node name="Tree2" parent="Environment" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68382, 0.0540286, -24.5684 )
+
+[node name="Tree" parent="Environment" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74471, 0.0540291, -12.6243 )
+
+[node name="Log" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.913687, 0.0977135, -13.0104 )
+
+[node name="Log2" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02963, 0.0977135, -12.6322 )
+
+[node name="Log3" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82041, 0.0977136, -11.9905 )
+
+[node name="Log4" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9676, 0.0977132, -19.0448 )
+
+[node name="Log5" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37874, 0.0977135, -13.9333 )
+
+[node name="Log6" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218701, 0.0977136, -11.806 )
+
+[node name="Plant" parent="Environment" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83848, -0.29398, -8.22569 )
+
+[node name="WaterEnemy" parent="." instance=ExtResource( 15 )]
+transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -150.638, 7.62939e-06, 146.688 )
+
+[node name="Scatter" type="Path" parent="."]
+transform = Transform( -0.492013, 0, -0.870588, 0, 1, 0, 0.870588, 0, -0.492013, -141.774, 7.62939e-06, 138.726 )
+curve = SubResource( 10 )
+script = ExtResource( 16 )
+use_instancing = false
+make_children_unselectable = false
+modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":35,"_rng":Object(RandomNumberGenerator,"seed":-1741668843494174361,"state":-107094796106388806,"script":null)
+)
+, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":8488990407274927729,"state":-5421379130108935300,"script":null)
+)
+ ],"just_created":false,"undo_redo":null)
+
+
+[node name="ScatterItem" type="Spatial" parent="Scatter"]
+script = ExtResource( 17 )
+item_path = "res://Objects/Environment/Tree.tscn"
+materials = [ ExtResource( 20 ), ExtResource( 19 ) ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatter/ScatterItem"]
+
+[node name="Tree" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.245896, -0.0142271, -1.17677, 0.00746575, 1.20214, -0.0160938, 1.17683, -0.010599, -0.245781, -23.4117, -0.00685479, 3.49985 )
+
+[node name="Tree2" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -1.47637, -0.0902767, 0.342875, -0.117501, 1.50991, -0.108394, -0.334524, -0.131931, -1.47516, -24.9123, 0.0263457, 9.23529 )
+
+[node name="Tree3" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -1.29525, 0.0222082, 0.911172, 0.0458095, 1.58291, 0.0265385, -0.91029, 0.0480583, -1.29517, -28.8838, 0.0933141, -2.73768 )
+
+[node name="Tree4" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.23706, 0.0918489, -0.781261, -0.0687851, 1.46301, 0.0630839, 0.783629, -0.0165753, 1.23886, -28.0872, -0.0659134, 29.6902 )
+
+[node name="Tree5" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.822621, 0.026896, -0.700107, -0.0941036, 1.07421, -0.0693032, 0.694275, 0.113732, 0.820137, -29.5483, -0.0110385, 5.91002 )
+
+[node name="Tree6" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.84339, 0.0027215, 0.873086, 0.015602, 1.21376, 0.0112879, -0.87295, 0.0190639, -0.843318, 1.68409, 0.021926, 20.0102 )
+
+[node name="Tree7" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.161196, 0.0123047, -1.08341, 0.133695, 1.08719, -0.0075443, 1.0752, -0.133341, -0.161489, 10.1578, -0.0471749, 20.6938 )
+
+[node name="Tree8" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.38152, 0.0555722, 1.20092, -0.134452, 1.82507, 0.0702171, -1.19466, -0.141136, 1.38085, -18.0963, 0.114158, 18.2758 )
+
+[node name="Tree9" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.914047, -0.0302114, 1.40672, 0.173807, 1.66706, -0.0771319, -1.39627, 0.187737, 0.911288, -30.1167, 0.134115, 9.93217 )
+
+[node name="Tree10" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.515022, -0.041067, 1.21222, -0.141292, 1.31004, -0.0156481, -1.20466, -0.136095, -0.516419, -25.8282, 0.0031394, 31.2024 )
+
+[node name="Tree11" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.31461, 0.102579, 0.758515, -0.120703, 1.51641, 0.0041215, -0.755842, -0.0637473, 1.3186, -0.346366, 0.0787874, 30.1563 )
+
+[node name="Tree12" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -1.09996, 0.0754564, 0.567661, 0.0493409, 1.2372, -0.0688471, -0.570524, -0.0384809, -1.10039, -28.5435, -0.0802629, 12.7345 )
+
+[node name="Tree13" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.102747, -0.0021847, -1.73775, -0.089123, 1.7385, 0.00308389, 1.73546, 0.0891496, -0.102724, -27.5276, -0.11351, 9.70872 )
+
+[node name="Tree14" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.591654, 0.0249339, -0.990773, -0.0551793, 1.15293, -0.00393639, 0.98955, 0.0493817, 0.592166, 5.13036, 0.0993946, 28.552 )
+
+[node name="Tree15" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -1.43766, -0.0788638, -0.222732, -0.0788383, 1.4548, -0.00623308, 0.222741, 0.0059019, -1.43981, -26.2465, -0.0617765, 27.3148 )
+
+[node name="Tree16" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.934473, 0.0598211, 1.3569, 0.120618, 1.64418, 0.0105806, -1.35285, 0.105271, -0.936326, -25.0236, 0.10426, 1.06965 )
+
+[node name="Tree17" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.161029, -0.00268869, 1.89044, -0.186931, 1.88801, -0.0132376, -1.88118, -0.18738, -0.160506, -7.61304, 0.112898, 19.0053 )
+
+[node name="Tree18" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.56117, 0.0511744, -0.0783551, -0.0464943, 1.56052, 0.0928247, 0.0812196, -0.090329, 1.55925, -25.8345, -0.0686691, 22.98 )
+
+[node name="Tree19" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -1.12055, -0.0136843, 0.229048, -0.00942492, 1.14354, 0.0222115, -0.229263, 0.0198726, -1.12041, 1.27162, -0.0213623, 30.4515 )
+
+[node name="Tree20" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.999838, 0.0332288, -1.29686, -0.00672941, 1.63745, 0.0367673, 1.29727, -0.0171162, 0.999714, -27.1042, 0.163482, 29.6184 )
+
+[node name="Tree21" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.0358722, 0.00238395, 1.18942, 0.136227, 1.18214, 0.00173917, -1.18159, 0.136217, -0.0359092, -10.5659, -0.00123398, 24.1258 )
+
+[node name="Tree22" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.164763, 0.0111519, -1.10231, 0.0548091, 1.11326, 0.00307028, 1.101, -0.0537504, -0.165111, -27.7942, -0.051958, 1.83066 )
+
+[node name="Tree23" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.86534, 0.069171, 0.0977998, -0.0739565, 1.8655, 0.0911662, -0.094233, -0.0948483, 1.8644, 1.50331, 0.0534827, 28.0393 )
+
+[node name="Tree24" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.0469966, -0.00212646, -1.21258, 0.0541832, 1.21228, -2.59238e-05, 1.21137, -0.0541415, 0.0470447, -25.7901, 0.0784969, -10.5491 )
+
+[node name="Tree25" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.45686, -0.0918221, -0.179314, 0.10712, 1.46175, 0.121787, 0.170617, -0.1337, 1.45466, -28.5377, -0.0921214, -14.7831 )
+
+[node name="Tree26" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.403241, 0.0156847, 1.62925, 0.159734, 1.6707, 0.0234506, -1.62148, 0.160683, -0.402864, -30.186, -0.150325, 29.9336 )
+
+[node name="Tree27" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.54115, -0.0347226, 0.848046, -0.00374015, 1.00564, 0.043562, -0.848748, -0.0265702, 0.540511, -6.17838, 0.0839032, 26.2233 )
+
+[node name="Tree28" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.565486, -0.0418199, 1.21789, 0.140321, 1.33593, -0.0192798, -1.2105, 0.135324, 0.566702, -17.3267, 0.115579, 15.3508 )
+
+[node name="Tree29" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.396679, 0.0203201, 1.35778, -0.00360633, 1.41451, -0.0222226, -1.35793, -0.00969251, -0.396577, -22.5653, -0.111697, -5.99902 )
+
+[node name="Tree30" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.745434, -0.028888, 1.03006, 0.117687, 1.26539, -0.0496801, -1.02372, 0.124434, 0.744338, -4.21337, 0.116442, 26.7504 )
+
+[node name="Tree31" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.994124, -0.00294692, -1.31446, 0.0251255, 1.6478, 0.0153082, 1.31422, -0.0292736, 0.994011, -27.2833, -0.107322, -0.953201 )
+
+[node name="Tree32" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( -0.499375, -0.00107903, -1.59225, -0.0249701, 1.66852, 0.00670062, 1.59205, 0.025831, -0.499331, 5.76102, -0.0484796, 22.4367 )
+
+[node name="Tree33" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.58903, 0.0472724, 0.00837447, -0.0475727, 1.58774, 0.0642524, -0.00645329, -0.0644737, 1.58843, -16.8727, -0.0368547, 31.6628 )
+
+[node name="Tree34" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 0.934673, -0.0269023, -0.715721, 0.0359748, 1.17698, 0.00274003, 0.715322, -0.0240408, 0.935056, -16.6373, -0.0764635, 15.3948 )
+
+[node name="Tree35" parent="Scatter/ScatterItem/Duplicates" instance=ExtResource( 7 )]
+transform = Transform( 1.73617, -0.092407, 0.525433, 0.134, 1.80702, -0.124972, -0.516395, 0.158224, 1.73413, -20.6277, 0.0210094, 1.78673 )
+
+[node name="BigRock" parent="." instance=ExtResource( 18 )]
+transform = Transform( 3.80224, 0, 0, 0, 3.80224, 0, 0, 0, 3.80224, -128.071, -2.05765, 149.181 )
+
+[node name="IntroCamera" type="Camera" parent="."]
+transform = Transform( 0.956435, 0.0186565, -0.291349, 0.0122907, 0.994498, 0.104031, 0.291686, -0.103079, 0.950944, -145.42, 2.59327, 157.027 )
+current = true
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="IntroCamera"]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Ending" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.589521, 0, -0.807753, 0, 1, 0, 0.807753, 0, 0.589521, -98.0261, -0.521776, 132.4 )
+
+[editable path="Wagon"]
+[editable path="Wagon/Fire"]

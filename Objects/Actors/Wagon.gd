@@ -8,7 +8,7 @@ var next_target: Vector3
 var target_index: int setget set_target_index
 
 # has the speed value for the wheels
-onready var wheels_anim_player: AnimationPlayer = $Wagon/AnimationPlayer
+onready var wheels_anim_player: AnimationPlayer = $WagonModel/AnimationPlayer
 
 func set_target_index(value):
 	target_index = value

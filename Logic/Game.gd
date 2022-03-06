@@ -4,6 +4,7 @@ const DEBUG_SKIP_INTRO = false  # TODO
 
 var player: Player
 var wagon: Wagon
+var ending
 var ground_aabb: AABB
 
 var player_distance_to_wagon := 0.0

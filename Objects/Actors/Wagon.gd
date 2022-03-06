@@ -45,6 +45,8 @@ export var turn_speed := PI / 2
 export var turn_future_offset := 10
 
 signal ending_reached
+export var ending_distance := 2.0
+
 
 func _physics_process(delta):
 	var dir = flat_direction_to(next_target)
@@ -60,7 +62,7 @@ func _physics_process(delta):
 	rotation_degrees.y +=  rotation_offset
 	
 	if flat_distance_to(next_target) < target_reach_distance:
-		if target_index + 2 == points.size():
+		if translation.distance_to(Game.ending.translation) < ending_distance:
 			emit_signal("ending_reached")
 		if target_index + 1 == points.size():
 			pass

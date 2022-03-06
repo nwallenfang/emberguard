@@ -7,6 +7,7 @@ func _ready() -> void:
 	Game.player = $Player
 	Game.wagon = $Wagon
 	Game.ground_aabb = $Ground.get_transformed_aabb()
+	Game.ending = $Ending
 	$Pivot/Listener.make_current()
 	$IntroCamera.current = true
 	Game.main_game_running = false
@@ -36,6 +37,17 @@ func _ready() -> void:
 	Game.main_game_running = true
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
+	
+	$Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
+
+func ending_cutscene():
+	$Player/RemoteTransform.update_position = false
+	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform)
+	yield($Pivot/Camera/Tween, "tween_all_completed")
+	print("reached")
+	$Pivot/Camera.current = false
+	$Ending/Camera.current = true
+	$Ending/AnimationPlayer.play("camera")
 
 func _input(event):
 	if event is InputEventKey:

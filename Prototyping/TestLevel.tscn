@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://our_environment.tres" type="Environment" id=1]
 [ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
@@ -88,12 +88,6 @@ shader_param/ground_mask = ExtResource( 11 )
 [sub_resource type="ConcavePolygonShape" id=8]
 data = PoolVector3Array( -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0 )
 
-[sub_resource type="Curve3D" id=9]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.60966, 3.14999, 1.24373, 0, 0, 0, 0, 0, 0, -2.92433, 1.44025, 5.97821, 0, 0, 0, 0, 0, 0, 1.217, -2.80299, 7.36504, 0, 0, 0, 0, 0, 0, 6.11151, -6.78066, 4.3661, 0, 0, 0, 0, 0, 0, 7.06909, -6.9721, 1.15574, 0, 0, 0, 0, 0, 0, 6.00075, -5.01942, -3.03863, 0, 0, 0, 0, 0, 0, 2.90977, -2.14782, -2.75267, 0, 0, 0, 0, 0, 0, 0.443998, -0.00369644, -1.86887, 0, 0, 0, 0, 0, 0, -2.90694, 2.56159, 0.89053, 0, 0, 0, 0, 0, 0, -3.60966, 3.14999, 1.24373, 0, 0, 0, 0, 0, 0, -0.566679, 3.16892, 2.33402, 0, 0, 0, 0, 0, 0, -1.21795, 2.50388, 2.20876, 0, 0, 0, 0, 0, 0, -0.607596, 2.59536, 2.42687, 0, 0, 0, 0, 0, 0, -0.707651, 2.46546, 2.45077, 0, 0, 0, 0, 0, 0, -0.911554, 1.2788, 3.82289, 0, 0, 0, 0, 0, 0, -1.11762, 0.999854, 2.75565, 0, 0, 0, 0, 0, 0, 0.0946855, 1.00084, 3.10365 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
-}
-
 [sub_resource type="Curve3D" id=10]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 10.832, 0, 21.4823, 0, 0, 0, 0, 0, 0, 8.64198, 0, 14.1593, 0, 0, 0, 0, 0, 0, -2.37673, 0, 17.239, 0, 0, 0, 0, 0, 0, -15.5855, 0, 16.0756, 0, 0, 0, 0, 0, 0, -17.1596, 0, 6.97316, 0, 0, 0, 0, 0, 0, -19.1443, 0, -1.30798, 0, 0, 0, 0, 0, 0, -23.7297, 0, -7.8097, 0, 0, 0, 0, 0, 0, -23.0454, 0, -14.7221, 0, 0, 0, 0, 0, 0, -31.0527, 0, -15.2011, 0, 0, 0, 0, 0, 0, -32.0109, 0, 36.1283, 0, 0, 0, 0, 0, 0, -25.4407, 0, 36.7442, 0, 0, 0, 0, 0, 0, -12.711, 0, 30.3109, 0, 0, 0, 0, 0, 0, 1.18211, 0, 33.4591, 0, 0, 0, 0, 0, 0, 8.43666, 0, 26.6836, 0, 0, 0, 0, 0, 0, 10.832, 0, 21.4823 ),
@@ -145,6 +139,9 @@ current = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00918525, 0 )
 wagon_path = NodePath("../WagonPath")
 
+[node name="Placeholder" parent="Wagon/Fire" index="0"]
+visible = false
+
 [node name="OmniLight" parent="Wagon/Fire" index="4"]
 shadow_bias = 1.165
 
@@ -185,62 +182,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83848, -0.29398, -8.22569 )
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 15 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -10.6627, 0, 1.2056 )
-
-[node name="ScatterTest" type="Path" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61892, 0, -8.69154 )
-curve = SubResource( 9 )
-script = ExtResource( 16 )
-use_instancing = false
-modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":10,"_rng":Object(RandomNumberGenerator,"seed":5456842187910425173,"state":-1241204312919269744,"script":null)
-)
-, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":-7797863892875013621,"state":4350059564108325774,"script":null)
-)
-, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/project_on_floor.gd" ),"enabled":true,"display_name":"Project On Floor","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"ray_length":10.0,"ray_offset":1.0,"remove_points_on_miss":true,"align_with_floor_normal":false,"invert_ray_direction":false,"floor_direction":Vector3( 0, -1, 0 ),"max_slope":1.0,"mask":"1048575")
- ],"just_created":false,"undo_redo":null)
-
-
-[node name="ScatterItem" type="Spatial" parent="ScatterTest"]
-script = ExtResource( 17 )
-item_path = "res://Objects/Environment/Tree.tscn"
-materials = [ null, null ]
-merge_target_meshes = false
-cast_shadow = 1
-
-[node name="Duplicates" type="Spatial" parent="ScatterTest/ScatterItem"]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="Tree" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( -0.245896, -0.0142271, -1.17677, 0.00746575, 1.20214, -0.0160938, 1.17683, -0.010599, -0.245781, -1.51644, -7.15256e-07, 0.766231 )
-
-[node name="Tree2" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( -1.47637, -0.0902767, 0.342875, -0.117501, 1.50991, -0.108394, -0.334524, -0.131931, -1.47516, -1.94004, -9.53674e-07, 1.79155 )
-
-[node name="Tree3" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( -1.29525, 0.0222082, 0.911172, 0.0458095, 1.58291, 0.0265385, -0.91029, 0.0480583, -1.29517, 3.85538, -9.53674e-07, -2.14671 )
-
-[node name="Tree4" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( 1.23706, 0.0918489, -0.781261, -0.0687851, 1.46301, 0.0630839, 0.783629, -0.0165753, 1.23886, 3.03499, -9.53674e-07, 3.08557 )
-
-[node name="Tree5" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( 0.822621, 0.026896, -0.700107, -0.0941036, 1.07421, -0.0693032, 0.694275, 0.113732, 0.820137, 3.00756, -4.76837e-07, 3.2943 )
-
-[node name="Tree6" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( -0.84339, 0.0027215, 0.873086, 0.015602, 1.21376, 0.0112879, -0.87295, 0.0190639, -0.843318, 3.30481, -9.53674e-07, -1.46193 )
-
-[node name="Tree7" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( -0.161196, 0.0123047, -1.08341, 0.133695, 1.08719, -0.0075443, 1.0752, -0.133341, -0.161489, 1.38692, -4.76837e-07, 1.77949 )
-
-[node name="Tree8" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( 1.38152, 0.0555722, 1.20092, -0.134452, 1.82507, 0.0702171, -1.19466, -0.141136, 1.38085, 1.21481, -4.76837e-07, 6.63143 )
-
-[node name="Tree9" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( 0.914047, -0.0302114, 1.40672, 0.173807, 1.66706, -0.0771319, -1.39627, 0.187737, 0.911288, 1.79318, -7.15256e-07, -0.737789 )
-
-[node name="Tree10" parent="ScatterTest/ScatterItem/Duplicates" instance=ExtResource( 7 )]
-transform = Transform( -0.515022, -0.041067, 1.21222, -0.141292, 1.31004, -0.0156481, -1.20466, -0.136095, -0.516419, 2.64786, -1.19209e-06, 2.40102 )
 
 [node name="Scatter" type="Path" parent="."]
 curve = SubResource( 10 )

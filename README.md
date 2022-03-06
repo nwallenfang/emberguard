@@ -7,3 +7,4 @@ We are grateful for these third-party projects whose ideas or assets we used in 
 | Asset | Source | License |
 | ------ | ------ | ------ |
 | Bonfire Being Lit | [samararaine](https://freesound.org/people/samararaine/sounds/186374/) | CC0
+| Blade Sharpen | [Mikaaku_Hoshine](https://freesound.org/people/Mikaaku_Hoshine/sounds/241805/) | CC0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
@@ -61,6 +61,15 @@ tangential_accel_curve = SubResource( 15 )
 radius = 0.05
 height = 0.1
 
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=16]
+material = SubResource( 17 )
+size = Vector2( 0.8, 1.5 )
+subdivide_width = 3
+subdivide_depth = 3
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -121,6 +130,44 @@ draw_pass_1 = SubResource( 13 )
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
 [node name="ScentEmitter" parent="." instance=ExtResource( 3 )]
+
+[node name="SoftBody" type="SoftBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0.754832, -0.753203 )
+mesh = SubResource( 16 )
+material/0 = null
+parent_collision_ignore = NodePath("../CollisionShape")
+simulation_precision = 6
+pinned_points = [ 0, 4, 2, 1, 3 ]
+attachments/0/point_index = 0
+attachments/0/spatial_attachment_path = NodePath("../LeftShoulder")
+attachments/0/offset = Vector3( 0.0128863, 0.0142719, -0.00696144 )
+attachments/1/point_index = 4
+attachments/1/spatial_attachment_path = NodePath("../RightShoulder")
+attachments/1/offset = Vector3( -0.0106273, 0.00324953, 0.00728375 )
+attachments/2/point_index = 2
+attachments/2/spatial_attachment_path = NodePath("../LeftShoulder2")
+attachments/2/offset = Vector3( -0.189967, 0.0142719, -0.00696144 )
+attachments/3/point_index = 1
+attachments/3/spatial_attachment_path = NodePath("../w")
+attachments/3/offset = Vector3( 0.239238, 0.0142719, -0.00696144 )
+attachments/4/point_index = 3
+attachments/4/spatial_attachment_path = NodePath("../RightShoulder2")
+attachments/4/offset = Vector3( 0.0121096, 0.00324953, 0.00728375 )
+
+[node name="LeftShoulder" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.387114, 1.39008, -0.371241 )
+
+[node name="LeftShoulder2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189967, 1.39008, -0.371241 )
+
+[node name="w" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392384, 1.39008, -0.371241 )
+
+[node name="RightShoulder" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389373, 1.4011, -0.385486 )
+
+[node name="RightShoulder2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21211, 1.4011, -0.385486 )
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

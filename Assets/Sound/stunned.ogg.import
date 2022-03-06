@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stunned.ogg-a7181c797709b8452eae9c8c97f83c50.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/stunned.ogg"
+dest_files=[ "res://.import/stunned.ogg-a7181c797709b8452eae9c8c97f83c50.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

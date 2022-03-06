@@ -38,7 +38,7 @@ func update_wagon_marker():
 	$WagonMarker.visible = true
 	
 	#var dir = randf() * 2 * PI
-	var dir_vector = Game.player.translation.direction_to(Game.wagon.translation)#Vector2.UP.rotated(dir)
+	var dir_vector = Game.wagon.translation.direction_to(Game.player.translation)#Vector2.UP.rotated(dir)
 	
 	dir_vector = Vector2(dir_vector.x, dir_vector.z)
 	

@@ -105,7 +105,7 @@ tracks/3/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
 }
 
-[node name="Wagon" instance=ExtResource( 1 )]
+[node name="WagonModel" instance=ExtResource( 1 )]
 
 [node name="Wheel004" parent="." index="0"]
 transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 3.22498, 1.0581, 2.0124 )

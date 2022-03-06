@@ -34,6 +34,7 @@ func set_main_game_running(running: bool):
 		
 	set_process(running)
 	
+	player.set_physics_process(running)
 	wagon.set_physics_process(running)
 	main_game_running = running
 

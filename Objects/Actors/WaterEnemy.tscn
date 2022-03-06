@@ -121,6 +121,7 @@ script = ExtResource( 11 )
 RELATIVE_TRANSITION_CHANCE = 0.0
 
 [node name="RunTimer" type="Timer" parent="EnemyStateMachine/RunAway"]
+one_shot = true
 
 [node name="DetectionArea" type="Area" parent="."]
 collision_layer = 0

@@ -60,5 +60,4 @@ func get_throw_curve_position(origin, height, value):
 
 
 func _on_ScareEnemyArea_area_entered(area: Area) -> void:
-	print("nice")
 	scare_enemy(area.get_parent())

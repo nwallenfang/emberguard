@@ -30,7 +30,23 @@ func interact():
 		item.burn_effect()
 		throw_object.queue_free()
 
-		
+
+func scare_enemy(enemy: Node):
+	var state_mac_node := enemy.get_node("EnemyStateMachine")
+	var state_machine: EnemyStateMachine
+	
+	if state_mac_node != null:
+		state_machine = state_mac_node as EnemyStateMachine
+		if state_machine == null:
+			printerr("Fire spotted an enemy without proper EnemyStateMachine (Fire::scare_enemy())")
+		var dir: Vector3 = self.global_transform.origin.direction_to(enemy.global_transform.origin)
+		state_machine.get_node("RunAway").run_direction = Vector2(dir.x, dir.z)
+		state_machine.transition_deferred("RunAway")
+	else:
+		printerr("Fire spotted an enemy without proper EnemyStateMachine (Fire::scare_enemy())")
+	
+	
+
 
 var throw_object: Spatial
 var throw_origin: Vector3
@@ -41,3 +57,8 @@ func get_throw_curve_position(origin, height, value):
 	var destination = global_transform.origin
 	var diff = destination - origin
 	return origin + value * diff + Vector3(0, height, 0) * throw_curve.interpolate(value)
+
+
+func _on_ScareEnemyArea_area_entered(area: Area) -> void:
+	print("nice")
+	scare_enemy(area.get_parent())

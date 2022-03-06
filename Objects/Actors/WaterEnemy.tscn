@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderBlue.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderRed.tres" type="Material" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Logic/Enemy/Attacking.gd" type="Script" id=8]
 [ext_resource path="res://Logic/Enemy/PlayerSpotted.gd" type="Script" id=9]
 [ext_resource path="res://Logic/ScentSearcher.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Logic/Enemy/RunAway.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( 0.0422471, 0.243085, 0.184953, -0.0317292, -0.243283, -0.19561, -0.0736463, -0.231484, -0.205147, -0.0852862, -0.127895, 0.346371, 0.231869, -0.0842886, 0.18445, -0.105636, 0.158492, -0.311701, 0.211922, 0.0529733, -0.270224, -0.243084, 0.0422588, 0.184952, -0.231864, -0.0842967, -0.184468, 0.0852669, -0.127897, -0.346377, 0.0427985, 0.0856211, 0.380088, -0.105507, -0.2216, 0.195179, 0.210542, 0.126355, 0.194727, 0.105531, 0.221594, -0.195174, 0.115721, -0.21039, 0.21562, 0.188908, -0.157447, -0.194128, -0.126315, 0.210564, 0.19473, -0.157442, 0.188916, -0.194118, -0.0535587, -0.0321303, -0.391072, 0.148841, -0.0425169, 0.345568, 0.0746772, 0.0959689, -0.368017, -0.159171, 0.0530397, 0.334261, -0.21055, -0.126348, 0.194715, -0.233019, 0.0423583, -0.227703, -0.0317296, 0.243286, -0.195612, 0.242957, 0.0528004, -0.163734, -0.126913, -0.126956, -0.322659, -0.157442, -0.188916, -0.194117, 0.084327, -0.231854, -0.184461, 0.0317088, -0.243286, 0.195612, 0.031843, 0.201794, 0.292077, 0.053255, -0.12789, 0.35702, -0.20938, 0.136113, 0.151809, 0.231493, -0.0736331, -0.205131, 0.188909, 0.157447, -0.194128, 0.157429, 0.188925, 0.194127, 0.179375, 0.0843974, 0.300751, 0.24328, 0.0317224, 0.195624, -0.127854, 0.0532702, -0.357038, -0.105636, 0.158493, 0.311702, -0.0535587, 0.0321302, 0.391072, 0.084425, 0.179379, -0.300728, 0.14884, -0.0425166, -0.345566, -0.190497, -0.0529018, 0.301625, -0.0318646, -0.201799, -0.292086, -0.231185, 0.0945557, -0.152384, 0.157429, -0.188925, 0.194126, -0.190496, -0.0529016, -0.301624, -0.0318634, -0.201792, 0.292075, -0.0422686, 0.24309, 0.184957, -0.242963, -0.0527972, 0.163724, 0.179148, -0.1159, 0.279282, 0.0321184, -0.0535501, 0.391069, -0.0213454, 0.117612, -0.369011, -0.189634, 0.136969, 0.237014, 0.0535377, -0.0321302, -0.39107, -0.0213455, -0.117613, -0.369013, -0.0945625, 0.231184, -0.152384, -0.243287, -0.0317206, -0.195612, 0.115924, -0.179152, -0.279261, -0.158446, -0.158442, 0.258762, -0.190266, 0.0951078, -0.280108, 0.222608, -0.0211981, 0.259728, 0.115924, 0.179152, 0.279261 )
@@ -115,6 +116,12 @@ explosiveness = 1.0
 process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
 
+[node name="RunAway" type="Spatial" parent="EnemyStateMachine"]
+script = ExtResource( 11 )
+RELATIVE_TRANSITION_CHANCE = 0.0
+
+[node name="RunTimer" type="Timer" parent="EnemyStateMachine/RunAway"]
+
 [node name="DetectionArea" type="Area" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -135,5 +142,6 @@ shape = SubResource( 10 )
 [node name="ScentSearcher" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535079, 0 )
 
+[connection signal="timeout" from="EnemyStateMachine/RunAway/RunTimer" to="EnemyStateMachine/RunAway" method="_on_RunTimer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]

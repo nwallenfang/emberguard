@@ -26,6 +26,7 @@ func interact():
 		$Tween.interpolate_property(throw_object, "rotation_degrees:y", 0, 90, 1.3)
 		$Tween.start()
 		yield($Tween,"tween_all_completed")
+		$RefuelSound.play()
 		item.burn_effect()
 		throw_object.queue_free()
 

@@ -3,6 +3,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	Game.connect("game_over", self, "game_over")
+	Game.connect("main_game_started", self, "main_game_started")
 
 
 func set_fire_health(fire_health: float):
@@ -20,6 +21,13 @@ func _process(_delta: float) -> void:
 			$CenterContainer/PausedLabel.visible = get_tree().paused
 	
 	update_wagon_marker()
+
+
+func main_game_started():
+	$IntroPressAnyKey.visible = false
+	$WagonMarker.visible = true
+	$FireHealthbar.visible = true
+	$FPSCounter.visible = true
 
 export var wagon_marker_border := 200
 export var wagon_marker_distance := 10.0

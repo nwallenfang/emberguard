@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://our_environment.tres" type="Environment" id=1]
 [ext_resource path="res://Logic/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Materials/TreeBark.tres" type="Material" id=19]
 [ext_resource path="res://Assets/Materials/TreeLeaves.tres" type="Material" id=20]
 [ext_resource path="res://Assets/Shader/Ground.gdshader" type="Shader" id=21]
+[ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=22]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -85,11 +86,11 @@ update_rotation = false
 update_scale = false
 
 [node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, -12.4105, 1.45669, -0.788541 )
+transform = Transform( -1, 7.57104e-08, -4.37114e-08, 0, 0.5, 0.866026, 8.74228e-08, 0.866026, -0.5, -12.4105, 1.45669, -0.788541 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
-current = true
+script = ExtResource( 21 )
 
 [node name="Listener" type="Listener" parent="Pivot"]
 
@@ -100,8 +101,9 @@ wagon_path = NodePath("../WagonPath")
 [node name="Placeholder" parent="Wagon/Fire" index="0"]
 visible = false
 
-[node name="OmniLight" parent="Wagon/Fire" index="4"]
-shadow_bias = 1.165
+[node name="OmniLight" parent="Wagon/Fire" index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46427, 0.00786126 )
+shadow_bias = 0.24
 
 [node name="WagonPath" type="Path" parent="."]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
@@ -269,6 +271,13 @@ transform = Transform( 1.73617, -0.092407, 0.525433, 0.134, 1.80702, -0.124972, 
 
 [node name="BigRock" parent="." instance=ExtResource( 18 )]
 transform = Transform( 3.80224, 0, 0, 0, 3.80224, 0, 0, 0, 3.80224, 11.9042, -2.05766, 3.69784 )
+
+[node name="IntroCamera" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.22, 1.90008, 0.523099 )
+current = true
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="IntroCamera"]
 
 [editable path="Wagon"]
 [editable path="Wagon/Fire"]

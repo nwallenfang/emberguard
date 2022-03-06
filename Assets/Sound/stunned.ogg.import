@@ -11,5 +11,5 @@ dest_files=[ "res://.import/stunned.ogg-a7181c797709b8452eae9c8c97f83c50.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

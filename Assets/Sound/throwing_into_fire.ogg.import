@@ -11,5 +11,5 @@ dest_files=[ "res://.import/throwing_into_fire.ogg-ece5707df7adaffb506cc2c5f2249
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

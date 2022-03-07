@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.03, 1, 0.03 )
+
+[node name="Weapon" type="Spatial"]
+
+[node name="Placeholder" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Placeholder"]
+transform = Transform( 1.81107, 0, 0, 0, 1.81107, 0, 0, 0, 1.81107, 0, 0.916905, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Placeholder"]
+transform = Transform( -1.49709e-08, 0.342495, 0, -1.81107, -7.91643e-08, 0, 0, 0, 1.81107, 0, 0.322917, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Placeholder"]
+transform = Transform( 3.46038e-15, -1.49709e-08, 1.81107, -1.81107, -1.49709e-08, 0, 7.91643e-08, -0.342495, -7.91643e-08, 0, 0.322917, 0 )
+mesh = SubResource( 1 )
+material/0 = null

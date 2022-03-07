@@ -32,6 +32,8 @@ export var god_mode: bool = true
 func _ready():
 	pass
 
+signal cannot_attack
+
 var jump_frame_count := -1
 func handle_input(delta):
 	if not CONTROLS_ENABLED:
@@ -54,7 +56,10 @@ func handle_input(delta):
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
 	
 	if Input.is_action_just_pressed("attack"):
-		state = State.ATTACK
+		if item_holded_count == 0:
+			state = State.ATTACK
+		else:
+			emit_signal("cannot_attack")
 
 
 func state_default(delta):
@@ -63,13 +68,13 @@ func state_default(delta):
 
 func state_stunned(delta):
 	execute_movement(delta)
-	print("stunn")
 
 var first_frame_attack := true
 func state_attack(delta):
 	if first_frame_attack:
 		first_frame_attack = false
-		$PlayerAttack.visible = true
+		#$PlayerAttack.visible = true
+		$WeaponAnimationPlayer.play("attack")
 		$PlayerAttack/PlayerAttackArea.set_deferred("monitoring", true)
 		$PlayerAttack/PlayerAttackArea.set_deferred("monitorable", true)
 		$PlayerAttack/AttackTimer.start()
@@ -113,6 +118,10 @@ func update_holding_hand():
 			$ItemHand.add_child(item)
 			item.translation += Vector3(0, stack_offset, 0) * i
 	move_acceleration = base_move_acceleration - item_holded_count * item_speed_punishment
+	if item_holded_count == 0:
+		$Weapon.visible = true
+	else:
+		$Weapon.visible = false
 	item_visible = item_holded
 	item_visible_count = item_holded_count
 
@@ -195,8 +204,6 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 	yield(get_tree().create_timer(0.2), "timeout")
 	$StunnedParticles.emitting = true
 
-
-	
 
 
 func _on_StunnedTimer_timeout() -> void:

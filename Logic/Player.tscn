@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
 [ext_resource path="res://Logic/ScentEmitter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sound/pickup_low_cut.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Objects/Items/Weapon.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -83,6 +84,175 @@ albedo_color = Color( 1, 0.0117647, 0.0117647, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=21]
 points = PoolVector3Array( 1.26147, 0.117867, 1.00688, -1.13554, -0.1, -0.910728, -1.13554, -0.1, 0.906141, -1.26147, 0.117867, -1.01147, 1.13554, -0.1, -0.910728, -1.26147, 0.117867, 1.00688, 1.26147, 0.117867, -1.01147, 1.13554, -0.1, 0.906141 )
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.623133, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.47041, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.6046, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 58.093, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -29.877, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "attack"
+length = 0.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.649806, -0.25, 0, 0.2, 0.472094, 0.648305, -0.2, -0.336941, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.47041, -0.25, 0, 0.25, 0, 0.47041, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.649055, -0.25, 0, 0.1, -0.0460637, 0.506796, -0.1, 0.0594547, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 58.093, -0.25, 0, 0.1, 7.06531, 85.27, -0.1, -4.63407, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -29.877, -0.25, 0, 0.1, 13.4435, 31.471, -0.1, -6.04225, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("../WeaponAnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.587568, 0.47041, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 58.093, 0, 0 ) ]
+}
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -222,6 +392,15 @@ shape = SubResource( 21 )
 [node name="AttackTimer" type="Timer" parent="PlayerAttack"]
 wait_time = 0.1
 one_shot = true
+
+[node name="WeaponAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Weapon")
+anims/RESET = SubResource( 24 )
+anims/attack = SubResource( 23 )
+anims/idle = SubResource( 25 )
+
+[node name="Weapon" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.867097, -0.422874, -0.263288, 0, 0.528542, -0.848907, 0.49814, 0.736085, 0.458297, -0.623133, 0.47041, 0.6046 )
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

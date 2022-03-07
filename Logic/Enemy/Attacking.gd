@@ -16,7 +16,12 @@ func process(_delta: float, first_time_entering: bool):
 		
 #		var dist_to_player = Game.player.global_transform.origin.distance_to(parent.global_transform.origin)
 
-		parent.global_transform.origin = attack_towards
+		#parent.global_transform.origin = attack_towards
+		parent = parent as WaterEnemy
+		var jump_power := 20.0
+		var jump_acc : Vector3 = (attack_towards - parent.global_transform.origin) * jump_power
+		jump_acc.y = jump_power
+		parent.add_acceleration(attack_towards - parent.global_transform.origin)
 		# jump towards position
 		# not for now
 		

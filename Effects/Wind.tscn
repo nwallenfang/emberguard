@@ -31,7 +31,7 @@ size = Vector2( 3, 3 )
 [node name="WindParticles" type="Particles" parent="."]
 transform = Transform( 2.56554, 0, 0, 0, -1.12143e-07, 2.56554, 0, -2.56554, -1.12143e-07, 0, 0, 0 )
 material_override = SubResource( 7 )
-amount = 20
+amount = 6
 lifetime = 5.0
 visibility_aabb = AABB( -10.9973, -10.8059, -10.9585, 21.9648, 21.7815, 21.8282 )
 local_coords = false

@@ -40,7 +40,7 @@ func main_game_started():
 	$FPSCounter.visible = true
 
 export var wagon_marker_border := 200
-export var wagon_marker_distance := 10.0
+export var wagon_marker_distance := 14.0
 func update_wagon_marker():
 	if Game.player_distance_to_wagon < wagon_marker_distance:
 		$WagonMarker.visible = false

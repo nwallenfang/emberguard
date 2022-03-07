@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://our_environment.tres" type="Environment" id=21]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=22]
 [ext_resource path="res://Assets/Meshes/lowpoly_tree_translated.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://Effects/Wind.tscn" type="PackedScene" id=24]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -122,6 +123,9 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="Pivot/Camera"]
 
 [node name="Listener" type="Listener" parent="Pivot"]
+
+[node name="WindParticles" parent="Pivot" instance=ExtResource( 24 )]
+transform = Transform( -1, 7.57104e-08, -4.37114e-08, -7.57103e-08, -0.500001, 0.866025, 4.37113e-08, 0.866025, 0.500001, 1.52588e-05, -1.52588e-05, 7.62939e-06 )
 
 [node name="Wagon" parent="." instance=ExtResource( 14 )]
 transform = Transform( -0.0301024, 0, -0.999547, 0, 1, 0, 0.999547, 0, -0.0301024, -142.482, -0.00917762, 151.239 )

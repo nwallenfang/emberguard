@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Meshes/Rock3.gltf" type="PackedScene" id=1]
+
+[node name="Rock3" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00561887, 0.524703, -0.00571787 )
+polygon = PoolVector2Array( -0.814002, 0.548781, 0.304722, 0.569499, 0.555917, 0.393403, 0.555917, -0.448229, 0.227033, -0.601018, -0.744081, -0.616556, -0.82954, -0.528508 )
+
+[node name="Rock3" parent="." instance=ExtResource( 1 )]

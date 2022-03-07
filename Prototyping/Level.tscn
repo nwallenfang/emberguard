@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -23,7 +23,9 @@
 [ext_resource path="res://our_environment.tres" type="Environment" id=21]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=22]
 [ext_resource path="res://Assets/Meshes/lowpoly_tree_translated.obj" type="ArrayMesh" id=23]
-[ext_resource path="res://Effects/Wind.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Environment/Bush2.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Environment/BushWithFruit.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/Environment/Bush1.tscn" type="PackedScene" id=26]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -123,9 +125,6 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="Pivot/Camera"]
 
 [node name="Listener" type="Listener" parent="Pivot"]
-
-[node name="WindParticles" parent="Pivot" instance=ExtResource( 24 )]
-transform = Transform( -1, 7.57104e-08, -4.37114e-08, -7.57103e-08, -0.500001, 0.866025, 4.37113e-08, 0.866025, 0.500001, 1.52588e-05, -1.52588e-05, 7.62939e-06 )
 
 [node name="Wagon" parent="." instance=ExtResource( 14 )]
 transform = Transform( -0.0301024, 0, -0.999547, 0, 1, 0, 0.999547, 0, -0.0301024, -142.482, -0.00917762, 151.239 )
@@ -1459,3 +1458,21 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
+
+[node name="Bush2" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.89, 6.19888e-06, 136.893 )
+
+[node name="Bush1" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -131.209, 6.67572e-06, 160.104 )
+
+[node name="Bush3" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141.064, 4.29153e-06, 137.102 )
+
+[node name="BushWithFruit" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -134.738, 4.52995e-06, 130.076 )
+
+[node name="BushWithFruit2" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -147.131, 5.72205e-06, 139.854 )
+
+[node name="Bush4" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -137.986, 5.72205e-06, 137.954 )

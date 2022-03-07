@@ -1,0 +1,347 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2,
+                3
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Fruit.006",
+            "rotation" : [
+                0.025112949311733246,
+                0.019418150186538696,
+                0.04212736338376999,
+                0.9986078143119812
+            ],
+            "translation" : [
+                0.08690880239009857,
+                0,
+                -0.05481940135359764
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "Fruit.007",
+            "rotation" : [
+                0.019888166338205338,
+                -0.057104580104351044,
+                0.0968877375125885,
+                0.9934568405151367
+            ],
+            "translation" : [
+                -0.08397532999515533,
+                0,
+                -0.05481940135359764
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Fruit.008",
+            "rotation" : [
+                -0.045884259045124054,
+                -0.018241945654153824,
+                -0.004175802227109671,
+                0.9987714886665344
+            ],
+            "translation" : [
+                -0.00013528019189834595,
+                0,
+                0.11149311065673828
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "Fruit.009",
+            "rotation" : [
+                0.13379639387130737,
+                0.05319267138838768,
+                0.012176440097391605,
+                0.9895053505897522
+            ],
+            "translation" : [
+                0,
+                0.1300000101327896,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Fruit",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.6039051413536072,
+                    0.8000000715255737,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.7598425149917603
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Sphere.006",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Sphere.007",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Sphere.008",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 7,
+                        "NORMAL" : 8,
+                        "TEXCOORD_0" : 9
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Sphere.009",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 10,
+                        "NORMAL" : 11,
+                        "TEXCOORD_0" : 12
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 287,
+            "max" : [
+                0.1013675108551979,
+                0.1370985507965088,
+                0.1013675108551979
+            ],
+            "min" : [
+                -0.10136750340461731,
+                -0.10058370232582092,
+                -0.1013675332069397
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 1440,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 287,
+            "max" : [
+                0.1013675108551979,
+                0.1370985507965088,
+                0.1013675108551979
+            ],
+            "min" : [
+                -0.10136750340461731,
+                -0.10058370232582092,
+                -0.1013675332069397
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 287,
+            "max" : [
+                0.1013675108551979,
+                0.1370985507965088,
+                0.1013675108551979
+            ],
+            "min" : [
+                -0.10136750340461731,
+                -0.10058370232582092,
+                -0.1013675332069397
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 287,
+            "max" : [
+                0.1013675108551979,
+                0.1370985507965088,
+                0.1013675108551979
+            ],
+            "min" : [
+                -0.10136750340461731,
+                -0.10058370232582092,
+                -0.1013675332069397
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 287,
+            "type" : "VEC2"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 3444
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2296,
+            "byteOffset" : 6888
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 9184
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 12064
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 15508
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2296,
+            "byteOffset" : 18952
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 21248
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 24692
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2296,
+            "byteOffset" : 28136
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 30432
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3444,
+            "byteOffset" : 33876
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2296,
+            "byteOffset" : 37320
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 39616,
+            "uri" : "FruitPile.bin"
+        }
+    ]
+}

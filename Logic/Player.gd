@@ -121,6 +121,7 @@ const LOG = preload("res://Objects/Items/Log.tscn")
 const LOG2 = preload("res://Objects/Items/LogStack2.tscn")
 const LOG3 = preload("res://Objects/Items/LogStack3.tscn")
 const PLANT = preload("res://Objects/Items/Plant.tscn")
+const FRUIT_PILE = preload("res://Objects/Items/FruitPile.tscn")
 func make_item(custom_item = "", add_to_tree_scene = true, count = 0) -> Spatial:
 	if count == 0:
 		count = item_holded_count
@@ -139,6 +140,8 @@ func make_item(custom_item = "", add_to_tree_scene = true, count = 0) -> Spatial
 					inst = LOG3.instance()
 		"plant":
 			inst = PLANT.instance()
+		"fruit_pile":
+			inst = FRUIT_PILE.instance()
 	if inst != null and add_to_tree_scene:
 		get_tree().current_scene.add_child(inst)
 	return inst

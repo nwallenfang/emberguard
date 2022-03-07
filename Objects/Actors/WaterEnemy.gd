@@ -48,7 +48,7 @@ func _on_Hurtbox_area_entered(area):
 	yield(get_tree().create_timer(.5), "timeout")
 	if health == 0:
 		$DeathParticles.emitting = true
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(.7), "timeout")
 		queue_free()
 
 func _on_InvincTimer_timeout():

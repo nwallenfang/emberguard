@@ -169,7 +169,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352848, 0 )
 emitting = false
 amount = 20
 one_shot = true
-explosiveness = 0.88
+speed_scale = 1.5
+explosiveness = 0.92
+local_coords = false
 process_material = SubResource( 12 )
 draw_pass_1 = SubResource( 13 )
 

@@ -35,6 +35,7 @@ func _ready() -> void:
 	
 	$IntroCamera.move_to_transform($Pivot/Camera.global_transform)
 	yield($IntroCamera/Tween, "tween_all_completed")
+	$Wagon/Fire/FireParticles/Smoke.emitting = true
 	Game.main_game_running = true
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true

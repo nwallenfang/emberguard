@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 		# dont pause if it's game over
 		if not $CenterContainer/GameOverBox.visible:
 			get_tree().paused = not get_tree().paused
-			$CenterContainer/PausedLabel.visible = get_tree().paused
+			$PauseView.visible = get_tree().paused
 	
 	update_wagon_marker()
 	
@@ -91,3 +91,13 @@ func _on_RestartButton_pressed() -> void:
 func set_interact_text(text:String):
 	$InteractLabel.visible = text != ""
 	$InteractLabel.text = "Press E to " + text
+
+
+func _on_SFXSlider_value_changed(value: float) -> void:
+	var index = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(index, linear2db(value))
+
+
+func _on_MusicSlider_value_changed(value: float) -> void:
+	var index = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(index, linear2db(value))

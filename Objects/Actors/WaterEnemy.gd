@@ -27,3 +27,30 @@ func _on_DetectionArea_area_entered(_area: Area) -> void:
 	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory
 		emit_signal("player_detected")
 		$EnemyStateMachine.transition_deferred("PlayerSpotted")
+
+export var health := 3
+var knockback_power := 1200.0
+func _on_Hurtbox_area_entered(area):
+	var direction = area.global_transform.origin.direction_to(global_transform.origin)
+	if area.name.begins_with("Player"):
+		health -= 1
+		direction.y = 0
+		direction = direction.normalized() * knockback_power
+		direction.y = knockback_power * .6
+	else:
+		direction.y = 0
+		direction = direction.normalized() * knockback_power * .1
+		direction.y = knockback_power * .8
+	add_acceleration(direction)
+	$Hurtbox.set_deferred("monitoring", false)
+	$Hurtbox.set_deferred("monitorable", false)
+	$InvincTimer.start()
+	yield(get_tree().create_timer(.5), "timeout")
+	if health == 0:
+		$DeathParticles.emitting = true
+		yield(get_tree().create_timer(1), "timeout")
+		queue_free()
+
+func _on_InvincTimer_timeout():
+	$Hurtbox.set_deferred("monitoring", true)
+	$Hurtbox.set_deferred("monitorable", true)

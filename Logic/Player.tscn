@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
@@ -75,9 +75,21 @@ subdivide_depth = 3
 params_cull_mode = 2
 albedo_color = Color( 1, 0, 0, 1 )
 
+[sub_resource type="CubeMesh" id=19]
+size = Vector3( 2.5, 0.2, 2 )
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_color = Color( 1, 0.0117647, 0.0117647, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=21]
+points = PoolVector3Array( 1.26147, 0.117867, 1.00688, -1.13554, -0.1, -0.910728, -1.13554, -0.1, 0.906141, -1.26147, 0.117867, -1.01147, 1.13554, -0.1, -0.910728, -1.26147, 0.117867, 1.00688, 1.26147, 0.117867, -1.01147, 1.13554, -0.1, 0.906141 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+stun_time = 1.5
+invinc_time = 2.0
 god_mode = false
+item_speed_punishment = 7.0
 
 [node name="PrototypeLook" type="Spatial" parent="."]
 
@@ -132,6 +144,7 @@ process_material = SubResource( 12 )
 draw_pass_1 = SubResource( 13 )
 
 [node name="StunnedTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
@@ -186,8 +199,33 @@ bus = "SFX"
 
 [node name="OmniLight" type="OmniLight" parent="."]
 
+[node name="PlayerAttack" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703394, 0.585059 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="PlayerAttack"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.698139 )
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="PlayerAttackArea" type="Area" parent="PlayerAttack"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.546567 )
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerAttack/PlayerAttackArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20642 )
+shape = SubResource( 21 )
+
+[node name="AttackTimer" type="Timer" parent="PlayerAttack"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="StunnedTimer" to="." method="_on_StunnedTimer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="PlayerAttack/AttackTimer" to="." method="_on_AttackTimer_timeout"]

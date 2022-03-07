@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://Objects/Environment/Bush2.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Environment/BushWithFruit.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Objects/Environment/Bush1.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Objects/Environment/Rock3.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Objects/Environment/Rock1.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Objects/Environment/Rock2.tscn" type="PackedScene" id=29]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -1476,3 +1479,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -147.131, 5.72205e-06, 139.854
 
 [node name="Bush4" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -137.986, 5.72205e-06, 137.954 )
+
+[node name="Rock1" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -147.582, 6.19888e-06, 142.738 )
+
+[node name="Rock2" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -138.976, 6.67572e-06, 143.724 )
+
+[node name="Rock3" parent="." instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -142.931, 6.19888e-06, 141.271 )

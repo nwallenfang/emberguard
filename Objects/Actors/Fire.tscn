@@ -45,10 +45,12 @@ max_db = 4.194
 autoplay = true
 max_distance = 30.0
 out_of_range_mode = 1
+bus = "SFX"
 attenuation_filter_db = -22.0
 
 [node name="RefuelSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+bus = "SFX"
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86348, 1.27045 )

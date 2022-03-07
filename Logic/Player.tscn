@@ -181,6 +181,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573, 0.809492, 0 )
 [node name="PickUpPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -2.905
+bus = "SFX"
+
+[node name="OmniLight" type="OmniLight" parent="."]
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

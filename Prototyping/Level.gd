@@ -3,7 +3,7 @@ extends Spatial
 signal intro_button_pressed
 
 func _ready() -> void:
-
+	$WorldEnvironment.environment.fog_enabled = true
 	Game.player = $Player
 	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
 	Game.wagon = $Wagon

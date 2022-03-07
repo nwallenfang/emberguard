@@ -9,7 +9,7 @@ func process(_delta: float, first_time_entering: bool):
 	# move fast towards player for now when the player is spotted
 	if first_time_entering:
 		$SpottedPlayerParticles.emitting = true
-		parent.get_node("Hitbox").set_deferred("monitorable", true)
+		
 		
 	#var player_pos: Vector2 = Vector2(Game.player.global_transform.origin.x, Game.player.global_transform.origin.z)
 	var player_pos = parent.get_node("ScentSearcher").get_target_position()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
 [ext_resource path="res://Logic/ScentEmitter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sound/pickup_low_cut.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -176,6 +177,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21211, 1.4011, -0.457355 )
 
 [node name="ItemHand" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573, 0.809492, 0 )
+
+[node name="PickUpPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -2.905
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

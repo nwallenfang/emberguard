@@ -110,6 +110,7 @@ func try_hold_item(item_name:String):
 			item_holded = item_name
 			item_holded_count = 1
 	update_holding_hand()
+	$PickUpPlayer.play()
 	return true
 
 func loose_item():

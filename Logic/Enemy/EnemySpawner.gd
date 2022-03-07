@@ -71,11 +71,15 @@ func _on_Timer_timeout():
 	for enemy_type in enemy_types:
 		var delete_enemies = []
 		for enemy in all_enemies[enemy_type]:
+			if not is_instance_valid(enemy):
+				delete_enemies.append(enemy)
+				continue
 			if enemy.translation.distance_to(player.translation) > despawn_range:
 				delete_enemies.append(enemy)
 		for enemy in delete_enemies:
 			all_enemies[enemy_type].erase(enemy)
-			enemy.queue_free()
+			if is_instance_valid(enemy):
+				enemy.queue_free()
 		
 		if all_enemies[enemy_type].size() < enemy_target_count[enemy_type]:
 			#print("try spawning enemy")

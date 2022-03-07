@@ -9,9 +9,9 @@ func process(_delta: float, first_time_entering: bool):
 	# TODO 
 	if first_time_entering:
 #		$PrepareAttack.emitting = true
-		yield(get_tree().create_timer(0.65 * attack_delay), "timeout")
+		yield(get_tree().create_timer(0.55 * attack_delay), "timeout")
 		attack_towards = Game.player.global_transform.origin
-		yield(get_tree().create_timer(0.25 * attack_delay), "timeout")
+		yield(get_tree().create_timer(0.2 * attack_delay), "timeout")
 		# if player is still close to the enemy, execute the attack
 
 		parent.get_node("Hitbox").set_deferred("monitorable", true)
@@ -27,7 +27,7 @@ func process(_delta: float, first_time_entering: bool):
 		
 		
 		# delay needed for some reason
-		yield(get_tree().create_timer(3), "timeout")
+		yield(get_tree().create_timer(2.5), "timeout")
 		state_machine.transition_deferred("Idle")
 
 

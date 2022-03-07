@@ -4,7 +4,8 @@ class_name Player
 
 enum State {
 	DEFAULT,
-	STUNNED
+	STUNNED,
+	ATTACK
 }
 
 var state = State.DEFAULT
@@ -21,8 +22,8 @@ export var ground_dampening = 0.7
 
 export var knockback_acc := 1600.0
 
-export var stun_time = 1.0
-export var invinc_time = 2.0
+export var stun_time = 2.0
+export var invinc_time = 3.0
 
 onready var scent_emitter := $ScentEmitter
 
@@ -51,15 +52,36 @@ func handle_input(delta):
 	var angular_velocity := 30.0
 	if look_vec2 != Vector2.ZERO:
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
-		
+	
+	if Input.is_action_just_pressed("attack"):
+		state = State.ATTACK
 
 
 func state_default(delta):
 	handle_input(delta)
 	execute_movement(delta)
-	
+
 func state_stunned(delta):
 	execute_movement(delta)
+	print("stunn")
+
+var first_frame_attack := true
+func state_attack(delta):
+	if first_frame_attack:
+		first_frame_attack = false
+		$PlayerAttack.visible = true
+		$PlayerAttack/PlayerAttackArea.set_deferred("monitoring", true)
+		$PlayerAttack/PlayerAttackArea.set_deferred("monitorable", true)
+		$PlayerAttack/AttackTimer.start()
+	handle_input(delta)
+	execute_movement(delta)
+
+func _on_AttackTimer_timeout():
+	state = State.DEFAULT
+	first_frame_attack = true
+	$PlayerAttack.visible = false
+	$PlayerAttack/PlayerAttackArea.set_deferred("monitoring", false)
+	$PlayerAttack/PlayerAttackArea.set_deferred("monitorable", false)
 
 func match_state(delta):
 	match state:
@@ -67,6 +89,8 @@ func match_state(delta):
 			state_default(delta)
 		State.STUNNED:
 			state_stunned(delta)
+		State.ATTACK:
+			state_attack(delta)
 
 func _physics_process(delta: float) -> void:
 #	print("hurtbox active: ")
@@ -183,3 +207,4 @@ func _on_StunnedTimer_timeout() -> void:
 func _on_InvincibilityTimer_timeout() -> void:
 	$Hurtbox.set_deferred("monitoring", true)
 	$Hurtbox.set_deferred("monitorable", true)
+

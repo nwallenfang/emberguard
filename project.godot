@@ -76,7 +76,7 @@ _global_script_class_icons={
 
 config/name="Emberguard"
 run/main_scene="res://Prototyping/Level.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Sprites/fireUI.png"
 
 [autoload]
 

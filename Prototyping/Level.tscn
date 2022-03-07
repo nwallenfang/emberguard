@@ -258,13 +258,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15599, -1.90734e-06, -5.629
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98901, -1.90734e-06, -7.52901 )
 
 [node name="Rock1" parent="Environment" instance=ExtResource( 28 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60699, -1.43051e-06, -2.745 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0527, -1.43051e-06, -4.17474 )
+
+[node name="Rock5" parent="Environment" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52934, -2.14576e-06, -12.101 )
 
 [node name="Rock2" parent="Environment" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999008, -9.5367e-07, -1.759 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394226, -9.5367e-07, -6.53993 )
 
 [node name="Rock3" parent="Environment" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95599, -1.43051e-06, -4.21201 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95599, -1.43051e-06, -4.91779 )
+
+[node name="Rock4" parent="Environment" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28082, -1.43051e-06, -10.411 )
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -150.638, 7.62939e-06, 146.688 )
@@ -293,7 +299,8 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":1865551254313973255,"state":-6447006648463000870,"script":null)
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/project_on_floor.gd" ),"enabled":true,"display_name":"Project On Floor","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"ray_length":10.0,"ray_offset":1.0,"remove_points_on_miss":true,"align_with_floor_normal":false,"invert_ray_direction":false,"floor_direction":Vector3( 0, -1, 0 ),"max_slope":1.0,"mask":"1048575")
- ],"just_created":false,"undo_redo":null)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
 
 
 [node name="Tree" type="Spatial" parent="Scatters/ScatterRightSide"]
@@ -1324,3 +1331,407 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
+
+[node name="RocksRightSide" type="Path" parent="Scatters"]
+curve = ExtResource( 33 )
+script = ExtResource( 22 )
+global_seed = 1
+use_instancing = false
+modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":50,"_rng":Object(RandomNumberGenerator,"seed":706054105360973658,"state":3223591960992074609,"script":null)
+)
+, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":-5661584379925180372,"state":4332174238474399323,"script":null)
+)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
+
+
+[node name="Rocks1" type="Spatial" parent="Scatters/RocksRightSide"]
+script = ExtResource( 1 )
+item_path = "res://Objects/Environment/Rock1.tscn"
+materials = [  ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatters/RocksRightSide/Rocks1"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Rock1" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.31829, -0.0557188, 0.163482, 0.0497351, 1.32763, 0.0514352, -0.1654, -0.0448839, 1.31847, 81.6425, -0.100384, -89.3139 )
+
+[node name="Rock2" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.3533, -0.0619358, -1.08344, 0.159392, 1.72441, 0.100516, 1.07344, -0.17797, 1.35098, 58.9202, -0.112675, -81.5932 )
+
+[node name="Rock3" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.685744, 0.0230523, -1.61194, -0.00802277, 1.75164, 0.0284632, 1.61208, 0.0185233, -0.685541, 148.994, 0.0425444, 141.546 )
+
+[node name="Rock4" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.51483, 0.0717512, -0.0615094, 0.0731889, 1.51562, -0.0344875, 0.0597915, -0.0373866, -1.51614, 80.1821, -0.0686587, 92.2407 )
+
+[node name="Rock5" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.11786, -0.070134, 1.29275, -0.178109, 1.70006, -0.0617826, -1.28234, -0.174989, -1.11836, 7.50865, -0.136909, -31.5515 )
+
+[node name="Rock6" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 0.914388, -0.020007, 1.14145, -0.0352604, 1.46125, 0.0538589, -1.14108, -0.0611866, 0.913019, 91.2857, 0.0742579, -42.3648 )
+
+[node name="Rock7" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.22321, 0.0382553, 0.625127, 0.034353, 1.37369, -0.0168446, -0.625353, 0.000633374, -1.2237, 64.1148, -0.0708545, -50.993 )
+
+[node name="Rock8" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.372952, -0.00901759, 1.00548, 0.0239193, 1.07203, 0.0184865, -1.00524, 0.0288542, -0.372602, 61.7456, 0.0459524, 168.824 )
+
+[node name="Rock9" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.31873, 0.063668, 0.0211879, 0.0627963, 1.31792, -0.0518348, -0.0236469, -0.0507602, -1.31924, 159.774, -0.00836114, -31.919 )
+
+[node name="Rock10" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 0.371706, 0.0115616, 1.18669, -0.0967024, 1.23969, 0.0182121, -1.1828, -0.0977209, 0.371439, 60.9289, -0.0568786, -52.7522 )
+
+[node name="Rock11" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.4454, 0.00018309, 1.24193, -0.0293896, 1.90514, 0.0339239, -1.24158, -0.0448837, 1.44501, 44.6628, 0.10171, -12.6467 )
+
+[node name="Rock12" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.784758, -0.00779214, 1.83401, 0.0537843, 1.99389, 0.0314853, -1.83323, 0.0618333, -0.784165, 143.813, -0.134026, -3.73858 )
+
+[node name="Rock13" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.0940286, -0.00478439, -1.71233, -0.207208, 1.70234, 0.00662184, 1.69976, 0.207259, -0.0939171, -57.1256, 0.023749, -56.7921 )
+
+[node name="Rock14" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.52188, -0.127542, -0.108248, 0.12512, 1.52544, -0.0382527, 0.111038, 0.0291775, 1.52673, 142.766, 0.0612324, 0.2375 )
+
+[node name="Rock15" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.235531, 0.0123904, -1.22692, 0.0386951, 1.24877, 0.00518287, 1.22637, -0.0370223, -0.2358, 77.7236, -0.0479869, 22.1614 )
+
+[node name="Rock16" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.08545, 0.0368737, -1.00267, -0.00827064, 1.47742, 0.0453795, 1.00331, -0.0277135, 1.08512, 20.2251, 0.0805921, 39.9163 )
+
+[node name="Rock17" parent="Scatters/RocksRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.86348, -0.0811237, 0.438011, 0.0598145, 1.91245, 0.0997275, -0.441426, -0.0833205, 1.86257, 72.5507, -0.171577, 142.56 )
+
+[node name="Rocks2" type="Spatial" parent="Scatters/RocksRightSide"]
+script = ExtResource( 1 )
+item_path = "res://Objects/Environment/Rock2.tscn"
+materials = [  ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatters/RocksRightSide/Rocks2"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Rock2" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.201342, -0.00558066, 1.38274, -0.010883, 1.39729, 0.00405468, -1.38271, -0.0101851, -0.201379, -0.188876, 0.143021, -54.0949 )
+
+[node name="Rock3" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.56593, 0.00497304, -0.125881, 0.0118964, 1.56859, -0.0860208, 0.125416, -0.086697, -1.56358, 58.6938, 0.0984378, -32.4361 )
+
+[node name="Rock4" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.41527, 0.0384525, -0.4337, 0.0137299, 1.47815, 0.0862514, 0.435185, 0.0784169, -1.41316, 113.053, 0.0085239, -86.4406 )
+
+[node name="Rock5" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.987122, -0.0281897, 1.21438, 0.0390178, 1.56325, 0.0680046, -1.21408, 0.0731598, -0.98518, 6.3636, -0.108545, -48.1591 )
+
+[node name="Rock6" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 0.795547, -0.021725, 1.27102, 0.1196, 1.49403, -0.0493224, -1.26557, 0.127534, 0.794314, 39.7964, 0.101161, -6.65224 )
+
+[node name="Rock7" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.92049, -0.014771, 0.484366, 0.0126318, 1.03869, 0.0556809, -0.484427, 0.0551519, -0.918923, -68.0268, -0.0664098, 136.369 )
+
+[node name="Rock8" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.540829, 0.027018, 0.940145, 0.0667489, 1.08286, 0.00727871, -0.938161, 0.0614689, -0.541454, 132.154, 0.113639, -8.09239 )
+
+[node name="Rock9" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.580036, -0.0397007, -1.36301, -0.210207, 1.4661, 0.0467514, 1.34729, 0.211652, -0.579511, 9.4431, -0.0335534, -81.8305 )
+
+[node name="Rock10" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 0.944808, -0.0740017, -0.825184, 0.164432, 1.24344, 0.0767592, 0.812014, -0.165692, 0.944588, 71.5357, -0.0920289, 106.211 )
+
+[node name="Rock11" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.201082, 0.016153, -1.31987, 0.220154, 1.31681, -0.0174248, 1.30148, -0.220251, -0.200976, 108.489, -0.0222737, 164.61 )
+
+[node name="Rock12" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 1.02508, -0.0462461, -1.52395, 0.140602, 1.8314, 0.038999, 1.51815, -0.138387, 1.02538, 159.516, 0.184602, -92.7177 )
+
+[node name="Rock13" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.38598, 0.0451937, 1.03702, 0.0818972, 1.72932, 0.0340921, -1.03477, 0.0763345, -1.3863, 148.192, -0.0902914, 51.0025 )
+
+[node name="Rock14" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.102183, 0.000155139, 1.32288, 0.068629, 1.32503, 0.00514573, -1.32109, 0.0688215, -0.102054, 113.078, -0.0983964, 16.1345 )
+
+[node name="Rock15" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 0.786744, -0.0630257, -1.0062, 0.180762, 1.26445, 0.0621346, 0.991836, -0.180453, 0.786815, 86.9526, 0.0100728, 160.128 )
+
+[node name="Rock16" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.66676, -0.0796302, -0.344262, -0.082432, 1.7018, 0.00546049, 0.343602, 0.0219976, -1.66865, 96.9328, -0.0631376, 40.4113 )
+
+[node name="Rock17" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 1.28054, 0.0468599, 0.312581, -0.0551809, 1.31751, 0.0285468, -0.31122, -0.0407922, 1.28108, -71.3132, 0.12959, 158.631 )
+
+[node name="Rock18" parent="Scatters/RocksRightSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 1.18335, -0.00155533, -0.0815753, 0.00109499, 1.18614, -0.006731, 0.0815828, 0.00663975, 1.18333, 152.923, 0.0641927, 11.0815 )
+
+[node name="Rocks3" type="Spatial" parent="Scatters/RocksRightSide"]
+script = ExtResource( 1 )
+item_path = "res://Objects/Environment/Rock3.tscn"
+materials = [  ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatters/RocksRightSide/Rocks3"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Rock3" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.261705, -0.0112447, -1.67482, 0.0375513, 1.69475, -0.00551083, 1.67443, -0.0362495, 0.261889, 75.9866, 0.0931804, 18.0897 )
+
+[node name="Rock4" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.00198, 0.0186181, 1.01902, -0.0241545, 1.42816, -0.0498438, -1.01891, -0.0521652, -1.00091, 148.526, -0.0566804, -95.9127 )
+
+[node name="Rock5" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.84923, 0.156272, 0.580754, -0.178482, 1.93578, 0.0474305, -0.574317, -0.0984094, 1.85522, -157.862, 0.212299, 172.954 )
+
+[node name="Rock6" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -0.217354, 0.0122348, 1.81545, 0.104695, 1.82546, 0.000232319, -1.81247, 0.103978, -0.217698, 64.1319, -0.136113, -88.9661 )
+
+[node name="Rock7" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.25423, 0.0573332, 1.2032, -0.171697, 1.72778, 0.0966486, -1.19226, -0.188503, 1.25181, 94.7113, 0.0543094, -56.4472 )
+
+[node name="Rock8" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.37699, -0.0678895, 0.976139, 0.0275533, 1.6872, 0.0784749, -0.978109, -0.048047, 1.37642, 129.985, -0.0891792, -93.9133 )
+
+[node name="Rock9" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.945086, -0.0496126, 0.870566, -0.00390801, 1.28356, 0.0773913, -0.87197, -0.0595254, 0.943217, 94.7662, -0.0532719, -76.5389 )
+
+[node name="Rock10" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.39145, 0.0646053, 0.854606, -0.00137806, 1.62973, -0.120958, -0.857043, 0.102269, 1.38768, 56.8875, -0.118908, -22.0459 )
+
+[node name="Rock11" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.701781, -0.0205039, 1.63763, 0.0211215, 1.78161, 0.0132553, -1.63762, 0.0141919, 0.701956, 97.7615, -0.05913, 37.6541 )
+
+[node name="Rock12" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.13245, 0.0293661, 0.559854, 0.0325546, 1.2632, -0.000408857, -0.559678, 0.0140571, -1.13283, 73.0641, 0.0734435, -91.4923 )
+
+[node name="Rock13" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.02312, 0.0225565, -0.18703, -0.0224268, 1.04008, 0.00275431, 0.187045, 0.00132312, 1.02337, 6.75994, 0.101423, -6.35437 )
+
+[node name="Rock14" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.288052, -0.00370206, 1.06669, 0.070002, 1.10258, -0.0150769, -1.06439, 0.0715114, 0.287681, 74.9996, 0.0134086, -38.5168 )
+
+[node name="Rock15" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.991287, 0.0843742, 0.191886, -0.0837529, 1.00968, -0.0112958, -0.192158, -0.00481007, 0.994807, 127.275, 0.000835368, -85.8375 )
+
+[node name="Rock16" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.352542, 0.0106705, 1.4116, -0.116634, 1.4502, 0.0181668, -1.40681, -0.117558, 0.352236, 89.3054, 0.13763, 95.1552 )
+
+[node name="Rock17" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.65262, -0.0906835, 0.476253, -0.112504, 1.71741, -0.0633804, -0.471575, -0.091928, -1.65389, 12.8361, 0.0682019, 16.4527 )
+
+[node name="Rock18" parent="Scatters/RocksRightSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.12618, 0.0137285, 1.36928, -0.0835195, 1.76888, -0.0864264, -1.3668, -0.119401, -1.12294, 81.4562, 0.119691, -81.0632 )
+
+[node name="RocksLeftSide" type="Path" parent="Scatters"]
+curve = ExtResource( 34 )
+script = ExtResource( 22 )
+global_seed = 1
+use_instancing = false
+modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":50,"_rng":Object(RandomNumberGenerator,"seed":-1309078038172842260,"state":2916484397723258395,"script":null)
+)
+, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":-5661584379925180372,"state":4332174238474399323,"script":null)
+)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
+
+
+[node name="Rocks1" type="Spatial" parent="Scatters/RocksLeftSide"]
+script = ExtResource( 1 )
+item_path = "res://Objects/Environment/Rock1.tscn"
+materials = [  ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatters/RocksLeftSide/Rocks1"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Rock1" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.31829, -0.0557188, 0.163482, 0.0497351, 1.32763, 0.0514352, -0.1654, -0.0448839, 1.31847, -73.8321, -0.118145, -4.9975 )
+
+[node name="Rock2" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.3533, -0.0619358, -1.08344, 0.159392, 1.72441, 0.100516, 1.07344, -0.17797, 1.35098, 44.1719, -0.130436, -143.23 )
+
+[node name="Rock3" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.685744, 0.0230523, -1.61194, -0.00802277, 1.75164, 0.0284632, 1.61208, 0.0185233, -0.685541, 24.3071, 0.0247832, -135.36 )
+
+[node name="Rock4" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.51483, 0.0717512, -0.0615094, 0.0731889, 1.51562, -0.0344875, 0.0597915, -0.0373866, -1.51614, -146.818, -0.0864199, 67.3309 )
+
+[node name="Rock5" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.11786, -0.070134, 1.29275, -0.178109, 1.70006, -0.0617826, -1.28234, -0.174989, -1.11836, -42.5791, -0.154671, 90.0538 )
+
+[node name="Rock6" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 0.914388, -0.020007, 1.14145, -0.0352604, 1.46125, 0.0538589, -1.14108, -0.0611866, 0.913019, -139.872, 0.0564967, -19.3081 )
+
+[node name="Rock7" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.22321, 0.0382553, 0.625127, 0.034353, 1.37369, -0.0168446, -0.625353, 0.000633374, -1.2237, -121.662, -0.0886157, 29.4975 )
+
+[node name="Rock8" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.372952, -0.00901759, 1.00548, 0.0239193, 1.07203, 0.0184865, -1.00524, 0.0288542, -0.372602, -61.0712, 0.0281912, 55.5679 )
+
+[node name="Rock9" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -1.31873, 0.063668, 0.0211879, 0.0627963, 1.31792, -0.0518348, -0.0236469, -0.0507602, -1.31924, -4.26698, -0.0261223, 77.0424 )
+
+[node name="Rock10" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 0.371706, 0.0115616, 1.18669, -0.0967024, 1.23969, 0.0182121, -1.1828, -0.0977209, 0.371439, -89.3829, -0.0746398, 74.8505 )
+
+[node name="Rock11" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.4454, 0.00018309, 1.24193, -0.0293896, 1.90514, 0.0339239, -1.24158, -0.0448837, 1.44501, -98.5135, 0.0839489, 22.0326 )
+
+[node name="Rock12" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.784758, -0.00779214, 1.83401, 0.0537843, 1.99389, 0.0314853, -1.83323, 0.0618333, -0.784165, -76.0615, -0.151787, -108.906 )
+
+[node name="Rock13" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.0940286, -0.00478439, -1.71233, -0.207208, 1.70234, 0.00662184, 1.69976, 0.207259, -0.0939171, 36.3713, 0.00598781, 103.008 )
+
+[node name="Rock14" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.52188, -0.127542, -0.108248, 0.12512, 1.52544, -0.0382527, 0.111038, 0.0291775, 1.52673, -108.517, 0.0434712, 7.24348 )
+
+[node name="Rock15" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( -0.235531, 0.0123904, -1.22692, 0.0386951, 1.24877, 0.00518287, 1.22637, -0.0370223, -0.2358, -34.5003, -0.0657481, 35.0678 )
+
+[node name="Rock16" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.08545, 0.0368737, -1.00267, -0.00827064, 1.47742, 0.0453795, 1.00331, -0.0277135, 1.08512, -26.618, 0.0628309, -105.867 )
+
+[node name="Rock17" parent="Scatters/RocksLeftSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
+transform = Transform( 1.86348, -0.0811237, 0.438011, 0.0598145, 1.91245, 0.0997275, -0.441426, -0.0833205, 1.86257, 10.7851, -0.189338, 82.2327 )
+
+[node name="Rocks2" type="Spatial" parent="Scatters/RocksLeftSide"]
+script = ExtResource( 1 )
+item_path = "res://Objects/Environment/Rock2.tscn"
+materials = [  ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatters/RocksLeftSide/Rocks2"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Rock2" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.201342, -0.00558066, 1.38274, -0.010883, 1.39729, 0.00405468, -1.38271, -0.0101851, -0.201379, 71.3015, 0.12526, -140.393 )
+
+[node name="Rock3" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.56593, 0.00497304, -0.125881, 0.0118964, 1.56859, -0.0860208, 0.125416, -0.086697, -1.56358, -80.7569, 0.0806766, 56.314 )
+
+[node name="Rock4" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.41527, 0.0384525, -0.4337, 0.0137299, 1.47815, 0.0862514, 0.435185, 0.0784169, -1.41316, -19.8959, -0.0092373, 65.5438 )
+
+[node name="Rock5" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.987122, -0.0281897, 1.21438, 0.0390178, 1.56325, 0.0680046, -1.21408, 0.0731598, -0.98518, -85.5754, -0.126306, 96.5935 )
+
+[node name="Rock6" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 0.795547, -0.021725, 1.27102, 0.1196, 1.49403, -0.0493224, -1.26557, 0.127534, 0.794314, -89.8347, 0.0833999, 32.5054 )
+
+[node name="Rock7" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.92049, -0.014771, 0.484366, 0.0126318, 1.03869, 0.0556809, -0.484427, 0.0551519, -0.918923, -18.2804, -0.084171, -135.468 )
+
+[node name="Rock8" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.540829, 0.027018, 0.940145, 0.0667489, 1.08286, 0.00727871, -0.938161, 0.0614689, -0.541454, 19.6876, 0.0958777, 73.1759 )
+
+[node name="Rock9" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.580036, -0.0397007, -1.36301, -0.210207, 1.4661, 0.0467514, 1.34729, 0.211652, -0.579511, -34.6961, -0.0513146, 95.7899 )
+
+[node name="Rock10" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 0.944808, -0.0740017, -0.825184, 0.164432, 1.24344, 0.0767592, 0.812014, -0.165692, 0.944588, 35.3785, -0.10979, 64.4104 )
+
+[node name="Rock11" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.201082, 0.016153, -1.31987, 0.220154, 1.31681, -0.0174248, 1.30148, -0.220251, -0.200976, -144.683, -0.0400349, -132.198 )
+
+[node name="Rock12" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 1.02508, -0.0462461, -1.52395, 0.140602, 1.8314, 0.038999, 1.51815, -0.138387, 1.02538, -2.88618, 0.16684, 77.6217 )
+
+[node name="Rock13" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.38598, 0.0451937, 1.03702, 0.0818972, 1.72932, 0.0340921, -1.03477, 0.0763345, -1.3863, -30.101, -0.108053, 94.6018 )
+
+[node name="Rock14" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -0.102183, 0.000155139, 1.32288, 0.068629, 1.32503, 0.00514573, -1.32109, 0.0688215, -0.102054, -137.068, -0.116158, -51.6966 )
+
+[node name="Rock15" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 0.786744, -0.0630257, -1.0062, 0.180762, 1.26445, 0.0621346, 0.991836, -0.180453, 0.786815, -154.429, -0.00768842, -57.1522 )
+
+[node name="Rock16" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( -1.66676, -0.0796302, -0.344262, -0.082432, 1.7018, 0.00546049, 0.343602, 0.0219976, -1.66865, -166.915, -0.0808988, 129.321 )
+
+[node name="Rock17" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 1.28054, 0.0468599, 0.312581, -0.0551809, 1.31751, 0.0285468, -0.31122, -0.0407922, 1.28108, -62.0136, 0.111829, 1.45707 )
+
+[node name="Rock18" parent="Scatters/RocksLeftSide/Rocks2/Duplicates" instance=ExtResource( 29 )]
+transform = Transform( 1.18335, -0.00155533, -0.0815753, 0.00109499, 1.18614, -0.006731, 0.0815828, 0.00663975, 1.18333, -130.171, 0.0464315, 34.1911 )
+
+[node name="Rocks3" type="Spatial" parent="Scatters/RocksLeftSide"]
+script = ExtResource( 1 )
+item_path = "res://Objects/Environment/Rock3.tscn"
+materials = [  ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="Duplicates" type="Spatial" parent="Scatters/RocksLeftSide/Rocks3"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Rock3" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.261705, -0.0112447, -1.67482, 0.0375513, 1.69475, -0.00551083, 1.67443, -0.0362495, 0.261889, -111.149, 0.0754192, -140.692 )
+
+[node name="Rock4" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.00198, 0.0186181, 1.01902, -0.0241545, 1.42816, -0.0498438, -1.01891, -0.0521652, -1.00091, -91.9615, -0.0744416, 53.7896 )
+
+[node name="Rock5" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.84923, 0.156272, 0.580754, -0.178482, 1.93578, 0.0474305, -0.574317, -0.0984094, 1.85522, -106.686, 0.194538, 23.942 )
+
+[node name="Rock6" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -0.217354, 0.0122348, 1.81545, 0.104695, 1.82546, 0.000232319, -1.81247, 0.103978, -0.217698, -43.8409, -0.153874, -9.38488 )
+
+[node name="Rock7" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.25423, 0.0573332, 1.2032, -0.171697, 1.72778, 0.0966486, -1.19226, -0.188503, 1.25181, -163.454, 0.0365482, 135.275 )
+
+[node name="Rock8" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.37699, -0.0678895, 0.976139, 0.0275533, 1.6872, 0.0784749, -0.978109, -0.048047, 1.37642, -129.544, -0.10694, 28.9396 )
+
+[node name="Rock9" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.945086, -0.0496126, 0.870566, -0.00390801, 1.28356, 0.0773913, -0.87197, -0.0595254, 0.943217, -147.645, -0.0710331, 63.5855 )
+
+[node name="Rock10" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.39145, 0.0646053, 0.854606, -0.00137806, 1.62973, -0.120958, -0.857043, 0.102269, 1.38768, -151.449, -0.136669, -86.2626 )
+
+[node name="Rock11" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.701781, -0.0205039, 1.63763, 0.0211215, 1.78161, 0.0132553, -1.63762, 0.0141919, 0.701956, 29.0668, -0.0768912, -142.754 )
+
+[node name="Rock12" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.13245, 0.0293661, 0.559854, 0.0325546, 1.2632, -0.000408857, -0.559678, 0.0140571, -1.13283, 85.9297, 0.0556823, -148.449 )
+
+[node name="Rock13" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 1.02312, 0.0225565, -0.18703, -0.0224268, 1.04008, 0.00275431, 0.187045, 0.00132312, 1.02337, -151.127, 0.0836617, -47.6557 )
+
+[node name="Rock14" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.288052, -0.00370206, 1.06669, 0.070002, 1.10258, -0.0150769, -1.06439, 0.0715114, 0.287681, -107.757, -0.00435265, 32.2622 )
+
+[node name="Rock15" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.991287, 0.0843742, 0.191886, -0.0837529, 1.00968, -0.0112958, -0.192158, -0.00481007, 0.994807, -97.9184, -0.0169258, -14.0745 )
+
+[node name="Rock16" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( 0.352542, 0.0106705, 1.4116, -0.116634, 1.4502, 0.0181668, -1.40681, -0.117558, 0.352236, 55.51, 0.119869, -129.732 )
+
+[node name="Rock17" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.65262, -0.0906835, 0.476253, -0.112504, 1.71741, -0.0633804, -0.471575, -0.091928, -1.65389, 36.7919, 0.0504407, -145.629 )
+
+[node name="Rock18" parent="Scatters/RocksLeftSide/Rocks3/Duplicates" instance=ExtResource( 27 )]
+transform = Transform( -1.12618, 0.0137285, 1.36928, -0.0835195, 1.76888, -0.0864264, -1.3668, -0.119401, -1.12294, -138.17, 0.101929, -126.358 )

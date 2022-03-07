@@ -77,6 +77,7 @@ albedo_color = Color( 1, 0, 0, 1 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+god_mode = false
 
 [node name="PrototypeLook" type="Spatial" parent="."]
 

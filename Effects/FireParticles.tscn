@@ -66,20 +66,22 @@ shader_param/noise = ExtResource( 1 )
 size = Vector2( 0.4, 0.4 )
 
 [sub_resource type="Gradient" id=13]
-offsets = PoolRealArray( 0, 0.452308, 0.56, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.212239, 0.212239, 0.212239, 1, 0.204102, 0.204102, 0.204102, 1, 0.415686, 0.415686, 0.415686, 0 )
+offsets = PoolRealArray( 0, 0.578462, 1 )
+colors = PoolColorArray( 0, 0, 0, 0.862745, 0.466667, 0.466667, 0.466667, 0.466667, 0.594238, 0.594238, 0.594238, 0 )
 
 [sub_resource type="GradientTexture" id=14]
 gradient = SubResource( 13 )
 
 [sub_resource type="Curve" id=15]
 max_value = 4.0
-_data = [ Vector2( 0, 1.59091 ), 0.0, 0.0, 0, 0, Vector2( 0.146552, 2.28182 ), 3.54327, 3.54327, 0, 0, Vector2( 0.350575, 1.99091 ), 0.0, 0.0, 0, 0, Vector2( 1, 4 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.0272727 ), 0.0, 0.0, 0, 0, Vector2( 0.258621, 2.3 ), 3.54327, 3.54327, 0, 0, Vector2( 0.474138, 1.64545 ), 0.0, 0.0, 0, 0, Vector2( 0.663793, 2.11818 ), 0.0, 0.0, 0, 0, Vector2( 1, 4 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=16]
 curve = SubResource( 15 )
 
 [sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 0.2
 direction = Vector3( 0, 1, -0.6 )
 spread = 30.0
 flatness = 1.0
@@ -122,9 +124,9 @@ draw_pass_1 = SubResource( 4 )
 
 [node name="Smoke" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000912353, 0.66809, 0 )
-emitting = false
-amount = 6
-lifetime = 2.0
+amount = 12
+lifetime = 2.5
+speed_scale = 0.7
 randomness = 0.42
 visibility_aabb = AABB( -0.806153, -1.17315, -1.69648, 2.60788, 3.4014, 2.29648 )
 local_coords = false

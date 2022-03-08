@@ -113,6 +113,10 @@ script = ExtResource( 7 )
 script = ExtResource( 6 )
 RELATIVE_TRANSITION_CHANCE = 0.0
 
+[node name="DyingTimer" type="Timer" parent="EnemyStateMachine/Dying"]
+
+[node name="Tween" type="Tween" parent="EnemyStateMachine/Dying"]
+
 [node name="Attacking" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 8 )
 RELATIVE_TRANSITION_CHANCE = 0.0
@@ -201,6 +205,7 @@ local_coords = false
 process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 15 )
 
+[connection signal="timeout" from="EnemyStateMachine/Dying/DyingTimer" to="EnemyStateMachine/Dying" method="_on_DyingTimer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/RunAway/RunTimer" to="EnemyStateMachine/RunAway" method="_on_RunTimer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]

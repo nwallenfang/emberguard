@@ -55,3 +55,7 @@ func _on_Hurtbox_area_entered(area):
 func _on_InvincTimer_timeout():
 	$Hurtbox.set_deferred("monitoring", true)
 	$Hurtbox.set_deferred("monitorable", true)
+
+
+func _on_DyingTimer_timeout() -> void:
+	pass # Replace with function body.

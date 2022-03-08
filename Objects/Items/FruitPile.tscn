@@ -11,9 +11,11 @@ radius = 0.197803
 script = ExtResource( 3 )
 
 [node name="InteractionObject" parent="." instance=ExtResource( 1 )]
+interaction_text = "pick up"
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionObject"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0813743, 0 )
 shape = SubResource( 1 )
 
 [node name="FruitPile" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.46568, 0, 0, 0, 1.46568, 0, 0, 0, 1.46568, 0, 0.138705, 0 )

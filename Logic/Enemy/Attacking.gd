@@ -27,7 +27,7 @@ func process(_delta: float, first_time_entering: bool):
 		
 		
 		# delay needed for some reason
-		yield(get_tree().create_timer(2.5), "timeout")
+		yield(get_tree().create_timer(1.5), "timeout")
 		state_machine.transition_deferred("Idle")
 
 

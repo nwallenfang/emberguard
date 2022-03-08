@@ -4,7 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 2 )
-shader_param/max_opacity = 0.4
+shader_param/max_opacity = 0.01
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.497207, 1 )
@@ -24,7 +24,7 @@ color = Color( 0.831373, 0.662745, 0.196078, 1 )
 color_ramp = SubResource( 6 )
 
 [sub_resource type="QuadMesh" id=9]
-size = Vector2( 3, 3 )
+size = Vector2( 8, 8 )
 
 [node name="WindParticles" type="Spatial"]
 
@@ -33,7 +33,7 @@ transform = Transform( 2.56554, 0, 0, 0, -1.12143e-07, 2.56554, 0, -2.56554, -1.
 material_override = SubResource( 7 )
 amount = 6
 lifetime = 5.0
-visibility_aabb = AABB( -10.9973, -10.8059, -10.9585, 21.9648, 21.7815, 21.8282 )
+visibility_aabb = AABB( -10.323, -8.92325, -10.5304, 20.6817, 17.9201, 21.4236 )
 local_coords = false
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 9 )

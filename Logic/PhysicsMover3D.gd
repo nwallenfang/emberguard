@@ -63,7 +63,6 @@ func get_in_plane_acceleration() -> Vector2:
 	return Vector2(acceleration.x, acceleration.z)
 
 func execute_movement(delta: float) -> void:
-	print(delta)
 	if gravity_enabled and not is_on_floor():
 		add_acceleration(-GRAVITY * Vector3.UP)
 	velocity += acceleration * delta

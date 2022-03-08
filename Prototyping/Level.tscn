@@ -280,6 +280,10 @@ transform = Transform( -0.892145, -0.45175, 0, 0.45175, -0.892145, 0, 0, 0, 1, -
 transform = Transform( 0.0445784, -0.999006, 0, 0.999006, 0.0445784, 0, 0, 0, 1, 12.2511, 0.0174875, -11.6432 )
 type = 2
 
+[node name="WeaponItem3" parent="Environment" instance=ExtResource( 36 )]
+transform = Transform( -0.202753, -0.97923, 0, 0.97923, -0.202753, 0, 0, 0, 1, 7.37059, 1.97137, -10.2084 )
+type = 1
+
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -150.638, 7.62939e-06, 146.688 )
 

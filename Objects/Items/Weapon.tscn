@@ -51,7 +51,7 @@ material/0 = null
 visible = false
 
 [node name="MeshInstance4" type="MeshInstance" parent="Axe"]
-transform = Transform( -6.38692, 0.255731, 0, -7.16928, -0.227825, 0, 0, 0, 1.81107, -0.15653, 1.56015, 0 )
+transform = Transform( -9.59422, 0.384151, 0, -10.7695, -0.342231, 0, 0, 0, 2.72053, -0.15653, 1.56015, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../Sword")
 material/0 = null

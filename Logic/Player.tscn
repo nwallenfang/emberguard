@@ -425,6 +425,7 @@ anims/idle = SubResource( 25 )
 
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.867097, -0.422874, -0.263288, 0, 0.528542, -0.848907, 0.49814, 0.736085, 0.458297, -0.623133, 0.47041, 0.6046 )
+type = 3
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Prototyping/RightSideCurve.tres" type="Curve3D" id=33]
 [ext_resource path="res://Prototyping/LeftSideCurve.tres" type="Curve3D" id=34]
 [ext_resource path="res://Prototyping/WagonCurve.tres" type="Curve3D" id=35]
+[ext_resource path="res://Objects/Items/WeaponItem.tscn" type="PackedScene" id=36]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -271,6 +272,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95599, -1.43051e-06, -4.917
 
 [node name="Rock4" parent="Environment" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28082, -1.43051e-06, -10.411 )
+
+[node name="WeaponItem" parent="Environment" instance=ExtResource( 36 )]
+transform = Transform( -0.892145, -0.45175, 0, 0.45175, -0.892145, 0, 0, 0, 1, -2.21873, 2.44149, -4.86325 )
+
+[node name="WeaponItem2" parent="Environment" instance=ExtResource( 36 )]
+transform = Transform( 0.0445784, -0.999006, 0, 0.999006, 0.0445784, 0, 0, 0, 1, 12.2511, 0.0174875, -11.6432 )
+type = 2
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -150.638, 7.62939e-06, 146.688 )

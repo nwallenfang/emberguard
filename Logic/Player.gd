@@ -57,7 +57,10 @@ func handle_input(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		if item_holded_count == 0:
-			state = State.ATTACK
+			if $Weapon.type != Weapon.TYPE.Empty:
+				state = State.ATTACK
+			else:
+				emit_signal("cannot_attack")
 		else:
 			emit_signal("cannot_attack")
 
@@ -215,3 +218,6 @@ func _on_InvincibilityTimer_timeout() -> void:
 	$Hurtbox.set_deferred("monitoring", true)
 	$Hurtbox.set_deferred("monitorable", true)
 
+func grab_weapon(type):
+	$Weapon.type = type
+	$WeaponAnimationPlayer.play("idle")

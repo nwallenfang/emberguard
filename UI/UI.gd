@@ -15,6 +15,11 @@ var too_much_to_carry_time_left = 0.0
 func trigger_too_much_to_carry():
 	too_much_to_carry_time_left = too_much_to_carry_length
 
+export var cannot_attack_length := 2.0
+var cannot_attack_time_left = 0.0
+func trigger_cannot_attack():
+	cannot_attack_time_left = cannot_attack_length
+
 func _process(_delta: float) -> void:
 	$FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
 	
@@ -32,6 +37,13 @@ func _process(_delta: float) -> void:
 		$TooMuchToCarry.modulate.a = too_much_to_carry_time_left / too_much_to_carry_length
 	else:
 		$TooMuchToCarry.visible = false
+	
+	if cannot_attack_time_left > .1:
+		$CannotAttack.visible = true
+		cannot_attack_time_left -= _delta
+		$CannotAttack.modulate.a = cannot_attack_time_left / cannot_attack_length
+	else:
+		$CannotAttack.visible = false
 
 func main_game_started():
 	$IntroPressAnyKey.visible = false

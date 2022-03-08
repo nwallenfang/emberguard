@@ -6,6 +6,7 @@ func _ready() -> void:
 	$WorldEnvironment.environment.fog_enabled = true
 	Game.player = $Player
 	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
+	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
 	Game.wagon = $Wagon
 	Game.ground_aabb = $Ground.get_transformed_aabb()
 	Game.ending = $Ending

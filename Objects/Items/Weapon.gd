@@ -2,7 +2,7 @@ tool
 extends Spatial
 class_name Weapon
 
-enum TYPE {Sword, Axe, Spear}
+enum TYPE {Sword, Axe, Spear, Empty}
 export(TYPE) var type := TYPE.Sword setget set_type
 
 func set_type(t):

@@ -147,11 +147,35 @@ tracks/5/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 24.6772, 73.3771, 54.4324 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.587568, 0.47041, 0 ) ]
+}
 
 [sub_resource type="Animation" id=23]
 resource_name = "attack"
 length = 0.5
-loop = true
+step = 0.05
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:translation:x")
 tracks/0/interp = 1
@@ -159,8 +183,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -0.649806, -0.25, 0, 0.2, 0.472094, 0.648305, -0.2, -0.336941, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( -0.649806, -0.25, 0, 0.1, 0.332279, 0.648305, -0.2, -0.0420215, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath(".:translation:y")
@@ -170,7 +194,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 0.47041, -0.25, 0, 0.25, 0, 0.47041, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"times": PoolRealArray( 0, 0.25 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath(".:translation:z")
@@ -179,8 +203,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0.649055, -0.25, 0, 0.1, -0.0460637, 0.506796, -0.1, 0.0594547, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( 0.649055, -0.25, 0, 0.3, -0.132175, 0.506796, -0.15, 0.00669843, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath(".:rotation_degrees:x")
@@ -189,8 +213,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 58.093, -0.25, 0, 0.1, 7.06531, 85.27, -0.1, -4.63407, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( -57.0944, -0.25, 0, 0.1, -9.87491, -80.6927, -0.15, 0.0483704, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath(".:rotation_degrees:y")
@@ -199,8 +223,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( -29.877, -0.25, 0, 0.1, 13.4435, 31.471, -0.1, -6.04225, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( 158.571, -0.25, 0, 0.15, -4.08368, 151.794, -0.2, -0.203613, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath(".:rotation_degrees:z")
@@ -209,8 +233,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( -15.9845, -0.25, 0, 0.1, 20.9877, 59.3453, -0.15, -2.87214, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath("../WeaponAnimationPlayer")
@@ -251,7 +275,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 58.093, 0, 0 ) ]
+"values": [ Vector3( 24.6772, 73.3771, 54.4324 ) ]
 }
 
 [node name="Player" type="KinematicBody"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderBlue.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderRed.tres" type="Material" id=2]
@@ -54,10 +54,28 @@ height = 1.74535
 [sub_resource type="ParticlesMaterial" id=12]
 direction = Vector3( 0, 1, 0 )
 spread = 21.67
+gravity = Vector3( 0, -6, 0 )
 initial_velocity = 4.0
 tangential_accel = 1.0
+color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="CubeMesh" id=13]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+direction = Vector3( 0, 1, 0 )
+spread = 36.11
+initial_velocity = 5.0
+tangential_accel = 1.0
+scale = 0.6
+color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=15]
+material = SubResource( 16 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
 [node name="WaterEnemy" type="KinematicBody"]
@@ -174,6 +192,17 @@ explosiveness = 0.92
 local_coords = false
 process_material = SubResource( 12 )
 draw_pass_1 = SubResource( 13 )
+
+[node name="HitParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352848, 0 )
+emitting = false
+amount = 25
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.92
+local_coords = false
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 15 )
 
 [connection signal="timeout" from="EnemyStateMachine/RunAway/RunTimer" to="EnemyStateMachine/RunAway" method="_on_RunTimer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]

@@ -29,7 +29,7 @@ func _on_DetectionArea_area_entered(_area: Area) -> void:
 		$EnemyStateMachine.transition_deferred("PlayerSpotted")
 
 export var health := 3
-var knockback_power := 1200.0
+var knockback_power := 900.0
 func _on_Hurtbox_area_entered(area):
 	var direction = area.global_transform.origin.direction_to(global_transform.origin)
 	if area.name.begins_with("Player"):
@@ -37,10 +37,13 @@ func _on_Hurtbox_area_entered(area):
 		direction.y = 0
 		direction = direction.normalized() * knockback_power
 		direction.y = knockback_power * .6
+		$HitParticles.emitting = true
+		$HitParticles.restart()
 	else:
 		direction.y = 0
 		direction = direction.normalized() * knockback_power * .1
 		direction.y = knockback_power * .8
+	velocity = Vector3.ZERO
 	add_acceleration(direction)
 	$Hurtbox.set_deferred("monitoring", false)
 	$Hurtbox.set_deferred("monitorable", false)
@@ -48,7 +51,7 @@ func _on_Hurtbox_area_entered(area):
 	#yield(get_tree().create_timer(.5), "timeout")
 	if health == 0:
 		$DeathParticles.emitting = true
-		yield(get_tree().create_timer(.6), "timeout")
+		yield(get_tree().create_timer(.3), "timeout")
 		queue_free()
 
 func _on_InvincTimer_timeout():

@@ -2,3 +2,4 @@
 
 [resource]
 flags_unshaded = true
+flags_do_not_receive_shadows = true

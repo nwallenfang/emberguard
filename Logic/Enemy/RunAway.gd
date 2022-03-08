@@ -1,7 +1,7 @@
 extends AbstractState
 
 export var stop_distance: float = 0
-export var run_acc := 120.0
+export var run_acc := 80.0
 
 var run_direction:  Vector2
 

@@ -124,6 +124,7 @@ draw_pass_1 = SubResource( 4 )
 
 [node name="Smoke" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000912353, 1.83237, 0 )
+extra_cull_margin = 30.0
 emitting = false
 amount = 80
 lifetime = 3.0

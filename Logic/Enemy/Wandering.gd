@@ -1,8 +1,8 @@
 extends AbstractState
 
-export var target_distance: float = 5.0
+export var target_distance: float = 12.0
 export var stop_distance: float = 0.2
-export var wandering_acceleration := 50.0
+export var wandering_acceleration := 30.0
 
 var target_position_xz:  Vector2
 

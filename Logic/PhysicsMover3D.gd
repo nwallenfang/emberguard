@@ -6,7 +6,7 @@ class_name PhysicsMover3D
 const EXPECTED_FPS := 60
 
 export var FRICTION := 0.85
-export var AIR_FRICTION := 0.95
+export var AIR_FRICTION := 1.0
 export var OLD_DEFAULT_ACC_STRENGTH := 3500.0
 export var GRAVITY := 108.0
 
@@ -63,6 +63,7 @@ func get_in_plane_acceleration() -> Vector2:
 	return Vector2(acceleration.x, acceleration.z)
 
 func execute_movement(delta: float) -> void:
+	print(delta)
 	if gravity_enabled and not is_on_floor():
 		add_acceleration(-GRAVITY * Vector3.UP)
 	velocity += acceleration * delta

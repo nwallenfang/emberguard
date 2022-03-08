@@ -19,10 +19,10 @@ func _process(delta: float) -> void:
 	if look_vec2 != Vector2.ZERO:
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
 		
+func _physics_process(delta: float) -> void:
 	if physics_movement_enabled:
 		execute_movement(delta)
-
-
+		
 func _on_DetectionArea_area_entered(_area: Area) -> void:
 	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory
 		emit_signal("player_detected")

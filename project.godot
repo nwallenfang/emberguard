@@ -147,6 +147,7 @@ attack={
 
 [physics]
 
+common/physics_fps=50
 common/enable_pause_aware_picking=true
 
 [rendering]

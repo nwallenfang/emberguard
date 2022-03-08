@@ -13,6 +13,7 @@ script = ExtResource( 3 )
 [node name="Bush1Fruit" parent="." instance=ExtResource( 2 )]
 
 [node name="InteractionObject" parent="." instance=ExtResource( 1 )]
+interaction_text = "pick up"
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionObject"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

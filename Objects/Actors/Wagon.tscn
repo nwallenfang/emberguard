@@ -90,7 +90,7 @@ material/0 = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214933, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.750414, 0, 0, 0, 0.246243, 0, 0, 0, 1.2064, 0, 0.457754, 0 )
+transform = Transform( 1.2776, 0, 0, 0, 0.246243, 0, 0, 0, 2.54554, 0, 0.489155, 0.549254 )
 shape = SubResource( 4 )
 
 [node name="Fire" parent="." instance=ExtResource( 4 )]

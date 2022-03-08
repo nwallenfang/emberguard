@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
 [ext_resource path="res://Logic/ScentEmitter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sound/pickup_low_cut.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Objects/Items/Weapon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Meshes/HeadModel.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -286,6 +287,7 @@ god_mode = false
 item_speed_punishment = 7.0
 
 [node name="PrototypeLook" type="Spatial" parent="."]
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="PrototypeLook"]
 transform = Transform( 0.775948, 0, 0, 0, 1, 0, 0, 0, 0.775948, 0, 0.75, 0 )
@@ -426,6 +428,9 @@ anims/idle = SubResource( 25 )
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.867097, -0.422874, -0.263288, 0, 0.528542, -0.848907, 0.49814, 0.736085, 0.458297, -0.623133, 0.47041, 0.6046 )
 type = 3
+
+[node name="Head" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1.15526, 0, 0, 0, 1.15526, 0, 0, 0, 1.15526, 0, 1.37986, 0 )
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

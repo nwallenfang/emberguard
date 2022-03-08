@@ -24,7 +24,7 @@ color = Color( 0.831373, 0.662745, 0.196078, 1 )
 color_ramp = SubResource( 6 )
 
 [sub_resource type="QuadMesh" id=9]
-size = Vector2( 8, 8 )
+size = Vector2( 16, 16 )
 
 [node name="WindParticles" type="Spatial"]
 
@@ -32,7 +32,7 @@ size = Vector2( 8, 8 )
 transform = Transform( 2.56554, 0, 0, 0, -1.12143e-07, 2.56554, 0, -2.56554, -1.12143e-07, 0, 0, 0 )
 material_override = SubResource( 7 )
 amount = 6
-lifetime = 5.0
+lifetime = 8.0
 visibility_aabb = AABB( -10.323, -8.92325, -10.5304, 20.6817, 17.9201, 21.4236 )
 local_coords = false
 process_material = SubResource( 8 )

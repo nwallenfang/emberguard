@@ -15,11 +15,15 @@ func get_pos():
 	return parent.translation
 
 func set_own_and_children_materials_to_outline(n: Node):
+	if n.name == "Sword":
+		pass
 	if n is MeshInstance:
 		n = n as MeshInstance
 		var mat = n.get_surface_material(0)
 		if mat == null:
 			mat = n.mesh.get("surface_1/material")
+		if mat == null:
+			mat = n.mesh.get("material")
 		if mat != null:
 			var surface_mat = mat.duplicate(true)
 			n.material_override = surface_mat

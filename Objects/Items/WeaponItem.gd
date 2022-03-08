@@ -6,6 +6,7 @@ export(Weapon.TYPE) var type := Weapon.TYPE.Sword setget set_type
 func set_type(t):
 	type = t
 	$Weapon.type = t
+	$InteractionObject.interaction_text = "grab the " + str(Weapon.TYPE.keys()[t])
 
 func interact():
 	var success = Game.player.grab_weapon($Weapon.type)
@@ -18,3 +19,6 @@ func make_flying():
 
 func burn_effect():
 	pass
+
+func _ready():
+	set_type(type)

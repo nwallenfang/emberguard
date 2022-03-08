@@ -50,9 +50,7 @@ func _on_Hurtbox_area_entered(area):
 	$InvincTimer.start()
 	#yield(get_tree().create_timer(.5), "timeout")
 	if health == 0:
-		$DeathParticles.emitting = true
-		yield(get_tree().create_timer(.3), "timeout")
-		queue_free()
+		$EnemyStateMachine.transition_deferred("Dying")
 
 func _on_InvincTimer_timeout():
 	$Hurtbox.set_deferred("monitoring", true)

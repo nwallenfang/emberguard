@@ -1,5 +1,7 @@
 extends Spatial
 
+class_name Fireball
+
 export var damage = 3
 export var stop_distance = 0.05
 export var fly_velocity = 0.3
@@ -12,11 +14,18 @@ enum State {
 
 var state = State.Idle
 
+signal shoot_fireball
+
 func _ready() -> void:
 	$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered", [], CONNECT_ONESHOT)
 
 var enemy: Node  # not WaterEnemy since there will be others too later
 func state_attacking(delta: float):
+	if not is_instance_valid(enemy):
+		printerr("whoopsie, see fireball.gd")
+		state = State.Destroyed
+		return
+		
 	var done = move_towards(enemy.global_transform.origin, stop_distance, fly_velocity)
 	if done:
 		enemy.get_node("EnemyStateMachine").transition_deferred("Dying")
@@ -29,14 +38,18 @@ func _physics_process(delta: float) -> void:
 		State.Attacking:
 			state_attacking(delta)
 		State.Destroyed:
+			emit_signal("shoot_fireball")
 			# play particles, apply damage
 			queue_free()
 
+func activate():
+	$EnemyDetectArea.set_deferred("monitoring", true)
 
 func _on_EnemyDetectArea_area_entered(enemy_hurtbox: Area) -> void:
 	enemy = enemy_hurtbox.get_parent()
 	state = State.Attacking
 	set_as_toplevel(true)  # from now on move independent from player
+
 	
 	
 func move_towards(target: Vector3, stop_distance: float, vel: float) -> bool:

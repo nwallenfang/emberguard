@@ -2,6 +2,8 @@ extends AbstractState
 
 func process(_delta: float, first_time_entering: bool):
 	if first_time_entering:
+		parent.get_node("Hurtbox").set_deferred("monitorable", false)
+		parent.get_node("Hurtbox").set_deferred("monitoring", false)
 		parent.get_node("Hitbox").set_deferred("monitorable", false)
 		parent.get_node("Hitbox").set_deferred("monitoring", false)
 		parent.get_node("DeathParticles").emitting = true

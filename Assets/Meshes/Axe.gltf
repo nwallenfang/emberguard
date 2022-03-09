@@ -1,0 +1,223 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "AxeHandle",
+            "scale" : [
+                1.1470756530761719,
+                0.4657667875289917,
+                1.1470756530761719
+            ],
+            "translation" : [
+                0,
+                0.46045374870300293,
+                0
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "AxeHead",
+            "scale" : [
+                1.1470756530761719,
+                0.4657667875289917,
+                1.1470756530761719
+            ],
+            "translation" : [
+                0,
+                0.46644628047943115,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "SpearWood",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.12823867797851562,
+                    0.09163632988929749,
+                    0.01843169331550598,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.751968502998352
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "SpearIron",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.13758328557014465,
+                    0.13758328557014465,
+                    0.13758328557014465,
+                    1
+                ],
+                "roughnessFactor" : 0.32677164673805237
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Cylinder.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 59,
+            "max" : [
+                0.014999999664723873,
+                1,
+                0.014999999664723873
+            ],
+            "min" : [
+                -0.014999999664723873,
+                -1,
+                -0.014999999664723873
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 59,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 59,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 180,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 288,
+            "max" : [
+                0.15913018584251404,
+                0.9432308673858643,
+                0.018896711990237236
+            ],
+            "min" : [
+                -0.0214984193444252,
+                0.6015843152999878,
+                -0.018896711990237236
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 288,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 288,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 456,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 708,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 708,
+            "byteOffset" : 708
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 472,
+            "byteOffset" : 1416
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 360,
+            "byteOffset" : 1888
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3456,
+            "byteOffset" : 2248
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3456,
+            "byteOffset" : 5704
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2304,
+            "byteOffset" : 9160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 912,
+            "byteOffset" : 11464
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 12376,
+            "uri" : "Axe.bin"
+        }
+    ]
+}

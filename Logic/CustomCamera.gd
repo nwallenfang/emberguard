@@ -21,7 +21,7 @@ func move_to_transform_and_fov(target_transform_arg: Transform, target_fov: floa
 	var distance: float = start_transform.origin.distance_to(target_transform_arg.origin)
 	var duration = distance / velocity
 	if _duration != 0.0:
-		duration = duration
+		duration = _duration
 
 	$Tween.reset_all()  
 	$Tween.playback_process_mode = Tween.TWEEN_PROCESS_PHYSICS

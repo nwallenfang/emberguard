@@ -5,13 +5,17 @@ export var attack_distance: float = 2.5
 
 var attack_towards: Vector3
 
+
 func process(_delta: float, first_time_entering: bool):
-	# TODO 
 	if first_time_entering:
 #		$PrepareAttack.emitting = true
 		yield(get_tree().create_timer(0.55 * attack_delay), "timeout")
+		if state_machine.state.name != "Attacking":
+			return
 		attack_towards = Game.player.global_transform.origin
 		yield(get_tree().create_timer(0.2 * attack_delay), "timeout")
+		if state_machine.state.name != "Attacking":
+			return
 		# if player is still close to the enemy, execute the attack
 
 		parent.get_node("Hitbox").set_deferred("monitorable", true)
@@ -22,14 +26,17 @@ func process(_delta: float, first_time_entering: bool):
 		jump_acc.y = jump_power * .8
 		parent.add_acceleration(jump_acc)
 		# jump towards position
-		# not for now
 		
 		
 		
 		# delay needed for some reason
 		yield(get_tree().create_timer(.6), "timeout")
+		if state_machine.state.name != "Attacking":
+			return
 		parent.get_node("Hitbox").set_deferred("monitorable", false)
 		yield(get_tree().create_timer(.6), "timeout")
+		if state_machine.state.name != "Attacking":
+			return
 		state_machine.transition_deferred("Idle")
 
 

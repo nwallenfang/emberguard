@@ -43,9 +43,6 @@ func _ready() -> void:
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
 	
-	# REMOVE THIS 
-	Game.player.stun_visuals()
-	## REMOVE THIS
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 
 func ending_cutscene():

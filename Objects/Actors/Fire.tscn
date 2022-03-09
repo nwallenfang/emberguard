@@ -65,6 +65,7 @@ bus = "SFX"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86348, 1.27045 )
 light_color = Color( 1, 0.811765, 0.454902, 1 )
 light_energy = 10.0
+light_cull_mask = 4294966271
 shadow_enabled = true
 shadow_bias = 0.455
 omni_range = 20.0

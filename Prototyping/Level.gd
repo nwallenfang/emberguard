@@ -3,6 +3,7 @@ extends Spatial
 signal intro_button_pressed
 
 func _ready() -> void:
+#	$Player.god_mode = true  # uncomment when pushing to production
 	$WorldEnvironment.environment.fog_enabled = true
 	Game.player = $Player
 	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
@@ -36,6 +37,7 @@ func _ready() -> void:
 	
 	$IntroCamera.move_to_transform($Pivot/Camera.global_transform)
 	yield($IntroCamera/Tween, "tween_all_completed")
+#	$Player.god_mode = false
 	$Wagon/Fire/FireParticles/Smoke.emitting = true
 	Game.main_game_running = true
 	$IntroCamera.current = false
@@ -49,10 +51,12 @@ func ending_cutscene():
 	$Player/RemoteTransform.update_position = false
 	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform, 1.5)
 	yield($Pivot/Camera/Tween, "tween_all_completed")
-	print("reached")
 	$Pivot/Camera.current = false
 	$Ending/Camera.current = true
 	$Ending/AnimationPlayer.play("camera")
+	yield(get_tree().create_timer(3.0), "timeout")
+	UI.game_end_won()
+	
 
 func _input(event):
 	if event is InputEventKey:

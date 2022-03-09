@@ -4,7 +4,7 @@ extends CanvasLayer
 func _ready() -> void:
 	Game.connect("game_over", self, "game_over")
 	Game.connect("main_game_started", self, "main_game_started")
-
+	
 
 func set_fire_health(fire_health: float):
 	# TODO maybe have the fire icon blink or smth
@@ -21,7 +21,7 @@ func trigger_cannot_attack():
 	cannot_attack_time_left = cannot_attack_length
 
 func _process(_delta: float) -> void:
-	$FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
+	$FireHealthbar/FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
 	
 	if Input.is_action_just_pressed("pause"):
 		# dont pause if it's game over
@@ -49,7 +49,6 @@ func main_game_started():
 	$IntroPressAnyKey.visible = false
 	$WagonMarker.visible = true
 	$FireHealthbar.visible = true
-	$FPSCounter.visible = true
 
 export var wagon_marker_border := 200
 export var wagon_marker_distance := 14.0
@@ -88,9 +87,51 @@ func update_wagon_marker():
 	$WagonMarker.rotation_degrees = rad2deg(dir_vector.angle())
 
 
-func game_over():
+func game_over():  # lost
 	$CenterContainer/GameOverBox.visible = true
 	$CenterContainer/GameOverBox/RestartButton.disabled = false
+	
+
+var blended_in = Color(1.0, 1.0, 1.0, 1.0)
+var blended_out = Color(1.0, 1.0, 1.0, 0.0)
+var credit1_duration = 5.0
+var credit2_duration = 5.0
+func game_end_won():  # won
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	for sprite in [$ColorRect/Credit1, $ColorRect/Credit2]:
+		var scale = viewportWidth / sprite.texture.get_size().x
+		sprite.set_position(Vector2(viewportWidth/2, viewportHeight/2))
+
+		# set same scale value horizontally/vertically to maintain aspect ratio
+		sprite.set_scale(Vector2(scale, scale))
+		
+
+	# show first credit
+	$ColorRect.modulate = blended_out
+	$ColorRect.set_deferred("visible", true)
+	$Tween.reset_all()
+	$Tween.interpolate_property($ColorRect, "modulate", blended_out, blended_in, 0.4, Tween.EASE_IN)
+	$Tween.start()
+	yield(get_tree().create_timer(credit1_duration), "timeout")
+	
+	# show second credit
+	$Tween.reset_all()
+	$Tween.interpolate_property($ColorRect/Credit1, "modulate", blended_in, blended_out, 1.0, Tween.EASE_OUT)
+	$Tween.start()
+	$ColorRect/Credit2.modulate = blended_out
+	$ColorRect/Credit2.set_deferred("visible", true)
+	$Tween2.reset_all()
+	$Tween2.interpolate_property($ColorRect/Credit2, "modulate", blended_out, blended_in, 0.4, Tween.EASE_IN)
+	$Tween2.start()
+
+	yield(get_tree().create_timer(credit1_duration), "timeout")	
+	# fade to black
+	$Tween.reset_all()
+	$Tween.interpolate_property($ColorRect/Credit2, "modulate", blended_in, blended_out, 2.5, Tween.EASE_OUT)
+	$Tween.start()
+	
+	get_tree().quit()
 
 
 func _on_RestartButton_pressed() -> void:

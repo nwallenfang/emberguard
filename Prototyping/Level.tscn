@@ -298,7 +298,7 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Ending" parent="." instance=ExtResource( 17 )]
-transform = Transform( 0.515487, 0, -0.856897, 0, 1, 0, 0.856897, 0, 0.515487, 121.803, -0.521776, -117.525 )
+transform = Transform( 0.515487, 0, -0.856897, 0, 1, 0, 0.856897, 0, 0.515487, -97.3475, -0.521776, 131.998 )
 
 [node name="Scatters" type="Spatial" parent="."]
 

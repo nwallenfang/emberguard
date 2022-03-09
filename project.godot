@@ -90,6 +90,11 @@ UI="*res://UI/UI.tscn"
 Game="*res://Logic/Game.tscn"
 CameraManager="*res://Logic/CameraManager.tscn"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/scatter/plugin.cfg" )

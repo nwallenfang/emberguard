@@ -269,7 +269,7 @@ tracks/1/keys = {
 
 [sub_resource type="SpatialMaterial" id=26]
 params_cull_mode = 1
-albedo_color = Color( 0.596078, 0.313726, 0, 1 )
+albedo_color = Color( 0.403922, 0.211765, 0.00392157, 1 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -433,6 +433,7 @@ transform = Transform( -4.37114e-08, 0, 1, -0.965926, 0.258819, -4.2222e-08, -0.
 mesh = ExtResource( 7 )
 material/0 = SubResource( 26 )
 parent_collision_ignore = NodePath("..")
+ray_pickable = false
 pinned_points = [ 120, 11, 7, 6, 3, 2, 94 ]
 attachments/0/point_index = 120
 attachments/0/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D5")

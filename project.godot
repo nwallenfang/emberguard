@@ -96,6 +96,12 @@ UI="*res://UI/UI.tscn"
 Game="*res://Logic/Game.tscn"
 CameraManager="*res://Logic/CameraManager.tscn"
 
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1280
@@ -103,7 +109,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/scatter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/Trail/plugin.cfg", "res://addons/scatter/plugin.cfg" )
 
 [input]
 

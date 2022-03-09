@@ -51,7 +51,7 @@ func handle_input(delta):
 	var look_vec2 := Vector2(acceleration.x, acceleration.z)
 #	var own_vec2 := Vector2(self.translation.x, self.translation.z)
 	
-	var angular_velocity := 30.0
+	var angular_velocity := 20.0
 	if look_vec2 != Vector2.ZERO:
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
 	
@@ -60,7 +60,9 @@ func handle_input(delta):
 			if $Weapon.type != Weapon.TYPE.Empty:
 				state = State.ATTACK
 			else:
-				emit_signal("cannot_attack")
+#				emit_signal("cannot_attack")
+				# don't show cannot attack prompt if not holding a weapon
+				pass
 		else:
 			emit_signal("cannot_attack")
 
@@ -204,9 +206,50 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 	$Hurtbox.set_deferred("monitorable", false)
 	$StunnedTimer.start(stun_time)  # when this timeouts you are not stunned anymore
 	# player is immediately stunned but wait a little for the stunnedparticles to show
-	yield(get_tree().create_timer(0.2), "timeout")
-	$StunnedParticles.emitting = true
 
+#	$StunnedParticles.emitting = true
+	yield(get_tree().create_timer(0.5), "timeout")	
+	stun_visuals()
+
+export(Color) var stun_color;
+func stun_visuals():
+	$StunnedParticle/Trail3D.material_override.albedo_color = stun_color
+	$StunnedParticle/Trail3D.clear_points()
+#	$StunnedParticle/Trail3D.render(true)
+	$StunnedParticle/Trail3D.emit = true
+	$StunnedParticle/Trail3D.clear_points()
+	base_translation = $StunnedParticle.transform.origin
+	$Tween.interpolate_method(self, "move_along_vortex", 0.0, 1, 0.5)
+	$Tween.start()
+	yield($Tween,"tween_all_completed")
+#	$StunnedParticle/Trail3D.render(false)
+	$StunnedParticle/Trail3D.emit = false
+	$Tween.reset_all()
+	# start fading out FAST
+	var stun_color_blend_out = Color(stun_color)
+	stun_color_blend_out.a = 0.0
+	$Tween.interpolate_property($StunnedParticle/Trail3D.material_override, "albedo_color", null, stun_color_blend_out, 0.6)
+	$Tween.start()
+	yield($Tween,"tween_all_completed")
+	$StunnedParticle/Trail3D.clear_points()
+	$StunnedParticle.transform.origin = base_translation
+
+
+
+var base_translation: Vector3
+func move_along_vortex(t: float):
+	$StunnedParticle.transform.origin = base_translation + vortex_curve(t)
+
+
+export var min_height = 0.05
+export var max_height = 0.50
+export var number_of_swirls = 3
+export var max_width = 0.5
+func vortex_curve(t: float) -> Vector3:
+	var height = max_height * t
+	var x = min_height + height * sin(number_of_swirls * t*2*PI)
+	var z = min_height + height * cos(number_of_swirls * t*2*PI)
+	return Vector3(x, height, z)
 
 
 func _on_StunnedTimer_timeout() -> void:

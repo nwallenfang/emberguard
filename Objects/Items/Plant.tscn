@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Materials/PlaceHolderPink.tres" type="Material" id=2]
 [ext_resource path="res://Objects/Items/InteractionObject.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Items/Plant.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Meshes/Lotus.gltf" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Items/LotusMesh.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.05
@@ -78,9 +78,6 @@ interaction_text = "pick up"
 transform = Transform( 0.26279, 0, 0, 0, 0.26279, 0, 0, 0, 0.26279, 0, 0.511293, 0 )
 shape = SubResource( 3 )
 
-[node name="Lotus" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1.49176, 0, 0, 0, 1.49176, 0, 0, 0, 1.49176, 0, 0, 0 )
-
 [node name="Sparks" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.599944, 0 )
 emitting = false
@@ -89,3 +86,6 @@ one_shot = true
 explosiveness = 0.8
 process_material = SubResource( 25 )
 draw_pass_1 = SubResource( 26 )
+
+[node name="Lotus" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1.492, 0, 0, 0, 1.492, 0, 0, 0, 1.492, 0, 0, 0 )

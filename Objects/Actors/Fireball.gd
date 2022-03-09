@@ -20,7 +20,7 @@ func _ready() -> void:
 	$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered", [], CONNECT_ONESHOT)
 
 var enemy: Node  # not WaterEnemy since there will be others too later
-func state_attacking(delta: float):
+func state_attacking(_delta: float):
 	if not is_instance_valid(enemy):
 		printerr("whoopsie, see fireball.gd")
 		state = State.Destroyed

@@ -75,6 +75,11 @@ func clear_points() -> void:
 		point.queue_free()
 	_points.clear()
 	points.clear()
+	_A = null
+	_B = null
+	_C = null
+	_temp_segment = []
+	clear()
 
 
 func _prepare_geometry(point_prev :Point, point :Point, half_width :float, factor :float) -> Array:

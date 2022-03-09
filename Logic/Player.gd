@@ -213,14 +213,15 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 
 export(Color) var stun_color;
 func stun_visuals():
-	$StunnedParticle/Trail3D.material_override.albedo_color = stun_color
 	$StunnedParticle/Trail3D.clear_points()
+	$StunnedParticle/Trail3D.material_override.albedo_color = stun_color
 #	$StunnedParticle/Trail3D.render(true)
 	$StunnedParticle/Trail3D.emit = true
-	$StunnedParticle/Trail3D.clear_points()
 	base_translation = $StunnedParticle.transform.origin
 	$Tween.interpolate_method(self, "move_along_vortex", 0.0, 1, 0.5)
 	$Tween.start()
+	#yield(get_tree().create_timer(.08), "timeout")
+	#$StunnedParticle.visible = true
 	yield($Tween,"tween_all_completed")
 #	$StunnedParticle/Trail3D.render(false)
 	$StunnedParticle/Trail3D.emit = false
@@ -231,6 +232,7 @@ func stun_visuals():
 	$Tween.interpolate_property($StunnedParticle/Trail3D.material_override, "albedo_color", null, stun_color_blend_out, 0.6)
 	$Tween.start()
 	yield($Tween,"tween_all_completed")
+	#$StunnedParticle.visible = false
 	$StunnedParticle/Trail3D.clear_points()
 	$StunnedParticle.transform.origin = base_translation
 

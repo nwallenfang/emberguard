@@ -418,6 +418,8 @@ wireframe_color = Color( 0.372549, 0.372549, 0.372549, 0.411765 )
 wire_line_width = 0.8
 
 [node name="MeshInstance" type="MeshInstance" parent="StunnedParticle"]
+transform = Transform( 3.31608, 0, 0, 0, 3.31608, 0, 0, 0, 3.31608, 0, 0, 0 )
+visible = false
 mesh = SubResource( 28 )
 material/0 = null
 

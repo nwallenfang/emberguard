@@ -1,0 +1,62 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.3.stable's SpatialMaterial.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,unshaded;
+uniform vec4 color1 : hint_color;
+uniform vec4 color2 : hint_color;
+uniform float point_size : hint_range(0,128);
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform float fire_texture_scale = .1;
+uniform float fire_scale = .1;
+uniform sampler2D fire_height;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+	vec2 xz_scaled = VERTEX.xz * fire_texture_scale + vec2(TIME/9.0);
+	vec2 yz_scaled = VERTEX.yz * fire_texture_scale + vec2(TIME/9.0);
+	float fire_x = (texture(fire_height, xz_scaled).r - 0.5) * fire_scale;
+	float fire_y = (texture(fire_height, yz_scaled).r - 0.5) * fire_scale;
+	vec3 displacement = vec3(fire_x, fire_y, 0.0);
+	VERTEX += NORMAL * displacement;
+}
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	float basic_fresnel = fresnel(3.0, NORMAL, VIEW);
+	vec4 color = mix(color1, color2, 0.5 + 0.5 * sin(3.0 * TIME )) + 4.0 * basic_fresnel * color1;
+	ALBEDO = color.rgb;
+}
+"
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[resource]
+shader = SubResource( 1 )
+shader_param/color1 = Color( 1, 0.584314, 0, 1 )
+shader_param/color2 = Color( 1, 0.235294, 0, 1 )
+shader_param/point_size = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/fire_texture_scale = 1.0
+shader_param/fire_scale = 0.2
+shader_param/fire_height = SubResource( 3 )

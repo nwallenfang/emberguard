@@ -238,7 +238,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37874, 0.0977135, -13.9333 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218701, 0.0977136, -11.806 )
 
 [node name="Plant" parent="Environment" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83848, -0.29398, -8.22569 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2968, -0.29398, -8.22569 )
+
+[node name="Plant2" parent="Environment" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73322, -0.29398, -8.22569 )
+
+[node name="Plant3" parent="Environment" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04201, -0.29398, -8.22569 )
+
+[node name="Plant4" parent="Environment" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04161, -0.29398, -7.64363 )
 
 [node name="Bush2" parent="Environment" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.91499, -1.43051e-06, -8.59 )
@@ -298,7 +307,7 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Ending" parent="." instance=ExtResource( 17 )]
-transform = Transform( 0.515487, 0, -0.856897, 0, 1, 0, 0.856897, 0, 0.515487, -97.3475, -0.521776, 131.998 )
+transform = Transform( 0.515487, 0, -0.856897, 0, 1, 0, 0.856897, 0, 0.515487, 39.3284, -0.521772, 127.971 )
 
 [node name="Scatters" type="Spatial" parent="."]
 

@@ -44,6 +44,7 @@ func interact():
 		$Tween.start()
 		yield($Tween,"tween_all_completed")
 		$RefuelSound.play()
+		$FireParticles/Sparks.emitting = true
 		item.burn_effect()
 		throw_object.queue_free()
 

@@ -10,6 +10,7 @@ export var min_energy = 1
 
 export var flicker_chance = 0.15  # chance per second to trigger flicker (should be independent from frame-rate)
 export var flicker_length = 200 # in ms
+export var flicker_again_chance := .35
 export var natural_variation = 0.1
 var time: float = 0.0
 var currently_flickering := false
@@ -93,10 +94,13 @@ func _process(delta: float) -> void:
 			flicker_start_time = OS.get_ticks_msec()
 
 	if currently_flickering:
-		$OmniLight.light_energy = min_energy + (omnilight_base - min_energy) * flicker_curve.interpolate(time/flicker_length)
-		
+		$OmniLight.light_energy = min_energy + (omnilight_base * 10.0 - min_energy) * flicker_curve.interpolate(float(time-flicker_start_time)/float(flicker_length))
+		$FireParticles/FireParticles.process_material.scale = .65 +  .35 * (float(time-flicker_start_time) / float(flicker_length))
 		if time > flicker_start_time + flicker_length:
-			currently_flickering = false
+			if randf() < flicker_again_chance:
+				flicker_start_time = OS.get_ticks_msec() + int(randf() * .2 * flicker_length)
+			else:
+				currently_flickering = false
 	else:
 		# have brightness follow a basic sine curve
 		if omnilight_base > 0.03:  # else the fire is turned off

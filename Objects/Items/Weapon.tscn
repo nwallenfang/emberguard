@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/Items/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderBlue.tres" type="Material" id=2]
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Meshes/Axe.gltf" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Meshes/Spear.gltf" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Meshes/Sword.gltf" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 3 )
@@ -19,45 +22,61 @@ script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Sword"]
 transform = Transform( 1.81107, 0, 0, 0, 1.81107, 0, 0, 0, 1.81107, 0, 0.916905, 0 )
+visible = false
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="Sword"]
 transform = Transform( -1.49709e-08, 0.342495, 0, -1.81107, -7.91643e-08, 0, 0, 0, 1.81107, 0, 0.322917, 0 )
+visible = false
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="Sword"]
 transform = Transform( 3.46038e-15, -1.49709e-08, 1.81107, -1.81107, -1.49709e-08, 0, 7.91643e-08, -0.342495, -7.91643e-08, 0, 0.322917, 0 )
+visible = false
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="Sword" parent="Sword" instance=ExtResource( 6 )]
+transform = Transform( 1.43196, 0, 0, 0, 1.43196, 0, 0, 0, 1.43196, 0, 0, 0 )
 
 [node name="Spear" type="Spatial" parent="."]
 visible = false
 
 [node name="MeshInstance5" type="MeshInstance" parent="Spear"]
 transform = Transform( 1.81107, 0, 0, 0, 1.81107, 0, 0, 0, 1.81107, 0, 0.916905, 0 )
+visible = false
 mesh = SubResource( 1 )
 skeleton = NodePath("../../Sword")
 material/0 = null
 
 [node name="MeshInstance6" type="MeshInstance" parent="Spear"]
 transform = Transform( 0.0936204, 0, 0, 0, 0.0936204, 0, 0, 0, 0.0936204, 0, 1.83066, 0 )
+visible = false
 mesh = SubResource( 2 )
 skeleton = NodePath("../../Sword")
 material/0 = null
+
+[node name="Spear" parent="Spear" instance=ExtResource( 5 )]
+transform = Transform( 1.3662, 0, 0, 0, 1.3662, 0, 0, 0, 1.3662, 0, 0, 0 )
 
 [node name="Axe" type="Spatial" parent="."]
 visible = false
 
 [node name="MeshInstance4" type="MeshInstance" parent="Axe"]
 transform = Transform( -9.59422, 0.384151, 0, -10.7695, -0.342231, 0, 0, 0, 2.72053, -0.15653, 1.56015, 0 )
+visible = false
 mesh = SubResource( 1 )
 skeleton = NodePath("../../Sword")
 material/0 = null
 
 [node name="MeshInstance5" type="MeshInstance" parent="Axe"]
 transform = Transform( 1.81107, 0, 0, 0, 1.81107, 0, 0, 0, 1.81107, 0, 0.916905, 0 )
+visible = false
 mesh = SubResource( 1 )
 skeleton = NodePath("../../Sword")
 material/0 = null
+
+[node name="Axe" parent="Axe" instance=ExtResource( 4 )]
+transform = Transform( -1.84277, 0, 0, 0, 1.84277, 0, 0, 0, 1.84277, 0, 0, 0 )

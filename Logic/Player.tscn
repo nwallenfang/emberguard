@@ -71,7 +71,7 @@ size = Vector3( 2.5, 0.2, 2 )
 [sub_resource type="SpatialMaterial" id=20]
 albedo_color = Color( 1, 0.0117647, 0.0117647, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=21]
+[sub_resource type="ConvexPolygonShape" id=29]
 points = PoolVector3Array( 1.26147, 0.117867, 1.00688, -1.13554, -0.1, -0.910728, -1.13554, -0.1, 0.906141, -1.26147, 0.117867, -1.01147, 1.13554, -0.1, -0.910728, -1.26147, 0.117867, 1.00688, 1.26147, 0.117867, -1.01147, 1.13554, -0.1, 0.906141 )
 
 [sub_resource type="Animation" id=24]
@@ -366,24 +366,24 @@ omni_range = 3.5
 omni_attenuation = 2.2974
 
 [node name="PlayerAttack" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703394, 0.585059 )
-visible = false
+transform = Transform( 0.491816, -4.28036e-07, 0.870699, 0.739143, 0.528542, -0.417506, -0.460202, 0.848907, 0.259946, -0.587568, 0.47041, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="PlayerAttack"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.698139 )
+transform = Transform( 0.189109, 1.66893e-06, -7.45058e-09, -4.47035e-08, 8.04327, -7.45058e-09, 7.45058e-09, 0, 0.220799, 5.36442e-07, 1.06855, -0.010374 )
+visible = false
 mesh = SubResource( 19 )
 material/0 = SubResource( 20 )
 
 [node name="PlayerAttackArea" type="Area" parent="PlayerAttack"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.546567 )
+transform = Transform( 1, -2.98023e-08, 0, 0, 1, -2.98023e-08, 0, 0, 1, 4.47035e-08, -5.96046e-08, -0.546567 )
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="PlayerAttack/PlayerAttackArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20642 )
-shape = SubResource( 21 )
+transform = Transform( 0.189109, 2.14577e-06, 0, -4.47035e-08, 8.04327, 7.45058e-09, 3.72529e-09, -4.76837e-07, 0.220799, 5.36442e-07, 1.06855, 0.536193 )
+shape = SubResource( 29 )
 
 [node name="AttackTimer" type="Timer" parent="PlayerAttack"]
 wait_time = 0.1
@@ -398,6 +398,11 @@ anims/idle = SubResource( 25 )
 [node name="Weapon" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.867097, -0.422874, -0.263288, 0, 0.528542, -0.848907, 0.49814, 0.736085, 0.458297, -0.623133, 0.47041, 0.6046 )
 type = 3
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Weapon"]
+transform = Transform( 1, -2.98023e-08, -1.49012e-08, -2.98023e-08, 1, 0, 0, -2.98023e-08, 1, 0, 0, 0 )
+visible = false
+remote_path = NodePath("../../PlayerAttack")
 
 [node name="Head" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1.15526, 0, 0, 0, 1.15526, 0, 0, 0, 1.15526, 0, 1.37986, 0 )

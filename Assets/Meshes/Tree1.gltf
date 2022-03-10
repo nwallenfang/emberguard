@@ -1,0 +1,225 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "tree 1",
+            "rotation" : [
+                0,
+                0.18217842280864716,
+                0,
+                0.9832655191421509
+            ],
+            "translation" : [
+                -0.30411678552627563,
+                1.5829639434814453,
+                -0.013548612594604492
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "crown 1",
+            "rotation" : [
+                0,
+                0.18217842280864716,
+                0,
+                0.9832655191421509
+            ],
+            "translation" : [
+                -0.53938889503479,
+                2.9494078159332275,
+                0.0254061222076416
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "TreeWood",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.28100940585136414,
+                    0.1612747460603714,
+                    0.031912922859191895,
+                    1
+                ],
+                "metallicFactor" : 0
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "TreeGreen.002",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.00443232012912631,
+                    0.06680651009082794,
+                    0.026852773502469063,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.8031495809555054
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Cube.007",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 122,
+            "max" : [
+                0.6142699718475342,
+                1.1660010814666748,
+                0.40975576639175415
+            ],
+            "min" : [
+                -0.7918825149536133,
+                -1.5829639434814453,
+                -0.600808322429657
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 122,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 122,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 456,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 548,
+            "max" : [
+                1.0867674350738525,
+                0.6358928084373474,
+                1.194897174835205
+            ],
+            "min" : [
+                -1.3866651058197021,
+                -0.77611243724823,
+                -0.9240650534629822
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 548,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 548,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 2688,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 1464,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1464,
+            "byteOffset" : 1464
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 976,
+            "byteOffset" : 2928
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 912,
+            "byteOffset" : 3904
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6576,
+            "byteOffset" : 4816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6576,
+            "byteOffset" : 11392
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4384,
+            "byteOffset" : 17968
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5376,
+            "byteOffset" : 22352
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 27728,
+            "uri" : "Tree1.bin"
+        }
+    ]
+}

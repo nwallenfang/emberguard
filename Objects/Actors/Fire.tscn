@@ -25,9 +25,10 @@ script = ExtResource( 2 )
 throw_curve = SubResource( 2 )
 flicker_curve = SubResource( 7 )
 min_energy = 4
-flicker_chance = 0.1
+flicker_chance = 0.0
 flicker_length = 400
 flicker_again_chance = 0.3
+natural_variation = 0.0
 
 [node name="Placeholder" type="Spatial" parent="."]
 

@@ -18,3 +18,6 @@ func set_fire_percent(p):
 	elif not $FireParticles.emitting:
 		$FireParticles.emitting = true
 	#$FireParticles.amount = int(32 * p) + 4
+
+func _process(delta):
+	$FireParticles.material_override.set("shader_param/world_pos", global_transform.origin)

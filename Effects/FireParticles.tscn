@@ -15,6 +15,8 @@ uniform sampler2D noise;
 uniform float time_scale = 1.0;
 uniform float noise_scale = 1.0;
 
+uniform vec3 world_pos;
+
 varying float normal_x;
 varying vec3 world;
 
@@ -32,7 +34,7 @@ void vertex() {
 			vec4(0.0, 0.0, 0.0, 1.0));
 	
 	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat_world;
-	world = (mat_world * vec4(VERTEX, 1.0)).rgb;
+	world = (mat_world * vec4(VERTEX, 1.0)).rgb - world_pos;
 	vec4 world_normal = (mat_world * vec4(NORMAL, 0.0));
 	normal_x =  abs(dot(normalize(world_normal.rgb), vec3(1.0, 0.0, 0.0)));
 }
@@ -47,8 +49,6 @@ void fragment() {
 	float erosion = 1.0 - COLOR.a;
 	float alpha = clamp((mask * noise_mixed) - erosion, 0.0, 1.0);
 	
-
-	
 	// make ends of alpha smoother
 	ALPHA = smoothstep(0.0, 0.25, alpha) * .65;
 	ALBEDO = COLOR.rgb;
@@ -59,6 +59,7 @@ void fragment() {
 shader = SubResource( 1 )
 shader_param/time_scale = 0.9
 shader_param/noise_scale = 1.0
+shader_param/world_pos = null
 shader_param/mask_tex = ExtResource( 2 )
 shader_param/noise = ExtResource( 1 )
 

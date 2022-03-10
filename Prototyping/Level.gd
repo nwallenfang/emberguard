@@ -39,6 +39,9 @@ func _ready() -> void:
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	$IntroCamera.move_to_transform($Pivot/Camera.global_transform)
+	yield(get_tree().create_timer(0.5), "timeout")
+	$WaterEnemy.queue_free()
+	$WaterEnemy2.queue_free()
 	yield($IntroCamera/Tween, "tween_all_completed")
 #	$Player.god_mode = false
 	$Wagon/Fire/FireParticles/Smoke.emitting = true
@@ -46,7 +49,7 @@ func _ready() -> void:
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
 	$EnemySpawner.activate()
-	$EnemySpawner.all_enemies["water"].append_array([$WaterEnemy, $WaterEnemy2])
+	#$EnemySpawner.all_enemies["water"].append_array([$WaterEnemy, $WaterEnemy2])
 	
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 

@@ -264,6 +264,16 @@ texture = ExtResource( 7 )
 
 [node name="ProtectTween" type="Tween" parent="."]
 
+[node name="HitEffect" type="ColorRect" parent="."]
+visible = false
+margin_left = -141.0
+margin_top = -94.0
+margin_right = 1560.0
+margin_bottom = 940.0
+color = Color( 1, 0, 0, 1 )
+
+[node name="HitEffectTween" type="Tween" parent="."]
+
 [connection signal="pressed" from="CenterContainer/GameOverBox/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="value_changed" from="PauseView/ColorRect/CenterContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="PauseView/ColorRect/CenterContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_SFXSlider_value_changed"]

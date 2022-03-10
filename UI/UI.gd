@@ -4,7 +4,6 @@ extends CanvasLayer
 func _ready() -> void:
 	Game.connect("game_over", self, "game_over")
 	Game.connect("main_game_started", self, "main_game_started")
-	
 
 func set_fire_health(fire_health: float):
 	# TODO maybe have the fire icon blink or smth
@@ -19,6 +18,13 @@ export var cannot_attack_length := 2.0
 var cannot_attack_time_left = 0.0
 func trigger_cannot_attack():
 	cannot_attack_time_left = cannot_attack_length
+
+func hit_effect():
+	$HitEffect.visible = true
+	$HitEffectTween.interpolate_property($HitEffect, "modulate:a", .8, .0, .5)
+	$HitEffectTween.start()
+	yield($HitEffectTween,"tween_all_completed")
+	$HitEffect.visible = false
 
 func _process(_delta: float) -> void:
 	$FireHealthbar/FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
@@ -94,11 +100,9 @@ func update_wagon_marker():
 	$WagonMarker.position = (view_size_normal / 2) + result
 	$WagonMarker.rotation_degrees = rad2deg(dir_vector.angle())
 
-
 func game_over():  # lost
 	$CenterContainer/GameOverBox.visible = true
 	$CenterContainer/GameOverBox/RestartButton.disabled = false
-	
 
 var blended_in = Color(1.0, 1.0, 1.0, 1.0)
 var blended_out = Color(1.0, 1.0, 1.0, 0.0)
@@ -113,7 +117,6 @@ func game_end_won():  # won
 
 		# set same scale value horizontally/vertically to maintain aspect ratio
 		sprite.set_scale(Vector2(scale, scale))
-		
 
 	# show first credit
 	$ColorRect.modulate = blended_out
@@ -147,7 +150,7 @@ func _on_RestartButton_pressed() -> void:
 	Game.reset()
 	$CenterContainer/GameOverBox.visible = false
 	var _err = get_tree().reload_current_scene()
-	
+
 
 func set_interact_text(text:String):
 	$InteractLabel.visible = text != ""

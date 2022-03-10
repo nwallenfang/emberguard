@@ -13,7 +13,7 @@ var all_enemies := {}
 var enemy_target_count : Dictionary = {}
 var enemy_types = ["water"]
 
-export var water_target_count := 2
+export var water_target_count := 8
 
 var active = false
 

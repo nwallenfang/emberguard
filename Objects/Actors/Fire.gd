@@ -28,6 +28,9 @@ func set_fire_percent(value):
 	$Placeholder.translation.y = .4 * value
 	$FireParticles.set_fire_percent(value)
 	
+	$ScareEnemyArea.monitorable = value >= .02
+	$ScareEnemyArea.monitoring = value >= .02
+	
 	if not currently_flickering:
 		omnilight_base = value
 
@@ -80,7 +83,6 @@ func get_throw_curve_position(origin, height, value):
 
 func _on_ScareEnemyArea_area_entered(area: Area) -> void:
 	scare_enemy(area.get_parent())
-	
 
 func _process(delta: float) -> void:
 	# Maybe change it less often if it becomes a problem (but it shouldn't)

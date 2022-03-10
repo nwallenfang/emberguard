@@ -201,6 +201,7 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 	$HurtParticles.emitting = true
 	var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
 	add_acceleration(knockback_acc * knockback_direction)
+	UI.hit_effect()
 	state = State.STUNNED
 	$InvincibilityTimer.start(invinc_time)
 	$Hurtbox.set_deferred("monitoring", false)

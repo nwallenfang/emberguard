@@ -77,6 +77,8 @@ material = SubResource( 16 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
 [node name="WaterEnemy" type="KinematicBody"]
+collision_layer = 2048
+collision_mask = 2049
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -134,6 +136,7 @@ draw_pass_1 = SubResource( 8 )
 [node name="PlayerSpotted" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 9 )
 RELATIVE_TRANSITION_CHANCE = 0.0
+stop_distance = 2.5
 
 [node name="SpottedPlayerParticles" type="Particles" parent="EnemyStateMachine/PlayerSpotted"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.715428, 0 )
@@ -159,7 +162,7 @@ collision_mask = 4
 [node name="CollisionPolygon" type="CollisionPolygon" parent="DetectionArea"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00108764, 0.794732, 1.40432 )
 depth = 1.699
-polygon = PoolVector2Array( -4.12056, 6.97235, 4.6296, 6.89232, 1.52131, -3.16291, -1.42379, -3.16291 )
+polygon = PoolVector2Array( -8.13236, 6.847, 8.17382, 6.88629, 2.28003, -4.11547, -2.19927, -4.11547 )
 
 [node name="Hitbox" type="Area" parent="."]
 collision_layer = 0
@@ -171,6 +174,7 @@ shape = SubResource( 10 )
 
 [node name="ScentSearcher" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535079, 0 )
+enabled = true
 
 [node name="Hurtbox" type="Area" parent="."]
 collision_layer = 8

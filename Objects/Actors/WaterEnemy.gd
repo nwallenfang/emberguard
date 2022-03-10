@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 		execute_movement(delta)
 		
 func _on_DetectionArea_area_entered(_area: Area) -> void:
+	if not Game.main_game_running:
+		return
 	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory
 		emit_signal("player_detected")
 		$EnemyStateMachine.transition_deferred("PlayerSpotted")
@@ -31,6 +33,9 @@ func _on_DetectionArea_area_entered(_area: Area) -> void:
 export var health := 3
 var knockback_power := 900.0
 func _on_Hurtbox_area_entered(area):
+	if area.name.begins_with("Scare"):
+		if area.get_parent().fire_percent <= .03:
+			return
 	var direction = area.global_transform.origin.direction_to(global_transform.origin)
 	if area.name.begins_with("Player"):
 		health -= 1

@@ -6,6 +6,8 @@ var player: Player
 var wagon: Wagon
 var ending
 var ground_aabb: AABB
+var enemy_spawner
+var moon : DirectionalLight
 
 var player_distance_to_wagon := 0.0
 
@@ -42,6 +44,15 @@ func set_fire_health(new_health: float):
 	
 	
 	if fire_health <= 0.0:
+		
+		player.CONTROLS_ENABLED = false
+		enemy_spawner.deactivate()
+		#moon.light_energy = 1.2
+		wagon.game_over()
+		yield(get_tree(), "idle_frame")
+		player.visible = false
+		UI.get_node("FireHealthbar").visible = false
+		yield(wagon, "game_over_animation_finished")
 		emit_signal("game_over")
 		game_over()
 	
@@ -50,7 +61,7 @@ func set_fire_health(new_health: float):
 	
 	
 	
-var fire_burn_speed := 0.0005
+var fire_burn_speed := 0.05
 func _process(delta: float) -> void:
 	self.fire_health -= delta * fire_burn_speed
 	player_distance_to_wagon = player.translation.distance_to(wagon.translation)

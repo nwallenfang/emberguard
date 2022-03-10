@@ -9,8 +9,11 @@ func _ready() -> void:
 	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
 	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
 	Game.wagon = $Wagon
+	Game.wagon.get_node("Chest").open_percent = .8
 	Game.ground_aabb = $Ground.get_transformed_aabb()
 	Game.ending = $Ending
+	Game.enemy_spawner = $EnemySpawner
+	Game.moon = $Moon
 	$Pivot/Listener.make_current()
 	$IntroCamera.current = true
 	Game.main_game_running = false
@@ -36,12 +39,17 @@ func _ready() -> void:
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	$IntroCamera.move_to_transform($Pivot/Camera.global_transform)
+	yield(get_tree().create_timer(0.5), "timeout")
+	$WaterEnemy.queue_free()
+	$WaterEnemy2.queue_free()
 	yield($IntroCamera/Tween, "tween_all_completed")
 #	$Player.god_mode = false
 	$Wagon/Fire/FireParticles/Smoke.emitting = true
 	Game.main_game_running = true
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
+	$EnemySpawner.activate()
+	#$EnemySpawner.all_enemies["water"].append_array([$WaterEnemy, $WaterEnemy2])
 	
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 

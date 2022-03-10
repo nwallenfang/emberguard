@@ -8,7 +8,7 @@
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
-render_mode blend_mix, unshaded;
+render_mode blend_add, unshaded;
 
 uniform sampler2D mask_tex;
 uniform sampler2D noise;
@@ -50,14 +50,14 @@ void fragment() {
 
 	
 	// make ends of alpha smoother
-	ALPHA = smoothstep(0.0, 0.2, alpha);
+	ALPHA = smoothstep(0.0, 0.25, alpha) * .65;
 	ALBEDO = COLOR.rgb;
-	EMISSION = ALBEDO * 3.0; // TODO
+	EMISSION = ALBEDO * 5.0; // TODO
 }"
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 1 )
-shader_param/time_scale = 0.8
+shader_param/time_scale = 0.9
 shader_param/noise_scale = 1.0
 shader_param/mask_tex = ExtResource( 2 )
 shader_param/noise = ExtResource( 1 )

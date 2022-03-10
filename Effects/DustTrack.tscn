@@ -4,14 +4,14 @@
 [ext_resource path="res://Assets/Shader/DustNew.gdshader" type="Shader" id=2]
 
 [sub_resource type="Gradient" id=11]
-offsets = PoolRealArray( 0, 0.996454 )
-colors = PoolColorArray( 0.21, 0.105, 0.105, 1, 0.19, 0.095, 0.095, 0.929412 )
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.129395, 0.0935887, 0.038414, 1 )
 
 [sub_resource type="GradientTexture" id=12]
 gradient = SubResource( 11 )
 
 [sub_resource type="Curve" id=13]
-_data = [ Vector2( 0, 0.167045 ), 0.0, 0.0, 0, 0, Vector2( 0.241497, 0.467045 ), 0.0, 0.0, 0, 0, Vector2( 0.996599, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.167045 ), 0.0, 0.0, 0, 0, Vector2( 0.494506, 0.488636 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.797727 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=14]
 curve = SubResource( 13 )
@@ -19,7 +19,7 @@ curve = SubResource( 13 )
 [sub_resource type="ShaderMaterial" id=15]
 shader = ExtResource( 2 )
 shader_param/direction = Vector3( 0, -0.5, 1 )
-shader_param/spread = 30.0
+shader_param/spread = 50.0
 shader_param/flatness = 0.0
 shader_param/initial_linear_velocity = 1.5
 shader_param/initial_angle = 0.0
@@ -29,7 +29,7 @@ shader_param/linear_accel = 0.0
 shader_param/radial_accel = 4.0
 shader_param/tangent_accel = 0.0
 shader_param/damping = 0.2
-shader_param/scale = 2.0
+shader_param/scale = 2.5
 shader_param/hue_variation = 0.0
 shader_param/anim_speed = 0.0
 shader_param/anim_offset = 0.0
@@ -62,10 +62,9 @@ rings = 16
 
 [node name="DustTrack" type="Particles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75913, 0 )
-emitting = false
-amount = 12
+amount = 20
 lifetime = 0.5
-speed_scale = 0.66
+speed_scale = 0.6
 visibility_aabb = AABB( -6.10603, -5.75914, -4.3722, 11.3772, 12.4911, 11.1892 )
 local_coords = false
 process_material = SubResource( 15 )

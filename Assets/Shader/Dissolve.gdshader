@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix,depth_draw_alpha_prepass, cull_disabled,unshaded;
+render_mode blend_mix, depth_draw_alpha_prepass, cull_disabled;
 uniform vec4 albedo : hint_color;
 uniform sampler2D texture_albedo : hint_albedo;
 uniform float specular;
@@ -28,7 +28,7 @@ void fragment() {
 	ALBEDO = COLOR.rgb;
 	vec2 sample_vector = UV + uv_offset;
 	float sample = texture(dissolve_texture, sample_vector).r;
-	ALPHA = smoothstep(dissolve_amount - 0.2, dissolve_amount, sample);
+	ALPHA = smoothstep(dissolve_amount - 0.3, dissolve_amount, sample);
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	SPECULAR = specular;

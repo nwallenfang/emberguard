@@ -49,6 +49,14 @@ func main_game_started():
 	$IntroPressAnyKey.visible = false
 	$WagonMarker.visible = true
 	$FireHealthbar.visible = true
+	$ProtectTheFire.visible = true
+	var mod = $ProtectTheFire.modulate
+	var mod1 = mod
+	mod1.a = 0.0
+	$ProtectTween.interpolate_property($ProtectTheFire, "modulate", mod, mod1, 3.5, Tween.TRANS_CUBIC, Tween.EASE_IN)
+	$ProtectTween.start()
+	yield($ProtectTween,"tween_all_completed")
+	$ProtectTheFire.visible = false
 
 export var wagon_marker_border := 200
 export var wagon_marker_distance := 14.0

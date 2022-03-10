@@ -89,6 +89,7 @@ func set_fire_percent(value):
 signal game_over_animation_finished
 
 func game_over():
+	$WagonSound.playing = false
 	$DustTrack.emitting = false
 	$DustTrack2.emitting = false
 	$GameOver.visible = true

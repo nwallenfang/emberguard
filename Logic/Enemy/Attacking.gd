@@ -26,7 +26,7 @@ func process(_delta: float, first_time_entering: bool):
 		jump_acc.y = jump_power * .8
 		parent.add_acceleration(jump_acc)
 		# jump towards position
-		
+		parent.get_node("JumpSound").play()
 		
 		
 		# delay needed for some reason
@@ -34,7 +34,7 @@ func process(_delta: float, first_time_entering: bool):
 		if state_machine.state.name != "Attacking":
 			return
 		parent.get_node("Hitbox").set_deferred("monitorable", false)
-		yield(get_tree().create_timer(.6), "timeout")
+		yield(get_tree().create_timer(.3), "timeout")
 		if state_machine.state.name != "Attacking":
 			return
 		state_machine.transition_deferred("Idle")

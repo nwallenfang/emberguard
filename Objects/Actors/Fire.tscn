@@ -52,7 +52,6 @@ attenuation_model = 3
 unit_db = 3.0
 unit_size = 3.5
 max_db = 4.194
-autoplay = true
 max_distance = 30.0
 out_of_range_mode = 1
 bus = "SFX"

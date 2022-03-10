@@ -518,6 +518,21 @@ transform = Transform( 0.706959, -0.538778, 0.458179, 0, 0.647827, 0.761787, -0.
 transform = Transform( 0.999872, 0, 0.016004, 0, 1, 0, -0.016004, 0, 0.999872, -2.31793, 0.154811, 4.50864 )
 script = null
 
+[node name="DetectionArea" parent="GameOver/WaterEnemy" index="3"]
+monitoring = false
+monitorable = false
+
+[node name="Hitbox" parent="GameOver/WaterEnemy" index="4"]
+monitoring = false
+monitorable = false
+
+[node name="ScentSearcher" parent="GameOver/WaterEnemy" index="5"]
+enabled = false
+
+[node name="Hurtbox" parent="GameOver/WaterEnemy" index="6"]
+monitoring = false
+monitorable = false
+
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.562395, -0.975026, 3.89454 )
 visible = false
@@ -529,3 +544,5 @@ transform = Transform( 0.724725, 0, 0.210964, 0, 1, 0, -0.210964, 0, 0.724725, 3
 visible = false
 mesh = SubResource( 11 )
 material/0 = null
+
+[editable path="GameOver/WaterEnemy"]

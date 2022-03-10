@@ -127,7 +127,7 @@ transform_array = PoolVector3Array( 0.211757, -0.0796752, 1.3862, -0.0674364, 1.
 script = ExtResource( 10 )
 
 [node name="Ground" type="MeshInstance" parent="."]
-transform = Transform( 350, 0.0471657, 1.76715e-10, 0, -1.5299e-05, 30, 0.0471657, -350, -1.31134e-06, 0, 0, 7.37393 )
+transform = Transform( 250, 0.0336898, 1.76715e-10, 0, -1.09278e-05, 30, 0.0336898, -250, -1.31134e-06, 0, 0, 7.37393 )
 mesh = SubResource( 7 )
 material/0 = SubResource( 6 )
 

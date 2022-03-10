@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 2.06145, 1 )
 
-[node name="Tree" type="Spatial"]
+[node name="TreePlaceHolder" type="Spatial"]
 
 [node name="Placeholder" type="Spatial" parent="."]
 

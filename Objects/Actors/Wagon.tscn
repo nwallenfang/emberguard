@@ -515,7 +515,6 @@ process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 8 )
 
 [node name="GameOver" type="Spatial" parent="."]
-visible = false
 
 [node name="Cam1" type="Camera" parent="GameOver"]
 transform = Transform( -0.358938, -0.668125, 0.651746, 0, 0.698278, 0.715827, -0.933361, 0.256938, -0.250639, 1.0575, 2.42162, -0.951361 )

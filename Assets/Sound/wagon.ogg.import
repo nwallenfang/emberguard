@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wagon.ogg-0e7ac05d7abf6424ff41f09f55f68dc5.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/wagon.ogg"
+dest_files=[ "res://.import/wagon.ogg-0e7ac05d7abf6424ff41f09f55f68dc5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

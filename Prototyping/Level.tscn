@@ -294,7 +294,10 @@ transform = Transform( -0.202753, -0.97923, 0, 0.97923, -0.202753, 0, 0, 0, 1, 7
 type = 1
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
-transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -150.638, 7.62939e-06, 146.688 )
+transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -151.116, 6.67572e-06, 155.39 )
+
+[node name="WaterEnemy2" parent="." instance=ExtResource( 20 )]
+transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -132.592, 9.0599e-06, 153.16 )
 
 [node name="IntroCamera" type="Camera" parent="."]
 transform = Transform( 0.956435, 0.0186565, -0.291349, 0.0122907, 0.994498, 0.104031, 0.291686, -0.103079, 0.950944, -145.42, 2.59327, 157.027 )

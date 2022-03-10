@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
@@ -21,6 +21,9 @@ _data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.
 
 [sub_resource type="ConvexPolygonShape" id=4]
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.147931, 1, 0.777563 )
 
 [sub_resource type="ParticlesMaterial" id=6]
 direction = Vector3( 0, 1, 0 )
@@ -288,10 +291,10 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"times": PoolRealArray( 0, 3.2, 4.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.2, 4.9, 7.5, 8.1, 8.6, 9.5, 9.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 170, 0 ), Vector3( 0, 170, 0 ), Vector3( 0, 99.251, 0 ) ]
+"values": [ Vector3( 0, 170, 0 ), Vector3( 0, 170, 0 ), Vector3( 0, 99.251, 0 ), Vector3( 0, 99.251, 0 ), Vector3( 0, 0.917001, 0 ), Vector3( 0, 94.718, 0 ), Vector3( 0, 94.718, 0 ), Vector3( 0, 163.4, 0 ) ]
 }
 tracks/24/type = "value"
 tracks/24/path = NodePath("WaterEnemy:translation")
@@ -300,10 +303,10 @@ tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0, 3.5, 6, 6.4, 6.6, 6.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.5, 6, 6.4, 6.6, 6.8, 8, 8.6, 9.3, 9.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -3.54343, 0, 6.47848 ), Vector3( -4.09507, 0, 1.01722 ), Vector3( -4.09507, 0, 1.01722 ), Vector3( -1.38442, 0.594289, 1.01722 ), Vector3( -1.84324, 0.746276, 1.01722 ), Vector3( -2.51325, 0.154811, 1.01722 ) ]
+"values": [ Vector3( -3.54343, 0, 6.47848 ), Vector3( -4.09507, 0, 1.01722 ), Vector3( -4.09507, 0, 1.01722 ), Vector3( -1.38442, 0.594289, 1.01722 ), Vector3( -1.84324, 0.746276, 1.01722 ), Vector3( -2.51325, 0.154811, 1.01722 ), Vector3( -2.51325, 0.154811, 1.01722 ), Vector3( -2.31793, 0.154811, 4.50864 ), Vector3( 1.63491, 0.154811, 4.47543 ), Vector3( 3.42863, 0.154811, 3.11353 ) ]
 }
 tracks/25/type = "value"
 tracks/25/path = NodePath("../Fire:fire_percent")
@@ -316,6 +319,30 @@ tracks/25/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.2, 0.0 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Cam1:fov")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 3, 5.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 70.0, 70.0, 50.0 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Cam2:rotation_degrees")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 8.1, 9.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -40.9, 45.012, 0 ), Vector3( -40.9, 45.012, 0 ), Vector3( -55.622, 45.012, 0 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -331,6 +358,54 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WaterEnemy:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.917001, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WaterEnemy:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -2.31793, 0.154811, 4.50864 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cam1:fov")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 50.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cam2:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -49.622, 45.012, 0 ) ]
 }
 
 [sub_resource type="CubeMesh" id=11]
@@ -384,8 +459,24 @@ material/0 = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214933, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1.2776, 0, 0, 0, 0.246243, 0, 0, 0, 2.54554, 0, 0.489155, 0.549254 )
+transform = Transform( 1.2776, 0, 0, 0, 0.772361, 0, 0, 0, 2.54554, 0, 0.51981, 0.549254 )
 shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49376, 0.828785, 2.90394 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47995, 0.828785, 2.90394 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47995, 0.828785, -1.81103 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48245, 0.828785, -1.81103 )
+shape = SubResource( 13 )
 
 [node name="Fire" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15775, -0.994982 )
@@ -409,20 +500,22 @@ process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 8 )
 
 [node name="GameOver" type="Spatial" parent="."]
+visible = false
 
 [node name="Cam1" type="Camera" parent="GameOver"]
-transform = Transform( -0.358938, -0.668125, 0.651746, 0, 0.698278, 0.715827, -0.933361, 0.256937, -0.250638, 1.0575, 2.42162, -0.951361 )
+transform = Transform( -0.358938, -0.668125, 0.651746, 0, 0.698278, 0.715827, -0.933361, 0.256938, -0.250639, 1.0575, 2.42162, -0.951361 )
 current = true
+fov = 50.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
 anims/GameOver = SubResource( 9 )
 anims/RESET = SubResource( 12 )
 
 [node name="Cam2" type="Camera" parent="GameOver"]
-transform = Transform( 0.706959, -0.463069, 0.534581, 0, 0.755853, 0.654741, -0.707255, -0.462875, 0.534357, 3.79214, 5.18185, 4.00309 )
+transform = Transform( 0.706959, -0.538778, 0.458179, 0, 0.647827, 0.761787, -0.707255, -0.538552, 0.457987, 3.79214, 5.18185, 4.00309 )
 
 [node name="WaterEnemy" parent="GameOver" instance=ExtResource( 9 )]
-transform = Transform( -0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, -3.54343, 0, 6.47848 )
+transform = Transform( 0.999872, 0, 0.016004, 0, 1, 0, -0.016004, 0, 0.999872, -2.31793, 0.154811, 4.50864 )
 script = null
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

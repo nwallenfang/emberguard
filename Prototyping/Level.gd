@@ -45,6 +45,8 @@ func _ready() -> void:
 	Game.main_game_running = true
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
+	$EnemySpawner.activate()
+	$EnemySpawner.all_enemies["water"].append_array([$WaterEnemy, $WaterEnemy2])
 	
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 

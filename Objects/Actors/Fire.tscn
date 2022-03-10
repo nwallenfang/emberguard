@@ -76,6 +76,8 @@ omni_attenuation = 3.73213
 [node name="ScareEnemyArea" type="Area" parent="."]
 collision_layer = 0
 collision_mask = 8
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="ScareEnemyArea"]
 shape = SubResource( 4 )

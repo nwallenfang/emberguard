@@ -27,6 +27,7 @@ func _ready() -> void:
 	# light fire with sound and wait a little
 	Game.wagon.get_node("Fire/RefuelSound").play()
 	Game.wagon.get_node("Fire").set_fire_percent(1.0)
+	Game.wagon.get_node("Fire/Crackle").play()
 	
 	# have treasure slowly close and stop treasure particles
 	$Tween.interpolate_property(Game.wagon.get_node("Chest"), "open_percent", 0.8, 0.0, 2.0)
@@ -49,7 +50,7 @@ func _ready() -> void:
 	$IntroCamera.current = false
 	$Pivot/Camera.current = true
 	$EnemySpawner.activate()
-	#$EnemySpawner.all_enemies["water"].append_array([$WaterEnemy, $WaterEnemy2])
+	$Wagon/WagonSound.play()
 	
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 

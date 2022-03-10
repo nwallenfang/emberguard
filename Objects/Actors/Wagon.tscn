@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Objects/Actors/Chest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Actors/WaterEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Sprites/spark_thin.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sound/wagon.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.61299, 1.61299, 0, 0, Vector2( 1, 1 ), 0.116162, 0.0, 0, 0 ]
@@ -558,5 +559,10 @@ transform = Transform( 0.724725, 0, 0.210964, 0, 1, 0, -0.210964, 0, 0.724725, 3
 visible = false
 mesh = SubResource( 11 )
 material/0 = null
+
+[node name="WagonSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 11 )
+attenuation_model = 3
+max_distance = 30.0
 
 [editable path="GameOver/WaterEnemy"]

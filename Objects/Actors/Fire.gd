@@ -30,6 +30,7 @@ func set_fire_percent(value):
 	
 	$ScareEnemyArea.monitorable = value >= .02
 	$ScareEnemyArea.monitoring = value >= .02
+	$Crackle.playing = value >= .02
 	
 	if not currently_flickering:
 		omnilight_base = value

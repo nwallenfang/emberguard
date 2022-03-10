@@ -44,7 +44,6 @@ func set_fire_health(new_health: float):
 	
 	
 	if fire_health <= 0.0:
-		
 		player.CONTROLS_ENABLED = false
 		enemy_spawner.deactivate()
 		#moon.light_energy = 1.2
@@ -61,7 +60,7 @@ func set_fire_health(new_health: float):
 	
 	
 	
-var fire_burn_speed := 0.05
+var fire_burn_speed := 0.007
 func _process(delta: float) -> void:
 	self.fire_health -= delta * fire_burn_speed
 	player_distance_to_wagon = player.translation.distance_to(wagon.translation)

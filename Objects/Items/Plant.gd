@@ -9,6 +9,8 @@ func interact():
 #	if success:
 	$Sparks.emitting = true
 	$Lotus.visible = false
+	$InteractionObject.set_deferred("monitoring", false)
+	$InteractionObject.set_deferred("monitorable", false)
 	var fireball = FIREBALL.instance()
 	# see how many fireballs already exist in the player
 	var existing_fireballs: Array = get_tree().get_nodes_in_group("Fireball")

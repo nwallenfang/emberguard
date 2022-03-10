@@ -8,7 +8,7 @@ var physics_movement_enabled = true
 
 func _ready() -> void:
 	$EnemyStateMachine.enabled = true
-	
+	bounce_time = randf() * 10.0
 	
 func _process(delta: float) -> void:
 	$EnemyStateMachine.process(delta)
@@ -18,8 +18,22 @@ func _process(delta: float) -> void:
 	var angular_velocity := 30.0
 	if look_vec2 != Vector2.ZERO:
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
-		
+
+var bounce_time : float
+var bounce_time_scale := 6.5
+var last_frame_sinus := 0.0
 func _physics_process(delta: float) -> void:
+	bounce_time += delta
+	var scaled_bouce_time := bounce_time * bounce_time_scale
+	var sinus = sin(scaled_bouce_time)
+	set_bouce_scale(sinus * .24)
+	set_bouce_height(sinus * .75)
+	FRICTION = .85 + min(sinus * .4, 0.0)
+	if not $BoingSound.playing:
+		if sinus > -.1 and sinus < .0:
+			if last_frame_sinus < sinus:
+				$BoingSound.play()
+	last_frame_sinus = sinus
 	if physics_movement_enabled:
 		execute_movement(delta)
 		
@@ -64,3 +78,10 @@ func _on_InvincTimer_timeout():
 
 func _on_DyingTimer_timeout() -> void:
 	pass # Replace with function body.
+
+
+func set_bouce_scale(x: float):
+	$Viking.scale = Vector3(1.0 - x, 1.0 + x, 1.0 - x)
+
+func set_bouce_height(x: float):
+	$Viking.translation.y = max(.0, x)

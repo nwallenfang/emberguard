@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://our_theme.tres" type="Theme" id=2]
@@ -32,6 +32,8 @@ font_data = ExtResource( 3 )
 size = 23
 outline_color = Color( 0.92549, 0.729412, 0.729412, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=6]
 
 [node name="UI" type="CanvasLayer"]
 pause_mode = 2
@@ -266,6 +268,7 @@ texture = ExtResource( 7 )
 
 [node name="HitEffect" type="ColorRect" parent="."]
 visible = false
+material = SubResource( 6 )
 margin_left = -141.0
 margin_top = -94.0
 margin_right = 1560.0

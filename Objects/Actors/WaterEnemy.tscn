@@ -156,6 +156,7 @@ script = ExtResource( 11 )
 RELATIVE_TRANSITION_CHANCE = 0.0
 
 [node name="RunTimer" type="Timer" parent="EnemyStateMachine/RunAway"]
+wait_time = 0.8
 one_shot = true
 
 [node name="DetectionArea" type="Area" parent="."]
@@ -214,6 +215,7 @@ draw_pass_1 = SubResource( 15 )
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -10.0
 
 [node name="Viking" parent="." instance=ExtResource( 13 )]
 transform = Transform( 0.954551, 0, 0, 0, 0.954551, 0, 0, 0, 0.954551, 0, 0, 0 )

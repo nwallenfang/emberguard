@@ -21,7 +21,7 @@ func trigger_cannot_attack():
 
 func hit_effect():
 	$HitEffect.visible = true
-	$HitEffectTween.interpolate_property($HitEffect, "modulate:a", .8, .0, .5)
+	$HitEffectTween.interpolate_property($HitEffect, "modulate:a", .3, .0, .6)
 	$HitEffectTween.start()
 	yield($HitEffectTween,"tween_all_completed")
 	$HitEffect.visible = false

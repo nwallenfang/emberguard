@@ -57,9 +57,8 @@ func handle_input(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		if item_holded_count == 0:
-			if $Weapon.type != Weapon.TYPE.Empty:
+			if $Weapon.type != Weapon.TYPE.Empty and not state == State.ATTACK:
 				state = State.ATTACK
-				$AttackSound.play()
 			else:
 #				emit_signal("cannot_attack")
 				# don't show cannot attack prompt if not holding a weapon
@@ -75,11 +74,16 @@ func state_default(delta):
 func state_stunned(delta):
 	execute_movement(delta)
 
+func play_random_attack_sound():
+	var index = randi() % 3 + 1
+	$AttackSounds.get_node("AttackSound" + String(index)).play()
+
 var first_frame_attack := true
 func state_attack(delta):
 	if first_frame_attack:
 		first_frame_attack = false
 		#$PlayerAttack.visible = true
+		play_random_attack_sound()
 		$WeaponAnimationPlayer.play("attack")
 		$PlayerAttack/PlayerAttackArea.set_deferred("monitoring", true)
 		$PlayerAttack/PlayerAttackArea.set_deferred("monitorable", true)

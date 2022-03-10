@@ -562,7 +562,8 @@ material/0 = null
 
 [node name="WagonSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 11 )
-attenuation_model = 3
+unit_size = 9.4
 max_distance = 30.0
+bus = "SFX"
 
 [editable path="GameOver/WaterEnemy"]

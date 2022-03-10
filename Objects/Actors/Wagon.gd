@@ -18,6 +18,7 @@ func _ready():
 	wagon_path = get_node(wagon_path) as Path
 	points = wagon_path.curve.get_baked_points()
 	set_target_index(0)
+	$GameOver.visible = false
 
 func flat_direction_to(point: Vector3) -> Vector3:
 	return Vector3(translation.x, 0, translation.z).direction_to(Vector3(point.x, 0, point.z))
@@ -84,4 +85,14 @@ func set_fire_percent(value):
 	if velocity <= 0.01:
 		$DustTrack.emitting = false
 		$DustTrack2.emitting = false
-	
+
+signal game_over_animation_finished
+
+func game_over():
+	$DustTrack.emitting = false
+	$DustTrack2.emitting = false
+	$GameOver.visible = true
+	$Fire/FireParticles/Smoke.emitting = false
+	$GameOver/AnimationPlayer.play("GameOver")
+	yield($GameOver/AnimationPlayer,"animation_finished")
+	emit_signal("game_over_animation_finished")

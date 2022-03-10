@@ -24,7 +24,7 @@ color = Color( 0.831373, 0.662745, 0.196078, 1 )
 color_ramp = SubResource( 6 )
 
 [sub_resource type="QuadMesh" id=9]
-size = Vector2( 16, 16 )
+size = Vector2( 8, 8 )
 
 [node name="WindParticles" type="Spatial"]
 

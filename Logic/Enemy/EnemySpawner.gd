@@ -15,6 +15,14 @@ var enemy_types = ["water"]
 
 export var water_target_count := 8
 
+var active = true
+
+func deactivate():
+	active = false
+	for e in all_enemies["water"]:
+		e.queue_free()
+	all_enemies["water"].clear()
+
 func _ready():
 	yield(get_tree().create_timer(.1),"timeout")
 	player = Game.player
@@ -68,6 +76,8 @@ func try_spawn_one(enemy_name) -> bool:
 
 
 func _on_Timer_timeout():
+	if not active:
+		return
 	for enemy_type in enemy_types:
 		var delete_enemies = []
 		for enemy in all_enemies[enemy_type]:

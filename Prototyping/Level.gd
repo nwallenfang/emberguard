@@ -9,8 +9,11 @@ func _ready() -> void:
 	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
 	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
 	Game.wagon = $Wagon
+	Game.wagon.get_node("Chest").open_percent = .8
 	Game.ground_aabb = $Ground.get_transformed_aabb()
 	Game.ending = $Ending
+	Game.enemy_spawner = $EnemySpawner
+	Game.moon = $Moon
 	$Pivot/Listener.make_current()
 	$IntroCamera.current = true
 	Game.main_game_running = false

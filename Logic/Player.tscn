@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Items/Weapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Meshes/HeadModel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/Trail/trail_3d.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Sound/player_attack.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -431,6 +432,10 @@ mesh = SubResource( 28 )
 material/0 = null
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

@@ -178,7 +178,7 @@ shadow_enabled = true
 shadow_color = Color( 0.788235, 0.788235, 0.788235, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -152.812, 0.354006, 156.295 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150.307, 0.354006, 153.008 )
 
 [node name="RemoteTransform" type="RemoteTransform" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.10269, 0 )
@@ -187,7 +187,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, -152.812, 1.4567, 156.295 )
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, -150.307, 1.4567, 153.008 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
@@ -198,7 +198,7 @@ script = ExtResource( 2 )
 [node name="Listener" type="Listener" parent="Pivot"]
 
 [node name="WindParticles2" parent="Pivot" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0 )
+transform = Transform( -0.707872, 0.0251067, 0.705895, -0.611709, -0.521474, -0.594875, 0.35317, -0.852897, 0.384495, 0, 0.334152, 0.578812 )
 
 [node name="Wagon" parent="." instance=ExtResource( 14 )]
 transform = Transform( -0.0301024, 0, -0.999547, 0, 1, 0, 0.999547, 0, -0.0301024, -142.482, -0.00917762, 151.239 )

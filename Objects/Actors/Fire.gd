@@ -109,10 +109,3 @@ func _process(delta: float) -> void:
 			$OmniLight.omni_range = val * 16 + 6
 		else:
 			$OmniLight.light_energy = 0.0
-		
-
-	
-
-
-	
-	

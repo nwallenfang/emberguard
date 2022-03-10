@@ -190,6 +190,7 @@ transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, -93.215, 1.
 
 [node name="Camera" type="Camera" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+far = 40.0
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Pivot/Camera"]
@@ -2374,6 +2375,7 @@ __meta__ = {
 }
 
 [node name="WoodLeftSide" type="Path" parent="Scatters"]
+visible = false
 curve = ExtResource( 37 )
 script = ExtResource( 22 )
 use_instancing = false

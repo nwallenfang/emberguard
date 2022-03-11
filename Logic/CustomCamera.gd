@@ -19,7 +19,7 @@ func interpolate_transform(weight: float):
 #	last_time = time
 
 
-func move_to_transform_and_fov(target_transform_arg: Transform, target_fov: float, _duration: float):
+func move_to_transform_and_fov(target_transform_arg: Transform, _target_fov: float, _duration: float):
 	# maybe these two methods can be combined / are interchangable with the new
 	# transform.interpolate_with call
 	target_transform = target_transform_arg

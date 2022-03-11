@@ -11,7 +11,7 @@ func _ready() -> void:
 	bounce_time = randf() * 1000.0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 var bounce_time : float
@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 				$BoingSound.play()
 	last_frame_sinus = sinus
 	
-	print($EnemyStateMachine.state.name)
 	$EnemyStateMachine.process(delta)
 	
 	var look_direction = -Vector3(acceleration)

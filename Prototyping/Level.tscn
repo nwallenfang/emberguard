@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Objects/Environment/Tree3.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Objects/Items/WeaponItem.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Prototyping/LeftSideCurve.tres" type="Curve3D" id=37]
+[ext_resource path="res://Objects/Environment/WeaponSpace.tscn" type="PackedScene" id=38]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -312,6 +313,50 @@ spot_angle_attenuation = 0.189465
 [node name="WeaponItem" parent="Environment/WeaponSpace2" instance=ExtResource( 36 )]
 transform = Transform( 0.69713, 0.681727, 0.22194, 0.699164, -0.714961, -2.08367e-08, 0.158678, 0.155172, -0.97506, 0.819458, 1.40307, 1.49327 )
 type = 1
+
+[node name="WeaponSpace3" type="Spatial" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 166.117, 0.130277, -5.1133 )
+
+[node name="Rock2" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
+transform = Transform( -0.499441, 0, 0.866348, 0, 1, 0, -0.866348, 0, -0.499441, -1.5658, 2.38419e-07, -0.757217 )
+
+[node name="Rock5" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
+transform = Transform( -0.784906, 0, -0.619615, 0, 1, 0, 0.619615, 0, -0.784906, 1.80374, 0, -1.45487 )
+
+[node name="Rock3" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
+transform = Transform( 0.899543, 0, -0.436833, 0, 1, 0, 0.436833, 0, 0.899543, -2.09563, 0, 1.36665 )
+
+[node name="Rock4" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
+transform = Transform( 0.823473, 0, -0.567355, 0, 1, 0, 0.567355, 0, 0.823473, 3.34426, 2.38419e-07, 0.794586 )
+
+[node name="Rock6" parent="Environment/WeaponSpace3" instance=ExtResource( 27 )]
+transform = Transform( 0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, 0.76628, 0.751131, 0, 0.812019 )
+
+[node name="SpotLight" type="SpotLight" parent="Environment/WeaponSpace3"]
+transform = Transform( 0.548104, 0.442165, -0.709981, 0, 0.848843, 0.528646, 0.836411, -0.289753, 0.465254, 0, 0, 0 )
+light_energy = 1.4
+spot_range = 9.015
+spot_attenuation = 0.812252
+spot_angle = 40.0
+spot_angle_attenuation = 0.189465
+
+[node name="WeaponItem" parent="Environment/WeaponSpace3" instance=ExtResource( 36 )]
+transform = Transform( 0.69713, 0.681727, 0.22194, 0.699164, -0.714961, -2.08367e-08, 0.158678, 0.155172, -0.97506, 0.819458, 1.40307, 1.49327 )
+type = 1
+
+[node name="WeaponSpace4" parent="Environment" instance=ExtResource( 38 )]
+
+[node name="WeaponSpace5" parent="Environment" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.355, 0.130277, -148.86 )
+
+[node name="WeaponSpace6" parent="Environment" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0045, 0.130277, -105.749 )
+
+[node name="WeaponSpace7" parent="Environment" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9635, 0.130277, -61.7202 )
+
+[node name="WeaponSpace8" parent="Environment" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 213.56, 0.130285, -64.8399 )
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -87.6555, 6.67572e-06, 108.056 )

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Items/WeaponItem.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Items/WeaponItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Environment/Rock3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Environment/Rock2.tscn" type="PackedScene" id=4]
+
+[node name="WeaponSpace4" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.618, 0.130277, -111.31 )
+
+[node name="Rock2" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.970008, 0, 0.243074, 0, 1, 0, -0.243074, 0, 0.970008, -1.04845, 2.38419e-07, -2.20862 )
+
+[node name="Rock5" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.48186, 0, -0.876248, 0, 1, 0, 0.876248, 0, -0.48186, 2.95554, 4.76837e-07, -2.35005 )
+
+[node name="Rock3" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.899543, 0, -0.436833, 0, 1, 0, 0.436833, 0, 0.899543, -3.03569, 0, 0.770659 )
+
+[node name="Rock4" type="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.823473, 0, -0.567355, 0, 1, 0, 0.567355, 0, 0.823473, 4.51043, 2.38419e-07, 0.40809 )
+
+[node name="Rock6" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, 0.76628, 0.751131, 0, 0.812019 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.454597, 0.447135, -0.770332, 0.067409, 0.845113, 0.530321, 0.888143, -0.29301, 0.354045, -2.94861, 2.98786, 1.76971 )
+light_energy = 1.4
+spot_range = 9.015
+spot_attenuation = 0.812252
+spot_angle = 40.0
+spot_angle_attenuation = 0.189465
+
+[node name="WeaponItem" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.541581, -0.529615, -0.652839, 0.699164, -0.714961, -2.08367e-08, -0.466754, -0.456441, 0.757496, 1.42035, 1.87945, 1.49787 )
+script = ExtResource( 1 )

@@ -1,6 +1,6 @@
 extends Spatial
 
-export var fire_value = 0.15
+export var fire_value = 0.225
 
 func interact():
 	var success = Game.player.try_hold_item("log")

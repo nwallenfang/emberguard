@@ -13,5 +13,5 @@ func _on_Lifetime_timeout():
 	queue_free()
 
 
-func _on_MagicHitbox_area_entered(area):
+func _on_MagicHitbox_area_entered(_area):
 	queue_free()

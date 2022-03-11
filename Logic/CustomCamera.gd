@@ -44,19 +44,21 @@ var distance
 var duration
 var time
 var render = false
+export var render_only_every_second := false
 func _process(delta):
-	render = not render
-	if not render:
-		return
+	if render_only_every_second:
+		render = not render
+		if not render:
+			return
 	if move:
-		var pre_time = OS.get_ticks_msec()
+#		var pre_time = OS.get_ticks_msec()
 		time += delta * 2
 		interpolate_transform(time / duration)
 		if time / duration >= 1.0:
 			move = false
 			emit_signal("camera_move_done")
-		var after_time = OS.get_ticks_msec()
-		print(str(delta) + " -> " + str(after_time - pre_time))
+#		var after_time = OS.get_ticks_msec()
+#		print(str(delta) + " -> " + str(after_time - pre_time))
 
 var last_time = 0
 

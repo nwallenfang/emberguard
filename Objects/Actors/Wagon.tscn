@@ -562,6 +562,7 @@ material/0 = null
 
 [node name="WagonSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 11 )
+unit_db = -4.0
 unit_size = 9.4
 max_distance = 30.0
 bus = "SFX"

@@ -60,7 +60,7 @@ func set_fire_health(new_health: float):
 	
 	
 	
-var fire_burn_speed := 0.007
+var fire_burn_speed := 0.014
 func _process(delta: float) -> void:
 	self.fire_health -= delta * fire_burn_speed
 	player_distance_to_wagon = player.translation.distance_to(wagon.translation)

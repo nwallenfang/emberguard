@@ -6,6 +6,9 @@
 
 [node name="Tree2" instance=ExtResource( 1 )]
 
+[node name="crown 2" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063805, 3.39487, 0.0213779 )
+
 [node name="Collision" type="StaticBody" parent="." index="2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Collision" index="0"]

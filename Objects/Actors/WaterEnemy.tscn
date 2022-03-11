@@ -139,6 +139,8 @@ explosiveness = 1.0
 process_material = SubResource( 7 )
 draw_pass_1 = SubResource( 8 )
 
+[node name="BouceAnimationTween" type="Tween" parent="EnemyStateMachine/Attacking"]
+
 [node name="PlayerSpotted" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 9 )
 RELATIVE_TRANSITION_CHANCE = 0.0
@@ -219,6 +221,7 @@ draw_pass_1 = SubResource( 15 )
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -10.0
+bus = "SFX"
 
 [node name="Viking" parent="." instance=ExtResource( 13 )]
 

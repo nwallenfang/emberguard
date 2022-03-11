@@ -5,9 +5,24 @@ export var attack_distance: float = 2.5
 
 var attack_towards: Vector3
 
+func bounce_animation():
+	parent.bounce_override = - 1.8
+	$BouceAnimationTween.interpolate_property(parent, "bounce_override_factor", 0.0, 1.0, .7)
+	$BouceAnimationTween.start()
+	yield($BouceAnimationTween, "tween_all_completed")
+	$BouceAnimationTween.remove_all()
+	if state_machine.state.name != "Attacking":
+		$BouceAnimationTween.interpolate_property(parent, "bounce_override_factor", 1.0, 0.0, .4)
+		$BouceAnimationTween.start()
+		return
+	$BouceAnimationTween.interpolate_property(parent, "bounce_override", parent.bounce_override, .7, .3)
+	$BouceAnimationTween.interpolate_property(parent, "bounce_override_factor", 1.0, 0.0, .8)
+	$BouceAnimationTween.start()
+
 
 func process(_delta: float, first_time_entering: bool):
 	if first_time_entering:
+		bounce_animation()
 #		$PrepareAttack.emitting = true
 		yield(get_tree().create_timer(0.55 * attack_delay), "timeout")
 		if state_machine.state.name != "Attacking":

@@ -11,9 +11,6 @@ func _ready() -> void:
 	bounce_time = randf() * 1000.0
 
 
-func _process(delta: float) -> void:
-	pass
-
 var bounce_time : float
 var bounce_time_scale := 6.5
 var last_frame_sinus := 0.0
@@ -51,7 +48,7 @@ func _physics_process(delta: float) -> void:
 func _on_DetectionArea_area_entered(_area: Area) -> void:
 	if not Game.main_game_running:
 		return
-	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory
+	if $EnemyStateMachine.state.name == "Wandering" or $EnemyStateMachine.state.name == "Idle": # or idle in theory
 		emit_signal("player_detected")
 		$EnemyStateMachine.transition_deferred("PlayerSpotted")
 
@@ -69,6 +66,7 @@ func _on_Hurtbox_area_entered(area):
 		direction.y = knockback_power * .6
 		$HitParticles.emitting = true
 		$HitParticles.restart()
+		$GettingHitSound.play()
 	else:
 		direction.y = 0
 		direction = direction.normalized() * knockback_power * .1

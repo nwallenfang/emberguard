@@ -12,6 +12,7 @@ func process(_delta: float, first_time_entering: bool):
 #		else:
 		parent.get_node("Viking").visible = false
 		
+		parent.get_node("DyingSound").play()
 		$DyingTimer.start(1.3)
 
 

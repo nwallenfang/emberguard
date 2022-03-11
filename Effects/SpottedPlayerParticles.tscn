@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Effects/SpottedPlayerParticlesShader.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Shader/SpottedPlayerParticlesSpatialShader.tres" type="Material" id=2]
+
+[sub_resource type="CubeMesh" id=5]
+material = ExtResource( 2 )
+size = Vector3( 0.04, 0.28, 0.02 )
+
+[node name="SpottedPlayerParticles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15533, 0 )
+emitting = false
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource( 1 )
+draw_pass_1 = SubResource( 5 )

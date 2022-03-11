@@ -55,6 +55,7 @@ func main_game_started():
 	$IntroPressAnyKey.visible = false
 	$WagonMarker.visible = true
 	$FireHealthbar.visible = true
+	yield(get_tree().create_timer(2.0), "timeout")
 	$ProtectTheFire.visible = true
 	var mod = $ProtectTheFire.modulate
 	var mod1 = mod

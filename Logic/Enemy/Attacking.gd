@@ -52,6 +52,9 @@ func process(_delta: float, first_time_entering: bool):
 		yield(get_tree().create_timer(.1), "timeout")
 		if state_machine.state.name != "Attacking":
 			return
+			
+		var player_dir : Vector3 = (Game.player.global_transform.origin - parent.global_transform.origin).normalized() * 50.0
+		parent.add_acceleration(player_dir)
 		state_machine.transition_deferred("Idle")
 
 

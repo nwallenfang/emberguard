@@ -54,6 +54,7 @@ height = 1.74535
 collision_layer = 2048
 collision_mask = 2049
 script = ExtResource( 3 )
+health = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.389958, 0 )

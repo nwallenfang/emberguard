@@ -67,6 +67,7 @@ func _on_Hurtbox_area_entered(area):
 		direction.y = 0
 		direction = direction.normalized() * knockback_power
 		direction.y = knockback_power * .6
+		$GettingHitSound.play()
 		$HitParticles.emitting = true
 		$HitParticles.restart()
 	else:

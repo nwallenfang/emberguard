@@ -212,7 +212,7 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 		$InvincibilityTimer.start(invinc_time * .2)
 		$Hurtbox.set_deferred("monitoring", false)
 		$Hurtbox.set_deferred("monitorable", false)
-		$SlowTween.interpolate_property(self, "FRICTION", 0.5, FRICTION, 3, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		$SlowTween.interpolate_property(self, "FRICTION", 0.5, .85, 3, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		$SlowTween.start()
 	elif area.name == "Hitbox":
 		$HurtParticles.emitting = true

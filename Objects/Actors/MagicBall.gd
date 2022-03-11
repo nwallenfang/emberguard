@@ -1,6 +1,6 @@
 extends Spatial
 
-var speed := 4.0
+var speed := 6.0
 
 func _physics_process(delta):
 	var dir = global_transform.origin.direction_to(Game.player.get_node("Head").global_transform.origin)

@@ -1838,7 +1838,7 @@ transform = Transform( -1.36195, -0.117548, 1.00472, -0.134989, 1.69107, 0.01486
 transform = Transform( -1.43902, -0.0934184, -0.0689423, -0.0887969, 1.43784, -0.0948605, 0.0748007, -0.0903129, -1.43893, -87.6523, 4.64916e-06, 115.801 )
 
 [node name="Rock7" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
-transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.07648, -86.6336 )
+transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, -4.05312e-06, -86.6336 )
 
 [node name="Rock8" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
 transform = Transform( -0.704289, 0.0483103, -1.41132, 0.00375201, 1.57717, 0.0521149, 1.41215, 0.0199037, -0.704018, 117.29, -8.34465e-07, -13.1474 )
@@ -3719,10 +3719,11 @@ global_seed = 2
 use_instancing = false
 modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":50,"_rng":Object(RandomNumberGenerator,"seed":2436916811894394257,"state":-5870513782234819556,"script":null)
 )
-, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 1, 1, 1 ),"_rng":Object(RandomNumberGenerator,"seed":-1343940737287428579,"state":-7738221295294195528,"script":null)
+, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 0, 0, 0 ),"_rng":Object(RandomNumberGenerator,"seed":-1343940737287428579,"state":-7738221295294195528,"script":null)
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/project_on_floor.gd" ),"enabled":true,"display_name":"Project On Floor","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"ray_length":10.0,"ray_offset":1.0,"remove_points_on_miss":true,"align_with_floor_normal":false,"invert_ray_direction":false,"floor_direction":Vector3( 0, -1, 0 ),"max_slope":1.0,"mask":"1048575")
- ],"just_created":false,"undo_redo":null)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
 
 
 [node name="ScatterItem" type="Spatial" parent="Scatters/WoodRightSide"]
@@ -3739,154 +3740,154 @@ __meta__ = {
 }
 
 [node name="Log" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.52173, 0.122032, 0.754494, 0.138663, 1.69722, 0.00516029, -0.751615, 0.0660487, -1.5266, 52.6895, -2.20537e-06, -42.3783 )
+transform = Transform( -0.893619, 0.0716617, 0.443069, 0.0814286, 0.996675, 0.00303033, -0.441378, 0.0387864, -0.896482, 52.6866, -2.32458e-06, -42.4495 )
 
 [node name="Log2" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.47533, -0.0741561, 0.454088, 0.0610285, 1.54327, 0.0537466, -0.456038, -0.0333774, 1.47622, 110.24, 8.9407e-07, 27.8662 )
+transform = Transform( 0.954653, -0.0479846, 0.293829, 0.0394901, 0.998615, 0.0347781, -0.295091, -0.0215977, 0.955225, 110.234, 7.7486e-07, 27.8793 )
 
 [node name="Log3" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.41841, 0.0608858, -0.789678, 0.0617309, 1.62332, 0.0142811, 0.789612, -0.0175378, -1.41964, -32.3843, -2.32458e-06, -45.6971 )
+transform = Transform( -0.873105, 0.0374785, -0.486089, 0.0379987, 0.999239, 0.0087908, 0.486049, -0.0107954, -0.873865, -32.4201, -2.32458e-06, -45.7198 )
 
 [node name="Log4" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.361011, -0.0181964, 1.42398, -0.079145, 1.46701, -0.00131876, -1.4219, -0.0770361, -0.361467, 89.3839, 1.84774e-06, 50.6025 )
+transform = Transform( -0.245729, -0.0123857, 0.96926, -0.0538715, 0.998547, -0.000897636, -0.967841, -0.052436, -0.246039, 89.3566, 1.84774e-06, 50.6342 )
 
 [node name="Log5" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.85929, -0.118572, -0.323915, -0.128286, 1.88609, 0.0459499, 0.320191, 0.0671534, -1.8625, 96.4721, 5.00679e-06, 121.406 )
+transform = Transform( -0.983223, -0.0627028, -0.171292, -0.0678402, 0.9974, 0.0242991, 0.169323, 0.0355119, -0.984921, 96.5033, 5.126e-06, 121.455 )
 
 [node name="Log6" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.72368, 0.0668255, 0.943621, -0.0273248, 1.96399, -0.0891729, -0.945589, 0.06506, 1.72266, 73.5902, -1.54972e-06, -28.4372 )
+transform = Transform( 0.876653, 0.0339871, 0.479921, -0.0138973, 0.998874, -0.0453529, -0.480922, 0.0330892, 0.876139, 73.6525, -1.54972e-06, -28.4637 )
 
 [node name="Log7" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.758534, -0.00706914, -0.710423, -0.0629302, 1.03582, 0.0568849, 0.707666, 0.0845348, -0.756431, -5.04598, 4.52995e-06, 111.511 )
+transform = Transform( -0.729858, -0.0068019, -0.683565, -0.0605511, 0.996663, 0.0547343, 0.680912, 0.0813389, -0.727834, -5.04454, 4.47035e-06, 111.51 )
 
 [node name="Log8" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.31061, -0.0653798, -0.609736, -0.0717204, 1.4452, -0.000802683, 0.609022, 0.029495, -1.31223, 18.1905, 4.76837e-07, 19.089 )
+transform = Transform( -0.905755, -0.0451838, -0.421386, -0.0495658, 0.998771, -0.000554733, 0.420893, 0.0203839, -0.906881, 18.1568, 4.17233e-07, 19.1033 )
 
 [node name="Log9" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.344684, -0.0242582, 1.21444, -0.0161433, 1.26218, 0.0297938, -1.21457, -0.0236604, 0.34425, 90.7165, -1.60933e-06, -31.9771 )
+transform = Transform( 0.272988, -0.0192124, 0.961826, -0.0127854, 0.99964, 0.0235965, -0.961933, -0.0187388, 0.272644, 90.7269, -1.54972e-06, -31.9476 )
 
 [node name="Log10" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.835828, -0.0129409, -1.21952, -0.0615975, 1.4761, -0.0578808, 1.21804, 0.0835282, 0.833922, 117.28, -2.68221e-06, -56.525 )
+transform = Transform( 0.565315, -0.00875263, -0.824829, -0.0416616, 0.998365, -0.0391479, 0.823822, 0.0564946, 0.564026, 117.253, -2.80142e-06, -56.5395 )
 
 [node name="Log11" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.75124, 0.0871535, -0.255158, -0.102123, 1.76624, -0.0976219, 0.249544, 0.111191, 1.75069, 2.0541, -2.38419e-07, 3.21281 )
+transform = Transform( 0.988354, 0.049187, -0.144004, -0.0576356, 0.996816, -0.0550951, 0.140836, 0.0627533, 0.988042, 2.10729, -1.78814e-07, 3.15356 )
 
 [node name="Log12" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.226571, -0.0184436, -1.52628, -0.179666, 1.5326, 0.00815072, 1.51578, 0.178902, -0.227174, 27.0299, 4.17233e-07, 15.52 )
+transform = Transform( -0.146827, -0.0119522, -0.98909, -0.11643, 0.993185, 0.00528198, 0.982286, 0.115936, -0.147218, 27.0122, 3.57628e-07, 15.5457 )
 
 [node name="Log13" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.668961, 0.0446485, -1.00853, -0.0605999, 1.20946, 0.0133476, 1.0077, 0.0430932, 0.670316, 117.001, -2.20537e-06, -46.1558 )
+transform = Transform( 0.552381, 0.0368676, -0.832776, -0.0500392, 0.998686, 0.0110215, 0.832089, 0.0355834, 0.5535, 116.997, -2.38419e-06, -46.1371 )
 
 [node name="Log14" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.21281, -0.00963479, 1.0861, 0.0173331, 1.10658, 0.0132127, -1.08601, 0.0195495, -0.212618, 71.3398, 9.53674e-07, 29.2321 )
+transform = Transform( -0.192276, -0.00870512, 0.981302, 0.0156606, 0.999806, 0.0119378, -0.981216, 0.0176631, -0.192102, 71.3439, 9.53674e-07, 29.2384 )
 
 [node name="Log15" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.24689, 0.104669, 1.19651, 0.0614739, 1.72799, -0.0870996, -1.19951, -0.0202447, -1.24824, -82.6616, 5.1856e-06, 124.533 )
+transform = Transform( -0.720212, 0.0604575, 0.691114, 0.0355078, 0.998102, -0.0503094, -0.692844, -0.0116935, -0.720992, -82.7371, 5.126e-06, 124.512 )
 
 [node name="Log16" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.0208772, 9.00617e-05, 1.42448, 0.0698986, 1.42292, 0.000934474, -1.42276, 0.0699048, -0.0208565, 12.6776, 4.88758e-06, 117.006 )
+transform = Transform( -0.0146544, 6.32175e-05, 0.999893, 0.0490643, 0.998795, 0.000655942, -0.998688, 0.0490686, -0.0146399, 12.6473, 4.64916e-06, 116.978 )
 
 [node name="Log17" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.098513, 0.00658149, 1.08585, 0.0984614, 1.08587, 0.00235122, -1.0814, 0.0982694, -0.0987046, 86.3747, 1.84774e-06, 49.6684 )
+transform = Transform( -0.0903516, 0.00603623, 0.995892, 0.0903042, 0.995912, 0.00215643, -0.991807, 0.0901281, -0.0905273, 86.3745, 1.90735e-06, 49.6661 )
 
 [node name="Log18" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.38853, -0.0326231, 0.385383, -0.0363458, 1.4409, -0.00897909, -0.38505, -0.0183676, -1.38888, 36.7293, -9.53674e-07, -13.3774 )
+transform = Transform( -0.963328, -0.0226332, 0.26737, -0.0252159, 0.999663, -0.00622949, -0.267139, -0.012743, -0.963574, 36.7433, -8.9407e-07, -13.4151 )
 
 [node name="Log19" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.74564, -0.115756, 0.0949595, 0.121757, 1.74422, -0.112062, -0.0871312, 0.118252, 1.74588, 63.6084, 5.96046e-07, 20.9814 )
+transform = Transform( 0.996342, -0.0660687, 0.0541991, 0.0694942, 0.99553, -0.0639607, -0.049731, 0.0674932, 0.99648, 63.6696, 5.36442e-07, 20.9205 )
 
 [node name="Log20" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.26901, 0.000344611, -0.371923, 0.0159213, 1.32123, -0.0530996, 0.371582, -0.055434, -1.2679, 92.5103, 1.43051e-06, 36.5811 )
+transform = Transform( -0.959634, 0.000260598, -0.281251, 0.0120398, 0.999121, -0.0401542, 0.280993, -0.0419196, -0.958794, 92.4867, 1.3113e-06, 36.5656 )
 
 [node name="Log21" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.24912, -0.0926907, 0.374524, 0.0920618, 1.30401, 0.015682, -0.374679, 0.01139, 1.25246, 92.7305, -1.60933e-06, -32.3561 )
+transform = Transform( 0.955461, -0.0708997, 0.286476, 0.0704186, 0.997445, 0.0119952, -0.286594, 0.00871225, 0.958012, 92.7011, -1.60933e-06, -32.3592 )
 
 [node name="Log22" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.19657, -0.0954686, 0.568699, -0.108953, 1.32378, -0.00701757, -0.566271, -0.05297, -1.20035, 68.315, -2.14577e-06, -42.0508 )
+transform = Transform( -0.900845, -0.0718742, 0.428149, -0.0820262, 0.996616, -0.00528323, -0.426321, -0.0398789, -0.903692, 68.3351, -2.20537e-06, -42.0451 )
 
 [node name="Log23" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.770207, 0.0495743, 0.732368, 0.0397203, 1.0628, -0.0301691, -0.732969, 0.00550147, -0.771211, -9.15789, 4.52995e-06, 112.403 )
+transform = Transform( -0.723897, 0.0465936, 0.688333, 0.037332, 0.998901, -0.0283552, -0.688897, 0.00517068, -0.72484, -9.1566, 4.64916e-06, 112.402 )
 
 [node name="Log24" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.221271, 0.00243191, 1.66784, -0.140374, 1.67652, 0.0161788, -1.66193, -0.141283, 0.220692, 100.896, 2.38419e-06, 59.6386 )
+transform = Transform( 0.131516, 0.00144546, 0.991313, -0.0834341, 0.996467, 0.00961614, -0.987797, -0.083974, 0.131172, 100.934, 2.38419e-06, 59.6116 )
 
 [node name="Log25" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.54272, -0.0212151, 0.970178, 0.0461492, 1.81844, 0.113148, -0.969312, 0.120342, -1.53871, -4.29618, -1.54972e-06, -29.0808 )
+transform = Transform( -0.846463, -0.0116404, 0.532321, 0.0253213, 0.99775, 0.0620824, -0.531845, 0.0660295, -0.844263, -4.3062, -1.54972e-06, -29.0117 )
 
 [node name="Log26" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.654568, -0.0309839, 1.47842, -0.0382842, 1.61589, 0.0508152, -1.47825, -0.0555686, 0.653328, -44.6241, -1.78814e-06, -33.9644 )
+transform = Transform( 0.404769, -0.0191597, 0.914218, -0.023674, 0.999226, 0.0314229, -0.914112, -0.0343622, 0.404002, -44.6499, -1.84774e-06, -33.9288 )
 
 [node name="Log27" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.53927, -0.00446705, 0.173829, -0.000299885, 1.54861, 0.0371408, -0.173886, 0.0368724, -1.53883, 79.7485, 2.5034e-06, 64.7655 )
+transform = Transform( -0.99368, -0.00288372, 0.112216, -0.000193591, 0.999713, 0.0239763, -0.112252, 0.0238031, -0.993395, 79.7027, 2.44379e-06, 64.7251 )
 
 [node name="Log28" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.42512, -0.0168251, 0.503887, -0.00155548, 1.51067, 0.0548417, -0.504166, -0.0522202, 1.42416, 80.6243, 8.9407e-07, 30.6105 )
+transform = Transform( 0.942744, -0.0111302, 0.333332, -0.00102898, 0.999341, 0.0362789, -0.333516, -0.0345447, 0.942112, 80.5719, 9.53674e-07, 30.6043 )
 
 [node name="Log29" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.692784, -0.0334512, 1.30496, 0.153912, 1.46913, -0.04405, -1.29628, 0.156557, 0.692191, 38.1387, 3.57628e-07, 16.2598 )
+transform = Transform( 0.468785, -0.0226354, 0.883022, 0.104147, 0.994115, -0.0298072, -0.877151, 0.105937, 0.468384, 38.1377, 2.98023e-07, 16.2647 )
 
 [node name="Log30" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.0755612, -0.00464771, 1.93744, 0.211652, 1.92733, -0.00363109, -1.92585, 0.211632, 0.0756168, 22.1013, 6.55651e-07, 22.1432 )
+transform = Transform( 0.0389708, -0.00239706, 0.999238, 0.10916, 0.994022, -0.00187274, -0.99326, 0.10915, 0.0389995, 22.1677, 6.55651e-07, 22.108 )
 
 [node name="Log31" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.213813, 0.000754123, 1.37513, 0.0191533, 1.39152, 0.00221496, -1.375, 0.0192662, -0.213803, 58.6228, 4.05312e-06, 99.226 )
+transform = Transform( -0.15364, 0.000541891, 0.988127, 0.013763, 0.999904, 0.0015916, -0.988031, 0.0138441, -0.153632, 58.6241, 4.05312e-06, 99.2363 )
 
 [node name="Log32" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.14234, -0.0635311, -1.18874, 0.110551, 1.64607, 0.0182637, 1.1853, -0.092298, 1.14396, 99.2403, 4.58956e-06, 115.485 )
+transform = Transform( 0.692381, -0.0385066, -0.720504, 0.0670056, 0.997691, 0.0110697, 0.718414, -0.0559423, 0.693363, 99.2779, 4.70877e-06, 115.515 )
 
 [node name="Log33" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.403177, -0.0316751, 1.16725, 0.192576, 1.21976, -0.0334172, -1.15169, 0.19287, 0.403036, 68.9629, 3.8147e-06, 96.5465 )
+transform = Transform( 0.326374, -0.0256412, 0.944893, 0.155891, 0.987404, -0.0270514, -0.932297, 0.156129, 0.32626, 68.9507, 3.8743e-06, 96.5594 )
 
 [node name="Log34" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.84025, -0.0898446, 0.381188, -0.0914535, 1.87923, 0.00142205, -0.380806, -0.0171378, -1.84244, 8.10825, -2.38419e-07, 0.170357 )
+transform = Transform( -0.978096, -0.0477526, 0.202603, -0.0486078, 0.998818, 0.000755821, -0.202399, -0.00910879, -0.979261, 8.04166, -4.17233e-07, 0.0734312 )
 
 [node name="Log35" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.50194, 0.0868337, 0.540464, 0.104843, 1.59475, 0.0351358, -0.537261, 0.0684581, -1.50404, 35.6881, -2.08616e-06, -37.7857 )
+transform = Transform( -0.939545, 0.0543193, 0.33809, 0.0655851, 0.997605, 0.0219794, -0.336086, 0.0428243, -0.940857, 35.7444, -2.08616e-06, -37.787 )
 
 [node name="Log36" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.51656, 0.0354015, 0.0259167, 0.0363854, 1.51562, 0.0588621, -0.0245162, 0.059459, -1.51583, 113.589, 4.88758e-06, 117.823 )
+transform = Transform( -0.999582, 0.0233335, 0.0170819, 0.023982, 0.998959, 0.0387966, -0.0161589, 0.0391901, -0.999101, 113.63, 4.88758e-06, 117.818 )
 
 [node name="Log37" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.763916, 0.0194409, 0.840772, 0.0413584, 1.13361, -0.0637898, -0.839979, 0.0734963, 0.761497, 102.339, 1.96695e-06, 50.6448 )
+transform = Transform( 0.672371, 0.0171112, 0.740017, 0.0364021, 0.997759, -0.0561454, -0.739319, 0.0646888, 0.670241, 102.335, 1.90735e-06, 50.6476 )
 
 [node name="Log38" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.47496, -0.122871, 0.644219, -0.179907, 1.60059, -0.106625, -0.630674, -0.169228, -1.47623, 92.785, 2.80142e-06, 70.9389 )
+transform = Transform( -0.913744, -0.076119, 0.399096, -0.111453, 0.991572, -0.0660542, -0.390704, -0.104837, -0.914527, 92.8217, 2.74181e-06, 70.9047 )
 
 [node name="Log39" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.154083, 0.00646091, 1.93823, 0.0895601, 1.94229, 0.000645282, -1.93617, 0.0893291, -0.154217, 57.2133, 4.82798e-06, 117.114 )
+transform = Transform( -0.0792462, 0.00332291, 0.996849, 0.0460616, 0.998939, 0.000331875, -0.99579, 0.0459428, -0.0793152, 57.1635, 4.76837e-06, 117.115 )
 
 [node name="Log40" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.50214, 0.0467417, -0.101254, 0.0431917, 1.50469, 0.0538437, 0.102818, 0.0507925, -1.5019, 27.8206, 8.34465e-07, 23.6333 )
+transform = Transform( -0.997255, 0.0310313, -0.0672213, 0.0286745, 0.998949, 0.0357462, 0.0682599, 0.0337206, -0.997097, 27.8204, 7.15256e-07, 23.6379 )
 
 [node name="Log41" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.00901, 0.0713351, -1.34148, -0.205829, 1.66613, -0.0662174, 1.32751, 0.204112, 1.00935, 93.2609, 0, 5.21524 )
+transform = Transform( 0.600562, 0.0424588, -0.79845, -0.12251, 0.991684, -0.0394127, 0.790137, 0.121488, 0.60077, 93.2582, -1.19209e-07, 5.25202 )
 
 [node name="Log42" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.954078, 0.0765348, -1.0056, 0.156891, 1.3787, -0.0439214, 0.99623, -0.143827, -0.956134, 31.7255, 4.76837e-06, 116.766 )
+transform = Transform( -0.687232, 0.0551288, -0.724344, 0.11301, 0.99309, -0.031637, 0.717594, -0.1036, -0.688713, 31.7667, 4.70877e-06, 116.761 )
 
 [node name="Log43" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 1.27135, -0.0974335, 0.168303, 0.112325, 1.27654, -0.109486, -0.158752, 0.122926, 1.27037, 47.1646, -1.19209e-07, 5.96369 )
+transform = Transform( 0.988502, -0.0757565, 0.130859, 0.0873348, 0.992535, -0.0851276, -0.123433, 0.0955773, 0.98774, 47.1575, 0, 5.96174 )
 
 [node name="Log44" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.5406, 0.0835743, -1.08613, 0.0456056, 1.88456, 0.0803229, 1.08838, 0.0393316, -1.54077, 103.156, -1.96695e-06, -36.411 )
+transform = Transform( -0.816504, 0.0442936, -0.575639, 0.0241705, 0.998801, 0.0425704, 0.576834, 0.0208454, -0.816595, 103.083, -1.84774e-06, -36.4231 )
 
 [node name="Log45" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( 0.0907641, -0.00617509, -1.26897, -0.00971001, 1.27217, -0.00688519, 1.26895, 0.0101764, 0.0907129, 103.616, -4.17233e-07, -4.39115 )
+transform = Transform( 0.0713425, -0.00485376, -0.99744, -0.00763229, 0.999956, -0.00541192, 0.997423, 0.00799884, 0.0713023, 103.621, -3.57628e-07, -4.4034 )
 
 [node name="Log46" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.56302, 0.0282111, 0.873248, -0.0225788, 1.7878, -0.0981699, -0.873412, -0.096702, -1.56018, -52.1983, 4.82798e-06, 119.99 )
+transform = Transform( -0.872883, 0.0157548, 0.487675, -0.0126094, 0.998417, -0.0548241, -0.487766, -0.0540043, -0.871302, -52.1964, 4.94719e-06, 119.933 )
 
 [node name="Log47" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.36123, 0.00412823, 0.847739, 0.0778652, 1.59744, 0.117251, -0.844165, 0.14069, -1.35618, 93.9117, 3.8147e-06, 95.2994 )
+transform = Transform( -0.848844, 0.00257431, 0.528637, 0.0485556, 0.996141, 0.0731158, -0.526409, 0.0877322, -0.845693, 93.9672, 3.8743e-06, 95.3084 )
 
 [node name="Log48" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -0.220711, -0.0150509, 1.85557, 0.0116816, 1.8686, 0.016546, -1.8556, 0.0135537, -0.220604, 105.703, -2.6226e-06, -53.2524 )
+transform = Transform( -0.118109, -0.00805413, 0.992968, 0.00625117, 0.999941, 0.00885424, -0.992981, 0.00725297, -0.118051, 105.685, -2.563e-06, -53.2242 )
 
 [node name="Log49" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.38087, 0.0564818, -0.0297298, 0.0561695, 1.38113, 0.0149808, 0.0303156, 0.0137568, -1.38195, -38.1599, -2.38419e-06, -46.8142 )
+transform = Transform( -0.998933, 0.0408593, -0.0215067, 0.0406334, 0.999115, 0.0108372, 0.0219305, 0.00995173, -0.99971, -38.1923, -2.38419e-06, -46.8475 )
 
 [node name="Log50" parent="Scatters/WoodRightSide/ScatterItem/Duplicates" instance=ExtResource( 18 )]
-transform = Transform( -1.20188, 0.00649576, -0.57427, -0.00253795, 1.33188, 0.020377, 0.574302, 0.0194799, -1.20172, 104.775, 4.41074e-06, 104.598 )
+transform = Transform( -0.902281, 0.00487655, -0.431121, -0.00190531, 0.999881, 0.0152976, 0.431144, 0.0146241, -0.902165, 104.761, 4.29153e-06, 104.63 )
 
 [node name="WoodLeftSide" type="Path" parent="Scatters"]
 curve = ExtResource( 37 )
@@ -3897,7 +3898,8 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 0, 0, 0 ),"_rng":Object(RandomNumberGenerator,"seed":8965052117808401213,"state":-5399370944187629736,"script":null)
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/project_on_floor.gd" ),"enabled":true,"display_name":"Project On Floor","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"ray_length":10.0,"ray_offset":1.0,"remove_points_on_miss":true,"align_with_floor_normal":false,"invert_ray_direction":false,"floor_direction":Vector3( 0, -1, 0 ),"max_slope":1.0,"mask":"1048575")
- ],"just_created":false,"undo_redo":null)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
 
 
 [node name="ScatterItem" type="Spatial" parent="Scatters/WoodLeftSide"]

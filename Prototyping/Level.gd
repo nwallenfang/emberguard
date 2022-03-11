@@ -72,7 +72,7 @@ func ending_cutscene():
 	$Ending/Camera.current = true
 	$Ending/AnimationPlayer.play("camera")
 	yield($Ending/AnimationPlayer, "animation_finished")
-	yield(get_tree().create_timer(4.5), "timeout")
+	yield(get_tree().create_timer(2.8), "timeout")
 	UI.game_end_won()
 	
 

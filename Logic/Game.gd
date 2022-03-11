@@ -41,9 +41,8 @@ func set_main_game_running(running: bool):
 
 func set_fire_health(new_health: float):
 	fire_health = clamp(new_health, 0.0, 1.0)
-	
-	
-	if fire_health <= 0.0:
+
+	if fire_health <= 0.0 and not wagon.get_node("Fire").fuel_flying:
 		player.CONTROLS_ENABLED = false
 		enemy_spawner.deactivate()
 		#moon.light_energy = 1.2
@@ -57,9 +56,7 @@ func set_fire_health(new_health: float):
 	
 	UI.set_fire_health(fire_health)
 	get_tree().current_scene.get_node("Wagon").set_fire_percent(fire_health)
-	
-	
-	
+
 var fire_burn_speed := 0.014
 func _process(delta: float) -> void:
 	self.fire_health -= delta * fire_burn_speed

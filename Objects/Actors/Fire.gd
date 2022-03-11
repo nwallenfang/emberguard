@@ -35,8 +35,10 @@ func set_fire_percent(value):
 	if not currently_flickering:
 		omnilight_base = value
 
+var fuel_flying := false
 func interact():
 	if Game.player.item_holded_count > 0:
+		fuel_flying = true
 		var item = Game.player.make_item() as Spatial
 		item.make_flying()
 		Game.player.loose_item()
@@ -52,6 +54,7 @@ func interact():
 		$FireParticles/Sparks.emitting = true
 		item.burn_effect()
 		throw_object.queue_free()
+		fuel_flying = false
 
 
 func scare_enemy(enemy: Node):

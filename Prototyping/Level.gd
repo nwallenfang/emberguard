@@ -56,6 +56,7 @@ func _ready() -> void:
 
 func ending_cutscene():
 	# increase camera viewdistance 
+	$Player.god_mode = true
 	$Pivot/Camera.far = 300
 	$Player/RemoteTransform.update_position = false
 	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform, 1.5)

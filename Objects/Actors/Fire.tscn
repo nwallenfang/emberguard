@@ -59,6 +59,7 @@ attenuation_filter_db = -22.0
 
 [node name="RefuelSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -6.0
 bus = "SFX"
 
 [node name="OmniLight" type="OmniLight" parent="."]

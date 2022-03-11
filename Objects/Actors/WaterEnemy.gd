@@ -8,7 +8,7 @@ var physics_movement_enabled = true
 
 func _ready() -> void:
 	$EnemyStateMachine.enabled = true
-	bounce_time = randf() * 10.0
+	bounce_time = randf() * 1000.0
 
 
 func _process(delta: float) -> void:

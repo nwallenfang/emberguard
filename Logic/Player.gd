@@ -191,6 +191,8 @@ func make_item(custom_item = "", add_to_tree_scene = true, count = 0) -> Spatial
 	return inst
 
 func drop_item():
+	if item_holded_count == 0:
+		return
 	var dropped_item = make_item()
 	dropped_item.translation = translation + Vector3(0, .1, 0)
 	loose_item()

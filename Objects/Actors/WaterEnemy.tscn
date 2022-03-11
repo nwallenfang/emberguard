@@ -235,7 +235,7 @@ bus = "SFX"
 
 [node name="BoingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 14 )
-unit_db = -80.0
+unit_db = 12.0
 
 [connection signal="timeout" from="EnemyStateMachine/Dying/DyingTimer" to="EnemyStateMachine/Dying" method="_on_DyingTimer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/RunAway/RunTimer" to="EnemyStateMachine/RunAway" method="_on_RunTimer_timeout"]

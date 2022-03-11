@@ -3,23 +3,27 @@ extends Spatial
 signal intro_button_pressed
 
 func _ready() -> void:
+	UI.get_node("BlackScreen").visible = true
+#	$Player.god_mode = true  # uncomment when pushing to production
 	$WorldEnvironment.environment.fog_enabled = true
 	Game.player = $Player
+	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
+	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
 	Game.wagon = $Wagon
 	Game.wagon.get_node("Chest").open_percent = .8
 	Game.ground_aabb = $Ground.get_transformed_aabb()
 	Game.ending = $Ending
 	Game.enemy_spawner = $EnemySpawner
 	Game.moon = $Moon
-	Game.main_game_running = false
-#	$Player.god_mode = true  # uncomment when pushing to production
-
-	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
-	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
-
 	$Pivot/Listener.make_current()
 	$IntroCamera.current = true
-
+	Game.main_game_running = false
+	
+	var start_transform = $IntroCamera.transform
+	$IntroCamera.move_to_transform($Pivot/Camera.global_transform, 1)
+	yield($IntroCamera, "camera_move_done")
+	$IntroCamera.transform = start_transform
+	UI.get_node("BlackScreen").visible = false
 	
 	# set the game to running after 2 secs
 	# later this will be called once the intro cutscene is done
@@ -63,7 +67,7 @@ func ending_cutscene():
 	$Pivot/Camera.far = 300
 	$Player/RemoteTransform.update_position = false
 	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform, 1.5)
-	yield($Pivot/Camera/Tween, "tween_all_completed")
+	yield($Pivot/Camera, "camera_move_done")
 	$Pivot/Camera.current = false
 	$Ending/Camera.current = true
 	$Ending/AnimationPlayer.play("camera")

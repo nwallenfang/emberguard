@@ -25,7 +25,7 @@
         },
         {
             "mesh" : 1,
-            "name" : "crown 3",
+            "name" : "crown 3.001",
             "translation" : [
                 0.08815650641918182,
                 4.0676984786987305,
@@ -78,7 +78,7 @@
             ]
         },
         {
-            "name" : "Cube.008",
+            "name" : "Cube.001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -130,35 +130,35 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 416,
+            "count" : 436,
             "max" : [
-                0.7230233550071716,
-                2.606057643890381,
-                0.7706359624862671
+                0.6963604688644409,
+                2.5989990234375,
+                0.7614204287528992
             ],
             "min" : [
-                -0.7991844415664673,
-                -2.7235522270202637,
-                -0.7200809717178345
+                -0.7910017371177673,
+                -2.7123026847839355,
+                -0.7018853425979614
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 416,
+            "count" : 436,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 416,
+            "count" : 436,
             "type" : "VEC2"
         },
         {
             "bufferView" : 7,
             "componentType" : 5123,
-            "count" : 2112,
+            "count" : 528,
             "type" : "SCALAR"
         }
     ],
@@ -185,28 +185,28 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 4992,
+            "byteLength" : 5232,
             "byteOffset" : 2152
         },
         {
             "buffer" : 0,
-            "byteLength" : 4992,
-            "byteOffset" : 7144
+            "byteLength" : 5232,
+            "byteOffset" : 7384
         },
         {
             "buffer" : 0,
-            "byteLength" : 3328,
-            "byteOffset" : 12136
+            "byteLength" : 3488,
+            "byteOffset" : 12616
         },
         {
             "buffer" : 0,
-            "byteLength" : 4224,
-            "byteOffset" : 15464
+            "byteLength" : 1056,
+            "byteOffset" : 16104
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 19688,
+            "byteLength" : 17160,
             "uri" : "Tree3.bin"
         }
     ]

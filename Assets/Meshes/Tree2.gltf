@@ -26,9 +26,14 @@
         {
             "mesh" : 1,
             "name" : "crown 2",
+            "scale" : [
+                1.0624014139175415,
+                1.0624014139175415,
+                1.0624014139175415
+            ],
             "translation" : [
                 0.0638049840927124,
-                4.125609874725342,
+                3.6813910007476807,
                 0.021377945318818092
             ]
         }
@@ -83,10 +88,9 @@
                 {
                     "attributes" : {
                         "POSITION" : 4,
-                        "NORMAL" : 5,
-                        "TEXCOORD_0" : 6
+                        "NORMAL" : 5
                     },
-                    "indices" : 7,
+                    "indices" : 6,
                     "material" : 1
                 }
             ]
@@ -130,35 +134,29 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 274,
+            "count" : 462,
             "max" : [
-                1.5273383855819702,
-                0.9690244197845459,
-                1.2673895359039307
+                1.4511446952819824,
+                0.936806321144104,
+                1.231817364692688
             ],
             "min" : [
-                -1.3870322704315186,
-                -1.4554083347320557,
-                -1.1894859075546265
+                -1.3113354444503784,
+                -1.4330917596817017,
+                -1.1508866548538208
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 274,
+            "count" : 462,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
-            "componentType" : 5126,
-            "count" : 274,
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 7,
             "componentType" : 5123,
-            "count" : 1344,
+            "count" : 528,
             "type" : "SCALAR"
         }
     ],
@@ -185,28 +183,23 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 3288,
+            "byteLength" : 5544,
             "byteOffset" : 2760
         },
         {
             "buffer" : 0,
-            "byteLength" : 3288,
-            "byteOffset" : 6048
+            "byteLength" : 5544,
+            "byteOffset" : 8304
         },
         {
             "buffer" : 0,
-            "byteLength" : 2192,
-            "byteOffset" : 9336
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 2688,
-            "byteOffset" : 11528
+            "byteLength" : 1056,
+            "byteOffset" : 13848
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 14216,
+            "byteLength" : 14904,
             "uri" : "Tree2.bin"
         }
     ]

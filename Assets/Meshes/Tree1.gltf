@@ -9,7 +9,8 @@
             "name" : "Scene",
             "nodes" : [
                 0,
-                1
+                1,
+                2
             ]
         }
     ],
@@ -32,6 +33,21 @@
         {
             "mesh" : 1,
             "name" : "crown 1",
+            "rotation" : [
+                0,
+                0.18217842280864716,
+                0,
+                0.9832655191421509
+            ],
+            "translation" : [
+                -0.53938889503479,
+                2.83195161819458,
+                0.0254061222076416
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "crown 1.001",
             "rotation" : [
                 0,
                 0.18217842280864716,
@@ -95,10 +111,22 @@
                 {
                     "attributes" : {
                         "POSITION" : 4,
-                        "NORMAL" : 5,
-                        "TEXCOORD_0" : 6
+                        "NORMAL" : 5
                     },
-                    "indices" : 7,
+                    "indices" : 6,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "Cube.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 7,
+                        "NORMAL" : 8
+                    },
+                    "indices" : 9,
                     "material" : 1
                 }
             ]
@@ -142,35 +170,57 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 548,
+            "count" : 408,
             "max" : [
-                1.0867674350738525,
-                0.6358928084373474,
-                1.194897174835205
+                1.1105393171310425,
+                0.2977769672870636,
+                0.13402724266052246
             ],
             "min" : [
-                -1.3866651058197021,
-                -0.77611243724823,
-                -0.9240650534629822
+                -0.010334590449929237,
+                -0.7891644239425659,
+                -0.977267324924469
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 548,
+            "count" : 408,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
-            "componentType" : 5126,
-            "count" : 548,
-            "type" : "VEC2"
+            "componentType" : 5123,
+            "count" : 480,
+            "type" : "SCALAR"
         },
         {
             "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 736,
+            "max" : [
+                0.3222804367542267,
+                0.6513333320617676,
+                1.2507075071334839
+            ],
+            "min" : [
+                -1.4405838251113892,
+                -0.45244577527046204,
+                -0.39448434114456177
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 736,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
             "componentType" : 5123,
-            "count" : 2688,
+            "count" : 858,
             "type" : "SCALAR"
         }
     ],
@@ -197,28 +247,38 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 6576,
+            "byteLength" : 4896,
             "byteOffset" : 4816
         },
         {
             "buffer" : 0,
-            "byteLength" : 6576,
-            "byteOffset" : 11392
+            "byteLength" : 4896,
+            "byteOffset" : 9712
         },
         {
             "buffer" : 0,
-            "byteLength" : 4384,
-            "byteOffset" : 17968
+            "byteLength" : 960,
+            "byteOffset" : 14608
         },
         {
             "buffer" : 0,
-            "byteLength" : 5376,
-            "byteOffset" : 22352
+            "byteLength" : 8832,
+            "byteOffset" : 15568
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8832,
+            "byteOffset" : 24400
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1716,
+            "byteOffset" : 33232
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 27728,
+            "byteLength" : 34948,
             "uri" : "Tree1.bin"
         }
     ]

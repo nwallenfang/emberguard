@@ -1,0 +1,127 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "tree 1",
+            "rotation" : [
+                0,
+                0.18217842280864716,
+                0,
+                0.9832655191421509
+            ],
+            "translation" : [
+                -0.30411678552627563,
+                1.5829639434814453,
+                -0.013548612594604492
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "TreeWood",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.28100940585136414,
+                    0.1612747460603714,
+                    0.031912922859191895,
+                    1
+                ],
+                "metallicFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 161,
+            "max" : [
+                0.7550267577171326,
+                1.6547216176986694,
+                0.40975576639175415
+            ],
+            "min" : [
+                -0.6595515012741089,
+                -1.5829639434814453,
+                -0.7669333815574646
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 161,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 161,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 552,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 1932,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1932,
+            "byteOffset" : 1932
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1288,
+            "byteOffset" : 3864
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1104,
+            "byteOffset" : 5152
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 6256,
+            "uri" : "Tree4.bin"
+        }
+    ]
+}

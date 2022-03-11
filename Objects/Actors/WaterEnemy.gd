@@ -22,13 +22,18 @@ func _process(delta: float) -> void:
 var bounce_time : float
 var bounce_time_scale := 6.5
 var last_frame_sinus := 0.0
+var bounce_override_factor := 0.0
+var bounce_override := 0.0
 func _physics_process(delta: float) -> void:
 	bounce_time += delta
 	var scaled_bouce_time := bounce_time * bounce_time_scale
 	var sinus = sin(scaled_bouce_time)
-	set_bouce_scale(sinus * .24)
+	sinus = lerp(sinus, bounce_override, bounce_override_factor)
+	set_bouce_scale(sinus * .25)
 	set_bouce_height(sinus * .75)
 	FRICTION = .85 + min(sinus * .4, 0.0)
+	if $EnemyStateMachine.state.name == "Attacking":
+		FRICTION = .85
 	if not $BoingSound.playing:
 		if sinus > -.1 and sinus < .0:
 			if last_frame_sinus < sinus:

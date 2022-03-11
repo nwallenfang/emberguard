@@ -464,54 +464,38 @@ bus = "SFX"
 [node name="SoftBodyGlue" type="Spatial" parent="."]
 
 [node name="Position3D1" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153325, 1.01582, -0.191534 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405286, 0.956454, 0.0386452 )
 
 [node name="Position3D2" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.290622, 1.01582, -0.10969 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190011, 0.956454, -0.111745 )
 
 [node name="Position3D3" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.464671, 1.01582, 0.0221068 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198511, 0.956454, -0.0942552 )
 
 [node name="Position3D4" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342332, 0.942949, 0.176808 )
-
-[node name="Position3D5" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236911, 0.951967, 0.221979 )
-
-[node name="Position3D6" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.452567, 0.951967, 0.0616944 )
-
-[node name="Position3D7" type="Position3D" parent="SoftBodyGlue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.298111, 0.951967, -0.0956758 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449614, 0.956454, 0.060654 )
 
 [node name="SoftBody" type="SoftBody" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, -0.965926, 0.258819, -4.2222e-08, -0.258819, -0.965926, -1.13133e-08, 0, 0.0424476, -0.641707 )
+transform = Transform( -4.15324e-08, -2.48726e-08, 1, -0.695274, 0.371919, -4.2222e-08, -0.278568, -0.928265, -4.37114e-08, 0.00996518, 0.372923, -0.58757 )
 mesh = ExtResource( 12 )
 material/0 = SubResource( 30 )
 parent_collision_ignore = NodePath("..")
+total_mass = 100.0
+linear_stiffness = 0.3
 ray_pickable = false
-pinned_points = [ 120, 11, 7, 6, 3, 2, 94 ]
-attachments/0/point_index = 120
-attachments/0/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D5")
-attachments/0/offset = Vector3( 0.236911, -0.909519, -0.863686 )
-attachments/1/point_index = 11
-attachments/1/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D6")
-attachments/1/offset = Vector3( 0.452567, -1.95339, -0.983105 )
-attachments/2/point_index = 7
-attachments/2/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D7")
-attachments/2/offset = Vector3( -0.00145996, 0.0841271, 0.00232631 )
-attachments/3/point_index = 6
-attachments/3/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D1")
-attachments/3/offset = Vector3( 0.00294355, 0.0598728, 0.00766802 )
-attachments/4/point_index = 3
-attachments/4/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D2")
-attachments/4/offset = Vector3( 0.000920057, 0.0271056, 0.000724435 )
-attachments/5/point_index = 2
-attachments/5/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D3")
-attachments/5/offset = Vector3( -0.00325194, -0.0560588, 0.00727004 )
-attachments/6/point_index = 94
-attachments/6/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D4")
-attachments/6/offset = Vector3( -0.342332, -0.900501, -0.818515 )
+pinned_points = [ 2, 3, 8, 9 ]
+attachments/0/point_index = 2
+attachments/0/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D1")
+attachments/0/offset = Vector3( 0.0148327, -0.00458473, 0.0630159 )
+attachments/1/point_index = 3
+attachments/1/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D2")
+attachments/1/offset = Vector3( 0.0105209, 0.0891608, 0.0690968 )
+attachments/2/point_index = 8
+attachments/2/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D3")
+attachments/2/offset = Vector3( 0.00916415, 0.0811154, 0.0665379 )
+attachments/3/point_index = 9
+attachments/3/spatial_attachment_path = NodePath("../SoftBodyGlue/Position3D4")
+attachments/3/offset = Vector3( 0.00844496, -0.0109161, 0.0628169 )
 
 [node name="SlowTween" type="Tween" parent="."]
 

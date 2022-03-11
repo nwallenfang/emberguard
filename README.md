@@ -7,7 +7,7 @@ Used plugins:
 | Asset | Source | License |
 | ------ | ------ | ------ |
 | Scatter | [HungryProton](https://github.com/HungryProton/scatter) | MIT
-| Blade Sharpen | [Mikaaku_Hoshine](https://freesound.org/people/Mikaaku_Hoshine/sounds/241805/) | CC0
+| Trail | [OBKF](https://github.com/OBKF/Godot-Trail-System) | MIT
 
 
 We are grateful for these third-party projects whose ideas or assets we used in some way:

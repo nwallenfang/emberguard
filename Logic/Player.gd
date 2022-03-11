@@ -206,6 +206,7 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 	var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
 	add_acceleration(knockback_acc * knockback_direction)
 	UI.hit_effect()
+	drop_item()
 	$HitSound.play()
 	state = State.STUNNED
 	$InvincibilityTimer.start(invinc_time)

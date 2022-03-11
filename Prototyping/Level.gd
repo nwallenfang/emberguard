@@ -63,7 +63,8 @@ func ending_cutscene():
 	$Pivot/Camera.current = false
 	$Ending/Camera.current = true
 	$Ending/AnimationPlayer.play("camera")
-	yield(get_tree().create_timer(3.0), "timeout")
+	yield($Ending/AnimationPlayer, "animation_finished")
+	yield(get_tree().create_timer(4.5), "timeout")
 	UI.game_end_won()
 	
 

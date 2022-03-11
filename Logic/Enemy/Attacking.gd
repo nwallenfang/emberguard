@@ -49,7 +49,7 @@ func process(_delta: float, first_time_entering: bool):
 		if state_machine.state.name != "Attacking":
 			return
 		parent.get_node("Hitbox").set_deferred("monitorable", false)
-		yield(get_tree().create_timer(.3), "timeout")
+		yield(get_tree().create_timer(.1), "timeout")
 		if state_machine.state.name != "Attacking":
 			return
 		state_machine.transition_deferred("Idle")

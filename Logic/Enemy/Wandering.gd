@@ -34,6 +34,11 @@ func process(_delta: float, first_time_entering: bool):
 				break
 		target_position_xz = target_location
 		parent.get_node("Hitbox").set_deferred("monitorable", false)
+	
+	if not parent.get_node("DetectionArea").get_overlapping_areas().empty():
+		parent.get_node("DetectionArea").set_deferred("monitoring", false)
+		yield(get_tree(), "idle_frame")
+		parent.get_node("DetectionArea").set_deferred("monitoring", true)
 		
 	var done_moving: bool = state_machine.move_towards(target_position_xz, stop_distance, wandering_acceleration if Game.main_game_running else 22.0)
 	

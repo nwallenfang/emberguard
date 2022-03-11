@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderBlue.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderRed.tres" type="Material" id=2]
@@ -50,6 +50,8 @@ flags_unshaded = true
 [sub_resource type="CubeMesh" id=5]
 material = SubResource( 11 )
 size = Vector3( 0.02, 0.3, 0.02 )
+
+[sub_resource type="SphereShape" id=17]
 
 [sub_resource type="CapsuleShape" id=10]
 radius = 1.54522
@@ -169,9 +171,13 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="DetectionArea"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00108764, 0.794732, 1.40432 )
+transform = Transform( 1.02001, 0, 0, 0, -4.45859e-08, -1.02001, 0, 1.02001, -4.45859e-08, -0.00108764, 0.794732, 1.40432 )
 depth = 1.699
-polygon = PoolVector2Array( -8.13236, 6.847, 8.17382, 6.88629, 2.28003, -4.11547, -2.19927, -4.11547 )
+polygon = PoolVector2Array( -10.4102, 9.58794, 9.93166, 9.35927, 0.391325, -1.59151, -0.926692, -1.78088 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DetectionArea"]
+transform = Transform( 5.93544, 0, 0, 0, 1, 0, 0, 0, 5.93544, 0, 0, 0 )
+shape = SubResource( 17 )
 
 [node name="Hitbox" type="Area" parent="."]
 collision_layer = 0

@@ -202,24 +202,35 @@ func drop_item():
 func _on_Hurtbox_area_entered(area: Area) -> void:
 	if god_mode:
 		return
-	if not area.name == "Hitbox":
-		return # dirty but ok for now
-	$HurtParticles.emitting = true
-	var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
-	add_acceleration(knockback_acc * knockback_direction)
-	UI.hit_effect()
-	drop_item()
-	$HitSound.play()
-	state = State.STUNNED
-	$InvincibilityTimer.start(invinc_time)
-	$Hurtbox.set_deferred("monitoring", false)
-	$Hurtbox.set_deferred("monitorable", false)
-	$StunnedTimer.start(stun_time)  # when this timeouts you are not stunned anymore
-	# player is immediately stunned but wait a little for the stunnedparticles to show
+	if area.name.begins_with("Magic"):
+		$HurtParticles.emitting = true
+		var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
+		add_acceleration(knockback_acc * knockback_direction * 2.0)
+		UI.hit_effect()
+		drop_item()
+		$HitSound.play()
+		$InvincibilityTimer.start(invinc_time * .2)
+		$Hurtbox.set_deferred("monitoring", false)
+		$Hurtbox.set_deferred("monitorable", false)
+		$SlowTween.interpolate_property(self, "FRICTION", 0.5, FRICTION, 3, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		$SlowTween.start()
+	elif area.name == "Hitbox":
+		$HurtParticles.emitting = true
+		var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)
+		add_acceleration(knockback_acc * knockback_direction)
+		UI.hit_effect()
+		drop_item()
+		$HitSound.play()
+		state = State.STUNNED
+		$InvincibilityTimer.start(invinc_time)
+		$Hurtbox.set_deferred("monitoring", false)
+		$Hurtbox.set_deferred("monitorable", false)
+		$StunnedTimer.start(stun_time)  # when this timeouts you are not stunned anymore
+		# player is immediately stunned but wait a little for the stunnedparticles to show
 
-#	$StunnedParticles.emitting = true
-	yield(get_tree().create_timer(0.5), "timeout")	
-	stun_visuals()
+	#	$StunnedParticles.emitting = true
+		yield(get_tree().create_timer(0.5), "timeout")	
+		stun_visuals()
 
 export(Color) var stun_color;
 func stun_visuals():

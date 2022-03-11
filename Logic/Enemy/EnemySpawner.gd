@@ -11,9 +11,10 @@ export var wagon_distance: float = 4
 
 var all_enemies := {}
 var enemy_target_count : Dictionary = {}
-var enemy_types = ["water"]
+var enemy_types = ["water", "magic"]
 
 export var water_target_count := 8
+export var magic_target_count := 2
 
 var active = false
 
@@ -25,6 +26,9 @@ func deactivate():
 	for e in all_enemies["water"]:
 		e.queue_free()
 	all_enemies["water"].clear()
+	for e in all_enemies["magic"]:
+		e.queue_free()
+	all_enemies["magic"].clear()
 
 func _ready():
 	yield(get_tree().create_timer(.1),"timeout")
@@ -39,6 +43,7 @@ func _ready():
 	for enemy_type in enemy_types:
 		all_enemies[enemy_type] = []
 	enemy_target_count["water"] = water_target_count
+	enemy_target_count["magic"] = magic_target_count
 
 func is_point_suitable(p: Vector3) -> bool:
 	if not ground_aabb.encloses(AABB(p, Vector3(.5,.5,.5))):
@@ -61,6 +66,7 @@ func get_suitable_point():
 	return null
 
 const WATER = preload("res://Objects/Actors/WaterEnemy.tscn")
+const MAGIC = preload("res://Objects/Actors/MagicEnemy.tscn")
 
 func try_spawn_one(enemy_name) -> bool:
 	var p = get_suitable_point()
@@ -71,6 +77,8 @@ func try_spawn_one(enemy_name) -> bool:
 	match(enemy_name):
 		"water":
 			inst = WATER.instance()
+		"magic":
+			inst = MAGIC.instance()
 	get_tree().current_scene.add_child(inst)
 	inst.translation = p + player.translation
 	all_enemies[enemy_name].append(inst)

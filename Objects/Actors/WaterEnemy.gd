@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	var scaled_bouce_time := bounce_time * bounce_time_scale
 	var sinus = sin(scaled_bouce_time)
 	sinus = lerp(sinus, bounce_override, bounce_override_factor)
-	set_bouce_scale(sinus * .25)
+	set_bouce_scale(sinus * .2)
 	set_bouce_height(sinus * .75)
 	FRICTION = .85 + min(sinus * .4, 0.0)
 	if $EnemyStateMachine.state.name == "Attacking":

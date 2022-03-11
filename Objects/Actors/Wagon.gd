@@ -72,7 +72,7 @@ func _physics_process(delta):
 
 export(Curve) var speed_fire_curve: Curve
 export var base_velocity = 2.4
-export var wheels_base_speed = 0.4
+export var wheels_base_speed = 0.35
 var velocity = base_velocity
 func set_fire_percent(value):
 	$Fire.set_fire_percent(value)

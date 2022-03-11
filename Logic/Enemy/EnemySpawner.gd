@@ -13,8 +13,8 @@ var all_enemies := {}
 var enemy_target_count : Dictionary = {}
 var enemy_types = ["water", "magic"]
 
-export var water_target_count := 8
-export var magic_target_count := 2
+export var water_target_count := 7
+export var magic_target_count := 3
 
 var active = false
 
@@ -48,7 +48,7 @@ func _ready():
 func is_point_suitable(p: Vector3) -> bool:
 	if not ground_aabb.encloses(AABB(p, Vector3(.5,.5,.5))):
 		return false
-	if wagon.translation.distance_to(p) < wagon_distance:
+	if wagon.global_transform.origin.distance_to(p) < wagon_distance:
 		return false
 	return true
 
@@ -56,7 +56,7 @@ func get_random_point_around_player() -> Vector3:
 	var rand_radians = randf() * PI * 2
 	var _range = player_dist_max - player_dist_min
 	var rand_distance = sqrt(randf()) * _range + player_dist_min
-	return Vector3(rand_distance, 0, 0).rotated(Vector3.UP, rand_radians)
+	return Vector3(rand_distance, 0, 0).rotated(Vector3.UP, rand_radians) + player.global_transform.origin
 
 func get_suitable_point():
 	for _i in range(40):
@@ -80,7 +80,7 @@ func try_spawn_one(enemy_name) -> bool:
 		"magic":
 			inst = MAGIC.instance()
 	get_tree().current_scene.add_child(inst)
-	inst.translation = p + player.translation
+	inst.global_transform.origin = p
 	all_enemies[enemy_name].append(inst)
 	#print("spawned enemy at" + str(p))
 	return true

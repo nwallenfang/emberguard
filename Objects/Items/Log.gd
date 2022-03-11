@@ -6,6 +6,8 @@ func interact():
 	var success = Game.player.try_hold_item("log")
 	if success:
 		queue_free()
+		if get_parent().name.begins_with("LogStack"):
+			get_parent().update()
 
 func make_flying():
 	$InteractionObject.set_deferred("monitoring", false)

@@ -432,6 +432,7 @@ turn_future_offset = 20
 ending_distance = 4.0
 speed_fire_curve = SubResource( 5 )
 base_velocity = 3.0
+wheels_base_speed = 0.37
 
 [node name="WagonModel" parent="." instance=ExtResource( 6 )]
 transform = Transform( -3.20117e-08, 0, 0.732342, 0, 0.732342, 0, -0.732342, 0, -3.20117e-08, 0, 0, 0.560915 )

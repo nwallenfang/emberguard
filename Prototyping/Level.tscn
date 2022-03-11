@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Objects/Items/WeaponItem.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Prototyping/LeftSideCurve.tres" type="Curve3D" id=37]
 [ext_resource path="res://Objects/Environment/WeaponSpace.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Objects/Items/LogStack3.tscn" type="PackedScene" id=39]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -1615,7 +1616,7 @@ transform = Transform( 1.05479, 0.0877316, -0.789382, -0.0939432, 1.31687, 0.020
 transform = Transform( -1.06594, -0.0679683, -0.263899, -0.0887457, 1.09395, 0.0767094, 0.257655, 0.0956056, -1.06534, 73.6534, 2.38419e-06, 61.1224 )
 
 [node name="Bush27" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
-transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.427661, -40.5938 )
+transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.428146, -40.5938 )
 
 [node name="Bush28" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
 transform = Transform( -0.322361, 0.0208349, 1.33054, 0.187499, 1.35607, 0.0241923, -1.31742, 0.187902, -0.322126, 109.876, 3.45707e-06, 88.143 )
@@ -1850,7 +1851,7 @@ transform = Transform( -1.36195, -0.117548, 1.00472, -0.134989, 1.69107, 0.01486
 transform = Transform( -1.43902, -0.0934184, -0.0689423, -0.0887969, 1.43784, -0.0948605, 0.0748007, -0.0903129, -1.43893, -87.6523, 4.64916e-06, 115.801 )
 
 [node name="Rock7" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
-transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.0762, -86.6336 )
+transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.07648, -86.6336 )
 
 [node name="Rock8" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
 transform = Transform( -0.704289, 0.0483103, -1.41132, 0.00375201, 1.57717, 0.0521149, 1.41215, 0.0199037, -0.704018, 117.29, -8.34465e-07, -13.1474 )
@@ -3734,8 +3735,7 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 0, 0, 0 ),"_rng":Object(RandomNumberGenerator,"seed":-1343940737287428579,"state":-7738221295294195528,"script":null)
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/project_on_floor.gd" ),"enabled":true,"display_name":"Project On Floor","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"ray_length":10.0,"ray_offset":1.0,"remove_points_on_miss":true,"align_with_floor_normal":false,"invert_ray_direction":false,"floor_direction":Vector3( 0, -1, 0 ),"max_slope":1.0,"mask":"1048575")
- ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
-)
+ ],"just_created":false,"undo_redo":null)
 
 
 [node name="ScatterItem" type="Spatial" parent="Scatters/WoodRightSide"]
@@ -3910,8 +3910,7 @@ modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0.1, 0.1, 0.1 ),"rotation":Vector3( 5, 360, 5 ),"scale":Vector3( 0, 0, 0 ),"_rng":Object(RandomNumberGenerator,"seed":8965052117808401213,"state":-5399370944187629736,"script":null)
 )
 , Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/project_on_floor.gd" ),"enabled":true,"display_name":"Project On Floor","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"ray_length":10.0,"ray_offset":1.0,"remove_points_on_miss":true,"align_with_floor_normal":false,"invert_ray_direction":false,"floor_direction":Vector3( 0, -1, 0 ),"max_slope":1.0,"mask":"1048575")
- ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
-)
+ ],"just_created":false,"undo_redo":null)
 
 
 [node name="ScatterItem" type="Spatial" parent="Scatters/WoodLeftSide"]
@@ -4110,3 +4109,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.0576, -0.286839, 112.623 )
 
 [node name="Plant7" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4042, -0.286839, 120.599 )
+
+[node name="LogStack3" parent="ManualScatters" instance=ExtResource( 39 )]
+transform = Transform( 1.17844, 0, 0, 0, 1.17844, 0, 0, 0, 1.17844, -91.5333, 0.0686271, 98.6961 )
+
+[node name="OmniLight" type="OmniLight" parent="ManualScatters/LogStack3"]
+transform = Transform( 0.848579, 0, 0, 0, 0.848579, 0, 0, 0, 0.848579, 0, 0.862548, 0 )
+light_energy = 0.633
+omni_range = 2.06913

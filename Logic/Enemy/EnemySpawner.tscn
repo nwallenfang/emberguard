@@ -4,13 +4,14 @@
 
 [node name="EnemySpawner" type="Spatial"]
 script = ExtResource( 1 )
-player_dist_min = 15.0
-player_dist_max = 30.0
-despawn_range = 60.0
+player_dist_min = 18.0
+player_dist_max = 34.0
+despawn_range = 80.0
 wagon_distance = 8.0
+water_target_count = 9
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 8.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

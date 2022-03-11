@@ -64,7 +64,8 @@ func handle_input(delta):
 				# don't show cannot attack prompt if not holding a weapon
 				pass
 		else:
-			emit_signal("cannot_attack")
+			#emit_signal("cannot_attack")
+			drop_item()
 
 
 func state_default(delta):
@@ -117,7 +118,7 @@ var item_holded_count := 0
 var item_visible := ""
 var item_visible_count := 0
 var stack_offset := .24
-export var item_speed_punishment := 10.0
+export var item_speed_punishment := 14.0
 func update_holding_hand():
 	if item_holded_count != item_visible_count or item_holded != item_visible:
 		for c in $ItemHand.get_children():

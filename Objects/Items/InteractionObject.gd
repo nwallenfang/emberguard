@@ -11,8 +11,10 @@ var materials = []
 
 const OUTLINE_MATERIAL = preload("res://Assets/Materials/OutlineShaderMaterial.tres")
 
-func get_pos():
-	return parent.translation
+func _enter_tree() -> void:
+	# prefetch
+	# works on node names
+	pass
 
 func set_own_and_children_materials_to_outline(n: Node):
 	if n.name == "Sword":

@@ -106,6 +106,7 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1280
 window/size/height=720
+window/vsync/use_vsync=false
 
 [editor_plugins]
 

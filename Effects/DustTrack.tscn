@@ -62,6 +62,7 @@ rings = 16
 
 [node name="DustTrack" type="Particles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75913, 0 )
+cast_shadow = 0
 amount = 20
 lifetime = 0.5
 speed_scale = 0.6

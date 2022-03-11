@@ -9,9 +9,9 @@ var physics_movement_enabled = true
 func _ready() -> void:
 	$EnemyStateMachine.enabled = true
 	bounce_time = randf() * 10.0
-	
+
+
 func _process(delta: float) -> void:
-	$EnemyStateMachine.process(delta)
 	var look_direction := -Vector3(acceleration)
 	var look_vec2 := Vector2(acceleration.x, acceleration.z)
 	
@@ -34,6 +34,9 @@ func _physics_process(delta: float) -> void:
 			if last_frame_sinus < sinus:
 				$BoingSound.play()
 	last_frame_sinus = sinus
+	
+	$EnemyStateMachine.process(delta)
+	
 	if physics_movement_enabled:
 		execute_movement(delta)
 		

@@ -16,6 +16,9 @@ func _enter_tree() -> void:
 	# works on node names
 	pass
 
+func get_pos():
+	return parent.translation
+
 func set_own_and_children_materials_to_outline(n: Node):
 	if n.name == "Sword":
 		pass

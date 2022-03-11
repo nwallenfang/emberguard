@@ -12,12 +12,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var look_direction := -Vector3(acceleration)
-	var look_vec2 := Vector2(acceleration.x, acceleration.z)
-	
-	var angular_velocity := 30.0
-	if look_vec2 != Vector2.ZERO:
-		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
+	pass
 
 var bounce_time : float
 var bounce_time_scale := 6.5
@@ -41,6 +36,14 @@ func _physics_process(delta: float) -> void:
 	last_frame_sinus = sinus
 	
 	$EnemyStateMachine.process(delta)
+	
+	var look_direction = -Vector3(acceleration)
+	var look_vec2 := Vector2(acceleration.x, acceleration.z)
+	
+	var angular_velocity := 30.0
+	if look_vec2 != Vector2.ZERO:
+		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
+	
 	
 	if physics_movement_enabled:
 		execute_movement(delta)

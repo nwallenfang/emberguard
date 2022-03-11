@@ -3,20 +3,23 @@ extends Spatial
 signal intro_button_pressed
 
 func _ready() -> void:
-#	$Player.god_mode = true  # uncomment when pushing to production
 	$WorldEnvironment.environment.fog_enabled = true
 	Game.player = $Player
-	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
-	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
 	Game.wagon = $Wagon
 	Game.wagon.get_node("Chest").open_percent = .8
 	Game.ground_aabb = $Ground.get_transformed_aabb()
 	Game.ending = $Ending
 	Game.enemy_spawner = $EnemySpawner
 	Game.moon = $Moon
+	Game.main_game_running = false
+#	$Player.god_mode = true  # uncomment when pushing to production
+
+	$Player.connect("too_much_to_carry", UI, "trigger_too_much_to_carry")
+	$Player.connect("cannot_attack", UI, "trigger_cannot_attack")
+
 	$Pivot/Listener.make_current()
 	$IntroCamera.current = true
-	Game.main_game_running = false
+
 	
 	# set the game to running after 2 secs
 	# later this will be called once the intro cutscene is done
@@ -43,7 +46,7 @@ func _ready() -> void:
 	yield(get_tree().create_timer(0.5), "timeout")
 	$WaterEnemy.queue_free()
 	$WaterEnemy2.queue_free()
-	yield($IntroCamera/Tween, "tween_all_completed")
+	yield($IntroCamera, "camera_move_done")
 #	$Player.god_mode = false
 	$Wagon/Fire/FireParticles/Smoke.emitting = true
 	Game.main_game_running = true

@@ -10,7 +10,7 @@ size = Vector3( 0.04, 0.28, 0.02 )
 [node name="SpottedPlayerParticles" type="Particles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15533, 0 )
 emitting = false
-lifetime = 1.5
+amount = 6
 one_shot = true
 explosiveness = 1.0
 process_material = ExtResource( 1 )

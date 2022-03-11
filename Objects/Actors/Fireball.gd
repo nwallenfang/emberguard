@@ -2,8 +2,7 @@ extends Spatial
 
 class_name Fireball
 
-export var damage = 3
-export var stop_distance = 0.05
+export var stop_distance = 0.10
 export var fly_velocity = 0.3
 
 enum State {

@@ -23,9 +23,10 @@ func interact():
 		existing_fireballs[existing_fireballs.size()-1].connect("shoot_fireball", fireball, "activate")
 	# if there is already a fireball connect to that fireball's signal
 	# once that fireball has fired, this one can be activated
-	
+	$OmniLight.visible = false
 	Game.player.add_child(fireball)
 	fireball.translate(Vector3(x_translation, 2.8, 0.0))
+	
 	
 	yield(get_tree().create_timer(3.0), "timeout")
 	queue_free()

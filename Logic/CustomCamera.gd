@@ -4,6 +4,7 @@ var velocity: float = 8.0
 var angular_velocity: float = 50.0
 var transitioning := false
 
+signal camera_move_done
 
 # this function is called by the Tween
 var start_transform: Transform
@@ -53,6 +54,7 @@ func _process(delta):
 		interpolate_transform(time / duration)
 		if time / duration >= 1.0:
 			move = false
+			emit_signal("camera_move_done")
 		var after_time = OS.get_ticks_msec()
 		print(str(delta) + " -> " + str(after_time - pre_time))
 

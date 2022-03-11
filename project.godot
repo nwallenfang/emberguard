@@ -178,3 +178,4 @@ common/enable_pause_aware_picking=true
 quality/filters/use_nearest_mipmap_filter=true
 quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"
+gles3/shaders/shader_compilation_mode=2

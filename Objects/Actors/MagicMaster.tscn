@@ -48,6 +48,7 @@ volume_db = 6.0
 bus = "SFX"
 
 [node name="magician_master" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.24901, 0, 0, 0, 1.24901, 0, 0, 0, 1.24901, 0, 0, 0 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="InvincTimer" to="." method="_on_InvincTimer_timeout"]

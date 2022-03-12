@@ -104,6 +104,7 @@ CameraManager="*res://Logic/CameraManager.tscn"
 
 [debug]
 
+settings/fps/force_fps=144
 gdscript/warnings/unused_variable=false
 gdscript/warnings/shadowed_variable=false
 gdscript/warnings/return_value_discarded=false

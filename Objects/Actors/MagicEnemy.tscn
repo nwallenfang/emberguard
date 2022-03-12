@@ -121,7 +121,7 @@ script = ExtResource( 15 )
 RELATIVE_TRANSITION_CHANCE = 0.0
 
 [node name="Timer" type="Timer" parent="EnemyStateMachine/MagicAttack"]
-wait_time = 3.5
+wait_time = 3.2
 
 [node name="BouceAnimationTween" type="Tween" parent="EnemyStateMachine/MagicAttack"]
 

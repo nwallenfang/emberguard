@@ -11,7 +11,7 @@ wagon_distance = 8.0
 water_target_count = 9
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

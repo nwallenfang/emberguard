@@ -154,6 +154,12 @@ collision_mask = 4
 [node name="CollisionShape" type="CollisionShape" parent="MagicHitbox"]
 shape = SubResource( 4 )
 
+[node name="CollosionDetection" type="Area" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="CollosionDetection"]
+shape = SubResource( 4 )
+
 [node name="Explosion" type="Particles" parent="."]
 emitting = false
 amount = 20
@@ -164,12 +170,15 @@ draw_pass_1 = SubResource( 12 )
 
 [node name="CastSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -2.0
 autoplay = true
 bus = "SFX"
 
 [node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -6.0
 bus = "SFX"
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
 [connection signal="area_entered" from="MagicHitbox" to="." method="_on_MagicHitbox_area_entered"]
+[connection signal="body_entered" from="CollosionDetection" to="." method="_on_CollosionDetection_body_entered"]

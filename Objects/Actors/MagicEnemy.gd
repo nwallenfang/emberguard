@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		execute_movement(delta)
 		
 func _on_DetectionArea_area_entered(_area: Area) -> void:
-	print("detect")
+	#print("detect")
 	if not Game.main_game_running:
 		return
 	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory

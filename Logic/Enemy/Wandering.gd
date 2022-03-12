@@ -1,6 +1,7 @@
 extends AbstractState
 
-export var target_distance: float = 12.0
+export var target_distance: float = 5.0
+export var target_distance_random: float = 2.0
 export var stop_distance: float = 0.2
 export var wandering_acceleration := 30.0
 
@@ -25,7 +26,7 @@ func process(_delta: float, first_time_entering: bool):
 		var xz_location = Vector2(parent.global_transform.origin.x, parent.global_transform.origin.z)
 		var target_location = xz_location
 		for i in range(20):
-			var new_target = get_new_target(xz_location, target_distance)
+			var new_target = get_new_target(xz_location, target_distance, target_distance_random)
 			if not Game.main_game_running:
 				var wagon_location = Vector2(Game.wagon.global_transform.origin.x, Game.wagon.global_transform.origin.z)
 				new_target = get_new_target(wagon_location, 4.9, 2.1)
@@ -41,5 +42,5 @@ func process(_delta: float, first_time_entering: bool):
 		
 	var done_moving: bool = state_machine.move_towards(target_position_xz, stop_distance, wandering_acceleration if Game.main_game_running else 22.0)
 	
-	if done_moving:
+	if done_moving and get_parent().state.name == "Wandering":
 		state_machine.transition_deferred("Idle")

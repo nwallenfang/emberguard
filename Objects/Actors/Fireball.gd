@@ -30,7 +30,17 @@ func state_attacking(_delta: float):
 		enemy.get_node("EnemyStateMachine").transition_deferred("Dying")
 		state = State.Destroyed
 
+func update_hover_offset():
+	hover_time_offset = float(OS.get_ticks_msec()) * .001 + hover_xscale * translation.x
+
+var hover_time_offset : float
+var hover_xscale := 4.5
+var hover_time_scale := .8
+var hover_height := .3
+var hover_offset := .0
 func _physics_process(delta: float) -> void:
+	hover_time_offset += delta
+	$Mesh.translation.y = hover_offset + hover_height * sin(hover_time_offset * hover_time_scale)
 	match state:
 		State.Idle:
 			pass
@@ -42,6 +52,7 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 
 func activate():
+	yield(get_tree().create_timer(1.5), "timeout")
 	$EnemyDetectArea.set_deferred("monitoring", true)
 
 func _on_EnemyDetectArea_area_entered(enemy_hurtbox: Area) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Objects/Actors/WaterEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Sprites/spark_thin.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sound/wagon.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sound/impact_short.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sound/impact_long.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sound/wood_break.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.61299, 1.61299, 0, 0, Vector2( 1, 1 ), 0.116162, 0.0, 0, 0 ]
@@ -359,6 +362,42 @@ tracks/27/keys = {
 "update": 0,
 "values": [ Vector3( -40.9, 45.012, 0 ), Vector3( -40.9, 45.012, 0 ), Vector3( -55.622, 45.012, 0 ) ]
 }
+tracks/28/type = "value"
+tracks/28/path = NodePath("WoodBreak:playing")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 6.4, 6.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("ImpactShort:playing")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 7.2, 7.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("ImpactLong:playing")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 7.6, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 
 [sub_resource type="Animation" id=12]
 length = 0.001
@@ -523,6 +562,8 @@ transform = Transform( -0.358938, -0.668125, 0.651746, 0, 0.698278, 0.715827, -0
 current = true
 fov = 50.0
 
+[node name="Listener" type="Listener" parent="GameOver/Cam1"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
 anims/GameOver = SubResource( 9 )
 anims/RESET = SubResource( 12 )
@@ -548,6 +589,21 @@ enabled = false
 [node name="Hurtbox" parent="GameOver/WaterEnemy" index="6"]
 monitoring = false
 monitorable = false
+
+[node name="WoodBreak" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource( 14 )
+volume_db = -18.929
+bus = "SFX"
+
+[node name="ImpactShort" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="ImpactLong" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource( 13 )
+bus = "SFX"
+
+[node name="FireSoundTween" type="Tween" parent="GameOver"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.562395, -0.975026, 3.89454 )

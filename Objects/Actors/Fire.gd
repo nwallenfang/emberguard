@@ -28,9 +28,11 @@ func set_fire_percent(value):
 	$Placeholder.translation.y = .4 * value
 	$FireParticles.set_fire_percent(value)
 	
-	$ScareEnemyArea.monitorable = value >= .02
-	$ScareEnemyArea.monitoring = value >= .02
-	$Crackle.playing = value >= .02
+	var burning : bool = value >= .001
+	$ScareEnemyArea.monitorable = burning
+	$ScareEnemyArea.monitoring = burning
+	if $Crackle.playing != burning:
+		$Crackle.playing = burning
 	
 	if not currently_flickering:
 		omnilight_base = value

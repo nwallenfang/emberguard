@@ -89,6 +89,10 @@ func set_fire_percent(value):
 signal game_over_animation_finished
 
 func game_over():
+	$GameOver/Cam1/Listener.make_current()
+	$Fire/Crackle.unit_db = -2.0
+	$GameOver/FireSoundTween.interpolate_property($Fire/Crackle, "unit_db", -2.0, -15.0, 2)
+	$GameOver/FireSoundTween.start()
 	$WagonSound.playing = false
 	$DustTrack.emitting = false
 	$DustTrack2.emitting = false

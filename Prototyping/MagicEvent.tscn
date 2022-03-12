@@ -41,57 +41,57 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "cutscene"
-length = 11.0
+length = 14.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("MagicMaster:translation")
+tracks/0/path = NodePath("MagicMaster:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 4.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MagicMaster:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 4.5, 5.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 180, 0 ), Vector3( 0, 0, 0 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("MagicMaster:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("MagicMaster:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 4.5, 5.7, 6.4, 6.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.150703, 0.150703, 0.150703 ), Vector3( 1, 1, 1 ), Vector3( 1, 1.25, 1 ), Vector3( 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:beam_shoot")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.8, 8.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.2 ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath(".:beam_shoot")
+tracks/3/path = NodePath("WaterEnemy:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 7.5, 8.5 ),
+"times": PoolRealArray( 3.8, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.2 ]
+"values": [ Vector3( 0, 180, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("WaterEnemy:rotation_degrees")
+tracks/4/path = NodePath("WaterEnemy:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -100,22 +100,22 @@ tracks/4/keys = {
 "times": PoolRealArray( 3.8, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 180, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0.16552, 0.16552, 0.16552 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("WaterEnemy:scale")
+tracks/5/path = NodePath("WaterEnemy2:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 3.8, 4.5 ),
+"times": PoolRealArray( 3.4, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.16552, 0.16552, 0.16552 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 0, -180, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("WaterEnemy2:rotation_degrees")
+tracks/6/path = NodePath("WaterEnemy2:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -124,22 +124,22 @@ tracks/6/keys = {
 "times": PoolRealArray( 3.4, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -180, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0.167666, 0.167666, 0.167666 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("WaterEnemy2:scale")
+tracks/7/path = NodePath("MagicEnemy:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 3.4, 4.1 ),
+"times": PoolRealArray( 4.1, 4.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.167666, 0.167666, 0.167666 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 0, 140, 0 ), Vector3( 0, -50.774, 0 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("MagicEnemy:rotation_degrees")
+tracks/8/path = NodePath("MagicEnemy:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -148,208 +148,196 @@ tracks/8/keys = {
 "times": PoolRealArray( 4.1, 4.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 140, 0 ), Vector3( 0, -50.774, 0 ) ]
+"values": [ Vector3( 0.13915, 0.13915, 0.13915 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("MagicEnemy:scale")
+tracks/9/path = NodePath("MagicMaster:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 4.1, 4.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0.13915, 0.13915, 0.13915 ), Vector3( 1, 1, 1 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("MagicMaster:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 4.3, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/11/type = "value"
-tracks/11/path = NodePath("Laser:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
+tracks/10/type = "value"
+tracks/10/path = NodePath("Laser:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 7.3, 7.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/12/type = "value"
-tracks/12/path = NodePath("WaterEnemy:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
+tracks/11/type = "value"
+tracks/11/path = NodePath("WaterEnemy:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
 "times": PoolRealArray( 3.6, 3.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/13/type = "value"
-tracks/13/path = NodePath("WaterEnemy2:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
+tracks/12/type = "value"
+tracks/12/path = NodePath("WaterEnemy2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
 "times": PoolRealArray( 3.2, 3.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/14/type = "value"
-tracks/14/path = NodePath("MagicEnemy:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
+tracks/13/type = "value"
+tracks/13/path = NodePath("MagicEnemy:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
 "times": PoolRealArray( 3.9, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("Camera:rotation_degrees:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( -7.876, -0.25, 0, 0.25, 0, -27.879, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2, 5.7 )
+}
 tracks/15/type = "bezier"
-tracks/15/path = NodePath("Camera:rotation_degrees:x")
+tracks/15/path = NodePath("Camera:rotation_degrees:y")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"points": PoolRealArray( -7.876, -0.25, 0, 0.25, 0, -27.879, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -161.088, -0.25, 0, 0.25, 0, -133.442, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 2, 5.7 )
 }
 tracks/16/type = "bezier"
-tracks/16/path = NodePath("Camera:rotation_degrees:y")
+tracks/16/path = NodePath("Camera:rotation_degrees:z")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"points": PoolRealArray( -161.088, -0.25, 0, 0.25, 0, -133.442, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 2, 5.7 )
 }
 tracks/17/type = "bezier"
-tracks/17/path = NodePath("Camera:rotation_degrees:z")
+tracks/17/path = NodePath("Camera:translation:x")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -6.72691, -0.25, 0, 0.25, 0, -5.94224, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 2, 5.7 )
 }
 tracks/18/type = "bezier"
-tracks/18/path = NodePath("Camera:translation:x")
+tracks/18/path = NodePath("Camera:translation:y")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"points": PoolRealArray( -6.72691, -0.25, 0, 0.25, 0, -5.94224, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 4.936, -0.25, 0, 0.25, 0, 4.12205, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 2, 5.7 )
 }
 tracks/19/type = "bezier"
-tracks/19/path = NodePath("Camera:translation:y")
+tracks/19/path = NodePath("Camera:translation:z")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"points": PoolRealArray( 4.936, -0.25, 0, 0.25, 0, 4.12205, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -1.551, -0.25, 0, 0.25, 0, -3.12609, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 2, 5.7 )
 }
 tracks/20/type = "bezier"
-tracks/20/path = NodePath("Camera:translation:z")
+tracks/20/path = NodePath("Camera2:rotation_degrees:x")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"points": PoolRealArray( -1.551, -0.25, 0, 0.25, 0, -3.12609, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 2, 5.7 )
+"points": PoolRealArray( -39.478, -0.25, 0, 0.25, 0, -39.478, -0.25, 0, 0.25, 0, -46.453, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 5.7, 7.4, 9.1 )
 }
 tracks/21/type = "bezier"
-tracks/21/path = NodePath("Camera2:rotation_degrees:x")
+tracks/21/path = NodePath("Camera2:rotation_degrees:y")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"points": PoolRealArray( -39.478, -0.25, 0, 0.25, 0, -39.478, -0.25, 0, 0.25, 0, -46.453, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 50.753, -0.25, 0, 0.25, 0, 50.753, -0.25, 0, 0.25, 0, 82.396, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 5.7, 7.4, 9.1 )
 }
 tracks/22/type = "bezier"
-tracks/22/path = NodePath("Camera2:rotation_degrees:y")
+tracks/22/path = NodePath("Camera2:rotation_degrees:z")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = {
-"points": PoolRealArray( 50.753, -0.25, 0, 0.25, 0, 50.753, -0.25, 0, 0.25, 0, 82.396, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 5.7, 7.4, 9.1 )
 }
 tracks/23/type = "bezier"
-tracks/23/path = NodePath("Camera2:rotation_degrees:z")
+tracks/23/path = NodePath("Camera2:translation:x")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 13.3878, -0.25, 0, 0.25, 0, 13.3878, -0.25, 0, 0.25, 0, 13.3878, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 5.7, 7.4, 9.1 )
 }
 tracks/24/type = "bezier"
-tracks/24/path = NodePath("Camera2:translation:x")
+tracks/24/path = NodePath("Camera2:translation:y")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"points": PoolRealArray( 13.3878, -0.25, 0, 0.25, 0, 13.3878, -0.25, 0, 0.25, 0, 13.3878, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 15.9122, -0.25, 0, 0.25, 0, 15.9122, -0.25, 0, 0.25, 0, 15.9122, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 5.7, 7.4, 9.1 )
 }
 tracks/25/type = "bezier"
-tracks/25/path = NodePath("Camera2:translation:y")
+tracks/25/path = NodePath("Camera2:translation:z")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = {
-"points": PoolRealArray( 15.9122, -0.25, 0, 0.25, 0, 15.9122, -0.25, 0, 0.25, 0, 15.9122, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 16.7863, -0.25, 0, 0.25, 0, 16.7863, -0.25, 0, 0.25, 0, 16.7863, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 5.7, 7.4, 9.1 )
 }
-tracks/26/type = "bezier"
-tracks/26/path = NodePath("Camera2:translation:z")
+tracks/26/type = "method"
+tracks/26/path = NodePath(".")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/keys = {
-"points": PoolRealArray( 16.7863, -0.25, 0, 0.25, 0, 16.7863, -0.25, 0, 0.25, 0, 16.7863, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 5.7, 7.4, 9.1 )
-}
-tracks/27/type = "method"
-tracks/27/path = NodePath(".")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/keys = {
-"times": PoolRealArray( 8.3, 11 ),
+"times": PoolRealArray( 8.3, 14 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -359,26 +347,26 @@ tracks/27/keys = {
 "method": "cutscene_done"
 } ]
 }
+tracks/27/type = "value"
+tracks/27/path = NodePath("Camera:current")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 5.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 tracks/28/type = "value"
-tracks/28/path = NodePath("Camera:current")
+tracks/28/path = NodePath("Camera2:current")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = {
-"times": PoolRealArray( 3.2, 5.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/29/type = "value"
-tracks/29/path = NodePath("Camera2:current")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/keys = {
-"times": PoolRealArray( 5.7, 11 ),
+"times": PoolRealArray( 5.7, 14 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -387,12 +375,14 @@ tracks/29/keys = {
 [node name="MagicEvent" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58912, 0, -13.6194 )
 script = ExtResource( 1 )
-beam_shoot = 1.2
 
 [node name="MagicMaster" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.150703, 0, -1.31749e-08, 0, 0.150703, 0, 1.31749e-08, 0, -0.150703, 0, 0, 0 )
+visible = false
 
 [node name="Laser" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.0310371, 1.23039, 0, -1.22972, 0.0310202, -0.0405707, -0.0405578, 0.00102308, 1.23011, 0, 0.384749, 6.59406 )
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -400,18 +390,36 @@ anims/RESET = SubResource( 3 )
 anims/cutscene = SubResource( 2 )
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30881, 0, 1.33225 )
+transform = Transform( -0.16552, 0, -1.44703e-08, 0, 0.16552, 0, 1.44703e-08, 0, -0.16552, -2.30881, 0, 1.33225 )
+visible = false
+minion = true
+health = 3
 
 [node name="WaterEnemy2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, 0, 1.33225 )
+transform = Transform( -0.167666, 0, -2.53169e-08, 0, 0.167666, 0, 2.53169e-08, 0, -0.167666, 2.26824, 0, 1.33225 )
+visible = false
+minion = true
+health = 3
 
 [node name="MagicEnemy" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.632381, 0, -0.774658, 0, 1, 0, 0.774658, 0, 0.632381, -1.5357, 0, -1.61299 )
+transform = Transform( -0.106595, 0, 0.089444, 0, 0.13915, 0, -0.089444, 0, -0.106595, -1.5357, 0, -1.61299 )
+visible = false
+minion = true
+health = 4
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.68762, 0.339515, -0.641801, 0, 0.883937, 0.467606, 0.726071, 0.321535, -0.607813, -5.94224, 4.12205, -3.12609 )
+transform = Transform( -0.946018, 0.0444134, -0.321058, 0, 0.990567, 0.13703, 0.324116, 0.129632, -0.937094, -6.72691, 4.936, -1.551 )
+current = true
 
 [node name="Camera2" type="Camera" parent="."]
-transform = Transform( 0.132326, -0.718436, 0.682891, 0, 0.688949, 0.724809, -0.991206, -0.0959108, 0.0911656, 13.3878, 15.9122, 16.7863 )
+transform = Transform( 0.0516914, -0.634932, 0.770837, 0, 0.771869, 0.635782, -0.998663, -0.0328645, 0.039899, 13.3878, 15.9122, 16.7863 )
 current = true
 fov = 60.3
+
+[node name="TriggerTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="TriggerTimer" to="." method="_on_TriggerTimer_timeout"]

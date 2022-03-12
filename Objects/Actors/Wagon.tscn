@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Materials/PlaceHolderGray.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/PlaceHolderYellow.tres" type="Material" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Sound/impact_short.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Assets/Sound/impact_long.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Assets/Sound/wood_break.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Effects/MagicForceField.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0 ), 0.0, 5.26461, 0, 0, Vector2( 0.176812, 0.518182 ), 1.61299, 1.61299, 0, 0, Vector2( 1, 1 ), 0.116162, 0.0, 0, 0 ]
@@ -627,5 +628,9 @@ max_distance = 30.0
 bus = "SFX"
 
 [node name="SpeedTurnUp" type="Tween" parent="."]
+
+[node name="MagicForceField" parent="." instance=ExtResource( 15 )]
+transform = Transform( -2.79591e-08, 0, 0.639631, 0, 0.571343, 0, -0.571343, 0, -2.49742e-08, 0, 1.22469, 0.894687 )
+visible = false
 
 [editable path="GameOver/WaterEnemy"]

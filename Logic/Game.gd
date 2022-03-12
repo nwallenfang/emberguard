@@ -2,6 +2,7 @@ extends Spatial
 
 const DEBUG_SKIP_INTRO = false  # TODO
 
+var main_cam: Camera
 var player: Player
 var wagon: Wagon
 var ending
@@ -57,8 +58,14 @@ func set_fire_health(new_health: float):
 	UI.set_fire_health(fire_health)
 	get_tree().current_scene.get_node("Wagon").set_fire_percent(fire_health)
 
+var cutscene := false
+var minions_activated := false
+
 var fire_burn_speed := 0.014
 func _process(delta: float) -> void:
-	self.fire_health -= delta * fire_burn_speed
-	player_distance_to_wagon = player.translation.distance_to(wagon.translation)
+	if not cutscene:
+		self.fire_health -= delta * fire_burn_speed
+		player_distance_to_wagon = player.translation.distance_to(wagon.translation)
+	else:
+		self.fire_health = fire_health
 

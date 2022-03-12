@@ -77,6 +77,8 @@ var velocity = base_velocity
 var velocity_scale := 0.0
 func set_fire_percent(value):
 	$Fire.set_fire_percent(value)
+	if Game.cutscene:
+		value = .4
 	velocity = velocity_scale * base_velocity * speed_fire_curve.interpolate(value)
 	wheels_anim_player.playback_speed = velocity_scale * wheels_base_speed * speed_fire_curve.interpolate(value)
 	

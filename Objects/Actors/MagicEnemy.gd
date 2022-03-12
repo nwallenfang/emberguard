@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	last_frame_sinus = sinus
 	
 	$EnemyStateMachine.process(delta)
+	#print($EnemyStateMachine.state.name)
 	
 	var look_direction = -Vector3(acceleration)
 	var look_vec2 := Vector2(acceleration.x, acceleration.z)
@@ -51,7 +52,7 @@ func _on_DetectionArea_area_entered(_area: Area) -> void:
 	#print("detect")
 	if not Game.main_game_running:
 		return
-	if $EnemyStateMachine.state.name == "Wandering": # or idle in theory
+	if $EnemyStateMachine.state.name == "Wandering" or $EnemyStateMachine.state.name == "Idle": # or idle in theory
 		emit_signal("player_detected")
 		$EnemyStateMachine.transition_deferred("PlayerSpotted")
 

@@ -10,6 +10,7 @@ func set_type(t):
 
 func interact():
 	var success = Game.player.grab_weapon($Weapon.type)
+	UI.show_attack_tutorial()
 	$Weapon.queue_free()
 	$InteractionObject.queue_free()
 	$AudioStreamPlayer.play()

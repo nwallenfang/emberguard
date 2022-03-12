@@ -83,6 +83,7 @@ script = ExtResource( 4 )
 
 [node name="Idle" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 5 )
+RELATIVE_TRANSITION_CHANCE = 0.0
 
 [node name="Wandering" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 7 )

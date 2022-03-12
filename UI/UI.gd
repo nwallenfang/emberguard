@@ -155,6 +155,12 @@ func _on_RestartButton_pressed() -> void:
 	$CenterContainer/GameOverBox.visible = false
 	var _err = get_tree().reload_current_scene()
 
+func show_attack_tutorial():
+	$AttackWith.visible = true
+	$AttackWith/Tween.interpolate_property($AttackWith, "modulate:a", 1.0, 0.0, 3.5)
+	$AttackWith/Tween.start()
+	yield($AttackWith/Tween, "tween_all_completed")
+	$AttackWith.visible = false
 
 func set_interact_text(text:String):
 	$InteractLabel.visible = text != ""

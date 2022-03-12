@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
@@ -294,12 +294,43 @@ height = 0.1
 params_cull_mode = 2
 albedo_color = Color( 0.403922, 0.211765, 0.00392157, 1 )
 
+[sub_resource type="Gradient" id=36]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=37]
+gradient = SubResource( 36 )
+
+[sub_resource type="Curve" id=38]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.495192, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.995192, 0.0318182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=39]
+curve = SubResource( 38 )
+
+[sub_resource type="ParticlesMaterial" id=33]
+emission_shape = 2
+emission_box_extents = Vector3( 0.3, 0.01, 0.3 )
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 39 )
+color = Color( 0.478431, 1, 0, 1 )
+color_ramp = SubResource( 37 )
+
+[sub_resource type="SpatialMaterial" id=41]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CubeMesh" id=40]
+material = SubResource( 41 )
+size = Vector3( 0.2, 0.2, 0.2 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+base_move_acceleration = 90.0
 stun_time = 1.5
 invinc_time = 2.0
 god_mode = false
-item_speed_punishment = 15.0
+item_speed_punishment = 13.0
 stun_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [node name="PrototypeLook" type="Spatial" parent="."]
@@ -508,9 +539,21 @@ attachments/3/offset = Vector3( 0.00844523, -0.0109167, 0.0628167 )
 
 [node name="SlowTween" type="Tween" parent="."]
 
+[node name="SpeedTimer" type="Timer" parent="."]
+wait_time = 8.0
+
+[node name="SpeedupParticle" type="Particles" parent="."]
+emitting = false
+amount = 6
+lifetime = 1.2
+local_coords = false
+process_material = SubResource( 33 )
+draw_pass_1 = SubResource( 40 )
+
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="StunnedTimer" to="." method="_on_StunnedTimer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
 [connection signal="timeout" from="PlayerAttack/AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_SpeedTimer_timeout"]

@@ -57,7 +57,7 @@ func set_fire_health(new_health: float):
 	UI.set_fire_health(fire_health)
 	get_tree().current_scene.get_node("Wagon").set_fire_percent(fire_health)
 
-var fire_burn_speed := 0.14
+var fire_burn_speed := 0.014
 func _process(delta: float) -> void:
 	self.fire_health -= delta * fire_burn_speed
 	player_distance_to_wagon = player.translation.distance_to(wagon.translation)

@@ -80,6 +80,6 @@ func ending_cutscene():
 	
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey or event is InputEventJoypadButton or event is InputEventMouseButton:
 		if event.pressed:
 			emit_signal("intro_button_pressed")

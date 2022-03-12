@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Meshes/magician_master.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Actors/MagicMaster.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound/enemy_die.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sound/enemy_hit.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Effects/HitParticles.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Effects/DeathParticles.tscn" type="PackedScene" id=16]
+
+[sub_resource type="SphereShape" id=11]
+radius = 0.666785
+
+[sub_resource type="CapsuleShape" id=10]
+radius = 2.35217
+height = 1.74535
+
+[node name="MagicMaster" type="KinematicBody"]
+collision_layer = 2048
+collision_mask = 2049
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.70098, 0 )
+shape = SubResource( 11 )
+
+[node name="Hurtbox" type="Area" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Hurtbox"]
+transform = Transform( 0.342165, 0, 0, 0, -1.4214e-08, -0.295457, 0, 0.325179, -1.29148e-08, 0, 0.789651, 1.67935e-08 )
+shape = SubResource( 10 )
+
+[node name="InvincTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="DeathParticles" parent="." instance=ExtResource( 16 )]
+
+[node name="HitParticles" parent="." instance=ExtResource( 15 )]
+
+[node name="GettingHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="DyingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 6.0
+bus = "SFX"
+
+[node name="magician_master" parent="." instance=ExtResource( 1 )]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="InvincTimer" to="." method="_on_InvincTimer_timeout"]

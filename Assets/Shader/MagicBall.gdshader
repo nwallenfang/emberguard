@@ -38,13 +38,12 @@ void fragment() {
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo,base_uv);
 	vec4 magic_tex = texture(texture_magic,base_uv + vec2(TIME * .3 + id));
-	ALBEDO = albedo.rgb;
-	METALLIC = metallic;
-	ROUGHNESS = roughness;
-	SPECULAR = specular;
+	vec3 alb = ALBEDO = albedo.rgb;
 	float alp = pow(albedo_tex.r, .9) * pow(magic_tex.r, .5);
 	float distance_to_middle = distance(vec2(.5,.5),UV);
-	ALPHA = clamp(alp + clamp_and_map_and_pow(distance_to_middle, .0, .3, 1.0, 0.0, 1.5), .0, 1.0);
-	ALBEDO = mix(ALBEDO, vec3(1.0), clamp_and_map_and_pow(distance_to_middle, .0, .3, 1.0, 0.0, 2.5));
-	EMISSION = ALBEDO * 3.0;
+	float clamp_distance = 1.0 - clamp_and_map(distance_to_middle, 0.0, 0.3, 0.0, 1.0);
+	clamp_distance = pow(clamp_distance, 2.0);
+	ALPHA = clamp(alp + clamp_distance, .0, 1.0);
+	ALBEDO = mix(alb, vec3(1.0), clamp_distance);
+	//EMISSION = ALBEDO * 3.0;
 }

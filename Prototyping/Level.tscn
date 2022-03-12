@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Assets/Sound/main_theme_fast.ogg" type="AudioStream" id=41]
 [ext_resource path="res://Prototyping/LefttSideWood.tres" type="Curve3D" id=42]
 [ext_resource path="res://Assets/Sound/main_theme.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Prototyping/MagicEvent.tscn" type="PackedScene" id=44]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -1653,7 +1654,7 @@ transform = Transform( 1.05479, 0.0877316, -0.789382, -0.0939432, 1.31687, 0.020
 transform = Transform( -1.06594, -0.0679683, -0.263899, -0.0887457, 1.09395, 0.0767094, 0.257655, 0.0956056, -1.06534, 73.6534, 2.38419e-06, 61.1224 )
 
 [node name="Bush20" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
-transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.427661, -40.5938 )
+transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.428146, -40.5938 )
 
 [node name="Bush21" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
 transform = Transform( -0.322361, 0.0208349, 1.33054, 0.187499, 1.35607, 0.0241923, -1.31742, 0.187902, -0.322126, 109.876, 3.45707e-06, 88.143 )
@@ -4179,6 +4180,8 @@ bus = "Music"
 wait_time = 150.0
 one_shot = true
 autostart = true
+
+[node name="MagicEvent" parent="." instance=ExtResource( 44 )]
 
 [connection signal="timeout" from="MainThemeFastStart" to="." method="_on_MainThemeFastStart_timeout"]
 

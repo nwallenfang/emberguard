@@ -2,6 +2,18 @@ extends Spatial
 
 signal intro_button_pressed
 
+const ZOOM_SPEED = 3.5
+onready var camera_to_player = $Player.global_transform.origin.direction_to($Camera.global_transform.origin)
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			# zoom in
+			if event.button_index == BUTTON_WHEEL_UP:
+				$Pivot/Camera.translate(-ZOOM_SPEED * camera_to_player)
+			# zoom out
+			if event.button_index == BUTTON_WHEEL_DOWN:
+				$Pivot/Camera.translate(ZOOM_SPEED * camera_to_player)
+
 func _ready() -> void:
 	UI.get_node("BlackScreen").visible = true
 #	$Player.god_mode = true  # uncomment when pushing to production

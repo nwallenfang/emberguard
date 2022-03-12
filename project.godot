@@ -117,7 +117,7 @@ window/vsync/use_vsync=false
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/Trail/plugin.cfg", "res://addons/scatter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/Trail/plugin.cfg", "res://addons/copy_transform/plugin.cfg", "res://addons/scatter/plugin.cfg" )
 
 [input]
 

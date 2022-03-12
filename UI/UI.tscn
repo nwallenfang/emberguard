@@ -160,6 +160,36 @@ text = "Protect the treasure by keeping the fire alive!"
 align = 1
 valign = 1
 
+[node name="EventMessage" type="Label" parent="."]
+visible = false
+modulate = Color( 0.890196, 0.701961, 0.0588235, 1 )
+anchor_top = 0.391
+anchor_right = 1.0
+anchor_bottom = 0.747
+margin_top = -13.52
+margin_right = -3.0
+margin_bottom = 1.16003
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 5 )
+text = "Kill the magician!"
+align = 1
+valign = 1
+
+[node name="EventMessageNoWeapon" type="Label" parent="."]
+visible = false
+modulate = Color( 0.890196, 0.701961, 0.0588235, 1 )
+anchor_top = 0.391
+anchor_right = 1.0
+anchor_bottom = 0.747
+margin_top = -13.52
+margin_right = -3.0
+margin_bottom = 1.16003
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 5 )
+text = "Find a weapon to kill the magician!"
+align = 1
+valign = 1
+
 [node name="TreasureIsSafe" type="Label" parent="."]
 visible = false
 modulate = Color( 0.890196, 0.701961, 0.0588235, 1 )
@@ -184,7 +214,7 @@ anchor_right = 1.0
 anchor_bottom = 0.863
 margin_top = -14.0
 theme = ExtResource( 2 )
-text = "You can not attack right now"
+text = "You cannot attack without a weapon."
 align = 1
 valign = 1
 
@@ -325,6 +355,8 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="HitEffectTween" type="Tween" parent="."]
+
+[node name="CutsceneTween" type="Tween" parent="."]
 
 [connection signal="pressed" from="CenterContainer/GameOverBox/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="value_changed" from="PauseView/ColorRect/CenterContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]

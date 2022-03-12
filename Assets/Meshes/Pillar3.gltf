@@ -1,0 +1,117 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "s\u00e4ule 3 low poly"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "RuinStone",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.0236504003405571,
+                    0.0236504003405571,
+                    0.0236504003405571,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.9173228740692139
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cylinder.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 149,
+            "max" : [
+                0.41189420223236084,
+                1.1774001121520996,
+                0.4036351442337036
+            ],
+            "min" : [
+                -0.3763695955276489,
+                0,
+                -0.4085843861103058
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 149,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 149,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 204,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 1788,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1788,
+            "byteOffset" : 1788
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1192,
+            "byteOffset" : 3576
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 408,
+            "byteOffset" : 4768
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 5176,
+            "uri" : "Pillar3.bin"
+        }
+    ]
+}

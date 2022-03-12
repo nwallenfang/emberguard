@@ -58,6 +58,8 @@ func _on_DetectionArea_area_entered(_area: Area) -> void:
 export var health := 3
 var knockback_power := 900.0
 func _on_Hurtbox_area_entered(area):
+	if area.name.begins_with("EnemyDetect"):
+		return
 	if area.name.begins_with("Scare"):
 		if area.get_parent().fire_percent <= .03:
 			return

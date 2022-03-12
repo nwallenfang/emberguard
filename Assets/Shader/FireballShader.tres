@@ -39,7 +39,6 @@ void fragment() {
 	float basic_fresnel = fresnel(3.0, NORMAL, VIEW);
 	vec4 color = mix(color1, color2, 0.5 + 0.5 * sin(3.0 * TIME )) + 4.0 * basic_fresnel * color1;
 	ALBEDO = color.rgb;
-	//ALPHA = pow(1.0 - basic_fresnel * .7, 5.0);
 }
 "
 

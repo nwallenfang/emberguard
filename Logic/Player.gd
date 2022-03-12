@@ -12,9 +12,8 @@ var state = State.DEFAULT
 
 # movement parameters
 export var CONTROLS_ENABLED := true
-export var base_move_acceleration := 100.0
+export var base_move_acceleration := 85.0
 var move_acceleration = base_move_acceleration
-export var dash_acceleration := 3000.0
 export var air_acceleration = 120.0
 export var jump_total_acceleration = 7200.0
 export var jump_total_number_of_frames = 6

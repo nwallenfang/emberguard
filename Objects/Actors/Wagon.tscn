@@ -624,4 +624,6 @@ unit_size = 9.4
 max_distance = 30.0
 bus = "SFX"
 
+[node name="SpeedTurnUp" type="Tween" parent="."]
+
 [editable path="GameOver/WaterEnemy"]

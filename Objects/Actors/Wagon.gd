@@ -74,10 +74,11 @@ export(Curve) var speed_fire_curve: Curve
 export var base_velocity = 2.4
 export var wheels_base_speed = 0.35
 var velocity = base_velocity
+var velocity_scale := 0.0
 func set_fire_percent(value):
 	$Fire.set_fire_percent(value)
-	velocity = base_velocity * speed_fire_curve.interpolate(value)
-	wheels_anim_player.playback_speed = wheels_base_speed * speed_fire_curve.interpolate(value)
+	velocity = velocity_scale * base_velocity * speed_fire_curve.interpolate(value)
+	wheels_anim_player.playback_speed = velocity_scale * wheels_base_speed * speed_fire_curve.interpolate(value)
 	
 	if velocity > 0.01 and $DustTrack.emitting == false:
 		$DustTrack.emitting = true
@@ -85,6 +86,10 @@ func set_fire_percent(value):
 	if velocity <= 0.01:
 		$DustTrack.emitting = false
 		$DustTrack2.emitting = false
+
+func slow_start():
+	$SpeedTurnUp.interpolate_property(self, "velocity_scale", 0.0, 1.0, 20)
+	$SpeedTurnUp.start()
 
 signal game_over_animation_finished
 

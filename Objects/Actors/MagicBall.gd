@@ -1,6 +1,6 @@
 extends Spatial
 
-var speed := 6.0
+var speed := 9.0
 var exploding := false
 
 func _physics_process(delta):

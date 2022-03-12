@@ -147,6 +147,7 @@ align = 1
 valign = 1
 
 [node name="CannotAttack" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 0.984314, 0, 1 )
 anchor_top = 0.815
 anchor_right = 1.0
@@ -156,6 +157,19 @@ theme = ExtResource( 2 )
 text = "You can not attack right now"
 align = 1
 valign = 1
+
+[node name="AttackWith" type="Label" parent="."]
+modulate = Color( 1, 0.984314, 0, 1 )
+anchor_top = 0.815
+anchor_right = 1.0
+anchor_bottom = 0.863
+margin_top = -14.0
+theme = ExtResource( 2 )
+text = "Attack with Left Mouse Button"
+align = 1
+valign = 1
+
+[node name="Tween" type="Tween" parent="AttackWith"]
 
 [node name="PauseView" type="Control" parent="."]
 visible = false
@@ -273,6 +287,7 @@ anchor_bottom = 1.0
 color = Color( 1, 0, 0, 1 )
 
 [node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0

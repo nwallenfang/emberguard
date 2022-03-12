@@ -299,7 +299,6 @@ script = ExtResource( 1 )
 stun_time = 1.5
 invinc_time = 2.0
 god_mode = false
-item_speed_punishment = 11.0
 stun_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [node name="PrototypeLook" type="Spatial" parent="."]

@@ -27,6 +27,8 @@ func hit_effect():
 	$HitEffect.visible = false
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("magician_msg"):
+		magician_event_message()
 	$FireHealthbar/FPSCounter.text = "FPS: " + String(Engine.get_frames_per_second())
 	if $CenterContainer/GameOverBox/RestartButton.disabled == false and $CenterContainer/GameOverBox.visible:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -53,6 +55,24 @@ func _process(_delta: float) -> void:
 		$CannotAttack.modulate.a = cannot_attack_time_left / cannot_attack_length
 	else:
 		$CannotAttack.visible = false
+		
+		
+func magician_event_message():
+	$Tween.reset_all()
+	var label: Label
+	if Game.player.get_node("Weapon").type != Game.player.get_node("Weapon").TYPE.Empty:
+		# player has weapon
+		label = $EventMessage
+	else: # no weapon
+		label = $EventMessageNoWeapon
+	
+	label.visible = true
+	yield(get_tree().create_timer(3.0), "timeout")
+	$CutsceneTween.interpolate_property(label, "modulate", blended_in, blended_out, 2.0)
+	$CutsceneTween.start()
+	yield($CutsceneTween, "tween_all_completed")
+	label.visible = false
+	
 
 func main_game_started():
 	$IntroPressAnyKey.visible = false

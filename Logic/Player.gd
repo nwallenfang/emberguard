@@ -28,7 +28,7 @@ onready var scent_emitter := $ScentEmitter
 
 export var god_mode: bool = true
 var speedup_active = false
-export var speedup_acceleration = 130.0
+export var speedup_acceleration = 125.0
 
 func _ready():
 	pass
@@ -217,8 +217,11 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 		$InvincibilityTimer.start(invinc_time * .2)
 		$Hurtbox.set_deferred("monitoring", false)
 		$Hurtbox.set_deferred("monitorable", false)
+		$SlowParticle.emitting = true
 		$SlowTween.interpolate_property(self, "FRICTION", 0.5, .85, 3, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		$SlowTween.start()
+		yield(get_tree().create_timer(2.2), "timeout")
+		$SlowParticle.emitting = false
 	elif area.name == "Hitbox":
 		$HurtParticles.emitting = true
 		var knockback_direction = area.global_transform.origin.direction_to(self.global_transform.origin)

@@ -282,7 +282,7 @@ spot_angle_attenuation = 0.189465
 transform = Transform( -0.560023, -0.54765, -0.621654, 0.699164, -0.714961, -2.08367e-08, -0.444458, -0.434638, 0.783292, 38.3, 1.73487, -62.3633 )
 
 [node name="WeaponSpace2" type="Spatial" parent="Environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 129.46, 0.130277, -24.422 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 117.721, 0.130275, -37.4351 )
 
 [node name="Rock2" parent="Environment/WeaponSpace2" instance=ExtResource( 29 )]
 transform = Transform( -0.499441, 0, 0.866348, 0, 1, 0, -0.866348, 0, -0.499441, -1.5658, 2.38419e-07, -0.757217 )
@@ -1888,7 +1888,7 @@ transform = Transform( -1.36195, -0.117548, 1.00472, -0.134989, 1.69107, 0.01486
 transform = Transform( -1.43902, -0.0934184, -0.0689423, -0.0887969, 1.43784, -0.0948605, 0.0748007, -0.0903129, -1.43893, -87.6523, 4.64916e-06, 115.801 )
 
 [node name="Rock8" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
-transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, -4.05312e-06, -86.6336 )
+transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.07648, -86.6336 )
 
 [node name="Rock9" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
 transform = Transform( -0.704289, 0.0483103, -1.41132, 0.00375201, 1.57717, 0.0521149, 1.41215, 0.0199037, -0.704018, 117.29, -8.34465e-07, -13.1474 )

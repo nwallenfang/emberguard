@@ -43,7 +43,7 @@ material = SubResource( 11 )
 size = Vector3( 0.02, 0.3, 0.02 )
 
 [sub_resource type="SphereShape" id=17]
-radius = 1.6406
+radius = 8.17354
 
 [sub_resource type="CapsuleShape" id=10]
 radius = 1.54522
@@ -81,6 +81,7 @@ script = ExtResource( 3 )
 
 [node name="Idle" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 1 )
+RELATIVE_TRANSITION_CHANCE = 0.0
 
 [node name="Wandering" type="Spatial" parent="EnemyStateMachine"]
 script = ExtResource( 2 )
@@ -113,7 +114,6 @@ script = ExtResource( 14 )
 RELATIVE_TRANSITION_CHANCE = 0.0
 
 [node name="RunTimer" type="Timer" parent="EnemyStateMachine/RunAway"]
-wait_time = 0.8
 one_shot = true
 
 [node name="MagicAttack" type="Spatial" parent="EnemyStateMachine"]
@@ -130,12 +130,11 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="DetectionArea"]
-transform = Transform( 1.26801, 0, 0, 0, -5.54261e-08, -1.26801, 0, 1.26801, -5.54261e-08, -0.00108764, 0.794732, 1.40432 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00108764, 0.794732, 1.40432 )
 depth = 1.699
 polygon = PoolVector2Array( -10.4102, 9.58794, 9.93166, 9.35927, 0.391325, -1.59151, -0.926692, -1.78088 )
 
 [node name="CollisionShape" type="CollisionShape" parent="DetectionArea"]
-transform = Transform( 5.93544, 0, 0, 0, 1, 0, 0, 0, 5.93544, 0, 0, 0 )
 shape = SubResource( 17 )
 
 [node name="ScentSearcher" parent="." instance=ExtResource( 12 )]
@@ -183,6 +182,5 @@ bus = "SFX"
 [connection signal="timeout" from="EnemyStateMachine/RunAway/RunTimer" to="EnemyStateMachine/RunAway" method="_on_RunTimer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/MagicAttack/Timer" to="EnemyStateMachine/MagicAttack" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="InvincTimer" to="." method="_on_InvincTimer_timeout"]

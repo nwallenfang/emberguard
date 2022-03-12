@@ -80,16 +80,22 @@ func set_fire_percent(value):
 	velocity = velocity_scale * base_velocity * speed_fire_curve.interpolate(value)
 	wheels_anim_player.playback_speed = velocity_scale * wheels_base_speed * speed_fire_curve.interpolate(value)
 	
-	if velocity > 0.01 and $DustTrack.emitting == false:
-		$DustTrack.emitting = true
-		$DustTrack2.emitting = true
-	if velocity <= 0.01:
-		$DustTrack.emitting = false
-		$DustTrack2.emitting = false
+#	if velocity > 0.01 and $DustTrack.emitting == false:
+#		$DustTrack.emitting = true
+#		$DustTrack2.emitting = true
+#	if velocity <= 0.01:
+#		$DustTrack.emitting = false
+#		$DustTrack2.emitting = false
 
 func slow_start():
 	$SpeedTurnUp.interpolate_property(self, "velocity_scale", 0.0, 1.0, 20)
+	$SpeedTurnUp.interpolate_property($DustTrack.process_material, "shader_param/scale", 0.0, 2.8, 20,Tween.TRANS_CUBIC, Tween.EASE_IN)
 	$SpeedTurnUp.start()
+	$DustTrack.emitting = false
+	$DustTrack2.emitting = false
+	yield(get_tree().create_timer(10), "timeout")
+	$DustTrack.emitting = true
+	$DustTrack2.emitting = true
 
 signal game_over_animation_finished
 

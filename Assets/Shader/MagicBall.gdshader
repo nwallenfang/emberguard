@@ -1,7 +1,7 @@
 // NOTE: Shader automatically converted from Godot Engine 3.4.3.stable's SpatialMaterial.
 
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_disabled;
+render_mode blend_mix,depth_draw_never,cull_disabled, diffuse_burley,specular_schlick_ggx, unshaded;
 uniform vec4 albedo : hint_color;
 uniform sampler2D texture_albedo : hint_albedo;
 uniform sampler2D texture_magic : hint_albedo;
@@ -42,9 +42,9 @@ void fragment() {
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	SPECULAR = specular;
-	ALPHA = pow(albedo_tex.r, .9) * pow(magic_tex.r, .5);
+	float alp = pow(albedo_tex.r, .9) * pow(magic_tex.r, .5);
 	float distance_to_middle = distance(vec2(.5,.5),UV);
-	ALPHA = clamp(ALPHA + clamp_and_map_and_pow(distance_to_middle, .0, .3, 1.0, 0.0, 1.5), .0, 1.0);
+	ALPHA = clamp(alp + clamp_and_map_and_pow(distance_to_middle, .0, .3, 1.0, 0.0, 1.5), .0, 1.0);
 	ALBEDO = mix(ALBEDO, vec3(1.0), clamp_and_map_and_pow(distance_to_middle, .0, .3, 1.0, 0.0, 2.5));
 	EMISSION = ALBEDO * 3.0;
 }

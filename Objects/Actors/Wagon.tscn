@@ -538,10 +538,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15775, -0.994982 )
 
 [node name="DustTrack" parent="." instance=ExtResource( 7 )]
 transform = Transform( -1, 0, -9.68575e-08, 0, 1, 0, 9.68575e-08, 0, -1, 1.45971, 0.1403, -2.04156 )
+emitting = false
 visibility_aabb = AABB( -6.10603, -5.75914, -5.36293, 11.3772, 12.4911, 11.1892 )
 
 [node name="DustTrack2" parent="." instance=ExtResource( 7 )]
 transform = Transform( -1, 0, -9.68575e-08, 0, 1, 0, 9.68575e-08, 0, -1, -1.48744, 0.1403, -2.04156 )
+emitting = false
 visibility_aabb = AABB( -6.10603, -5.75914, -5.36293, 11.3772, 12.4911, 11.1892 )
 
 [node name="Chest" parent="." instance=ExtResource( 8 )]

@@ -14,3 +14,4 @@ func make_flying():
 
 func burn_effect():
 	Game.fire_health += fire_value
+	Game.player.start_speedup()

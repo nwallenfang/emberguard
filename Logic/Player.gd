@@ -27,6 +27,8 @@ export var invinc_time = 3.0
 onready var scent_emitter := $ScentEmitter
 
 export var god_mode: bool = true
+var speedup_active = false
+export var speedup_acceleration = 130.0
 
 func _ready():
 	pass
@@ -127,7 +129,10 @@ func update_holding_hand():
 			item.make_flying()
 			$ItemHand.add_child(item)
 			item.translation += Vector3(0, stack_offset, 0) * i
-	move_acceleration = base_move_acceleration - item_holded_count * item_speed_punishment
+	if speedup_active:
+		move_acceleration = speedup_acceleration - item_holded_count * item_speed_punishment
+	else:
+		move_acceleration = base_move_acceleration - item_holded_count * item_speed_punishment
 	if item_holded_count == 0:
 		$Weapon.visible = true
 	else:
@@ -258,6 +263,11 @@ func stun_visuals():
 	$StunnedParticle.transform.origin = base_translation
 
 
+func start_speedup():
+	$SpeedTimer.start()
+	$SpeedupParticle.emitting = true
+	move_acceleration = speedup_acceleration
+
 
 var base_translation: Vector3
 func move_along_vortex(t: float):
@@ -287,3 +297,10 @@ func _on_InvincibilityTimer_timeout() -> void:
 func grab_weapon(type):
 	$Weapon.type = type
 	$WeaponAnimationPlayer.play("idle")
+
+
+func _on_SpeedTimer_timeout() -> void:
+	# stop Speedup-Buff
+	speedup_active = false
+	$SpeedupParticle.emitting = false
+	move_acceleration = base_move_acceleration

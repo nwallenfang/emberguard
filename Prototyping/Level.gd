@@ -28,6 +28,7 @@ func _ready() -> void:
 	# set the game to running after 2 secs
 	# later this will be called once the intro cutscene is done
 	yield(self, "intro_button_pressed")
+	$MainTheme.play()
 	UI.get_node("IntroPressAnyKey").visible = false
 	set_process_input(false)
 	
@@ -85,3 +86,7 @@ func _input(event):
 	if event is InputEventKey or event is InputEventJoypadButton or event is InputEventMouseButton:
 		if event.pressed:
 			emit_signal("intro_button_pressed")
+
+
+func _on_MainThemeFastStart_timeout() -> void:
+	$MainThemeFast.play($MainTheme.get_playback_position())

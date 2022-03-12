@@ -66,6 +66,7 @@ func ending_cutscene():
 	# increase camera viewdistance 
 	$Player.god_mode = true
 	UI.get_node("FireHealthbar").visible = false
+	UI.get_node("InteractLabel").visible = false
 	$EnemySpawner.deactivate()
 	Game.main_game_running = false
 	$Pivot/Camera.far = 300

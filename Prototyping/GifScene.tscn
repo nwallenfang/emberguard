@@ -23,6 +23,7 @@ layers = 1025
 
 [node name="MagicEnemy" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.84637, 0, 0.532596, 0, 1, 0, -0.532596, 0, 0.84637, 1.08711, 1.0921, -0.610887 )
+script = null
 
 [node name="enemy 3 eyes" parent="MagicEnemy/magician" index="0"]
 transform = Transform( -1, 0, -3.27826e-07, 0, 1, 0, 3.27826e-07, 0, -1, -0.0153497, 0.505477, 1.19209e-07 )

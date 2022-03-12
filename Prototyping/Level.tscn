@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://Prototyping/LeftSideCurve.tres" type="Curve3D" id=37]
 [ext_resource path="res://Objects/Environment/WeaponSpace.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Objects/Items/LogStack3.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Prototyping/LogOmniLight.gd" type="Script" id=40]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -179,7 +180,6 @@ shape = SubResource( 17 )
 transform = Transform( 655.442, 0.0883268, 4.63306e-10, 0, -2.86502e-05, 78.653, 0.0883268, -655.442, -3.43803e-06, 0.471901, -0.230457, 7.00381 )
 material_override = SubResource( 27 )
 mesh = SubResource( 28 )
-material/0 = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 21 )
@@ -248,15 +248,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218701, 0.0977136, -11.806 )
 
 [node name="Plant" parent="Environment" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2968, -0.29398, -8.22569 )
-
-[node name="Plant2" parent="Environment" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73322, -0.29398, -8.22569 )
-
-[node name="Plant3" parent="Environment" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04201, -0.29398, -8.22569 )
-
-[node name="Plant4" parent="Environment" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04161, -0.29398, -7.64363 )
 
 [node name="WeaponSpace" type="Spatial" parent="Environment"]
 
@@ -4090,6 +4081,24 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.0576, -0.286839, 112.623 )
 
 [node name="Plant7" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4042, -0.286839, 120.599 )
+
+[node name="Plant8" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3198, -0.29398, 83.192 )
+
+[node name="Plant9" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8267, -0.293984, 83.1776 )
+
+[node name="Plant12" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.874334, -0.293984, 34.4197 )
+
+[node name="Plant13" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71657, -0.293984, -2.33577 )
+
+[node name="Plant10" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.6685, -0.293984, 58.2499 )
+
+[node name="Plant11" parent="ManualScatters/Flowers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5817, -0.293984, -22.6961 )
 
 [node name="LogStack3" parent="ManualScatters" instance=ExtResource( 39 )]
 transform = Transform( 1.17844, 0, 0, 0, 1.17844, 0, 0, 0, 1.17844, -91.5333, 0.0686271, 98.6961 )

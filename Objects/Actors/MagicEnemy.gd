@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	var look_vec2 := Vector2(acceleration.x, acceleration.z)
 	
 	var angular_velocity := 30.0
-	if look_vec2 != Vector2.ZERO:
+	if look_vec2 != Vector2.ZERO and velocity.length() > .1:
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
 	
 	if physics_movement_enabled:

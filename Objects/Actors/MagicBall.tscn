@@ -181,6 +181,7 @@ bus = "SFX"
 
 [node name="OmniLight" type="OmniLight" parent="."]
 light_color = Color( 0, 0.858824, 1, 1 )
+light_cull_mask = 4294966271
 omni_range = 2.55923
 omni_attenuation = 2.46229
 

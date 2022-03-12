@@ -17,7 +17,7 @@ func process(_delta: float, first_time_entering: bool):
 		return
 	var player_xz = Vector2(Game.player.global_transform.origin.x, Game.player.global_transform.origin.z)
 	var parent_xz = Vector2(parent.global_transform.origin.x, parent.global_transform.origin.z)
-	parent.rotation_degrees.y = parent_xz.angle_to(player_xz)
+	parent.rotation.y = -player_xz.direction_to(parent_xz).angle() - PI/2.0
 
 const MAGIC_BALL = preload("res://Objects/Actors/MagicBall.tscn")
 

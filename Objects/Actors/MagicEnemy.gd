@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	var look_vec2 := Vector2(acceleration.x, acceleration.z)
 	
 	var angular_velocity := 30.0
-	if look_vec2 != Vector2.ZERO:
+	if look_vec2 != Vector2.ZERO and velocity.length() > .1:
 		rotation.y = lerp_angle(rotation.y, atan2(-look_direction.x, -look_direction.z), angular_velocity * delta)
 	
 	if physics_movement_enabled:
@@ -58,6 +58,8 @@ func _on_DetectionArea_area_entered(_area: Area) -> void:
 export var health := 3
 var knockback_power := 900.0
 func _on_Hurtbox_area_entered(area):
+	if area.name.begins_with("EnemyDetect"):
+		return
 	if area.name.begins_with("Scare"):
 		if area.get_parent().fire_percent <= .03:
 			return

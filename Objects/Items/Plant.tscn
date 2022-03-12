@@ -73,7 +73,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
 
 [node name="InteractionObject" parent="." instance=ExtResource( 3 )]
-interaction_text = "pick up"
+interaction_text = "take the magic flower"
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionObject"]
 transform = Transform( 0.26279, 0, 0, 0, 0.26279, 0, 0, 0, 0.26279, 0, 0.511293, 0 )
@@ -95,6 +95,7 @@ transform = Transform( 1.492, 0, 0, 0, 1.492, 0, 0, 0, 1.492, 0, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27446, 0 )
 light_color = Color( 1, 0.607843, 0, 1 )
 light_energy = 1.3
+light_cull_mask = 4294966271
 omni_range = 4.0
 omni_attenuation = 2.73208
 

@@ -34,6 +34,11 @@ func process(_delta: float, first_time_entering: bool):
 				target_location = new_target
 				break
 		target_position_xz = target_location
+		parent.get_node("DetectionArea").set_deferred("monitoring", false)
+		parent.get_node("DetectionArea").set_deferred("monitorable", false)
+		yield(get_tree(), "idle_frame")
+		parent.get_node("DetectionArea").set_deferred("monitoring", true)
+		parent.get_node("DetectionArea").set_deferred("monitorable", true)
 	
 	if parent.get_node("DetectionArea").monitoring and not parent.get_node("DetectionArea").get_overlapping_areas().empty():
 		parent.get_node("DetectionArea").set_deferred("monitoring", false)

@@ -353,19 +353,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 213.56, 0.130285, -64.8399 )
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -87.6555, 6.67572e-06, 108.056 )
-FRICTION = null
-AIR_FRICTION = null
-OLD_DEFAULT_ACC_STRENGTH = null
-GRAVITY = null
-health = null
+health = 3
 
 [node name="WaterEnemy2" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -69.1313, 9.0599e-06, 105.826 )
-FRICTION = null
-AIR_FRICTION = null
-OLD_DEFAULT_ACC_STRENGTH = null
-GRAVITY = null
-health = null
+health = 3
 
 [node name="IntroCamera" type="Camera" parent="."]
 transform = Transform( 0.956435, 0.0499473, -0.287641, 0.0122907, 0.977494, 0.210605, 0.291686, -0.204965, 0.934296, -78.2745, 2.66618, 107.501 )
@@ -4113,5 +4105,6 @@ transform = Transform( 1.17844, 0, 0, 0, 1.17844, 0, 0, 0, 1.17844, -91.5333, 0.
 
 [node name="OmniLight" type="OmniLight" parent="ManualScatters/LogStack3"]
 transform = Transform( 0.848579, 0, 0, 0, 0.848579, 0, 0, 0, 0.848579, 0, 0.862548, 0 )
-omni_range = 2.06913
-script = ExtResource( 40 )
+light_energy = 0.633
+omni_range = 3.04481
+omni_attenuation = 1.51572

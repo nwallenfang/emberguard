@@ -7,13 +7,23 @@ func interact():
 	# consume plant immediately (don't pick it up)
 #	var success = Game.player.try_hold_item("plant")
 #	if success:
-	$AudioStreamPlayer.play()
 	$Sparks.emitting = true
 	$Lotus.visible = false
 	$InteractionObject.set_deferred("monitoring", false)
 	$InteractionObject.set_deferred("monitorable", false)
+	
+	create_fireball()
+	yield(get_tree().create_timer(.4), "timeout")
+	create_fireball()
+	yield(get_tree().create_timer(.4), "timeout")
+	create_fireball()
+	yield(get_tree().create_timer(2), "timeout")
+	queue_free()
+
+func create_fireball():
+	$AudioStreamPlayer.play()
 	var fireball = FIREBALL.instance()
-	# see how many fireballs already exist in the player
+		# see how many fireballs already exist in the player
 	var existing_fireballs: Array = get_tree().get_nodes_in_group("Fireball")
 
 	var x_translation = 0.35 * ((existing_fireballs.size() + 1) / 2) * ((existing_fireballs.size() % 2) * 2 - 1)
@@ -31,11 +41,6 @@ func interact():
 	Game.player.add_child(fireball)
 	fireball.translate(Vector3(x_translation, 3.0, 0.0))
 	fireball.update_hover_offset()
-	
-	yield(get_tree().create_timer(3.0), "timeout")
-	queue_free()
-	
-
 
 func make_flying():
 	$InteractionObject.set_deferred("monitoring", false)

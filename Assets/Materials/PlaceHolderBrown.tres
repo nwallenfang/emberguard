@@ -3,3 +3,4 @@
 [resource]
 flags_do_not_receive_shadows = true
 albedo_color = Color( 0.305882, 0.286275, 0.141176, 1 )
+roughness = 0.71

@@ -7,6 +7,7 @@ func interact():
 	# consume plant immediately (don't pick it up)
 #	var success = Game.player.try_hold_item("plant")
 #	if success:
+	$AudioStreamPlayer.play()
 	$Sparks.emitting = true
 	$Lotus.visible = false
 	$InteractionObject.set_deferred("monitoring", false)

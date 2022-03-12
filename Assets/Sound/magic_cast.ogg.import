@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/magic_cast.ogg-f161ae7955e89a9b39414e5d6c9824d8.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/magic_cast.ogg"
+dest_files=[ "res://.import/magic_cast.ogg-f161ae7955e89a9b39414e5d6c9824d8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

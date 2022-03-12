@@ -10,7 +10,9 @@ func set_type(t):
 
 func interact():
 	var success = Game.player.grab_weapon($Weapon.type)
-	queue_free()
+	$Weapon.queue_free()
+	$InteractionObject.queue_free()
+	$AudioStreamPlayer.play()
 
 func make_flying():
 	$InteractionObject.set_deferred("monitoring", false)
@@ -22,3 +24,7 @@ func burn_effect():
 
 func _ready():
 	set_type(type)
+
+
+func _on_AudioStreamPlayer_finished():
+	queue_free()

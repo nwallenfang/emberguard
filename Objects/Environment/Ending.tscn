@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Materials/PlaceHolderBrown.tres" type="Material" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -72,16 +74,19 @@ tracks/5/keys = {
 
 [node name="MeshInstance" type="MeshInstance" parent="Placeholder"]
 transform = Transform( 0.115704, 0, 0, 0, 2.83192, 0, 0, 0, 0.115704, -2.98757, 2.7157, 0 )
+material_override = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="Placeholder"]
 transform = Transform( 0.115704, 0, 0, 0, 2.83192, 0, 0, 0, 0.115704, 3.10035, 2.7157, 0 )
+material_override = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="Placeholder"]
 transform = Transform( 0.00295533, -4.0627, 0, 0.242519, 0.105682, 0, 0, 0, 0.409998, 0.110287, 5.64489, 0 )
+material_override = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = null
 

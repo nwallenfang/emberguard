@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Logic/Player.gd" type="Script" id=1]
 [ext_resource path="res://Logic/PlayerInteraction.gd" type="Script" id=2]
@@ -324,6 +324,19 @@ vertex_color_use_as_albedo = true
 material = SubResource( 41 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
+[sub_resource type="ParticlesMaterial" id=42]
+emission_shape = 2
+emission_box_extents = Vector3( 0.3, 0.01, 0.3 )
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 39 )
+color = Color( 0, 0.858824, 1, 1 )
+color_ramp = SubResource( 37 )
+
+[sub_resource type="CubeMesh" id=43]
+material = SubResource( 41 )
+size = Vector3( 0.2, 0.2, 0.2 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 base_move_acceleration = 90.0
@@ -544,11 +557,19 @@ wait_time = 8.0
 
 [node name="SpeedupParticle" type="Particles" parent="."]
 emitting = false
-amount = 6
+amount = 9
 lifetime = 1.2
 local_coords = false
 process_material = SubResource( 33 )
 draw_pass_1 = SubResource( 40 )
+
+[node name="SlowParticle" type="Particles" parent="."]
+emitting = false
+amount = 9
+lifetime = 1.2
+local_coords = false
+process_material = SubResource( 42 )
+draw_pass_1 = SubResource( 43 )
 
 [connection signal="area_entered" from="Interaction" to="Interaction" method="_on_Interaction_area_entered"]
 [connection signal="area_exited" from="Interaction" to="Interaction" method="_on_Interaction_area_exited"]

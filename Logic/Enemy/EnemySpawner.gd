@@ -24,10 +24,12 @@ func activate():
 func deactivate():
 	active = false
 	for e in all_enemies["water"]:
-		e.queue_free()
+		if is_instance_valid(e):
+			e.queue_free()
 	all_enemies["water"].clear()
 	for e in all_enemies["magic"]:
-		e.queue_free()
+		if is_instance_valid(e):
+			e.queue_free()
 	all_enemies["magic"].clear()
 
 func _ready():

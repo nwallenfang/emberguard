@@ -68,8 +68,9 @@ func ending_cutscene():
 	$Player.god_mode = true
 	UI.get_node("FireHealthbar").visible = false
 	UI.get_node("InteractLabel").visible = false
+	UI.get_node("WagonMarker").visible = false
 	$EnemySpawner.deactivate()
-	Game.main_game_running = false
+#	Game.main_game_running = false
 	$Pivot/Camera.far = 300
 	$Player/RemoteTransform.update_position = false
 	$Pivot/Camera.move_to_transform($Ending/Camera.global_transform, 1.5)
@@ -78,7 +79,12 @@ func ending_cutscene():
 	$Ending/Camera.current = true
 	$Ending/AnimationPlayer.play("camera")
 	yield($Ending/AnimationPlayer, "animation_finished")
-	yield(get_tree().create_timer(2.8), "timeout")
+	$Tween.interpolate_property($MainTheme, "volume_db", null, -80, 5.2, Tween.EASE_IN)
+	$Tween.interpolate_property($MainThemeFast, "volume_db", null, -80, 5.2, Tween.EASE_IN)
+	$Tween.start()
+	UI.get_node("TreasureIsSafe").visible = true
+	yield(get_tree().create_timer(3.6), "timeout")
+	UI.get_node("TreasureIsSafe").visible = false
 	UI.game_end_won()
 	
 

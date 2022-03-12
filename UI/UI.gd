@@ -58,11 +58,13 @@ func main_game_started():
 	$IntroPressAnyKey.visible = false
 	$WagonMarker.visible = true
 	$FireHealthbar.visible = true
+
 	yield(get_tree().create_timer(2.0), "timeout")
-	$ProtectTheFire.visible = true
+	$ProtectTheFire.visible = true	
 	var mod = $ProtectTheFire.modulate
 	var mod1 = mod
 	mod1.a = 0.0
+	yield(get_tree().create_timer(2.0), "timeout")
 	$ProtectTween.interpolate_property($ProtectTheFire, "modulate", mod, mod1, 5.5, Tween.TRANS_CUBIC, Tween.EASE_IN)
 	$ProtectTween.start()
 	yield($ProtectTween,"tween_all_completed")

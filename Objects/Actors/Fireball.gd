@@ -63,9 +63,9 @@ func _on_EnemyDetectArea_area_entered(enemy_hurtbox: Area) -> void:
 	if enemy.name != "MagicMaster":
 		state = State.Attacking
 		set_as_toplevel(true)  # from now on move independent from player
+	else:
+		$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered", [], CONNECT_ONESHOT)
 
-	
-	
 func move_towards(target: Vector3, stop_distance: float, vel: float) -> bool:
 	# returns whether the movement is completed as a boolean
 	var distance: float = global_transform.origin.distance_to(target)

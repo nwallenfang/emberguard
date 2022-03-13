@@ -23,7 +23,9 @@ func cut_scene_wagon_hit():
 	force_field.visible = true
 	$Tween.interpolate_property(force_field.get("material/0"), "shader_param/active", 0.0, 1.0, 2)
 	$Tween.interpolate_property(Game.wagon, "velocity_scale", 1.0, 0.0, 1.0)
+	Game.wagon.get_node("WagonSound").stop()
 	$Tween.start()
+	$LaserEnergyHum.play()
 	$MagicEnemy.visible = true
 
 func cutscene_done():
@@ -49,10 +51,11 @@ func master_defeated():
 	yield($Tween,"tween_all_completed")
 	force_field.visible = false
 	$Laser.visible = false
+	$LaserEnergyHum.stop()
 	$Tween.remove_all()
 	$Tween.interpolate_property(Game.wagon, "velocity_scale", 0.0, 1.0, 5.0)
 	$Tween.start()
-	
+	Game.wagon.get_node("WagonSound").stop()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("speed_cheat_on"):

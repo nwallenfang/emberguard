@@ -47,7 +47,11 @@ func die():
 func activate_blast():
 	blast_ready = false
 	$MagicLoad.emitting = true
+	$Buildup.play()
 	yield(get_tree().create_timer(2.5), "timeout")
+	if health == 0:
+		return
+	$Explosion.play()
 	$MagicLoad.emitting = false
 	$MagicBlast.visible = true
 	$MagicBlast.set_alpha(1.0)
@@ -56,6 +60,8 @@ func activate_blast():
 	$BlastTween.interpolate_property($MagicBlast, "scale", Vector3(blast_scale_start, blast_scale_start, blast_scale_start), Vector3(blast_scale_end, blast_scale_end, blast_scale_end), blast_speed)
 	$BlastTween.start()
 	yield($BlastTween,"tween_all_completed")
+	if health == 0:
+		return
 	$MagicBlast.set_hitbox(false)
 	$MagicBlast.visible = false
 	$MagicBlast.scale = Vector3(blast_scale_start, blast_scale_start, blast_scale_start)

@@ -57,8 +57,9 @@ func activate():
 
 func _on_EnemyDetectArea_area_entered(enemy_hurtbox: Area) -> void:
 	enemy = enemy_hurtbox.get_parent()
-	state = State.Attacking
-	set_as_toplevel(true)  # from now on move independent from player
+	if enemy.name != "MagicMaster":
+		state = State.Attacking
+		set_as_toplevel(true)  # from now on move independent from player
 
 	
 	

@@ -554,7 +554,7 @@ attachments/3/offset = Vector3( 0.00844523, -0.0109167, 0.0628167 )
 [node name="SlowTween" type="Tween" parent="."]
 
 [node name="SpeedTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 14.0
 
 [node name="SpeedupParticle" type="Particles" parent="."]
 emitting = false

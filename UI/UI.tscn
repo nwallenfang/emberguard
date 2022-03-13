@@ -202,7 +202,7 @@ margin_right = -1.0
 margin_bottom = -144.84
 theme = SubResource( 7 )
 custom_fonts/font = SubResource( 8 )
-text = "You reached a safe haven."
+text = "You reached a safe haven  "
 align = 1
 valign = 1
 

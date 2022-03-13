@@ -94,7 +94,8 @@ func state_attack(delta):
 	execute_movement(delta)
 
 func _on_AttackTimer_timeout():
-	state = State.DEFAULT
+	if not state == State.STUNNED:
+		state = State.DEFAULT
 	first_frame_attack = true
 	$PlayerAttack.visible = false
 	$PlayerAttack/PlayerAttackArea.set_deferred("monitoring", false)

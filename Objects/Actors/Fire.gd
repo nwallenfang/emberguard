@@ -54,6 +54,7 @@ func interact():
 		yield($Tween,"tween_all_completed")
 		$RefuelSound.play()
 		$FireParticles/Sparks.emitting = true
+		$FireParticles/Sparks.amount = 50 + int(randf() * 10)
 		item.burn_effect()
 		throw_object.queue_free()
 		fuel_flying = false

@@ -15,8 +15,10 @@ func set_fire_percent(p):
 	$FireParticles.process_material.initial_velocity = p * .8 + .3
 	if p <= 0.0:
 		$FireParticles.emitting = false
+		$SparksSmall.emitting = false
 	elif not $FireParticles.emitting:
 		$FireParticles.emitting = true
+		$SparksSmall.emitting = true
 	#$FireParticles.amount = int(32 * p) + 4
 
 func _process(_delta):

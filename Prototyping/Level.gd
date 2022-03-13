@@ -2,8 +2,8 @@ extends Spatial
 
 signal intro_button_pressed
 
-const ZOOM_SPEED = 3.5
-onready var camera_to_player = $Player.global_transform.origin.direction_to($Pivot/Camera.global_transform.origin)
+const ZOOM_SPEED = 0.5
+onready var camera_to_player = $Pivot/Camera.global_transform.basis.y
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
@@ -109,4 +109,5 @@ func _input(event):
 
 
 func _on_MainThemeFastStart_timeout() -> void:
-	$MainThemeFast.play($MainTheme.get_playback_position())
+	print("start fast main theme")
+

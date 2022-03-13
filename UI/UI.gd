@@ -31,7 +31,9 @@ func _process(_delta: float) -> void:
 	if $CenterContainer/GameOverBox/RestartButton.disabled == false and $CenterContainer/GameOverBox.visible:
 		if Input.is_action_just_pressed("ui_accept"):
 			_on_RestartButton_pressed()
-	
+
+	if Input.is_action_just_pressed("ui_hide"):
+		$FireHealthbar.visible = not $FireHealthbar.visible
 	if Input.is_action_just_pressed("pause"):
 		# dont pause if it's game over
 		if not $CenterContainer/GameOverBox.visible:

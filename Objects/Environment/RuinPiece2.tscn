@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Environment/RuinBricks3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Environment/RuinBricks1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Environment/RuinBricks2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Environment/RuinPillar1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Environment/RuinPillar3.tscn" type="PackedScene" id=6]
+
+[node name="RuinPiece1" type="Spatial"]
+
+[node name="RuinBricks2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.731296, 0, 1.11554, 0, 1.33388, 0, -1.11554, 0, -0.731296, 2.03449, -0.130284, -2.89368 )
+
+[node name="RuinPillar1" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.721377, 0, 1.12198, 0, 1.33388, 0, -1.12198, 0, -0.721377, 1.80733, -0.130284, -2.13203 )
+
+[node name="RuinBricks3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.480589, 0, -1.10913, 0, 1.33388, 0, 0.71936, 0, 0.740984, 0.642725, -0.130284, 0.0501895 )
+
+[node name="RuinBricks7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.480589, 0, -1.10913, 0, 1.43935, 0, 0.71936, 0, 0.740985, -2.84012, -0.130284, 0.853284 )
+
+[node name="RuinBricks5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.71936, 0, 0.740985, 0, 1.33388, 0, -0.480589, 0, 1.10913, 0.177639, 0.632938, -0.473731 )
+
+[node name="RuinBricks6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.584677, 0, 0.740985, 0, 1.33388, 0, -0.39061, 0, 1.10913, -1.53131, 0.873704, 0.667983 )
+
+[node name="RuinBricks1" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.09641, 0, 0.759673, 0, 1.33388, 0, -0.759673, 0, 1.09641, -2.07052, -0.130284, 1.03592 )
+
+[node name="RuinBricks4" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.13847, 0, -0.695061, 0, 1.33388, 0, 0.695061, 0, -1.13847, 2.35769, -0.130284, -1.80123 )
+
+[node name="RuinPillar3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1.08388, 0, 0.777445, 0, 0.67607, 0, -0.777445, 0, 1.08388, 1.33581, -0.130284, -0.330213 )

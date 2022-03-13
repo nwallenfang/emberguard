@@ -16,7 +16,10 @@ var state = State.Idle
 signal shoot_fireball
 
 func _ready() -> void:
+	$EnemyDetectArea.translation += Vector3(0, 20, 0)
+	yield(get_tree().create_timer(1.7), "timeout")
 	$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered", [], CONNECT_ONESHOT)
+	$EnemyDetectArea.translation -= Vector3(0, 20, 0)
 
 var enemy: Node  # not WaterEnemy since there will be others too later
 func state_attacking(_delta: float):
@@ -52,7 +55,7 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 
 func activate():
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(get_tree().create_timer(1.2), "timeout")
 	$EnemyDetectArea.set_deferred("monitoring", true)
 
 func _on_EnemyDetectArea_area_entered(enemy_hurtbox: Area) -> void:

@@ -4,8 +4,8 @@
 
 [node name="EnemySpawner" type="Spatial"]
 script = ExtResource( 1 )
-player_dist_min = 20.0
-player_dist_max = 35.0
+player_dist_min = 28.0
+player_dist_max = 40.0
 despawn_range = 75.0
 wagon_distance = 10.0
 water_target_count = 10

@@ -1,6 +1,6 @@
 extends Spatial
 
-var player: Player
+var player
 var wagon: Wagon
 var ground_aabb: AABB
 

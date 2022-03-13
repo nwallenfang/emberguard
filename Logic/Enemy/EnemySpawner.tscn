@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 player_dist_min = 20.0
 player_dist_max = 35.0
-despawn_range = 100.0
+despawn_range = 75.0
 wagon_distance = 10.0
 water_target_count = 10
 magic_target_count = 4

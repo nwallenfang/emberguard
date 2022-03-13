@@ -20,6 +20,7 @@ func start_cutscene():
 	UI.get_node("WagonMarker").modulate.a = 0.0
 	Game.enemy_spawner.deactivate()
 
+
 func cut_scene_wagon_hit():
 	var force_field = Game.wagon.get_node("MagicForceField")
 	force_field.visible = true
@@ -27,6 +28,8 @@ func cut_scene_wagon_hit():
 	$Tween.interpolate_property(Game.wagon, "velocity_scale", 1.0, 0.0, 1.0)
 	Game.wagon.get_node("WagonSound").stop()
 	$Tween.start()
+	Game.wagon.get_node("DustTrack").emitting = false
+	Game.wagon.get_node("DustTrack2").emitting = false
 	$LaserEnergyHum.play()
 	$MagicEnemy.visible = true
 
@@ -58,6 +61,8 @@ func master_defeated():
 	$LaserEnergyHum.stop()
 	$Tween.remove_all()
 	$Tween.interpolate_property(Game.wagon, "velocity_scale", 0.0, 1.0, 5.0)
+	Game.wagon.get_node("DustTrack").emitting = true
+	Game.wagon.get_node("DustTrack2").emitting = true
 	$Tween.start()
 	Game.wagon.get_node("WagonSound").stop()
 

@@ -79,7 +79,7 @@ func magician_event_message():
 	yield($CutsceneTween, "tween_all_completed")
 	label.visible = false
 	
-
+var base_modulate:Color
 func main_game_started():
 	$IntroPressAnyKey.visible = false
 	$WagonMarker.visible = true
@@ -87,6 +87,7 @@ func main_game_started():
 
 	yield(get_tree().create_timer(2.0), "timeout")
 	$ProtectTheFire.visible = true	
+	base_modulate = $ProtectTheFire.modulate
 	var mod = $ProtectTheFire.modulate
 	var mod1 = mod
 	mod1.a = 0.0
@@ -95,6 +96,7 @@ func main_game_started():
 	$ProtectTween.start()
 	yield($ProtectTween,"tween_all_completed")
 	$ProtectTheFire.visible = false
+	$ProtectTheFire.modulate = base_modulate
 
 export var wagon_marker_border := 200
 export var wagon_marker_distance := 14.0

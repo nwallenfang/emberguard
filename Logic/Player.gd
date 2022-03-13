@@ -40,6 +40,9 @@ func handle_input(delta):
 	if not CONTROLS_ENABLED:
 		return
 		
+	if Game.cutscene:
+		return
+		
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	move_direction.z = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")

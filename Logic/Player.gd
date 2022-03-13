@@ -110,7 +110,7 @@ func match_state(delta):
 			state_attack(delta)
 
 func _physics_process(delta: float) -> void:
-#	print("hurtbox active: ")
+	print("acceleratio: ", move_acceleration)
 	match_state(delta)
 
 var item_holded := ""
@@ -289,6 +289,7 @@ func start_speedup():
 	$SpeedTimer.start()
 	$SpeedupParticle.emitting = true
 	move_acceleration = speedup_acceleration
+	speedup_active = true
 
 
 var base_translation: Vector3

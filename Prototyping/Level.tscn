@@ -1610,7 +1610,7 @@ transform = Transform( 1.05479, 0.0877316, -0.789382, -0.0939432, 1.31687, 0.020
 transform = Transform( -1.06594, -0.0679683, -0.263899, -0.0887457, 1.09395, 0.0767094, 0.257655, 0.0956056, -1.06534, 73.6534, 2.38419e-06, 61.1224 )
 
 [node name="Bush20" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
-transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.428146, -40.5938 )
+transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.427661, -40.5938 )
 
 [node name="Bush21" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
 transform = Transform( -0.322361, 0.0208349, 1.33054, 0.187499, 1.35607, 0.0241923, -1.31742, 0.187902, -0.322126, 109.876, 3.45707e-06, 88.143 )
@@ -1781,31 +1781,31 @@ transform = Transform( -1.59113, -0.00409571, 0.0689257, -0.00367489, 1.5926, 0.
 [node name="BushWithFruit20" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( -0.25548, -0.0138344, -1.25386, -0.109125, 1.27501, 0.00816689, 1.24918, 0.108552, -0.255723, 73.4047, 3.33786e-06, 85.2744 )
 
-[node name="BushWithFruit" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( 0.175513, -0.00266091, 1.53368, 0.00425025, 1.54368, 0.00219187, -1.53367, 0.00397347, 0.175519, 57.7251, 3.27826e-06, 84.8653 )
 
-[node name="BushWithFruit4" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit4" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( 0.092887, -0.0020174, -1.57439, -0.080582, 1.57506, -0.00677249, 1.57233, 0.0808409, 0.0926617, 37.2651, 5.30481e-06, 127.266 )
 
-[node name="BushWithFruit6" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit6" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( -1.03567, 0.0639234, -1.17807, 0.116333, 1.56547, -0.0173264, 1.17405, -0.0987285, -1.03749, 96.0734, 3.27826e-06, 80.6974 )
 
-[node name="BushWithFruit7" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit7" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( -1.05444, -0.0187049, -1.14633, 0.0173154, 1.55701, -0.0413333, 1.14636, -0.0407233, -1.0538, 15.1817, -4.17233e-07, -4.73937 )
 
-[node name="BushWithFruit11" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit11" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( 0.876304, 0.0213485, -0.57727, -0.0381687, 1.0487, -0.0191576, 0.576402, 0.0369879, 0.876354, 99.73, -2.92063e-06, -59.587 )
 
-[node name="BushWithFruit13" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit13" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( -0.41282, -0.0349255, -0.948553, -0.0217517, 1.03446, -0.0286219, 0.948947, 0.00851811, -0.413304, -17.113, -1.60933e-06, -30.5579 )
 
-[node name="BushWithFruit14" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit14" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( 0.390376, -0.032788, -1.23345, 0.0544215, 1.29291, -0.0171446, 1.23269, -0.0466967, 0.391375, -73.0613, 5.06639e-06, 121.116 )
 
-[node name="BushWithFruit17" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit17" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( 0.898897, -0.0486938, -1.15189, 0.171224, 1.45006, 0.0723191, 1.14013, -0.179378, 0.897305, 10.5695, 4.58956e-06, 113.67 )
 
-[node name="BushWithFruit19" type="Spatial" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
+[node name="BushWithFruit19" parent="Scatters/ScatterRightSide/BushFruits/Duplicates" instance=ExtResource( 25 )]
 transform = Transform( -0.204929, 0.00815639, -1.4731, 0.0558381, 1.48626, 0.000461364, 1.47206, -0.0552411, -0.205091, 39.3278, -7.15256e-07, -7.22182 )
 
 [node name="Rocks1" type="Spatial" parent="Scatters/ScatterRightSide"]
@@ -1843,7 +1843,7 @@ transform = Transform( -1.36195, -0.117548, 1.00472, -0.134989, 1.69107, 0.01486
 transform = Transform( -1.43902, -0.0934184, -0.0689423, -0.0887969, 1.43784, -0.0948605, 0.0748007, -0.0903129, -1.43893, -87.6523, 4.64916e-06, 115.801 )
 
 [node name="Rock8" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
-transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, -4.05312e-06, -86.6336 )
+transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.0762, -86.6336 )
 
 [node name="Rock9" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
 transform = Transform( -0.704289, 0.0483103, -1.41132, 0.00375201, 1.57717, 0.0521149, 1.41215, 0.0199037, -0.704018, 117.29, -8.34465e-07, -13.1474 )

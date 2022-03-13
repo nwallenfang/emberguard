@@ -2,17 +2,6 @@ extends Spatial
 
 signal intro_button_pressed
 
-const ZOOM_SPEED = 0.5
-onready var camera_to_player = $Pivot/Camera.global_transform.basis.y
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.is_pressed():
-			# zoom in
-			if event.button_index == BUTTON_WHEEL_UP:
-				$Pivot/Camera.translate(-ZOOM_SPEED * camera_to_player)
-			# zoom out
-			if event.button_index == BUTTON_WHEEL_DOWN:
-				$Pivot/Camera.translate(ZOOM_SPEED * camera_to_player)
 
 func _ready() -> void:
 	UI.get_node("BlackScreen").visible = true
@@ -71,7 +60,7 @@ func _ready() -> void:
 	$Pivot/Camera.current = true
 	$EnemySpawner.activate()
 	$Wagon/WagonSound.play()
-	#$Wagon.slow_start()
+	$Wagon.slow_start()
 	
 	Game.main_cam = $Pivot/Camera
 	

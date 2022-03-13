@@ -25,6 +25,7 @@ material/0 = null
 collision_layer = 0
 collision_mask = 8
 monitoring = false
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="EnemyDetectArea"]
 transform = Transform( 1.00188, 0, 0, 0, 1.00188, 0, 0, 0, 1.00188, 0, 0, 0 )

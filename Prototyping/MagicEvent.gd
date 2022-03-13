@@ -57,7 +57,7 @@ func master_defeated():
 	$Tween.start()
 	Game.wagon.get_node("WagonSound").stop()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("speed_cheat_on"):
 		#$Camera.current = true
 		Game.wagon.velocity_scale = 15.0

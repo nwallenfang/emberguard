@@ -11,6 +11,7 @@ func set_beam_shoot(x):
 		$Laser/MeshInstance.material_override.set("shader_param/shoot_offset", x)
 
 func start_cutscene():
+	UI.get_node("FireHealthbar").visible = false
 	visible = true
 	Game.main_cam.current=true
 	Game.cutscene = true
@@ -30,6 +31,7 @@ func cut_scene_wagon_hit():
 	$MagicEnemy.visible = true
 
 func cutscene_done():
+	UI.get_node("FireHealthbar").visible = true
 	Game.cutscene = false
 	Game.enemy_spawner.activate()
 	Game.main_cam.current = true

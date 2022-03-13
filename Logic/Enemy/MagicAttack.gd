@@ -25,7 +25,8 @@ func quit_attacking():
 	$BouceAnimationTween.interpolate_property(parent, "bounce_override_factor", 1.0, 0.0, .6)
 	$BouceAnimationTween.start()
 	$Timer.stop()
-	state_machine.transition_deferred("Idle")
+	if get_parent().state.name == "MagicAttack":
+		state_machine.transition_deferred("Idle")
 
 func _on_Timer_timeout():
 	if get_parent().state.name != "MagicAttack" or parent.global_transform.origin.distance_to(Game.player.global_transform.origin) > abort_distance:

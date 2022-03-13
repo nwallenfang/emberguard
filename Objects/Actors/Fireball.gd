@@ -2,7 +2,7 @@ extends Spatial
 
 class_name Fireball
 
-export var stop_distance = 0.10
+export var stop_distance = 0.2
 export var fly_velocity = 0.3
 
 enum State {
@@ -18,13 +18,12 @@ signal shoot_fireball
 func _ready() -> void:
 	$EnemyDetectArea.translation += Vector3(0, 20, 0)
 	yield(get_tree().create_timer(1.7), "timeout")
-	$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered", [], CONNECT_ONESHOT)
+	$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered")
 	$EnemyDetectArea.translation -= Vector3(0, 20, 0)
 
 var enemy: Node  # not WaterEnemy since there will be others too later
 func state_attacking(_delta: float):
 	if not is_instance_valid(enemy):
-		printerr("whoopsie, see fireball.gd")
 		state = State.Destroyed
 		return
 		
@@ -59,12 +58,11 @@ func activate():
 	$EnemyDetectArea.set_deferred("monitoring", true)
 
 func _on_EnemyDetectArea_area_entered(enemy_hurtbox: Area) -> void:
-	enemy = enemy_hurtbox.get_parent()
-	if enemy.name != "MagicMaster":
-		state = State.Attacking
-		set_as_toplevel(true)  # from now on move independent from player
-	else:
-		$EnemyDetectArea.connect("area_entered", self, "_on_EnemyDetectArea_area_entered", [], CONNECT_ONESHOT)
+	if state == State.Idle:
+		enemy = enemy_hurtbox.get_parent()
+		if enemy.name != "MagicMaster":
+			state = State.Attacking
+			set_as_toplevel(true)  # from now on move independent from player
 
 func move_towards(target: Vector3, stop_distance: float, vel: float) -> bool:
 	# returns whether the movement is completed as a boolean

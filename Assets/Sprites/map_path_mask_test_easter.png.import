@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/map_path_mask_test.png-ddb87b553ab54c5ed03679d5b221bf74.s3tc.stex"
-path.etc2="res://.import/map_path_mask_test.png-ddb87b553ab54c5ed03679d5b221bf74.etc2.stex"
+path.s3tc="res://.import/map_path_mask_test_easter.png-dd7250442c97817bd99d53909da788dc.s3tc.stex"
+path.etc2="res://.import/map_path_mask_test_easter.png-dd7250442c97817bd99d53909da788dc.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/map_path_mask_test.png"
-dest_files=[ "res://.import/map_path_mask_test.png-ddb87b553ab54c5ed03679d5b221bf74.s3tc.stex", "res://.import/map_path_mask_test.png-ddb87b553ab54c5ed03679d5b221bf74.etc2.stex" ]
+source_file="res://Assets/Sprites/map_path_mask_test_easter.png"
+dest_files=[ "res://.import/map_path_mask_test_easter.png-dd7250442c97817bd99d53909da788dc.s3tc.stex", "res://.import/map_path_mask_test_easter.png-dd7250442c97817bd99d53909da788dc.etc2.stex" ]
 
 [params]
 

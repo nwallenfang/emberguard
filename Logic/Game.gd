@@ -47,11 +47,14 @@ func set_fire_health(new_health: float):
 		player.CONTROLS_ENABLED = false
 		enemy_spawner.deactivate()
 		#moon.light_energy = 1.2
+		Game.get_node("MainTheme").stop()
+		Game.get_node("MainThemeFast").stop()
 		wagon.game_over()
 		yield(get_tree(), "idle_frame")
 		player.visible = false
 		UI.get_node("FireHealthbar").visible = false
 		yield(wagon, "game_over_animation_finished")
+		main_game_running = false
 		emit_signal("game_over")
 		game_over()
 	

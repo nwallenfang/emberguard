@@ -71,7 +71,7 @@ func ending_cutscene():
 	$Player.god_mode = true
 	UI.get_node("FireHealthbar").visible = false
 	UI.get_node("InteractLabel").visible = false
-	UI.get_node("WagonMarker").visible = false
+	UI.get_node("WagonMarker").modulate.a = 0.0
 	$EnemySpawner.deactivate()
 #	Game.main_game_running = false
 	$Pivot/Camera.far = 300

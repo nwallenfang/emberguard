@@ -110,7 +110,6 @@ func match_state(delta):
 			state_attack(delta)
 
 func _physics_process(delta: float) -> void:
-	print("acceleratio: ", move_acceleration)
 	match_state(delta)
 
 var item_holded := ""

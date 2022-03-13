@@ -16,6 +16,7 @@ func start_cutscene():
 	Game.cutscene = true
 	$TriggerTimer.stop()
 	$AnimationPlayer.play("cutscene")
+	UI.get_node("WagonMarker").modulate.a = 0.0
 	Game.enemy_spawner.deactivate()
 
 func cut_scene_wagon_hit():
@@ -36,6 +37,7 @@ func cutscene_done():
 	yield(get_tree().create_timer(1), "timeout")
 	Game.get_node("MainThemeFast").play(Game.get_node("MainTheme").get_playback_position())
 	UI.magician_event_message()
+	UI.get_node("WagonMarker").modulate.a = 1.0
 
 export var trigger_distance := 36.0
 func _on_TriggerTimer_timeout():

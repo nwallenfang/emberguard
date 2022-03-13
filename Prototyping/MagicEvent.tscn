@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Prototyping/MagicEvent.gd" type="Script" id=1]
 [ext_resource path="res://LaserBeam.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Actors/MagicMaster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Actors/MagicEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Actors/WaterEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sound/magic/laser.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sound/magic/energy_hum.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -371,6 +373,20 @@ tracks/28/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/29/type = "audio"
+tracks/29/path = NodePath("LaserBeginShooting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 7.8 )
+}
 
 [node name="MagicEvent" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58912, 0, -13.6194 )
@@ -409,7 +425,7 @@ transform = Transform( -0.946018, 0.0444134, -0.321058, 0, 0.990567, 0.13703, 0.
 current = true
 
 [node name="Camera2" type="Camera" parent="."]
-transform = Transform( 0.0516914, -0.634932, 0.770837, 0, 0.771869, 0.635782, -0.998663, -0.0328645, 0.039899, 13.3878, 15.9122, 16.7863 )
+transform = Transform( 0.632665, -0.492366, 0.597755, 0, 0.771869, 0.635782, -0.774426, -0.402237, 0.488334, 13.3878, 15.9122, 16.7863 )
 current = true
 fov = 60.3
 
@@ -418,5 +434,14 @@ wait_time = 0.2
 autostart = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="LaserBeginShooting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="LaserEnergyHum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+bus = "SFX"
 
 [connection signal="timeout" from="TriggerTimer" to="." method="_on_TriggerTimer_timeout"]

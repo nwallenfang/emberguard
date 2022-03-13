@@ -71,7 +71,9 @@ func _ready() -> void:
 	$Pivot/Camera.current = true
 	$EnemySpawner.activate()
 	$Wagon/WagonSound.play()
-	$Wagon.slow_start()
+	#$Wagon.slow_start()
+	
+	Game.main_cam = $Pivot/Camera
 	
 	var _e = $Wagon.connect("ending_reached", self, "ending_cutscene", [], CONNECT_ONESHOT)
 

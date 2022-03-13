@@ -60,6 +60,8 @@ func interact():
 
 
 func scare_enemy(enemy: Node):
+	if enemy.minion:
+		return
 	var state_mac_node := enemy.get_node("EnemyStateMachine")
 	var state_machine: EnemyStateMachine
 	

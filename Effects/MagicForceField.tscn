@@ -65,7 +65,7 @@ shader_param/time_scale = 1.0
 shader_param/base_alpha = 0.05
 shader_param/scan_line_freq = 1.0
 shader_param/scan_line_uv_width = 0.015
-shader_param/active = 0.0
+shader_param/active = 1.0
 shader_param/field_pattern = ExtResource( 1 )
 
 [node name="MagicForceField" type="Spatial"]

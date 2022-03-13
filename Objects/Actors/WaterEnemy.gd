@@ -10,6 +10,7 @@ func _ready() -> void:
 	$EnemyStateMachine.enabled = true
 	bounce_time = randf() * 1000.0
 
+export var minion := false
 
 var bounce_time : float
 var bounce_time_scale := 6.5
@@ -46,6 +47,8 @@ func _physics_process(delta: float) -> void:
 		execute_movement(delta)
 		
 func _on_DetectionArea_area_entered(_area: Area) -> void:
+	if minion and not Game.minions_activated:
+		return
 	if not Game.main_game_running:
 		return
 	if $EnemyStateMachine.state.name == "Wandering" or $EnemyStateMachine.state.name == "Idle": # or idle in theory
@@ -58,6 +61,8 @@ func _on_Hurtbox_area_entered(area):
 	if area.name.begins_with("EnemyDetect"):
 		return
 	if area.name.begins_with("Scare"):
+		if minion:
+			return
 		if area.get_parent().fire_percent <= .03:
 			return
 	var direction = area.global_transform.origin.direction_to(global_transform.origin)

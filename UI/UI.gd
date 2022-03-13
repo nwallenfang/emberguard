@@ -18,6 +18,8 @@ export var cannot_attack_length := 2.0
 var cannot_attack_time_left = 0.0
 func trigger_cannot_attack():
 	cannot_attack_time_left = cannot_attack_length
+	
+var ui_hide = false
 
 func hit_effect():
 	$HitEffect.visible = true
@@ -34,6 +36,8 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_hide"):
 		$FireHealthbar.visible = not $FireHealthbar.visible
+		$WagonMarker.visible = not $WagonMarker.visible
+		ui_hide = not ui_hide
 	if Input.is_action_just_pressed("pause"):
 		# dont pause if it's game over
 		if not $CenterContainer/GameOverBox.visible:
@@ -96,7 +100,8 @@ func update_wagon_marker():
 	if Game.player_distance_to_wagon < wagon_marker_distance:
 		$WagonMarker.visible = false
 		return
-	$WagonMarker.visible = true
+	if not ui_hide:
+		$WagonMarker.visible = true	
 	
 	#var dir = randf() * 2 * PI
 	var dir_vector = Game.player.translation.direction_to(Game.wagon.translation)#Vector2.UP.rotated(dir)

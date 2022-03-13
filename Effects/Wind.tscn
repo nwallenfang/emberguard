@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
+[ext_resource path="res://Assets/Sprites/leaf.png" type="Texture" id=1]
 [ext_resource path="res://Effects/Wind.gdshader" type="Shader" id=2]
 
 [sub_resource type="ShaderMaterial" id=7]
@@ -27,6 +28,46 @@ color_ramp = SubResource( 6 )
 [sub_resource type="QuadMesh" id=9]
 size = Vector2( 8, 8 )
 
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 0 ), 0.0, 4.09575, 0, 0, Vector2( 0.19214, 0.575 ), 0.950395, 0.950395, 0, 0, Vector2( 0.803493, 0.665909 ), -0.468409, -0.468409, 0, 0, Vector2( 1, 0 ), -2.55702, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 15 )
+
+[sub_resource type="Curve" id=13]
+max_value = 10.0
+_data = [ Vector2( 0.00436682, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.519651, 1.70455 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 24, 1 )
+flag_rotate_y = true
+spread = 5.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.7
+angular_velocity = 220.65
+angular_velocity_random = 1.0
+tangential_accel_curve = SubResource( 14 )
+angle = 720.0
+angle_random = 0.85
+scale = 4.0
+scale_random = 0.5
+scale_curve = SubResource( 16 )
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=12]
+material = SubResource( 11 )
+size = Vector2( 0.1, 0.1 )
+
 [node name="WindParticles" type="Spatial"]
 
 [node name="WindParticles" type="Particles" parent="."]
@@ -38,3 +79,12 @@ visibility_aabb = AABB( -10.9244, -10.3426, -1.3516, 21.8846, 20.7587, 3.06599 )
 local_coords = false
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 9 )
+
+[node name="LeafParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -41.2491, 0, -1.1175 )
+amount = 20
+lifetime = 14.0
+visibility_aabb = AABB( -1.06086, -28.6097, -10.0668, 60.0495, 52.2445, 16.1723 )
+local_coords = false
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )

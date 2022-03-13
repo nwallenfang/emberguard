@@ -62,6 +62,8 @@ scale_curve = SubResource( 16 )
 flags_transparent = true
 vertex_color_use_as_albedo = true
 params_cull_mode = 2
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
 albedo_texture = ExtResource( 1 )
 
 [sub_resource type="QuadMesh" id=12]

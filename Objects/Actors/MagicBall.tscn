@@ -143,7 +143,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Lifetime" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 2.35
 one_shot = true
 autostart = true
 

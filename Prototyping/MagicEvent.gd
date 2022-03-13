@@ -31,6 +31,8 @@ func cutscene_done():
 	Game.enemy_spawner.activate()
 	Game.main_cam.current = true
 	Game.minions_activated = true
+	yield(get_tree().create_timer(1), "timeout")
+	UI.magician_event_message()
 
 export var trigger_distance := 36.0
 func _on_TriggerTimer_timeout():
@@ -39,7 +41,16 @@ func _on_TriggerTimer_timeout():
 		start_cutscene()
 
 func master_defeated():
-	pass
+	var force_field = Game.wagon.get_node("MagicForceField")
+	$Tween.interpolate_property(force_field.get("material/0"), "shader_param/active", 1.0, 0.0, 2)
+	$Tween.interpolate_property($Laser/MeshInstance.material_override, "shader_param/albedo:a", 1.0, 0.0, 2)
+	yield($Tween,"tween_all_completed")
+	force_field.visible = false
+	$Laser.visible = false
+	$Tween.remove_all()
+	$Tween.interpolate_property(Game.wagon, "velocity_scale", 0.0, 1.0, 5.0)
+	$Tween.start()
+	
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("speed_cheat_on"):

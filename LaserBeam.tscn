@@ -43,7 +43,7 @@ void fragment() {
 	float ishoot_offset = 1.0 - shoot_offset;
 	float shoot = pow(clamp_and_map(abs(ishoot_offset - UV.x / uv1_scale.x), 0.0, .1, 0.0, 1.0), 4.0) * float(UV.x / uv1_scale.x > ishoot_offset);
 	ALBEDO = albedo.rgb + vec3(inner_beam);
-	ALPHA = clamp(shoot * (pow(albedo_tex.r, .5) * pow(dist_to_ymiddle, 3.0) + pow(dist_to_ymiddle, 4.0) + inner_beam), 0.0, 1.0);
+	ALPHA = clamp(albedo.a * shoot * (pow(albedo_tex.r, .5) * pow(dist_to_ymiddle, 3.0) + pow(dist_to_ymiddle, 4.0) + inner_beam), 0.0, 1.0);
 }
 "
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Meshes/magician_master.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Actors/MagicMaster.gd" type="Script" id=2]
@@ -13,6 +13,34 @@ radius = 0.666785
 [sub_resource type="CapsuleShape" id=10]
 radius = 2.35217
 height = 1.74535
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0.208738, 0.519417, 0.868932 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 1
+emission_sphere_radius = 8.24
+flag_align_y = true
+gravity = Vector3( 0, 0, 0 )
+radial_accel = -5.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 0.407843, 0.462745, 0.917647, 1 )
+color_ramp = SubResource( 13 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+
+[sub_resource type="QuadMesh" id=16]
+material = SubResource( 15 )
+size = Vector2( 0.03, 1.5 )
 
 [node name="MagicMaster" type="KinematicBody"]
 collision_layer = 2048
@@ -49,6 +77,15 @@ bus = "SFX"
 
 [node name="magician_master" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1.24901, 0, 0, 0, 1.24901, 0, 0, 0, 1.24901, 0, 0, 0 )
+
+[node name="MagicLoad" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430288, 0 )
+emitting = false
+amount = 60
+lifetime = 2.0
+visibility_aabb = AABB( -12.8024, -12.6746, -12.7584, 25.3882, 25.0583, 25.5791 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="InvincTimer" to="." method="_on_InvincTimer_timeout"]

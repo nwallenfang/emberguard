@@ -1,8 +1,9 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Items/LogStack2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sprites/map_path_mask_test_easter.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/map_path_mask_test.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_albedo.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Textures/GrassMatMaker_albedo.png" type="Texture" id=7]
@@ -136,6 +137,13 @@ _data = {
 "points": PoolVector3Array(  ),
 "tilts": PoolRealArray(  )
 }
+
+[sub_resource type="SpatialMaterial" id=29]
+flags_unshaded = true
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="QuadMesh" id=30]
+material = SubResource( 29 )
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 10 )
@@ -4016,6 +4024,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8373, 2.14577e-06, 53.4478 
 
 [node name="MagicEvent" parent="." instance=ExtResource( 44 )]
 visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 3.81421, 0, 2.67343e-08, 0, 3.81421, 0, -1.13672e-07, 0, 0.897056, -120.395, 1.93593, -117.928 )
+mesh = SubResource( 30 )
+material/0 = null
 
 [editable path="Environment/WeaponSpace10"]
 [editable path="Environment/WeaponSpace11"]

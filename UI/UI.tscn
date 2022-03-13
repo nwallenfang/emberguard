@@ -70,6 +70,7 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 6 )
 
 [node name="FPSCounter" type="Label" parent="FireHealthbar"]
+visible = false
 margin_left = -64.184
 margin_top = -28.8
 margin_right = -24.184

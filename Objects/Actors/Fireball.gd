@@ -24,7 +24,6 @@ func _ready() -> void:
 var enemy: Node  # not WaterEnemy since there will be others too later
 func state_attacking(_delta: float):
 	if not is_instance_valid(enemy):
-		printerr("whoopsie, see fireball.gd")
 		state = State.Destroyed
 		return
 		

@@ -3,7 +3,7 @@
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Items/LogStack2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Sprites/map_path_mask_test_easter.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/easteregg.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/map_path_mask_test.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Textures/DirtMatMaker_albedo.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Textures/GrassMatMaker_albedo.png" type="Texture" id=7]
@@ -4024,10 +4024,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8373, 2.14577e-06, 53.4478 
 [node name="MagicEvent" parent="." instance=ExtResource( 44 )]
 visible = false
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 3.81421, 0, 2.67343e-08, 0, 3.81421, 0, -1.13672e-07, 0, 0.897056, -120.395, 1.93593, -117.928 )
+[node name="Easteregg" type="MeshInstance" parent="."]
+transform = Transform( 3.14716, 0, 0, 0, 3.14716, 0, 0, 0, 0.759104, -117.302, 1.86062, -115.832 )
 mesh = SubResource( 30 )
 material/0 = null
+
+[node name="RuinPillar1" parent="Easteregg" instance=ExtResource( 49 )]
+transform = Transform( 0.345067, 0, 0, 0, 0.345067, 0, 0, 0, 1.3361, -0.666349, -0.458198, -0.232674 )
+
+[node name="RuinPillar2" parent="Easteregg" instance=ExtResource( 49 )]
+transform = Transform( 0.345067, 0, 0, 0, 0.345067, 0, 0, 0, 1.3361, 0.670837, -0.458198, -0.232674 )
 
 [editable path="Environment/WeaponSpace10"]
 [editable path="Environment/WeaponSpace11"]

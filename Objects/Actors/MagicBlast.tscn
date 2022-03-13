@@ -1,45 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Sprites/fire_noise.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Shader/MagicBlast.gdshader" type="Shader" id=2]
+[ext_resource path="res://Assets/Sprites/fire_noise_test.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Actors/MagicBlast.gd" type="Script" id=4]
 
 [sub_resource type="SphereShape" id=1]
+radius = 0.295954
 
-[sub_resource type="Shader" id=2]
-code = "// NOTE: Shader automatically converted from Godot Engine 3.4.3.stable's SpatialMaterial.
-
-shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,unshaded;
-uniform vec4 albedo : hint_color;
-uniform sampler2D texture_albedo : hint_albedo;
-uniform float specular;
-uniform float metallic;
-uniform float roughness : hint_range(0,1);
-uniform float point_size : hint_range(0,128);
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
-
-
-void vertex() {
-	UV=UV*uv1_scale.xy+uv1_offset.xy;
-}
-
-
-
-
-void fragment() {
-	vec2 base_uv = UV;
-	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	float dist = distance(UV, vec2(.5));
-	ALBEDO = albedo.rgb * dist;
-	ALPHA = albedo.a * albedo_tex.a;
-}
-"
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 2 )
+shader_param/albedo = Color( 0, 0.952941, 1, 0.580392 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0
 shader_param/roughness = 1.0
@@ -52,15 +23,42 @@ shader_param/texture_albedo = ExtResource( 1 )
 
 [sub_resource type="QuadMesh" id=4]
 
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+shader_param/albedo = Color( 0, 0.596078, 0.952941, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/texture_albedo = ExtResource( 3 )
+
 [node name="MagicBlast" type="Spatial"]
+script = ExtResource( 4 )
 
-[node name="Hitbox" type="Area" parent="."]
+[node name="HitboxBlast" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 4
 
-[node name="CollisionShape" type="CollisionShape" parent="Hitbox"]
+[node name="CollisionShape" type="CollisionShape" parent="HitboxBlast"]
+transform = Transform( 1.00673, 0, 0, 0, 1.00673, 0, 0, 0, 1.00673, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="Visual" type="MeshInstance" parent="."]
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="Visual2" type="MeshInstance" parent="Spatial"]
+transform = Transform( 0.789235, -0.287258, -1.25564e-08, 0, -3.67126e-08, 0.839886, -0.287258, -0.789235, -3.44985e-08, 0, 0.000426248, 0 )
+material_override = SubResource( 5 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Visual" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 material_override = SubResource( 3 )
 mesh = SubResource( 4 )
+skeleton = NodePath("../..")
 material/0 = null

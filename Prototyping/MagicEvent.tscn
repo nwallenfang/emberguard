@@ -393,19 +393,16 @@ anims/cutscene = SubResource( 2 )
 transform = Transform( -0.16552, 0, -1.44703e-08, 0, 0.16552, 0, 1.44703e-08, 0, -0.16552, -2.30881, 0, 1.33225 )
 visible = false
 minion = true
-health = 3
 
 [node name="WaterEnemy2" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.167666, 0, -2.53169e-08, 0, 0.167666, 0, 2.53169e-08, 0, -0.167666, 2.26824, 0, 1.33225 )
 visible = false
 minion = true
-health = 3
 
 [node name="MagicEnemy" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.106595, 0, 0.089444, 0, 0.13915, 0, -0.089444, 0, -0.106595, -1.5357, 0, -1.61299 )
 visible = false
 minion = true
-health = 4
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.946018, 0.0444134, -0.321058, 0, 0.990567, 0.13703, 0.324116, 0.129632, -0.937094, -6.72691, 4.936, -1.551 )

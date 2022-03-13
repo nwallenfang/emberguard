@@ -40,7 +40,7 @@ func _ready() -> void:
 	# set the game to running after 2 secs
 	# later this will be called once the intro cutscene is done
 	yield(self, "intro_button_pressed")
-	$MainTheme.play()
+	Game.get_node("MainTheme").play()
 	UI.get_node("IntroPressAnyKey").visible = false
 	set_process_input(false)
 	
@@ -93,8 +93,8 @@ func ending_cutscene():
 	$Ending/Camera.current = true
 	$Ending/AnimationPlayer.play("camera")
 	yield($Ending/AnimationPlayer, "animation_finished")
-	$Tween.interpolate_property($MainTheme, "volume_db", null, -80, 5.2, Tween.EASE_IN)
-	$Tween.interpolate_property($MainThemeFast, "volume_db", null, -80, 5.2, Tween.EASE_IN)
+	$Tween.interpolate_property(Game.get_node("MainTheme"), "volume_db", null, -80, 5.2, Tween.EASE_IN)
+	$Tween.interpolate_property(Game.get_node("MainThemeFast"), "volume_db", null, -80, 5.2, Tween.EASE_IN)
 	$Tween.start()
 	UI.get_node("TreasureIsSafe").visible = true
 	yield(get_tree().create_timer(3.6), "timeout")
@@ -106,8 +106,3 @@ func _input(event):
 	if event is InputEventKey or event is InputEventJoypadButton or event is InputEventMouseButton:
 		if event.pressed:
 			emit_signal("intro_button_pressed")
-
-
-func _on_MainThemeFastStart_timeout() -> void:
-	print("start fast main theme")
-

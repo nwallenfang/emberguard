@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -40,9 +40,7 @@
 [ext_resource path="res://Objects/Environment/WeaponSpace.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Objects/Items/LogStack3.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Prototyping/RightSideWood.tres" type="Curve3D" id=40]
-[ext_resource path="res://Assets/Sound/main_theme_fast.ogg" type="AudioStream" id=41]
 [ext_resource path="res://Prototyping/LefttSideWood.tres" type="Curve3D" id=42]
-[ext_resource path="res://Assets/Sound/main_theme.ogg" type="AudioStream" id=43]
 [ext_resource path="res://Prototyping/MagicEvent.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Objects/Environment/WeaponSpaceAxe.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Objects/Environment/RuinPiece1.tscn" type="PackedScene" id=46]
@@ -4119,20 +4117,6 @@ transform = Transform( 0.848579, 0, 0, 0, 0.848579, 0, 0, 0, 0.848579, 0, 0.8625
 light_energy = 0.633
 omni_range = 3.04481
 omni_attenuation = 1.51572
-
-[node name="MainTheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 43 )
-volume_db = -13.496
-bus = "Music"
-
-[node name="MainThemeFast" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 41 )
-volume_db = -15.084
-bus = "Music"
-
-[node name="MainThemeFastStart" type="Timer" parent="."]
-wait_time = 150.0
-one_shot = true
 
 [node name="MagicEvent" parent="." instance=ExtResource( 44 )]
 

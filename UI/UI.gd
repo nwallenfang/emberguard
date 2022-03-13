@@ -139,7 +139,7 @@ func game_over():  # lost
 
 var blended_in = Color(1.0, 1.0, 1.0, 1.0)
 var blended_out = Color(1.0, 1.0, 1.0, 0.0)
-var credit1_duration = 5.0
+var credit1_duration = 10.0
 var credit2_duration = 5.0
 func game_end_won():  # won
 	var viewportWidth = get_viewport().size.x
@@ -169,12 +169,12 @@ func game_end_won():  # won
 	$Tween2.interpolate_property($ColorRect/Credit2, "modulate", blended_out, blended_in, 0.4, Tween.EASE_IN)
 	$Tween2.start()
 
-	yield(get_tree().create_timer(credit1_duration), "timeout")	
+	yield(get_tree().create_timer(credit2_duration), "timeout")	
 	# fade to black
 	$Tween.reset_all()
-	$Tween.interpolate_property($ColorRect/Credit2, "modulate", blended_in, blended_out, 2.5, Tween.EASE_OUT)
+	$Tween.interpolate_property($ColorRect/Credit2, "modulate", blended_in, blended_out, 1.5, Tween.EASE_OUT)
 	$Tween.start()
-	
+	yield($Tween, "tween_all_completed")
 	get_tree().quit()
 
 

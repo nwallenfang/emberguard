@@ -3,15 +3,13 @@ extends KinematicBody
 
 export var health := 12
 
-export var blast_scale_start := 2.3
-export var blast_scale_end := 7.0
+export var blast_scale_start := 2.0
+export var blast_scale_end := 30.0
 export var trigger_dist := 5.0
-export var blast_speed := 2.0
+export var blast_speed := 1.5
 
 var blast_ready := true
 
-func _ready():
-	$MagicBlast.set_hitbox(false)
 
 func _on_Hurtbox_area_entered(area):
 	if area.name.begins_with("EnemyDetect"):
@@ -55,7 +53,7 @@ func activate_blast():
 	$MagicBlast.set_alpha(1.0)
 	$MagicBlast.set_hitbox(true)
 	$BlastTween.interpolate_property($MagicBlast, "alpha", 1.0, 0.0, blast_speed,Tween.TRANS_QUART,Tween.EASE_IN)
-	$BlastTween.interpolate_property($MagicBlast.scale, Vector3(blast_scale_start, blast_scale_start, blast_scale_start), Vector3(blast_scale_end, blast_scale_end, blast_scale_end), blast_speed)
+	$BlastTween.interpolate_property($MagicBlast, "scale", Vector3(blast_scale_start, blast_scale_start, blast_scale_start), Vector3(blast_scale_end, blast_scale_end, blast_scale_end), blast_speed)
 	$BlastTween.start()
 	yield($BlastTween,"tween_all_completed")
 	$MagicBlast.set_hitbox(false)

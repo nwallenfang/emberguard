@@ -345,6 +345,7 @@ invinc_time = 2.0
 god_mode = false
 item_speed_punishment = 13.0
 stun_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+magic_stun_color = Color( 0, 0.529412, 1, 1 )
 
 [node name="PrototypeLook" type="Spatial" parent="."]
 visible = false

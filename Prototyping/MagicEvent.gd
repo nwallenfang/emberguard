@@ -32,6 +32,7 @@ func cutscene_done():
 	Game.main_cam.current = true
 	Game.minions_activated = true
 	yield(get_tree().create_timer(1), "timeout")
+	Game.get_node("MainThemeFast").play(Game.get_node("MainTheme").get_playback_position())
 	UI.magician_event_message()
 
 export var trigger_distance := 36.0
@@ -44,6 +45,7 @@ func master_defeated():
 	var force_field = Game.wagon.get_node("MagicForceField")
 	$Tween.interpolate_property(force_field.get("material/0"), "shader_param/active", 1.0, 0.0, 2)
 	$Tween.interpolate_property($Laser/MeshInstance.material_override, "shader_param/albedo:a", 1.0, 0.0, 2)
+	$Tween.start()
 	yield($Tween,"tween_all_completed")
 	force_field.visible = false
 	$Laser.visible = false

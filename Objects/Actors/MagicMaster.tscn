@@ -89,7 +89,8 @@ process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 16 )
 
 [node name="MagicBlast" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.36847, 0, 0, 0, 2.36847, 0, 0, 0, 2.36847, 0, 0.192209, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.192209, 0 )
+visible = false
 
 [node name="SlowProcess" type="Timer" parent="."]
 autostart = true

@@ -202,9 +202,9 @@ func drop_item():
 	dropped_item.translation = translation + Vector3(0, .1, 0)
 	loose_item()
 
-var magic_knockback_acc = 3500.0
-var magic_stun_time = 3.5
-var magic_invinc_time = 4.5
+var magic_knockback_acc = 4500.0
+var magic_stun_time = 2.5
+var magic_invinc_time = 3.8
 func magic_blast_effect(origin_node: Node):
 	$HurtParticles.emitting = true
 	var knockback_direction = origin_node.global_transform.origin.direction_to(self.global_transform.origin)

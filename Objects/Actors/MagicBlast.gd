@@ -8,5 +8,5 @@ func set_alpha(a):
 	$Spatial/Visual2.material_override.set("shader_param/albedo:a", a)
 
 func set_hitbox(b):
-	$Hitbox.set_deferred("monitorable", b)
-	$Hitbox.set_deferred("monitoring", b)
+	$HitboxBlast.set_deferred("monitorable", b)
+	$HitboxBlast.set_deferred("monitoring", b)

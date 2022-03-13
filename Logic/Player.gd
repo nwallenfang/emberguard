@@ -61,7 +61,8 @@ func handle_input(delta):
 			if $Weapon.type != Weapon.TYPE.Empty and not state == State.ATTACK:
 				state = State.ATTACK
 			else:
-				emit_signal("cannot_attack")
+				if not state == State.ATTACK:
+					emit_signal("cannot_attack")
 				# don't show cannot attack prompt if not holding a weapon
 		else:
 			#emit_signal("cannot_attack")

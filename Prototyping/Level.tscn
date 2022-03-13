@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=1]
 [ext_resource path="res://Logic/CustomCamera.gd" type="Script" id=2]
@@ -44,6 +44,7 @@
 [ext_resource path="res://Prototyping/LefttSideWood.tres" type="Curve3D" id=42]
 [ext_resource path="res://Assets/Sound/main_theme.ogg" type="AudioStream" id=43]
 [ext_resource path="res://Prototyping/MagicEvent.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Objects/Environment/WeaponSpaceAxe.tscn" type="PackedScene" id=45]
 
 [sub_resource type="QuadMesh" id=7]
 
@@ -254,34 +255,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218701, 0.0977136, -11.806 )
 [node name="Plant" parent="Environment" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2968, -0.29398, -8.22569 )
 
-[node name="WeaponSpace" type="Spatial" parent="Environment"]
-
-[node name="Rock2" parent="Environment/WeaponSpace" instance=ExtResource( 29 )]
-transform = Transform( -0.499441, 0, 0.866348, 0, 1, 0, -0.866348, 0, -0.499441, 35.6834, 0, -64.7628 )
-
-[node name="Rock5" parent="Environment/WeaponSpace" instance=ExtResource( 29 )]
-transform = Transform( -0.784906, 0, -0.619615, 0, 1, 0, 0.619615, 0, -0.784906, 35.2481, 0, -60.7758 )
-
-[node name="Rock3" parent="Environment/WeaponSpace" instance=ExtResource( 29 )]
-transform = Transform( 0.899543, 0, -0.436833, 0, 1, 0, 0.436833, 0, 0.899543, 39.631, 0, -64.7628 )
-
-[node name="Rock4" parent="Environment/WeaponSpace" instance=ExtResource( 29 )]
-transform = Transform( 0.823473, 0, -0.567355, 0, 1, 0, 0.567355, 0, 0.823473, 40.1428, 0.0353894, -60.6131 )
-
-[node name="Rock6" parent="Environment/WeaponSpace" instance=ExtResource( 27 )]
-transform = Transform( 0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, 0.76628, 37.7584, 0, -62.9101 )
-
-[node name="SpotLight" type="SpotLight" parent="Environment/WeaponSpace"]
-transform = Transform( 0.548104, 0.442165, -0.709981, 0, 0.848843, 0.528646, 0.836411, -0.289753, 0.465254, 34.8249, 3.51265, -60.7865 )
-light_energy = 1.4
-spot_range = 9.015
-spot_attenuation = 0.812252
-spot_angle = 40.0
-spot_angle_attenuation = 0.189465
-
-[node name="WeaponItem" parent="Environment/WeaponSpace" instance=ExtResource( 36 )]
-transform = Transform( -0.560023, -0.54765, -0.621654, 0.699164, -0.714961, -2.08367e-08, -0.444458, -0.434638, 0.783292, 38.3, 1.73487, -62.3633 )
-
 [node name="WeaponSpace2" type="Spatial" parent="Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 117.721, 0.130275, -37.4351 )
 
@@ -309,36 +282,6 @@ spot_angle = 40.0
 spot_angle_attenuation = 0.189465
 
 [node name="WeaponItem" parent="Environment/WeaponSpace2" instance=ExtResource( 36 )]
-transform = Transform( 0.69713, 0.681727, 0.22194, 0.699164, -0.714961, -2.08367e-08, 0.158678, 0.155172, -0.97506, 0.819458, 1.40307, 1.49327 )
-type = 1
-
-[node name="WeaponSpace3" type="Spatial" parent="Environment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 166.117, 0.130277, -5.1133 )
-
-[node name="Rock2" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
-transform = Transform( -0.499441, 0, 0.866348, 0, 1, 0, -0.866348, 0, -0.499441, -1.5658, 2.38419e-07, -0.757217 )
-
-[node name="Rock5" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
-transform = Transform( -0.784906, 0, -0.619615, 0, 1, 0, 0.619615, 0, -0.784906, 1.80374, 0, -1.45487 )
-
-[node name="Rock3" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
-transform = Transform( 0.899543, 0, -0.436833, 0, 1, 0, 0.436833, 0, 0.899543, -2.09563, 0, 1.36665 )
-
-[node name="Rock4" parent="Environment/WeaponSpace3" instance=ExtResource( 29 )]
-transform = Transform( 0.823473, 0, -0.567355, 0, 1, 0, 0.567355, 0, 0.823473, 3.34426, 2.38419e-07, 0.794586 )
-
-[node name="Rock6" parent="Environment/WeaponSpace3" instance=ExtResource( 27 )]
-transform = Transform( 0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, 0.76628, 0.751131, 0, 0.812019 )
-
-[node name="SpotLight" type="SpotLight" parent="Environment/WeaponSpace3"]
-transform = Transform( 0.548104, 0.442165, -0.709981, 0, 0.848843, 0.528646, 0.836411, -0.289753, 0.465254, 0, 0, 0 )
-light_energy = 1.4
-spot_range = 9.015
-spot_attenuation = 0.812252
-spot_angle = 40.0
-spot_angle_attenuation = 0.189465
-
-[node name="WeaponItem" parent="Environment/WeaponSpace3" instance=ExtResource( 36 )]
 transform = Transform( 0.69713, 0.681727, 0.22194, 0.699164, -0.714961, -2.08367e-08, 0.158678, 0.155172, -0.97506, 0.819458, 1.40307, 1.49327 )
 type = 1
 
@@ -414,8 +357,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0045, 0.130277, -105.749 )
 [node name="WeaponSpace7" parent="Environment" instance=ExtResource( 38 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9635, 0.130277, -61.7202 )
 
+[node name="WeaponSpace12" parent="Environment" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6945, 0.130277, -59.3369 )
+
 [node name="WeaponSpace8" parent="Environment" instance=ExtResource( 38 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 213.56, 0.130285, -64.8399 )
+
+[node name="WeaponSpaceAxe" parent="Environment" instance=ExtResource( 45 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 166.885, 0, -6.8859 )
 
 [node name="WaterEnemy" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, -0.835088, -87.6555, 6.67572e-06, 108.056 )
@@ -1654,7 +1603,7 @@ transform = Transform( 1.05479, 0.0877316, -0.789382, -0.0939432, 1.31687, 0.020
 transform = Transform( -1.06594, -0.0679683, -0.263899, -0.0887457, 1.09395, 0.0767094, 0.257655, 0.0956056, -1.06534, 73.6534, 2.38419e-06, 61.1224 )
 
 [node name="Bush20" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
-transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.427661, -40.5938 )
+transform = Transform( -1.23765, -0.0769077, -0.296973, -0.0921696, 1.27058, 0.0550786, 0.292596, 0.0749272, -1.23882, -45.5285, 0.428146, -40.5938 )
 
 [node name="Bush21" parent="Scatters/ScatterRightSide/Bush2/Duplicates" instance=ExtResource( 24 )]
 transform = Transform( -0.322361, 0.0208349, 1.33054, 0.187499, 1.35607, 0.0241923, -1.31742, 0.187902, -0.322126, 109.876, 3.45707e-06, 88.143 )
@@ -1889,7 +1838,7 @@ transform = Transform( -1.36195, -0.117548, 1.00472, -0.134989, 1.69107, 0.01486
 transform = Transform( -1.43902, -0.0934184, -0.0689423, -0.0887969, 1.43784, -0.0948605, 0.0748007, -0.0903129, -1.43893, -87.6523, 4.64916e-06, 115.801 )
 
 [node name="Rock8" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
-transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.0762, -86.6336 )
+transform = Transform( -0.832455, 0.022517, -0.562125, 0.0642456, 1.00116, -0.0550384, 0.558895, -0.0815457, -0.830939, 114.337, 1.07648, -86.6336 )
 
 [node name="Rock9" parent="Scatters/ScatterRightSide/Rocks1/Duplicates" instance=ExtResource( 28 )]
 transform = Transform( -0.704289, 0.0483103, -1.41132, 0.00375201, 1.57717, 0.0521149, 1.41215, 0.0199037, -0.704018, 117.29, -8.34465e-07, -13.1474 )

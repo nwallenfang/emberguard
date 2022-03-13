@@ -3,7 +3,7 @@ extends Spatial
 signal intro_button_pressed
 
 const ZOOM_SPEED = 3.5
-onready var camera_to_player = $Player.global_transform.origin.direction_to($Camera.global_transform.origin)
+onready var camera_to_player = $Player.global_transform.origin.direction_to($Pivot/Camera.global_transform.origin)
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():

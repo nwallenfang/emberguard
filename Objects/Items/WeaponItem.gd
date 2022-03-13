@@ -1,6 +1,8 @@
 tool
 extends Spatial
 
+signal weapon_grabbed
+
 export(Weapon.TYPE) var type := Weapon.TYPE.Sword setget set_type
 
 func set_type(t):
@@ -14,6 +16,7 @@ func interact():
 	$Weapon.queue_free()
 	$InteractionObject.queue_free()
 	$AudioStreamPlayer.play()
+	emit_signal("weapon_grabbed")
 
 func make_flying():
 	$InteractionObject.set_deferred("monitoring", false)

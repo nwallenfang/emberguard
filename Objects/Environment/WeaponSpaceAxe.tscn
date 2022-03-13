@@ -6,8 +6,7 @@
 [ext_resource path="res://Objects/Environment/Rock2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Environment/WeaponSpace.gd" type="Script" id=5]
 
-[node name="WeaponSpaceSword" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.618, 0.130277, -111.31 )
+[node name="WeaponSpaceAxe" type="Spatial"]
 script = ExtResource( 5 )
 
 [node name="Rock2" parent="." instance=ExtResource( 4 )]
@@ -34,7 +33,8 @@ spot_angle = 40.0
 spot_angle_attenuation = 0.189465
 
 [node name="WeaponItem" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.541581, -0.529615, -0.652839, 0.699164, -0.714961, -2.08367e-08, -0.466754, -0.456441, 0.757496, 1.42035, 1.87945, 1.49787 )
+transform = Transform( -0.642964, -0.628758, -0.437336, 0.574437, -0.773563, 0.267623, -0.506576, -0.0791488, 0.858554, 0.613358, 1.36053, 1.24798 )
+type = 1
 
 [node name="TreasureSimulation" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.864258, 1.05966, 0.965286 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.209122, 0.103132, 1.21571 )

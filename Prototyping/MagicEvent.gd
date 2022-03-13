@@ -19,6 +19,7 @@ func start_cutscene():
 	$AnimationPlayer.play("cutscene")
 	UI.get_node("WagonMarker").modulate.a = 0.0
 	Game.enemy_spawner.deactivate()
+	$Laser/MeshInstance.material_override.set("shader_param/albedo:a", 1.0)
 
 func cut_scene_wagon_hit():
 	var force_field = Game.wagon.get_node("MagicForceField")

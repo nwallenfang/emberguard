@@ -1,7 +1,7 @@
 extends KinematicBody
 
 
-export var health := 12
+export var health := 10
 
 export var blast_scale_start := 2.0
 export var blast_scale_end := 30.0

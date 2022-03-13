@@ -425,7 +425,7 @@ omni_range = 3.5
 omni_attenuation = 2.2974
 
 [node name="PlayerAttack" type="Spatial" parent="."]
-transform = Transform( 0.867097, -0.422875, -0.263288, -1.57518e-08, 0.528542, -0.848907, 0.49814, 0.736085, 0.458297, -0.623133, 0.47041, 0.6046 )
+transform = Transform( 0.867097, -0.422874, -0.263288, -1.57518e-08, 0.528542, -0.848907, 0.49814, 0.736085, 0.458297, -0.623133, 0.47041, 0.6046 )
 
 [node name="MeshInstance" type="MeshInstance" parent="PlayerAttack"]
 transform = Transform( 0.189109, 1.66893e-06, -7.45058e-09, -4.47035e-08, 8.04327, -7.45058e-09, 7.45058e-09, 0, 0.220799, 5.36442e-07, 1.06855, -0.010374 )
@@ -554,7 +554,7 @@ attachments/3/offset = Vector3( 0.00844523, -0.0109167, 0.0628167 )
 [node name="SlowTween" type="Tween" parent="."]
 
 [node name="SpeedTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 20.0
 
 [node name="SpeedupParticle" type="Particles" parent="."]
 emitting = false

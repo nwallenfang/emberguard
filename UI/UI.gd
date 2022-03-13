@@ -34,6 +34,8 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			_on_RestartButton_pressed()
 
+	if Input.is_action_just_pressed("test_magic"):
+		Game.player.magic_blast_effect(null)
 	if Input.is_action_just_pressed("ui_hide"):
 		$FireHealthbar.visible = not $FireHealthbar.visible
 		$WagonMarker.visible = not $WagonMarker.visible

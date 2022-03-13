@@ -202,7 +202,24 @@ func drop_item():
 	dropped_item.translation = translation + Vector3(0, .1, 0)
 	loose_item()
 
-
+var magic_knockback_acc = 3500.0
+var magic_stun_time = 3.5
+var magic_invinc_time = 4.5
+func magic_blast_effect(origin_node: Node):
+	$HurtParticles.emitting = true
+	var knockback_direction = origin_node.global_transform.origin.direction_to(self.global_transform.origin)
+	add_acceleration(magic_knockback_acc * knockback_direction)
+	UI.hit_effect()
+	drop_item()
+	$HitSound.play()
+	state = State.STUNNED
+	$InvincibilityTimer.start(magic_invinc_time)
+	$Hurtbox.set_deferred("monitoring", false)
+	$Hurtbox.set_deferred("monitorable", false)
+	$StunnedTimer.start(magic_stun_time)  # when this timeouts you are not stunned anymore
+	# player is immediately stunned but wait a little for the stunnedparticles to show
+	yield(get_tree().create_timer(0.5), "timeout")	
+	stun_visuals(magic_stun_color, 1.0)
 
 func _on_Hurtbox_area_entered(area: Area) -> void:
 	if god_mode:
@@ -235,19 +252,21 @@ func _on_Hurtbox_area_entered(area: Area) -> void:
 		$Hurtbox.set_deferred("monitorable", false)
 		$StunnedTimer.start(stun_time)  # when this timeouts you are not stunned anymore
 		# player is immediately stunned but wait a little for the stunnedparticles to show
-
-	#	$StunnedParticles.emitting = true
 		yield(get_tree().create_timer(0.5), "timeout")	
-		stun_visuals()
+		stun_visuals(stun_color, 0.5)
+	elif area.name == "HitboxBlast":
+		magic_blast_effect(area)
+
 
 export(Color) var stun_color;
-func stun_visuals():
+export(Color) var magic_stun_color;
+func stun_visuals(color, build_duration):
 	$StunnedParticle/Trail3D.clear_points()
-	$StunnedParticle/Trail3D.material_override.albedo_color = stun_color
+	$StunnedParticle/Trail3D.material_override.albedo_color = color
 #	$StunnedParticle/Trail3D.render(true)
 	$StunnedParticle/Trail3D.emit = true
 	base_translation = $StunnedParticle.transform.origin
-	$Tween.interpolate_method(self, "move_along_vortex", 0.0, 1, 0.5)
+	$Tween.interpolate_method(self, "move_along_vortex", 0.0, 1, build_duration)
 	$Tween.start()
 	#yield(get_tree().create_timer(.08), "timeout")
 	#$StunnedParticle.visible = true
@@ -256,7 +275,7 @@ func stun_visuals():
 	$StunnedParticle/Trail3D.emit = false
 	$Tween.reset_all()
 	# start fading out FAST
-	var stun_color_blend_out = Color(stun_color)
+	var stun_color_blend_out = Color(color)
 	stun_color_blend_out.a = 0.0
 	$Tween.interpolate_property($StunnedParticle/Trail3D.material_override, "albedo_color", null, stun_color_blend_out, 0.6)
 	$Tween.start()
